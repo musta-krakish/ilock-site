@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+import { getLocalePath, localizeLock, type Lang, ui } from "../i18n";
+
+interface Props {
+	lang?: Lang;
+}
+
+const { lang = "ru" } = Astro.props;
+const t = ui[lang];
+
+const locks = (await getCollection("locks"))
+	.sort((a, b) => a.data.order - b.data.order)
+	.map((lock) => localizeLock(lock, lang));
+const homePath = getLocalePath(lang);
+---
+
+<section
+	id="catalog"
+	class="snap-section min-h-screen bg-[#100E0E] px-6 py-24 text-white sm:px-10 lg:px-24"
+>
+	<div class="mx-auto max-w-7xl">
+		<p class="mb-7 flex items-center text-sm font-medium text-[#DFA620]">
+			<span class="mr-2 h-px w-16 bg-[#DFA620]"></span>
+			{t.catalogEyebrow}
+		</p>
+
+		<h2
+			class="max-w-2xl text-4xl font-black leading-tight text-white sm:text-5xl"
+		>
+			{t.catalogTitleFirst} <span class="text-[#DFA620] italic">{t.catalogTitleAccent}</span>
+			<span class="block">{t.catalogTitleLast}</span>
+		</h2>
+
+		<div class="mt-12 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+			{
+				locks.map((lock) => (
+					<a
+						href={`${homePath}catalog/${lock.id}/`}
+						class="group block bg-[#151414] p-4 transition hover:-translate-y-1"
+					>
+						<div class="bg-white">
+							<img
+								src={lock.image.src}
+								alt={lock.title}
+								class="aspect-square w-full object-contain p-8"
+								loading="lazy"
+							/>
+						</div>
+
+						<div class="px-3 pb-3 pt-6">
+							<div class="mb-6 flex items-center justify-between gap-4 text-base">
+								<span class="font-medium text-[#DFA620]">
+									{lock.brand}
+								</span>
+								<span class="text-white/55">
+									{lock.material}
+								</span>
+							</div>
+
+							<h3 class="text-2xl font-medium text-white">
+								{lock.model}
+							</h3>
+							<p class="mt-5 min-h-16 text-base leading-7 text-white/35">
+								{lock.description}
+							</p>
+							<p class="mt-6 text-xl font-medium text-[#DFA620]">
+								{lock.price}
+							</p>
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
+</section>

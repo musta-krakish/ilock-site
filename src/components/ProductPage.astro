@@ -1,0 +1,98 @@
+---
+import { render } from 'astro:content';
+import { getLocalePath, localizeLock, type Lang, ui } from '../i18n';
+
+interface Props {
+	lock: any;
+	lang?: Lang;
+}
+
+const { lock, lang = 'ru' } = Astro.props;
+const t = ui[lang];
+const localizedLock = localizeLock(lock, lang);
+const { Content } = await render(lock);
+const homePath = getLocalePath(lang);
+---
+
+<main class="min-h-screen bg-[#100E0E] text-white">
+	<section class="snap-section min-h-screen px-6 py-28 sm:px-10 lg:px-24">
+		<div class="mx-auto max-w-7xl">
+			<a
+				href={`${homePath}#catalog`}
+				class="inline-flex text-sm text-[#DFA620] transition hover:text-[#f0bd39]"
+			>
+				{t.backToCatalog}
+			</a>
+
+			<div class="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(380px,500px)] lg:items-start">
+				<div class="bg-[#151414] p-4">
+					<div class="bg-white">
+						<img
+							src={localizedLock.image.src}
+							alt={localizedLock.title}
+							class="aspect-square w-full object-contain p-10"
+							loading="eager"
+						/>
+					</div>
+				</div>
+
+				<div>
+					<p class="flex items-center text-sm font-medium text-[#DFA620]">
+						<span class="mr-2 h-px w-12 bg-[#DFA620]"></span>
+						{localizedLock.brand}
+					</p>
+					<h1 class="mt-5 text-5xl font-black leading-tight sm:text-6xl">
+						{localizedLock.title}
+					</h1>
+					<p class="mt-8 text-lg leading-8 text-white/65">{localizedLock.description}</p>
+
+					<div class="mt-8 grid grid-cols-2 gap-4">
+						<div class="bg-[#151414] p-5">
+							<p class="text-sm text-white/35">{t.material}</p>
+							<p class="mt-2 text-lg text-white">{localizedLock.material}</p>
+						</div>
+						<div class="bg-[#151414] p-5">
+							<p class="text-sm text-white/35">{t.price}</p>
+							<p class="mt-2 text-lg text-[#DFA620]">{localizedLock.price}</p>
+						</div>
+					</div>
+
+					<div class="mt-8 bg-[#151414] p-7">
+						<h2 class="text-2xl font-semibold">{t.features}</h2>
+						<ul class="mt-6 grid gap-4 text-white/65 sm:grid-cols-2">
+							{
+								localizedLock.features.map((feature: string) => (
+									<li class="border-l border-[#DFA620] pl-4 leading-7">{feature}</li>
+								))
+							}
+						</ul>
+					</div>
+
+					<div class="mt-8 flex flex-col gap-4 sm:flex-row">
+						<a
+							href={`${homePath}#contact`}
+							class="inline-flex h-14 items-center justify-center bg-[#DFA620] px-9 text-base font-medium text-[#100E0E] transition hover:bg-[#f0bd39]"
+						>
+							{t.heroContact}
+						</a>
+						<a
+							href={`${homePath}#catalog`}
+							class="inline-flex h-14 items-center justify-center border border-[#DFA620]/70 px-9 text-base font-medium text-white transition hover:border-[#DFA620] hover:bg-[#DFA620]/10"
+						>
+							{t.otherModels}
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-16 grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]">
+				<h2 class="text-3xl font-black leading-tight">
+					{t.aboutModel}
+				</h2>
+				<div class="prose prose-invert max-w-3xl prose-p:text-lg prose-p:leading-8 prose-p:text-white/60">
+					{lang === 'ru' ? <Content /> : <p>{localizedLock.body}</p>}
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

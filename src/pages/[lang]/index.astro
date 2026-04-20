@@ -1,0 +1,21 @@
+---
+import Catalog from '../../components/Catalog.astro';
+import Welcome from '../../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+import { langList, type Lang, ui } from '../../i18n';
+
+export function getStaticPaths() {
+	return langList.map((lang) => ({
+		params: { lang },
+		props: { lang },
+	}));
+}
+
+const { lang } = Astro.props as { lang: Lang };
+const t = ui[lang];
+---
+
+<Layout lang={lang} title={t.homeTitle} description={t.homeDescription}>
+	<Welcome lang={lang} />
+	<Catalog lang={lang} />
+</Layout>

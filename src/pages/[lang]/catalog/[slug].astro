@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import ProductPage from '../../../components/ProductPage.astro';
+import Layout from '../../../layouts/Layout.astro';
+import { langList, localizeLock, type Lang } from '../../../i18n';
+
+export async function getStaticPaths() {
+	const locks = await getCollection('locks');
+
+	return langList.flatMap((lang) =>
+		locks.map((lock) => ({
+			params: { lang, slug: lock.id },
+			props: { lang, lock },
+		})),
+	);
+}
+
+const { lang, lock } = Astro.props as { lang: Lang; lock: any };
+const localizedLock = localizeLock(lock, lang);
+---
+
+<Layout
+	lang={lang}
+	title={localizedLock.seoTitle}
+	description={localizedLock.seoDescription}
+	image={localizedLock.image.src}
+>
+	<ProductPage lock={lock} lang={lang} />
+</Layout>

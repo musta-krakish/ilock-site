@@ -1,23 +1,235 @@
+---
+import '../index.css';
+import logo from '../assets/ilock-logo.svg';
+import { getLocalePath, getTranslatedPath, languages, type Lang, ui } from '../i18n';
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	lang?: Lang;
+}
+
+const {
+	title = 'iLOCK - премиальные умные замки',
+	description = 'Премиальные умные замки iLOCK для квартиры, дома и бизнеса.',
+	image,
+	lang = 'ru',
+} = Astro.props;
+
+const t = ui[lang];
+const pageTitle = title.includes('iLOCK') ? title : `${title} | iLOCK`;
+const siteUrl = Astro.site ?? Astro.url;
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImage = image ? new URL(image, siteUrl).toString() : undefined;
+const homePath = getLocalePath(lang);
+const currentPath = Astro.url.pathname;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{pageTitle}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		{ogImage && <meta property="og:image" content={ogImage} />}
+		<meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
 	</head>
 	<body>
+		<header
+			data-mobile-menu
+			data-open="false"
+			class="fixed inset-x-0 top-0 z-50 border-b border-[#DFA620]/10 bg-[#100E0E]/95 backdrop-blur"
+		>
+			<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-24">
+				<a href={homePath} aria-label="iLOCK" class="inline-flex items-center">
+					<img src={logo.src} alt="iLOCK" class="h-14 w-auto" />
+				</a>
+
+				<nav class="hidden items-center gap-8 text-sm text-white/65 md:flex">
+					<a class="transition hover:text-[#DFA620]" href={`${homePath}#catalog`}>{t.navCatalog}</a>
+					<a class="transition hover:text-[#DFA620]" href={`${homePath}#contact`}>{t.navContact}</a>
+				</nav>
+
+				<div class="hidden items-center gap-3 text-xs font-medium text-white/45 md:flex">
+					{
+						Object.entries(languages).map(([code, label]) => (
+							<a
+								href={getTranslatedPath(code as Lang, currentPath)}
+								class:list={[
+									'transition hover:text-[#DFA620]',
+									code === lang && 'text-[#DFA620]',
+								]}
+							>
+								{label}
+							</a>
+						))
+					}
+				</div>
+
+				<button
+					type="button"
+					aria-label="Open menu"
+					aria-expanded="false"
+					aria-controls="mobile-menu"
+					data-menu-toggle
+					class="relative flex h-11 w-11 items-center justify-center border border-[#DFA620]/35 text-white md:hidden"
+				>
+					<span class="sr-only">Menu</span>
+					<span class="burger-line burger-line-1 absolute h-px w-5 bg-[#DFA620]"></span>
+					<span class="burger-line burger-line-2 absolute h-px w-5 bg-[#DFA620]"></span>
+					<span class="burger-line burger-line-3 absolute h-px w-5 bg-[#DFA620]"></span>
+				</button>
+			</div>
+
+			<div
+				id="mobile-menu"
+				data-menu-panel
+				class="mobile-panel border-t border-[#DFA620]/10 bg-[#100E0E]/98 md:hidden"
+			>
+				<div class="mx-auto max-w-7xl px-6 py-7 sm:px-10">
+					<nav class="flex flex-col gap-5 text-2xl font-semibold text-white">
+						<a data-menu-link class="transition hover:text-[#DFA620]" href={`${homePath}#catalog`}>
+							{t.navCatalog}
+						</a>
+						<a data-menu-link class="transition hover:text-[#DFA620]" href={`${homePath}#contact`}>
+							{t.navContact}
+						</a>
+					</nav>
+
+					<div class="mt-8 flex items-center gap-4 border-t border-white/10 pt-6 text-sm font-medium text-white/45">
+						{
+							Object.entries(languages).map(([code, label]) => (
+								<a
+									data-menu-link
+									href={getTranslatedPath(code as Lang, currentPath)}
+									class:list={[
+										'transition hover:text-[#DFA620]',
+										code === lang && 'text-[#DFA620]',
+									]}
+								>
+									{label}
+								</a>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</header>
 		<slot />
+
+		<script>
+			const header = document.querySelector('[data-mobile-menu]');
+			const toggle = document.querySelector('[data-menu-toggle]');
+			const links = document.querySelectorAll('[data-menu-link]');
+
+			function setMenu(open: boolean) {
+				header?.setAttribute('data-open', String(open));
+				toggle?.setAttribute('aria-expanded', String(open));
+				document.documentElement.classList.toggle('overflow-hidden', open);
+			}
+
+			toggle?.addEventListener('click', () => {
+				setMenu(header?.getAttribute('data-open') !== 'true');
+			});
+
+			links.forEach((link) => {
+				link.addEventListener('click', () => setMenu(false));
+			});
+
+			document.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape') setMenu(false);
+			});
+		</script>
 	</body>
 </html>
 
 <style>
+	* {
+		box-sizing: border-box;
+	}
+
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		background: #100e0e;
+		font-family:
+			Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		scroll-snap-type: y mandatory;
+		scroll-padding-top: 80px;
+	}
+
+	.snap-section {
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+	}
+
+	.mobile-panel {
+		max-height: 0;
+		overflow: hidden;
+		opacity: 0;
+		transform: translateY(-8px);
+		transition:
+			max-height 0.35s ease,
+			opacity 0.25s ease,
+			transform 0.35s ease;
+	}
+
+	header[data-open='true'] .mobile-panel {
+		max-height: calc(100vh - 80px);
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.burger-line {
+		transition:
+			transform 0.25s ease,
+			opacity 0.2s ease;
+	}
+
+	.burger-line-1 {
+		transform: translateY(-7px);
+	}
+
+	.burger-line-2 {
+		transform: translateY(0);
+	}
+
+	.burger-line-3 {
+		transform: translateY(7px);
+	}
+
+	header[data-open='true'] .burger-line-1 {
+		transform: rotate(45deg);
+	}
+
+	header[data-open='true'] .burger-line-2 {
+		opacity: 0;
+	}
+
+	header[data-open='true'] .burger-line-3 {
+		transform: rotate(-45deg);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+			scroll-snap-type: none;
+		}
 	}
 </style>
