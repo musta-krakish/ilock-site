@@ -11,7 +11,7 @@ const t = ui[lang];
 const homePath = getLocalePath(lang);
 ---
 
-<section class="snap-section relative isolate min-h-screen overflow-hidden bg-[#151414] pt-20 text-white">
+<section class="snap-section relative isolate min-h-screen overflow-hidden bg-secondary-color pt-20 text-white">
 	<img
 		src={heroBackground.src}
 		alt=""
@@ -24,33 +24,33 @@ const homePath = getLocalePath(lang);
 	<div
 		class="relative z-10 mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl items-center px-6 py-16 sm:px-10 lg:px-24"
 	>
-		<div class="max-w-xl">
-			<p class="mb-7 flex items-center text-sm font-medium text-[#DFA620]">
-				<span class="mr-2 h-px w-16 bg-[#DFA620]"></span>
+		<div class="max-w-2xl">
+			<p class="mb-8 flex items-center text-base font-medium text-[#DFA620]">
+				<span class="mr-3 h-px w-20 bg-[#DFA620]"></span>
 				{t.heroEyebrow}
 			</p>
 
-			<h1 class="text-5xl font-black leading-[1.08] text-white sm:text-6xl lg:text-7xl">
+			<h1 class="text-6xl font-black leading-[1.05] text-white sm:text-7xl lg:text-8xl">
 				{t.heroTitleFirst}
 				<span class="mt-1 block">
 					<span class="text-[#DFA620] italic">{t.heroTitleAccent}</span> {t.heroTitleLast}
 				</span>
 			</h1>
 
-			<p class="mt-8 max-w-md text-base leading-7 text-white/58">
+			<p class="mt-9 max-w-lg text-lg leading-8 text-white/58">
 				{t.heroText}
 			</p>
 
-			<div class="mt-10 flex flex-col gap-4 sm:flex-row">
+			<div class="mt-12 flex flex-col gap-5 sm:flex-row">
 				<a
 					href={`${homePath}#catalog`}
-					class="inline-flex h-14 items-center justify-center rounded-none bg-[#DFA620] px-9 text-base font-medium text-[#100E0E] transition hover:bg-[#f0bd39] focus:outline-none focus:ring-2 focus:ring-[#DFA620] focus:ring-offset-2 focus:ring-offset-[#100E0E]"
+					class="inline-flex h-16 items-center justify-center rounded-none bg-[#DFA620] px-11 text-lg font-medium text-[#100E0E] transition hover:bg-[#f0bd39] focus:outline-none focus:ring-2 focus:ring-[#DFA620] focus:ring-offset-2 focus:ring-offset-[#100E0E]"
 				>
 					{t.heroCatalog}
 				</a>
 				<a
 					href={`${homePath}#contact`}
-					class="inline-flex h-14 items-center justify-center rounded-none border border-[#DFA620]/70 px-9 text-base font-medium text-white transition hover:border-[#DFA620] hover:bg-[#DFA620]/10 focus:outline-none focus:ring-2 focus:ring-[#DFA620] focus:ring-offset-2 focus:ring-offset-[#100E0E]"
+					class="inline-flex h-16 items-center justify-center rounded-none border border-[#DFA620]/70 px-11 text-lg font-medium text-white transition hover:border-[#DFA620] hover:bg-[#DFA620]/10 focus:outline-none focus:ring-2 focus:ring-[#DFA620] focus:ring-offset-2 focus:ring-offset-[#100E0E]"
 				>
 					{t.heroContact}
 				</a>
