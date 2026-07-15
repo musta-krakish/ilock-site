@@ -1,98 +1,224 @@
 ---
-import { render } from 'astro:content';
-import { getLocalePath, localizeLock, type Lang, ui } from '../i18n';
+import { Image } from 'astro:assets';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import LockCard from './LockCard.astro';
+import { formatPrice, whatsappLink } from '../config';
+import { brandNames, getLocalePath, localizeLock, sortLocks, type Lang, ui } from '../i18n';
 
 interface Props {
-	lock: any;
+	lock: CollectionEntry<'locks'>;
 	lang?: Lang;
 }
 
-const { lock, lang = 'ru' } = Astro.props;
+const { lock: entry, lang = 'ru' } = Astro.props;
 const t = ui[lang];
-const localizedLock = localizeLock(lock, lang);
-const { Content } = await render(lock);
+const lock = localizeLock(entry, lang);
 const homePath = getLocalePath(lang);
+const S = t.specs;
+
+const all = sortLocks((await getCollection('locks')).map((l) => localizeLock(l, lang))).filter(
+	(l) => l.slug !== lock.slug,
+);
+const related = [
+	...all.filter((l) => l.brand === lock.brand),
+	...all.filter((l) => l.brand !== lock.brand),
+].slice(0, 3);
+
+const accessValue = lock.access
+	.map((a) => {
+		const limit = lock.limits?.[a];
+		return limit ? `${S.access[a]} (${t.product.upTo} ${limit})` : S.access[a];
+	})
+	.join(' · ');
+
+const rows = [
+	{ label: t.product.rows.material, value: S.material[lock.material] },
+	{ label: t.product.rows.access, value: accessValue },
+	{ label: t.product.rows.temp, value: `${lock.temp.min} °C … +${lock.temp.max} °C` },
+	{ label: t.product.rows.power, value: S.power[lock.power] },
+	{ label: t.product.rows.battery, value: t.product.months(lock.battery) },
+	...(lock.app ? [{ label: t.product.rows.app, value: lock.app }] : []),
+	{
+		label: t.product.rows.brand,
+		value: `${brandNames[lock.brand]} / ${t.product.years(lock.warranty)}`,
+	},
+	{ label: t.product.rows.iface, value: lock.interface.map((i) => S.iface[i]).join(', ') },
+	{ label: t.product.rows.colors, value: lock.colors.map((c) => S.color[c]).join(', ') },
+];
 ---
 
-<main class="min-h-screen bg-[#100E0E] text-white">
-	<section class="snap-section min-h-screen px-6 py-28 sm:px-10 lg:px-24">
-		<div class="mx-auto max-w-7xl">
-			<a
-				href={`${homePath}#catalog`}
-				class="inline-flex text-sm text-[#DFA620] transition hover:text-[#f0bd39]"
-			>
-				{t.backToCatalog}
+<section class="bg-main-color px-5 pb-20 pt-28 sm:px-8 sm:pb-28 sm:pt-32 lg:px-12">
+	<div class="mx-auto max-w-7xl">
+		<nav aria-label="breadcrumb" class="text-sm">
+			<a href={`${homePath}catalog/`} class="text-white/45 transition hover:text-accent-color">
+				← {t.product.back}
 			</a>
+		</nav>
 
-			<div class="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(380px,500px)] lg:items-start">
-				<div class="bg-[#151414] p-4">
-					<div class="bg-white">
-						<img
-							src={localizedLock.image.src}
-							alt={localizedLock.title}
-							class="aspect-square w-full object-contain p-10"
-							loading="eager"
-						/>
-					</div>
-				</div>
+		<div class="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-12">
+			<div class="relative isolate overflow-hidden rounded-3xl border border-line bg-ink">
+				<div class="product-glow absolute inset-0 -z-10"></div>
+				<Image
+					src={lock.image}
+					alt={lock.title}
+					widths={[480, 720, 900]}
+					sizes="(min-width:1024px) 560px, 92vw"
+					class="aspect-square w-full object-contain p-8 sm:p-12"
+					loading="eager"
+					fetchpriority="high"
+				/>
 
-				<div>
-					<p class="flex items-center text-sm font-medium text-[#DFA620]">
-						<span class="mr-2 h-px w-12 bg-[#DFA620]"></span>
-						{localizedLock.brand}
-					</p>
-					<h1 class="mt-5 text-5xl font-black leading-tight sm:text-6xl">
-						{localizedLock.title}
-					</h1>
-					<p class="mt-8 text-lg leading-8 text-white/65">{localizedLock.description}</p>
-
-					<div class="mt-8 grid grid-cols-2 gap-4">
-						<div class="bg-[#151414] p-5">
-							<p class="text-sm text-white/35">{t.material}</p>
-							<p class="mt-2 text-lg text-white">{localizedLock.material}</p>
-						</div>
-						<div class="bg-[#151414] p-5">
-							<p class="text-sm text-white/35">{t.price}</p>
-							<p class="mt-2 text-lg text-[#DFA620]">{localizedLock.price}</p>
-						</div>
-					</div>
-
-					<div class="mt-8 bg-[#151414] p-7">
-						<h2 class="text-2xl font-semibold">{t.features}</h2>
-						<ul class="mt-6 grid gap-4 text-white/65 sm:grid-cols-2">
-							{
-								localizedLock.features.map((feature: string) => (
-									<li class="border-l border-[#DFA620] pl-4 leading-7">{feature}</li>
-								))
-							}
-						</ul>
-					</div>
-
-					<div class="mt-8 flex flex-col gap-4 sm:flex-row">
-						<a
-							href={`${homePath}#contact`}
-							class="inline-flex h-14 items-center justify-center bg-[#DFA620] px-9 text-base font-medium text-[#100E0E] transition hover:bg-[#f0bd39]"
-						>
-							{t.heroContact}
-						</a>
-						<a
-							href={`${homePath}#catalog`}
-							class="inline-flex h-14 items-center justify-center border border-[#DFA620]/70 px-9 text-base font-medium text-white transition hover:border-[#DFA620] hover:bg-[#DFA620]/10"
-						>
-							{t.otherModels}
-						</a>
-					</div>
+				<div class="absolute left-4 top-4 flex flex-col items-start gap-2">
+					{
+						lock.featured && !lock.comingSoon && (
+							<span class="rounded-full bg-accent-color px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-main-color">
+								{t.catalog.featured}
+							</span>
+						)
+					}
+					{
+						lock.comingSoon && (
+							<span class="rounded-full border border-accent-color/60 bg-main-color/85 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-color">
+								{t.catalog.soon}
+							</span>
+						)
+					}
+					{
+						lock.kazakhBrand && (
+							<span class="rounded-full border border-white/20 bg-main-color/80 px-3 py-1 text-[11px] font-medium text-white/75">
+								{t.catalog.kazakhBrand}
+							</span>
+						)
+					}
 				</div>
 			</div>
 
-			<div class="mt-16 grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]">
-				<h2 class="text-3xl font-black leading-tight">
-					{t.aboutModel}
-				</h2>
-				<div class="prose prose-invert max-w-3xl prose-p:text-lg prose-p:leading-8 prose-p:text-white/60">
-					{lang === 'ru' ? <Content /> : <p>{localizedLock.body}</p>}
+			<div>
+				<p class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-color">
+					<span class="h-px w-8 bg-accent-color"></span>
+					{brandNames[lock.brand]}
+				</p>
+
+				<h1 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">{lock.title}</h1>
+
+				<p class="mt-5 text-base leading-7 text-white/60 sm:text-lg sm:leading-8">{lock.description}</p>
+
+				<p class="mt-7 font-display text-3xl font-bold text-accent-color sm:text-4xl">
+					{
+						lock.priceTo && (
+							<span class="mr-1.5 font-sans text-base font-normal text-white/40">{t.catalog.from}</span>
+						)
+					}
+					{formatPrice(lock.price, lock.priceTo)}
+				</p>
+
+				<div class="mt-7 flex flex-col gap-3 sm:flex-row">
+					<a
+						href={'#lead'}
+						class="inline-flex h-14 items-center justify-center rounded-full bg-accent-color px-8 text-base font-semibold text-main-color transition hover:bg-accent-soft"
+					>
+						{t.product.order}
+					</a>
+					<a
+						href={whatsappLink(t.product.askMsg(lock.title))}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex h-14 items-center justify-center gap-2 rounded-full border border-accent-color/60 px-8 text-base font-semibold text-white transition hover:border-accent-color hover:bg-accent-color/10"
+					>
+						{t.product.ask}
+					</a>
 				</div>
+
+				<div class="mt-9">
+					<h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">{t.product.access}</h2>
+					<ul class="mt-4 flex flex-wrap gap-2">
+						{
+							lock.access.map((a) => (
+								<li class="rounded-full border border-accent-color/30 bg-accent-color/5 px-3.5 py-1.5 text-sm text-white/80">
+									{S.access[a]}
+									{lock.limits?.[a] && <span class="ml-1 text-white/40">{lock.limits[a]}</span>}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+
+				{
+					lock.features.length > 0 && (
+						<div class="mt-7">
+							<h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">
+								{t.product.features}
+							</h2>
+							<ul class="mt-4 grid gap-2 sm:grid-cols-2">
+								{lock.features.map((f) => (
+									<li class="flex items-start gap-2.5 text-sm leading-6 text-white/70">
+										<svg
+											viewBox="0 0 24 24"
+											class="mt-1 h-4 w-4 shrink-0 text-accent-color"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2.4"
+											aria-hidden="true"
+										>
+											<path d="m4 12.5 5 5L20 6.5" />
+										</svg>
+										{S.feature[f]}
+									</li>
+								))}
+							</ul>
+						</div>
+					)
+				}
 			</div>
 		</div>
-	</section>
-</main>
+
+		<div class="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+			<div>
+				<h2 class="text-2xl font-bold sm:text-3xl">{t.product.about}</h2>
+				<p class="mt-5 text-base leading-8 text-white/60">{lock.body}</p>
+			</div>
+
+			<div class="overflow-hidden rounded-2xl border border-line">
+				<h2 class="border-b border-line bg-secondary-color px-6 py-4 text-lg font-semibold">
+					{t.product.specs}
+				</h2>
+				<dl>
+					{
+						rows.map((row, i) => (
+							<div
+								class:list={[
+									'grid gap-1 px-6 py-4 sm:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] sm:gap-6',
+									i % 2 === 0 ? 'bg-main-color' : 'bg-secondary-color/60',
+								]}
+							>
+								<dt class="text-sm text-white/40">{row.label}</dt>
+								<dd class="text-sm leading-6 text-white/85">{row.value}</dd>
+							</div>
+						))
+					}
+				</dl>
+			</div>
+		</div>
+
+		{
+			related.length > 0 && (
+				<div class="mt-16 sm:mt-24">
+					<div class="flex items-end justify-between gap-4">
+						<h2 class="text-2xl font-bold sm:text-3xl">{t.product.related}</h2>
+						<a
+							href={`${homePath}catalog/`}
+							class="shrink-0 text-sm text-accent-color transition hover:text-accent-soft"
+						>
+							{t.product.others} →
+						</a>
+					</div>
+					<div class="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+						{related.map((item) => (
+							<LockCard lock={item} lang={lang} />
+						))}
+					</div>
+				</div>
+			)
+		}
+	</div>
+</section>

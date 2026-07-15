@@ -1,0 +1,96 @@
+---
+import { Image } from 'astro:assets';
+import { formatPrice } from '../config';
+import { brandNames, getLocalePath, type Lang, type LocalizedLock, ui } from '../i18n';
+
+interface Props {
+	lock: LocalizedLock;
+	lang?: Lang;
+	eager?: boolean;
+}
+
+const { lock, lang = 'ru', eager = false } = Astro.props;
+const t = ui[lang];
+const homePath = getLocalePath(lang);
+
+/** The three access methods worth surfacing on a card, in priority order. */
+const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] as const)
+	.filter((a) => lock.access.includes(a))
+	.slice(0, 3);
+---
+
+<a
+	href={`${homePath}catalog/${lock.slug}/`}
+	data-brand={lock.brand}
+	class="lock-card group flex flex-col overflow-hidden rounded-2xl border border-line bg-secondary-color panel-hover"
+>
+	<div class="relative isolate aspect-square overflow-hidden bg-ink">
+		<div class="product-glow absolute inset-0 -z-10"></div>
+
+		<Image
+			src={lock.image}
+			alt={lock.title}
+			widths={[280, 420, 640]}
+			sizes="(min-width:1280px) 320px, (min-width:768px) 40vw, 80vw"
+			class="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-[1.06] sm:p-8"
+			loading={eager ? 'eager' : 'lazy'}
+		/>
+
+		<div class="absolute left-3 top-3 flex flex-col items-start gap-2">
+			{
+				lock.featured && !lock.comingSoon && (
+					<span class="rounded-full bg-accent-color px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-main-color">
+						{t.catalog.featured}
+					</span>
+				)
+			}
+			{
+				lock.comingSoon && (
+					<span class="rounded-full border border-accent-color/60 bg-main-color/85 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-color">
+						{t.catalog.soon}
+					</span>
+				)
+			}
+			{
+				lock.kazakhBrand && (
+					<span class="rounded-full border border-white/20 bg-main-color/80 px-3 py-1 text-[11px] font-medium text-white/75">
+						{t.catalog.kazakhBrand}
+					</span>
+				)
+			}
+		</div>
+	</div>
+
+	<div class="flex flex-1 flex-col p-5 sm:p-6">
+		<div class="flex items-center justify-between gap-3">
+			<span class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">
+				{brandNames[lock.brand]}
+			</span>
+			<span class="text-xs text-white/40">{t.specs.material[lock.material]}</span>
+		</div>
+
+		<h3 class="mt-3 text-xl font-bold text-white sm:text-2xl">{lock.title}</h3>
+
+		<p class="mt-3 line-clamp-3 text-sm leading-6 text-white/50">{lock.description}</p>
+
+		<ul class="mt-4 flex flex-wrap gap-1.5">
+			{
+				highlight.map((a) => (
+					<li class="rounded-full border border-line bg-surface px-2.5 py-1 text-[11px] text-white/60">
+						{t.specs.access[a]}
+					</li>
+				))
+			}
+		</ul>
+
+		<div class="mt-5 flex items-end justify-between gap-3 border-t border-line pt-4">
+			<p class="font-display text-xl font-bold text-accent-color sm:text-2xl">
+				{lock.priceTo && <span class="mr-1 text-sm font-sans font-normal text-white/40">{t.catalog.from}</span>}
+				{formatPrice(lock.price, lock.priceTo)}
+			</p>
+			<span class="text-xs font-medium text-white/45 transition group-hover:text-accent-color">
+				{t.catalog.details} →
+			</span>
+		</div>
+	</div>
+</a>

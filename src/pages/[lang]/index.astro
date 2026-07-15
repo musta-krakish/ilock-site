@@ -1,8 +1,11 @@
 ---
-import Catalog from '../../components/Catalog.astro';
-import Welcome from '../../components/Welcome.astro';
+import Advantages from '../../components/Advantages.astro';
+import Contact from '../../components/Contact.astro';
+import Featured from '../../components/Featured.astro';
+import Hero from '../../components/Hero.astro';
+import LeadForm from '../../components/LeadForm.astro';
 import Layout from '../../layouts/Layout.astro';
-import { langList, type Lang, ui } from '../../i18n';
+import { langList, type Lang } from '../../i18n';
 
 export function getStaticPaths() {
 	return langList.map((lang) => ({
@@ -12,10 +15,12 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.props as { lang: Lang };
-const t = ui[lang];
 ---
 
-<Layout lang={lang} title={t.homeTitle} description={t.homeDescription}>
-	<Welcome lang={lang} />
-	<Catalog lang={lang} />
+<Layout lang={lang}>
+	<Hero lang={lang} />
+	<Advantages lang={lang} />
+	<Featured lang={lang} />
+	<LeadForm lang={lang} />
+	<Contact lang={lang} />
 </Layout>

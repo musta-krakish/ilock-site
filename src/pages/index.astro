@@ -1,18 +1,19 @@
 ---
-import Catalog from '../components/Catalog.astro';
-import Welcome from '../components/Welcome.astro';
+import Advantages from '../components/Advantages.astro';
+import Contact from '../components/Contact.astro';
+import Featured from '../components/Featured.astro';
+import Hero from '../components/Hero.astro';
+import LeadForm from '../components/LeadForm.astro';
 import Layout from '../layouts/Layout.astro';
-import { ui } from '../i18n';
+import { defaultLang } from '../i18n';
 
-const lang = 'ru';
-const t = ui[lang];
+const lang = defaultLang;
 ---
 
-<Layout
-	lang={lang}
-	title={t.homeTitle}
-	description={t.homeDescription}
->
-	<Welcome lang={lang} />
-	<Catalog lang={lang} />
+<Layout lang={lang}>
+	<Hero lang={lang} />
+	<Advantages lang={lang} />
+	<Featured lang={lang} />
+	<LeadForm lang={lang} />
+	<Contact lang={lang} />
 </Layout>

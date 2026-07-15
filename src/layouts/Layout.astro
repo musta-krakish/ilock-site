@@ -1,7 +1,17 @@
 ---
 import '../index.css';
+import Footer from '../components/Footer.astro';
 import logo from '../assets/ilock-logo.svg';
-import { getLocalePath, getTranslatedPath, languages, type Lang, ui } from '../i18n';
+import { whatsappLink } from '../config';
+import {
+	canonicalPath,
+	defaultLang,
+	getLocalePath,
+	getTranslatedPath,
+	languages,
+	type Lang,
+	ui,
+} from '../i18n';
 
 interface Props {
 	title?: string;
@@ -10,111 +20,172 @@ interface Props {
 	lang?: Lang;
 }
 
-const {
-	title = 'iLOCK - премиальные умные замки',
-	description = 'Премиальные умные замки iLOCK для квартиры, дома и бизнеса.',
-	image,
-	lang = 'ru',
-} = Astro.props;
-
+const { title, description, image, lang = 'ru' } = Astro.props;
 const t = ui[lang];
-const pageTitle = title.includes('iLOCK') ? title : `${title} | iLOCK`;
+
+const pageTitle = title ?? t.homeTitle;
+const pageDescription = description ?? t.homeDescription;
+const fullTitle = pageTitle.includes('iLOCK') ? pageTitle : `${pageTitle} | iLOCK`;
+
 const siteUrl = Astro.site ?? Astro.url;
-const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+const canonical = new URL(canonicalPath(Astro.url.pathname), siteUrl).toString();
 const ogImage = image ? new URL(image, siteUrl).toString() : undefined;
+
 const homePath = getLocalePath(lang);
 const currentPath = Astro.url.pathname;
+
+const navLinks = [
+	{ href: `${homePath}catalog/`, label: t.nav.catalog },
+	{ href: `${homePath}#about`, label: t.nav.about },
+	{ href: `${homePath}#contact`, label: t.nav.contact },
+];
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<meta name="description" content={description} />
+
+		<title>{fullTitle}</title>
+		<meta name="description" content={pageDescription} />
 		<link rel="canonical" href={canonical} />
+
+		{
+			Object.keys(languages).map((code) => (
+				<link
+					rel="alternate"
+					hreflang={code}
+					href={new URL(getTranslatedPath(code as Lang, currentPath), siteUrl).toString()}
+				/>
+			))
+		}
+		<link
+			rel="alternate"
+			hreflang="x-default"
+			href={new URL(getTranslatedPath(defaultLang, currentPath), siteUrl).toString()}
+		/>
+
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="iLOCK" />
+		<meta property="og:locale" content={lang} />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={pageDescription} />
 		<meta property="og:url" content={canonical} />
 		{ogImage && <meta property="og:image" content={ogImage} />}
 		<meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+		<meta name="theme-color" content="#100E0E" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+		/>
 	</head>
+
 	<body>
-		<header
-			data-mobile-menu
-			data-open="false"
-			class="fixed inset-x-0 top-0 z-50 border-b border-[#DFA620]/10 bg-[#100E0E]/95 backdrop-blur"
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-accent-color focus:px-4 focus:py-2 focus:font-medium focus:text-main-color"
 		>
-			<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-24">
-				<a href={homePath} aria-label="iLOCK" class="inline-flex items-center">
-					<img src={logo.src} alt="iLOCK" class="h-14 w-auto" />
+			{t.nav.catalog}
+		</a>
+
+		<header
+			data-header
+			data-open="false"
+			class="fixed inset-x-0 top-0 z-50 border-b border-line/80 bg-main-color/90 backdrop-blur-md"
+		>
+			<div class="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
+				<a href={homePath} aria-label="iLOCK" class="inline-flex shrink-0 items-center">
+					<img src={logo.src} alt="iLOCK" class="h-12 w-auto sm:h-14" width="140" height="56" />
 				</a>
 
-				<nav class="hidden items-center gap-8 text-sm text-white/65 md:flex">
-					<a class="transition hover:text-[#DFA620]" href={`${homePath}#catalog`}>{t.navCatalog}</a>
-					<a class="transition hover:text-[#DFA620]" href={`${homePath}#contact`}>{t.navContact}</a>
-				</nav>
-
-				<div class="hidden items-center gap-3 text-xs font-medium text-white/45 md:flex">
+				<nav class="hidden items-center gap-8 text-sm text-white/70 lg:flex">
 					{
-						Object.entries(languages).map(([code, label]) => (
-							<a
-								href={getTranslatedPath(code as Lang, currentPath)}
-								class:list={[
-									'transition hover:text-[#DFA620]',
-									code === lang && 'text-[#DFA620]',
-								]}
-							>
-								{label}
+						navLinks.map((link) => (
+							<a class="transition hover:text-accent-color" href={link.href}>
+								{link.label}
 							</a>
 						))
 					}
-				</div>
+				</nav>
 
-				<button
-					type="button"
-					aria-label="Open menu"
-					aria-expanded="false"
-					aria-controls="mobile-menu"
-					data-menu-toggle
-					class="relative flex h-11 w-11 items-center justify-center border border-[#DFA620]/35 text-white md:hidden"
-				>
-					<span class="sr-only">Menu</span>
-					<span class="burger-line burger-line-1 absolute h-px w-5 bg-[#DFA620]"></span>
-					<span class="burger-line burger-line-2 absolute h-px w-5 bg-[#DFA620]"></span>
-					<span class="burger-line burger-line-3 absolute h-px w-5 bg-[#DFA620]"></span>
-				</button>
+				<div class="flex items-center gap-4">
+					<div class="hidden items-center gap-3 text-xs font-semibold tracking-wide text-white/45 sm:flex">
+						{
+							Object.entries(languages).map(([code, label]) => (
+								<a
+									href={getTranslatedPath(code as Lang, currentPath)}
+									aria-current={code === lang ? 'true' : undefined}
+									class:list={[
+										'transition hover:text-accent-color',
+										code === lang && 'text-accent-color',
+									]}
+								>
+									{label}
+								</a>
+							))
+						}
+					</div>
+
+					<a
+						href={'#lead'}
+						class="hidden h-11 items-center rounded-full bg-accent-color px-6 text-sm font-semibold text-main-color transition hover:bg-accent-soft lg:inline-flex"
+					>
+						{t.nav.order}
+					</a>
+
+					<button
+						type="button"
+						aria-label="Menu"
+						aria-expanded="false"
+						aria-controls="mobile-menu"
+						data-menu-toggle
+						class="relative flex h-11 w-11 items-center justify-center rounded-full border border-accent-color/35 text-white lg:hidden"
+					>
+						<span class="burger-line burger-line-1 absolute h-px w-5 bg-accent-color"></span>
+						<span class="burger-line burger-line-2 absolute h-px w-5 bg-accent-color"></span>
+						<span class="burger-line burger-line-3 absolute h-px w-5 bg-accent-color"></span>
+					</button>
+				</div>
 			</div>
 
-			<div
-				id="mobile-menu"
-				data-menu-panel
-				class="mobile-panel border-t border-[#DFA620]/10 bg-[#100E0E]/98 md:hidden"
-			>
-				<div class="mx-auto max-w-7xl px-6 py-7 sm:px-10">
-					<nav class="flex flex-col gap-5 text-2xl font-semibold text-white">
-						<a data-menu-link class="transition hover:text-[#DFA620]" href={`${homePath}#catalog`}>
-							{t.navCatalog}
-						</a>
-						<a data-menu-link class="transition hover:text-[#DFA620]" href={`${homePath}#contact`}>
-							{t.navContact}
-						</a>
+			<div id="mobile-menu" data-menu-panel class="mobile-panel border-t border-line bg-main-color lg:hidden">
+				<div class="mx-auto max-w-7xl px-5 py-7 sm:px-8">
+					<nav class="flex flex-col gap-5 text-2xl font-semibold">
+						{
+							navLinks.map((link) => (
+								<a data-menu-link class="transition hover:text-accent-color" href={link.href}>
+									{link.label}
+								</a>
+							))
+						}
 					</nav>
 
-					<div class="mt-8 flex items-center gap-4 border-t border-white/10 pt-6 text-sm font-medium text-white/45">
+					<a
+						data-menu-link
+						href={'#lead'}
+						class="mt-7 inline-flex h-13 items-center justify-center rounded-full bg-accent-color px-7 py-3 font-semibold text-main-color"
+					>
+						{t.nav.order}
+					</a>
+
+					<div class="mt-7 flex items-center gap-5 border-t border-line pt-6 text-sm font-semibold text-white/45">
 						{
 							Object.entries(languages).map(([code, label]) => (
 								<a
 									data-menu-link
 									href={getTranslatedPath(code as Lang, currentPath)}
 									class:list={[
-										'transition hover:text-[#DFA620]',
-										code === lang && 'text-[#DFA620]',
+										'transition hover:text-accent-color',
+										code === lang && 'text-accent-color',
 									]}
 								>
 									{label}
@@ -125,112 +196,103 @@ const currentPath = Astro.url.pathname;
 				</div>
 			</div>
 		</header>
-		<slot />
+
+		<main id="main">
+			<slot />
+		</main>
+
+		<Footer lang={lang} />
+
+		<!-- Persistent WhatsApp entry point, required by the brief. -->
+		<a
+			href={whatsappLink(t.contact.whatsappHello)}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label={t.contact.whatsapp}
+			class="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-black/40 transition hover:scale-105 sm:h-16 sm:w-16"
+		>
+			<svg viewBox="0 0 24 24" class="h-7 w-7 fill-white sm:h-8 sm:w-8" aria-hidden="true">
+				<path
+					d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"
+				></path>
+				<path
+					d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21z"
+				></path>
+			</svg>
+		</a>
 
 		<script>
-			const header = document.querySelector('[data-mobile-menu]');
+			const header = document.querySelector('[data-header]');
 			const toggle = document.querySelector('[data-menu-toggle]');
-			const links = document.querySelectorAll('[data-menu-link]');
 
 			function setMenu(open: boolean) {
 				header?.setAttribute('data-open', String(open));
 				toggle?.setAttribute('aria-expanded', String(open));
-				document.documentElement.classList.toggle('overflow-hidden', open);
+				document.body.classList.toggle('overflow-hidden', open);
 			}
 
-			toggle?.addEventListener('click', () => {
-				setMenu(header?.getAttribute('data-open') !== 'true');
+			toggle?.addEventListener('click', () => setMenu(header?.getAttribute('data-open') !== 'true'));
+			document.querySelectorAll('[data-menu-link]').forEach((link) =>
+				link.addEventListener('click', () => setMenu(false)),
+			);
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') setMenu(false);
 			});
 
-			links.forEach((link) => {
-				link.addEventListener('click', () => setMenu(false));
-			});
-
-			document.addEventListener('keydown', (event) => {
-				if (event.key === 'Escape') setMenu(false);
-			});
+			// Reveal sections as they enter the viewport.
+			const reveals = document.querySelectorAll('.reveal');
+			if (reveals.length) {
+				const io = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-in');
+								io.unobserve(entry.target);
+							}
+						});
+					},
+					{ rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+				);
+				reveals.forEach((el) => io.observe(el));
+			}
 		</script>
+
+		<style>
+			.mobile-panel {
+				max-height: 0;
+				overflow: hidden;
+				opacity: 0;
+				transition:
+					max-height 0.35s ease,
+					opacity 0.25s ease;
+			}
+
+			header[data-open='true'] .mobile-panel {
+				max-height: calc(100vh - 5rem);
+				overflow-y: auto;
+				opacity: 1;
+			}
+
+			.burger-line {
+				transition:
+					transform 0.25s ease,
+					opacity 0.2s ease;
+			}
+			.burger-line-1 {
+				transform: translateY(-6px);
+			}
+			.burger-line-3 {
+				transform: translateY(6px);
+			}
+			header[data-open='true'] .burger-line-1 {
+				transform: rotate(45deg);
+			}
+			header[data-open='true'] .burger-line-2 {
+				opacity: 0;
+			}
+			header[data-open='true'] .burger-line-3 {
+				transform: rotate(-45deg);
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	* {
-		box-sizing: border-box;
-	}
-
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		overflow-x: hidden;
-		background: #100e0e;
-		font-family:
-			Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
-	}
-
-	html {
-		scroll-behavior: smooth;
-		scroll-snap-type: y mandatory;
-		scroll-padding-top: 80px;
-	}
-
-	.snap-section {
-		scroll-snap-align: start;
-		scroll-snap-stop: always;
-	}
-
-	.mobile-panel {
-		max-height: 0;
-		overflow: hidden;
-		opacity: 0;
-		transform: translateY(-8px);
-		transition:
-			max-height 0.35s ease,
-			opacity 0.25s ease,
-			transform 0.35s ease;
-	}
-
-	header[data-open='true'] .mobile-panel {
-		max-height: calc(100vh - 80px);
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	.burger-line {
-		transition:
-			transform 0.25s ease,
-			opacity 0.2s ease;
-	}
-
-	.burger-line-1 {
-		transform: translateY(-7px);
-	}
-
-	.burger-line-2 {
-		transform: translateY(0);
-	}
-
-	.burger-line-3 {
-		transform: translateY(7px);
-	}
-
-	header[data-open='true'] .burger-line-1 {
-		transform: rotate(45deg);
-	}
-
-	header[data-open='true'] .burger-line-2 {
-		opacity: 0;
-	}
-
-	header[data-open='true'] .burger-line-3 {
-		transform: rotate(-45deg);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		html {
-			scroll-behavior: auto;
-			scroll-snap-type: none;
-		}
-	}
-</style>

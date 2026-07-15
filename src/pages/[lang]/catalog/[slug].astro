@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import LeadForm from '../../../components/LeadForm.astro';
 import ProductPage from '../../../components/ProductPage.astro';
 import Layout from '../../../layouts/Layout.astro';
 import { langList, localizeLock, type Lang } from '../../../i18n';
@@ -26,4 +27,5 @@ const localizedLock = localizeLock(lock, lang);
 	image={localizedLock.image.src}
 >
 	<ProductPage lock={lock} lang={lang} />
+	<LeadForm lang={lang} preselect={localizedLock.slug} />
 </Layout>

@@ -1,76 +1,137 @@
 ---
-import { getCollection } from "astro:content";
-import { getLocalePath, localizeLock, type Lang, ui } from "../i18n";
+import { getCollection } from 'astro:content';
+import LockCard from './LockCard.astro';
+import {
+	brandNames,
+	brandOrder,
+	getLocalePath,
+	localizeLock,
+	sortLocks,
+	type Lang,
+	ui,
+} from '../i18n';
 
 interface Props {
 	lang?: Lang;
 }
 
-const { lang = "ru" } = Astro.props;
+const { lang = 'ru' } = Astro.props;
 const t = ui[lang];
-
-const locks = (await getCollection("locks"))
-	.sort((a, b) => a.data.order - b.data.order)
-	.map((lock) => localizeLock(lock, lang));
 const homePath = getLocalePath(lang);
+
+const locks = sortLocks((await getCollection('locks')).map((lock) => localizeLock(lock, lang)));
+
+const groups = brandOrder
+	.map((brand) => ({ brand, count: locks.filter((l) => l.brand === brand).length }))
+	.filter((g) => g.count > 0);
 ---
 
-<section
-	id="catalog"
-	class="snap-section min-h-screen bg-[#100E0E] px-6 py-24 text-white sm:px-10 lg:px-24"
->
+<section id="catalog" class="bg-main-color px-5 pb-20 pt-28 sm:px-8 sm:pb-28 sm:pt-32 lg:px-12">
 	<div class="mx-auto max-w-7xl">
-		<p class="mb-7 flex items-center text-sm font-medium text-[#DFA620]">
-			<span class="mr-2 h-px w-16 bg-[#DFA620]"></span>
-			{t.catalogEyebrow}
-		</p>
+		<nav aria-label="breadcrumb" class="flex items-center gap-2 text-sm text-white/40">
+			<a href={homePath} class="transition hover:text-accent-color">iLOCK</a>
+			<span aria-hidden="true">/</span>
+			<span class="text-white/70">{t.catalog.eyebrow}</span>
+		</nav>
 
-		<h2
-			class="max-w-2xl text-4xl font-black leading-tight text-white sm:text-5xl"
-		>
-			{t.catalogTitleFirst} <span class="text-[#DFA620] italic">{t.catalogTitleAccent}</span>
-			<span class="block">{t.catalogTitleLast}</span>
-		</h2>
+		<div class="mt-8 max-w-3xl">
+			<p
+				class="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-accent-color sm:text-sm"
+			>
+				<span class="h-px w-8 shrink-0 bg-accent-color sm:w-12"></span>
+				{t.catalog.eyebrow}
+			</p>
+			<h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-6xl">
+				{t.catalogPage.h1}
+			</h1>
+			<p class="mt-6 text-base leading-7 text-white/60 sm:text-lg sm:leading-8">{t.catalogPage.lead}</p>
+		</div>
 
-		<div class="mt-12 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+		<div class="mt-10 flex flex-wrap gap-2" role="tablist" aria-label={t.catalog.eyebrow}>
+			<button
+				type="button"
+				role="tab"
+				data-filter="all"
+				aria-selected="true"
+				class="filter-tab rounded-full border border-line px-5 py-2.5 text-sm font-medium text-white/60 transition"
+			>
+				{t.catalog.all}
+				<span class="ml-1.5 text-xs text-white/35">{locks.length}</span>
+			</button>
 			{
-				locks.map((lock) => (
-					<a
-						href={`${homePath}catalog/${lock.id}/`}
-						class="group block border border-accent-color bg-secondary-color p-4 transition hover:-translate-y-1"
+				groups.map((group) => (
+					<button
+						type="button"
+						role="tab"
+						data-filter={group.brand}
+						aria-selected="false"
+						class="filter-tab rounded-full border border-line px-5 py-2.5 text-sm font-medium text-white/60 transition"
 					>
-						<div class="bg-white">
-							<img
-								src={lock.image.src}
-								alt={lock.title}
-								class="aspect-square w-full object-contain p-8"
-								loading="lazy"
-							/>
-						</div>
-
-						<div class="px-3 pb-3 pt-6">
-							<div class="mb-6 flex items-center justify-between gap-4 text-base">
-								<span class="font-medium text-[#DFA620]">
-									{lock.brand}
-								</span>
-								<span class="text-white/55">
-									{lock.material}
-								</span>
-							</div>
-
-							<h3 class="text-2xl font-medium text-white">
-								{lock.model}
-							</h3>
-							<p class="mt-5 min-h-16 text-base leading-7 text-white/35">
-								{lock.description}
-							</p>
-							<p class="mt-6 text-xl font-medium text-[#DFA620]">
-								{lock.price}
-							</p>
-						</div>
-					</a>
+						{brandNames[group.brand]}
+						<span class="ml-1.5 text-xs text-white/35">{group.count}</span>
+					</button>
 				))
 			}
 		</div>
+
+		<p class="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-white/35">
+			<span>{t.footer.brands}:</span>
+			{
+				groups.map((group, i) => (
+					<>
+						{i > 0 && <span aria-hidden="true">·</span>}
+						<a
+							href={`${homePath}catalog/${group.brand}/`}
+							class="text-white/60 underline decoration-line underline-offset-4 transition hover:text-accent-color hover:decoration-accent-color"
+						>
+							{t.brandPage[group.brand].h1}
+						</a>
+					</>
+				))
+			}
+		</p>
+
+		<div data-lock-grid class="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+			{locks.map((lock, i) => <LockCard lock={lock} lang={lang} eager={i < 3} />)}
+		</div>
+
+		<p data-empty hidden class="mt-12 text-center text-white/45">{t.catalog.empty}</p>
 	</div>
 </section>
+
+<script>
+	const tabs = document.querySelectorAll<HTMLButtonElement>('.filter-tab');
+	const cards = document.querySelectorAll<HTMLElement>('[data-lock-grid] .lock-card');
+	const empty = document.querySelector<HTMLElement>('[data-empty]');
+
+	tabs.forEach((tab) =>
+		tab.addEventListener('click', () => {
+			const filter = tab.dataset.filter;
+
+			tabs.forEach((other) => other.setAttribute('aria-selected', String(other === tab)));
+
+			let shown = 0;
+			cards.forEach((card) => {
+				const match = filter === 'all' || card.dataset.brand === filter;
+				card.hidden = !match;
+				if (match) shown += 1;
+			});
+
+			if (empty) empty.hidden = shown > 0;
+		}),
+	);
+</script>
+
+<style>
+	.filter-tab[aria-selected='true'] {
+		background: var(--color-accent-color);
+		border-color: var(--color-accent-color);
+		color: var(--color-main-color);
+		font-weight: 600;
+	}
+
+	.filter-tab:hover[aria-selected='false'] {
+		border-color: color-mix(in srgb, var(--color-accent-color) 45%, transparent);
+		color: #fff;
+	}
+</style>

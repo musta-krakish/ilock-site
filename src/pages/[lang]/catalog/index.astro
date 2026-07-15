@@ -1,0 +1,18 @@
+---
+import Catalog from '../../../components/Catalog.astro';
+import LeadForm from '../../../components/LeadForm.astro';
+import Layout from '../../../layouts/Layout.astro';
+import { langList, type Lang, ui } from '../../../i18n';
+
+export function getStaticPaths() {
+	return langList.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+const { lang } = Astro.props as { lang: Lang };
+const copy = ui[lang].catalogPage;
+---
+
+<Layout lang={lang} title={copy.seoTitle} description={copy.seoDescription}>
+	<Catalog lang={lang} />
+	<LeadForm lang={lang} />
+</Layout>

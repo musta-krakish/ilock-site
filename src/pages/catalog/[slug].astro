@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
+import LeadForm from '../../components/LeadForm.astro';
 import ProductPage from '../../components/ProductPage.astro';
-import { localizeLock } from '../../i18n';
+import { defaultLang, localizeLock } from '../../i18n';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { lock } = Astro.props;
-const lang = 'ru';
+const lang = defaultLang;
 const localizedLock = localizeLock(lock, lang);
 ---
 
@@ -25,4 +26,5 @@ const localizedLock = localizeLock(lock, lang);
 	image={localizedLock.image.src}
 >
 	<ProductPage lock={lock} lang={lang} />
+	<LeadForm lang={lang} preselect={localizedLock.slug} />
 </Layout>

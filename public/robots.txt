@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# /ru/* renders the same pages as the root and is deliberately left crawlable:
+# each one carries <link rel="canonical"> back to the root URL, and a blocked page
+# can never be read for that tag. It is excluded from the sitemap instead.
+
+Sitemap: https://ilock.kz/sitemap-index.xml

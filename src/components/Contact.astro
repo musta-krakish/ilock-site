@@ -1,0 +1,124 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { site, whatsappLink } from '../config';
+import { type Lang, ui } from '../i18n';
+
+interface Props {
+	lang?: Lang;
+}
+
+const { lang = 'ru' } = Astro.props;
+const t = ui[lang];
+
+const mapQuery = encodeURIComponent('Астана, улица Куйши Дина 23/1');
+---
+
+<section id="contact" class="border-t border-line bg-ink px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+	<div class="mx-auto max-w-7xl">
+		<SectionHeading
+			eyebrow={t.contact.eyebrow}
+			title={t.contact.title}
+			accent={t.contact.titleAccent}
+			class="reveal"
+		/>
+
+		<div class="mt-12 grid gap-4 sm:mt-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+			<div class="reveal grid gap-4 sm:grid-cols-2">
+				<div class="rounded-2xl border border-line bg-secondary-color p-6">
+					<p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">{t.contact.phone}</p>
+					<div class="mt-4 space-y-2">
+						{
+							site.phones.map((phone) => (
+								<a
+									href={`tel:${phone.tel}`}
+									class="block text-lg font-medium text-white transition hover:text-accent-color"
+								>
+									{phone.label}
+								</a>
+							))
+						}
+					</div>
+				</div>
+
+				<div class="rounded-2xl border border-line bg-secondary-color p-6">
+					<p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">{t.contact.email}</p>
+					<a
+						href={`mailto:${site.email}`}
+						class="mt-4 block break-all text-lg font-medium text-white transition hover:text-accent-color"
+					>
+						{site.email}
+					</a>
+				</div>
+
+				<div class="rounded-2xl border border-line bg-secondary-color p-6">
+					<p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">{t.contact.address}</p>
+					<p class="mt-4 text-lg leading-7 text-white">{site.address}</p>
+				</div>
+
+				<div class="rounded-2xl border border-line bg-secondary-color p-6">
+					<p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">{t.contact.hours}</p>
+					<p class="mt-4 text-white">
+						<span class="text-white/45">{t.contact.weekdays}</span>
+						{site.hours.weekdays}
+					</p>
+					<p class="mt-1 text-white">
+						<span class="text-white/45">{t.contact.weekend}</span>
+						{site.hours.weekend}
+					</p>
+				</div>
+
+				<a
+					href={whatsappLink(t.contact.whatsappHello)}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group flex items-center gap-4 rounded-2xl border border-line bg-secondary-color p-6 transition hover:border-[#25D366]/60 sm:col-span-2"
+				>
+					<span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#25D366]">
+						<svg viewBox="0 0 24 24" class="h-6 w-6 fill-white" aria-hidden="true">
+							<path
+								d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.43 12.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"
+							></path>
+						</svg>
+					</span>
+					<span class="min-w-0">
+						<span class="block font-semibold text-white">{t.contact.whatsapp}</span>
+						<span class="block text-sm text-white/45">{site.phones[0].label}</span>
+					</span>
+					<span class="ml-auto text-white/30 transition group-hover:text-[#25D366]">→</span>
+				</a>
+
+				<a
+					href={site.instagramUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group flex items-center gap-4 rounded-2xl border border-line bg-secondary-color p-6 transition hover:border-accent-color/60 sm:col-span-2"
+				>
+					<span
+						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)]"
+					>
+						<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="#fff" stroke-width="1.8" aria-hidden="true">
+							<rect x="3" y="3" width="18" height="18" rx="5" />
+							<circle cx="12" cy="12" r="3.8" />
+							<circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none" />
+						</svg>
+					</span>
+					<span class="min-w-0">
+						<span class="block font-semibold text-white">{t.contact.instagram}</span>
+						<span class="block text-sm text-white/45">@{site.instagram}</span>
+					</span>
+					<span class="ml-auto text-white/30 transition group-hover:text-accent-color">→</span>
+				</a>
+			</div>
+
+			<div class="reveal min-h-[320px] overflow-hidden rounded-2xl border border-line bg-secondary-color lg:min-h-full">
+				<iframe
+					title={site.address}
+					src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					class="h-full min-h-[320px] w-full grayscale-[0.5] contrast-[1.1]"
+				></iframe>
+			</div>
+		</div>
+	</div>
+</section>

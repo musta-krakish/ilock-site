@@ -1,0 +1,14 @@
+---
+import BrandPage from '../../components/BrandPage.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import Layout from '../../layouts/Layout.astro';
+import { defaultLang, ui } from '../../i18n';
+
+const lang = defaultLang;
+const copy = ui[lang].brandPage.ilock;
+---
+
+<Layout lang={lang} title={copy.seoTitle} description={copy.seoDescription}>
+	<BrandPage brand="ilock" lang={lang} />
+	<LeadForm lang={lang} />
+</Layout>

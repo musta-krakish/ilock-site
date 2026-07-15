@@ -1,7 +1,107 @@
 @import "tailwindcss";
 
 @theme {
+	/* Brand palette — black & gold. Logo colours are unchanged. */
+	--color-ink: #0c0b0b;
 	--color-main-color: #100e0e;
-	--color-accent-color: #dfa620;
 	--color-secondary-color: #151414;
+	--color-surface: #181616;
+	--color-line: #272322;
+	--color-accent-color: #dfa620;
+	--color-accent-soft: #f0bd39;
+	--color-accent-deep: #a97613;
+
+	--font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+	--font-sans: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 5.5rem;
+		background: var(--color-main-color);
+	}
+
+	body {
+		margin: 0;
+		background: var(--color-main-color);
+		color: #fff;
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+		overflow-x: hidden;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-accent-color);
+		outline-offset: 2px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.001ms !important;
+			transition-duration: 0.001ms !important;
+		}
+	}
+}
+
+@layer components {
+	/* Hairline gold border used on cards and panels. */
+	.panel {
+		background: var(--color-secondary-color);
+		border: 1px solid var(--color-line);
+	}
+
+	.panel-hover {
+		transition:
+			border-color 0.25s ease,
+			transform 0.25s ease,
+			background-color 0.25s ease;
+	}
+
+	.panel-hover:hover {
+		border-color: color-mix(in srgb, var(--color-accent-color) 45%, transparent);
+		transform: translateY(-3px);
+	}
+
+	/* Radial glow sitting behind product shots so they lift off the dark card. */
+	.product-glow {
+		background: radial-gradient(
+			circle at 50% 55%,
+			color-mix(in srgb, var(--color-accent-color) 14%, transparent) 0%,
+			transparent 68%
+		);
+	}
+
+	.gold-text {
+		background: linear-gradient(100deg, #f5d98a 0%, var(--color-accent-color) 45%, #b9821b 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+}
+
+/* Reveal-on-scroll; the observer in Layout.astro adds .is-in. */
+.reveal {
+	opacity: 0;
+	transform: translateY(18px);
+	transition:
+		opacity 0.6s ease,
+		transform 0.6s ease;
+}
+
+.reveal.is-in {
+	opacity: 1;
+	transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		opacity: 1;
+		transform: none;
+	}
 }
