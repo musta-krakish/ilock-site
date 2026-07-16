@@ -1,138 +1,80 @@
 ---
 import { getCollection } from 'astro:content';
-import SectionHeading from './SectionHeading.astro';
 import { site } from '../config';
-import { brandNames, localizeLock, sortLocks, type Lang, ui } from '../i18n';
+import { brandNames, localizeLock, type Lang, ui } from '../i18n';
 
 interface Props {
 	lang?: Lang;
+	/** On a product page the model rides along in the WhatsApp message — no visible field. */
 	preselect?: string;
 }
 
 const { lang = 'ru', preselect } = Astro.props;
 const t = ui[lang];
 
-const locks = sortLocks((await getCollection('locks')).map((lock) => localizeLock(lock, lang)));
+let preselectedModel = '';
+if (preselect) {
+	const entry = (await getCollection('locks')).find((lock) => lock.id === preselect);
+	if (entry) {
+		const lock = localizeLock(entry, lang);
+		preselectedModel = `${brandNames[lock.brand]} ${lock.title}`;
+	}
+}
 ---
 
-<section id="lead" class="bg-main-color px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
-	<div class="mx-auto max-w-7xl">
-		<div class="overflow-hidden rounded-3xl border border-line bg-secondary-color">
-			<div class="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-				<div class="relative isolate border-b border-line p-7 sm:p-10 lg:border-b-0 lg:border-r">
-					<div
-						class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(223,166,32,0.14),transparent_60%)]"
-					>
-					</div>
+<section id="lead" class="bg-main-color px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
+	<div class="mx-auto max-w-2xl text-center">
+		<h2 class="text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">{t.lead.title}</h2>
+		<p class="mt-4 text-base leading-7 text-white/55 sm:text-lg">{t.lead.text}</p>
 
-					<SectionHeading
-						eyebrow={t.lead.eyebrow}
-						title={t.lead.title}
-						accent={t.lead.titleAccent}
-						text={t.lead.text}
+		<form data-lead-form novalidate class="mt-9 text-left">
+			<input type="hidden" name="model" value={preselectedModel} />
+
+			<div class="grid gap-4 sm:grid-cols-2">
+				<div>
+					<label for="lead-name" class="sr-only">{t.lead.name}</label>
+					<input
+						id="lead-name"
+						name="name"
+						type="text"
+						autocomplete="name"
+						placeholder={t.lead.name}
+						required
+						class="h-14 w-full rounded-full border border-line bg-surface px-6 text-white placeholder:text-white/30 focus:border-accent-color focus:outline-none"
 					/>
-
-					<dl class="mt-9 space-y-4 border-t border-line pt-8 text-sm">
-						<div class="flex items-center gap-3">
-							<dt class="w-24 shrink-0 text-white/40">{t.contact.phone}</dt>
-							<dd class="flex flex-wrap gap-x-4 gap-y-1">
-								{
-									site.phones.map((phone) => (
-										<a href={`tel:${phone.tel}`} class="font-medium text-white transition hover:text-accent-color">
-											{phone.label}
-										</a>
-									))
-								}
-							</dd>
-						</div>
-						<div class="flex items-center gap-3">
-							<dt class="w-24 shrink-0 text-white/40">{t.contact.hours}</dt>
-							<dd class="text-white/70">
-								{t.contact.weekdays} {site.hours.weekdays} · {t.contact.weekend} {site.hours.weekend}
-							</dd>
-						</div>
-					</dl>
+					<p data-error-for="name" hidden class="mt-1.5 pl-6 text-xs text-red-400">{t.lead.errName}</p>
 				</div>
 
-				<div class="p-7 sm:p-10">
-					<form data-lead-form novalidate class="space-y-5">
-						<div class="grid gap-5 sm:grid-cols-2">
-							<div>
-								<label for="lead-name" class="block text-sm font-medium text-white/70">{t.lead.name}</label>
-								<input
-									id="lead-name"
-									name="name"
-									type="text"
-									autocomplete="name"
-									placeholder={t.lead.namePh}
-									required
-									class="mt-2 h-13 w-full rounded-xl border border-line bg-surface px-4 py-3 text-white placeholder:text-white/25 focus:border-accent-color focus:outline-none"
-								/>
-								<p data-error-for="name" hidden class="mt-1.5 text-xs text-red-400">{t.lead.errName}</p>
-							</div>
-
-							<div>
-								<label for="lead-phone" class="block text-sm font-medium text-white/70">{t.lead.phone}</label>
-								<input
-									id="lead-phone"
-									name="phone"
-									type="tel"
-									inputmode="tel"
-									autocomplete="tel"
-									placeholder="+7 (___) ___-__-__"
-									required
-									class="mt-2 h-13 w-full rounded-xl border border-line bg-surface px-4 py-3 text-white placeholder:text-white/25 focus:border-accent-color focus:outline-none"
-								/>
-								<p data-error-for="phone" hidden class="mt-1.5 text-xs text-red-400">{t.lead.errPhone}</p>
-							</div>
-						</div>
-
-						<div>
-							<label for="lead-model" class="block text-sm font-medium text-white/70">{t.lead.model}</label>
-							<select
-								id="lead-model"
-								name="model"
-								class="mt-2 h-13 w-full rounded-xl border border-line bg-surface px-4 py-3 text-white focus:border-accent-color focus:outline-none"
-							>
-								<option value="">{t.lead.modelAny}</option>
-								{
-									locks.map((lock) => (
-										<option value={`${brandNames[lock.brand]} ${lock.title}`} selected={preselect === lock.slug}>
-											{brandNames[lock.brand]} {lock.title}
-										</option>
-									))
-								}
-							</select>
-						</div>
-
-						<div>
-							<label for="lead-comment" class="block text-sm font-medium text-white/70">{t.lead.comment}</label>
-							<textarea
-								id="lead-comment"
-								name="comment"
-								rows="3"
-								placeholder={t.lead.commentPh}
-								class="mt-2 w-full resize-y rounded-xl border border-line bg-surface px-4 py-3 text-white placeholder:text-white/25 focus:border-accent-color focus:outline-none"
-							></textarea>
-						</div>
-
-						<button
-							type="submit"
-							class="inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-full bg-accent-color px-8 text-base font-semibold text-main-color transition hover:bg-accent-soft"
-						>
-							<svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
-								<path
-									d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.43 12.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"
-								></path>
-							</svg>
-							{t.lead.submit}
-						</button>
-
-						<p class="text-xs leading-5 text-white/35">{t.lead.note}</p>
-					</form>
+				<div>
+					<label for="lead-phone" class="sr-only">{t.lead.phone}</label>
+					<input
+						id="lead-phone"
+						name="phone"
+						type="tel"
+						inputmode="tel"
+						autocomplete="tel"
+						placeholder="+7 (___) ___-__-__"
+						required
+						class="h-14 w-full rounded-full border border-line bg-surface px-6 text-white placeholder:text-white/30 focus:border-accent-color focus:outline-none"
+					/>
+					<p data-error-for="phone" hidden class="mt-1.5 pl-6 text-xs text-red-400">{t.lead.errPhone}</p>
 				</div>
 			</div>
-		</div>
+
+			<button
+				type="submit"
+				class="mt-4 inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-full bg-accent-color px-8 text-base font-semibold text-main-color transition hover:bg-accent-soft"
+			>
+				<svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
+					<path
+						d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.43 12.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"
+					></path>
+				</svg>
+				{t.lead.submit}
+			</button>
+
+			<p class="mt-4 text-center text-xs leading-5 text-white/35">{t.lead.note}</p>
+		</form>
 	</div>
 </section>
 
@@ -153,7 +95,6 @@ const locks = sortLocks((await getCollection('locks')).map((lock) => localizeLoc
 			const name = String(data.get('name') ?? '').trim();
 			const phone = String(data.get('phone') ?? '').trim();
 			const model = String(data.get('model') ?? '').trim();
-			const comment = String(data.get('comment') ?? '').trim();
 
 			const digits = phone.replace(/\D/g, '');
 			const nameOk = name.length > 0;
@@ -167,7 +108,6 @@ const locks = sortLocks((await getCollection('locks')).map((lock) => localizeLoc
 
 			const lines = [L.msgIntro, '', `${L.msgName}: ${name}`, `${L.msgPhone}: ${phone}`];
 			if (model) lines.push(`${L.msgModel}: ${model}`);
-			if (comment) lines.push(`${L.msgComment}: ${comment}`);
 
 			window.open(
 				`https://wa.me/${waNumber}?text=${encodeURIComponent(lines.join('\n'))}`,

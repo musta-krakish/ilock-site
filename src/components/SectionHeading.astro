@@ -2,7 +2,7 @@
 interface Props {
 	eyebrow: string;
 	title: string;
-	accent: string;
+	accent?: string;
 	text?: string;
 	class?: string;
 }
@@ -15,9 +15,8 @@ const { eyebrow, title, accent, text, class: className } = Astro.props;
 		<span class="h-px w-8 shrink-0 bg-accent-color sm:w-12"></span>
 		{eyebrow}
 	</p>
-	<h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-		{title}{' '}
-		<em class="font-display font-semibold italic gold-text">{accent}</em>
+	<h2 class="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
+		{title}{accent && <>{' '}<span class="gold-text">{accent}</span></>}
 	</h2>
 	{text && <p class="mt-5 text-base leading-7 text-white/55 sm:text-lg">{text}</p>}
 </div>

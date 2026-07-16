@@ -13,65 +13,74 @@ const t = ui[lang];
 const mapQuery = encodeURIComponent('Астана, улица Куйши Дина 23/1');
 ---
 
-<section id="contact" class="border-t border-line bg-ink px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+<section id="contact" class="border-t border-line bg-ink px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
 	<div class="mx-auto max-w-7xl">
-		<SectionHeading
-			eyebrow={t.contact.eyebrow}
-			title={t.contact.title}
-			accent={t.contact.titleAccent}
-			class="reveal"
-		/>
+		<SectionHeading eyebrow={t.contact.eyebrow} title={t.contact.title} class="reveal" />
 
 		<div class="mt-12 grid gap-4 sm:mt-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-			<div class="reveal grid gap-4 sm:grid-cols-2">
-				<div class="rounded-2xl border border-line bg-secondary-color p-6">
-					<p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">{t.contact.phone}</p>
-					<div class="mt-4 space-y-2">
-						{
-							site.phones.map((phone) => (
+			<div class="reveal flex flex-col gap-4">
+				<!-- Phones, email, address and hours combined into a single block (client request). -->
+				<div class="rounded-2xl border border-line bg-secondary-color p-6 sm:p-7">
+					<dl class="space-y-5">
+						<div>
+							<dt class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">
+								{t.contact.phone}
+							</dt>
+							<dd class="mt-2 flex flex-wrap gap-x-6 gap-y-1">
+								{
+									site.phones.map((phone) => (
+										<a
+											href={`tel:${phone.tel}`}
+											class="text-lg font-medium text-white transition hover:text-accent-color"
+										>
+											{phone.label}
+										</a>
+									))
+								}
+							</dd>
+						</div>
+
+						<div>
+							<dt class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">
+								{t.contact.email}
+							</dt>
+							<dd class="mt-2">
 								<a
-									href={`tel:${phone.tel}`}
-									class="block text-lg font-medium text-white transition hover:text-accent-color"
+									href={`mailto:${site.email}`}
+									class="break-all text-lg font-medium text-white transition hover:text-accent-color"
 								>
-									{phone.label}
+									{site.email}
 								</a>
-							))
-						}
-					</div>
-				</div>
+							</dd>
+						</div>
 
-				<div class="rounded-2xl border border-line bg-secondary-color p-6">
-					<p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">{t.contact.email}</p>
-					<a
-						href={`mailto:${site.email}`}
-						class="mt-4 block break-all text-lg font-medium text-white transition hover:text-accent-color"
-					>
-						{site.email}
-					</a>
-				</div>
+						<div>
+							<dt class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">
+								{t.contact.address}
+							</dt>
+							<dd class="mt-2 text-lg leading-7 text-white">{site.address}</dd>
+						</div>
 
-				<div class="rounded-2xl border border-line bg-secondary-color p-6">
-					<p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">{t.contact.address}</p>
-					<p class="mt-4 text-lg leading-7 text-white">{site.address}</p>
-				</div>
-
-				<div class="rounded-2xl border border-line bg-secondary-color p-6">
-					<p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">{t.contact.hours}</p>
-					<p class="mt-4 text-white">
-						<span class="text-white/45">{t.contact.weekdays}</span>
-						{site.hours.weekdays}
-					</p>
-					<p class="mt-1 text-white">
-						<span class="text-white/45">{t.contact.weekend}</span>
-						{site.hours.weekend}
-					</p>
+						<div>
+							<dt class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">
+								{t.contact.hours}
+							</dt>
+							<dd class="mt-2 text-white">
+								<span class="text-white/45">{t.contact.weekdays}</span>
+								{site.hours.weekdays}
+								<span class="mx-2 text-white/25">·</span>
+								<span class="text-white/45">{t.contact.weekend}</span>
+								{site.hours.weekend}
+							</dd>
+						</div>
+					</dl>
 				</div>
 
 				<a
 					href={whatsappLink(t.contact.whatsappHello)}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="group flex items-center gap-4 rounded-2xl border border-line bg-secondary-color p-6 transition hover:border-[#25D366]/60 sm:col-span-2"
+					class="group flex items-center gap-4 rounded-2xl border border-line bg-secondary-color p-6 transition hover:border-[#25D366]/60"
 				>
 					<span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#25D366]">
 						<svg viewBox="0 0 24 24" class="h-6 w-6 fill-white" aria-hidden="true">
@@ -91,7 +100,7 @@ const mapQuery = encodeURIComponent('Астана, улица Куйши Дин�
 					href={site.instagramUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="group flex items-center gap-4 rounded-2xl border border-line bg-secondary-color p-6 transition hover:border-accent-color/60 sm:col-span-2"
+					class="group flex items-center gap-4 rounded-2xl border border-line bg-secondary-color p-6 transition hover:border-accent-color/60"
 				>
 					<span
 						class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)]"
@@ -110,13 +119,13 @@ const mapQuery = encodeURIComponent('Астана, улица Куйши Дин�
 				</a>
 			</div>
 
-			<div class="reveal min-h-[320px] overflow-hidden rounded-2xl border border-line bg-secondary-color lg:min-h-full">
+			<div class="reveal min-h-80 overflow-hidden rounded-2xl border border-line bg-secondary-color lg:min-h-full">
 				<iframe
 					title={site.address}
 					src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
 					loading="lazy"
 					referrerpolicy="no-referrer-when-downgrade"
-					class="h-full min-h-[320px] w-full grayscale-[0.5] contrast-[1.1]"
+					class="h-full min-h-80 w-full grayscale-[0.5] contrast-[1.1]"
 				></iframe>
 			</div>
 		</div>

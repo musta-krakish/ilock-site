@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import heroLock from '../assets/images/locks/il-8.png';
+import heroLock from '../assets/swag-lock.png';
 import { site } from '../config';
 import { getLocalePath, type Lang, ui } from '../i18n';
 
@@ -21,18 +21,12 @@ const stats = [
 ---
 
 <section class="relative isolate overflow-hidden bg-main-color pt-20 text-white">
-	<div
-		class="absolute right-[-10%] top-[6%] -z-10 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(223,166,32,0.16)_0%,transparent_68%)] blur-2xl lg:right-[4%]"
-	>
-	</div>
-	<div
-		class="absolute inset-0 -z-10 opacity-[0.4] [background-image:linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse_at_50%_0%,#000_20%,transparent_75%)]"
-	>
-	</div>
-
-	<div class="mx-auto max-w-7xl px-5 pb-16 pt-12 sm:px-8 sm:pb-20 sm:pt-16 lg:px-12">
-		<div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-8">
-			<div>
+	{/* pt = 32/48px под фиксированной шапкой (как на каталоге/товаре); pb = половина межсекционного интервала 80/112. */}
+	<div class="mx-auto max-w-7xl px-5 pb-10 pt-8 sm:px-8 sm:pb-14 sm:pt-12 lg:px-12">
+		{/* items-start: иначе высокое фото центрует текст и заголовок проваливается вниз от шапки. */}
+		<div class="grid items-start gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-8">
+			<!-- Text (and the CTAs) come first, so on mobile both buttons sit on the first screen. -->
+			<div class="lg:pt-6">
 				<p
 					class="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.16em] text-accent-color sm:text-sm"
 				>
@@ -40,41 +34,41 @@ const stats = [
 					{t.hero.eyebrow}
 				</p>
 
-				<h1 class="mt-6 text-[2.6rem] font-extrabold leading-[1.04] tracking-tight sm:text-6xl lg:text-7xl">
-					{t.hero.titleFirst}
-					<span class="mt-1.5 block">
-						<em class="font-display italic gold-text">{t.hero.titleAccent}</em>
-						{t.hero.titleLast}
-					</span>
+				<h1 class="mt-5 text-[2.5rem] font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+					{t.hero.title}
+					<span class="mt-1 block text-white/85">{t.hero.tagline}</span>
 				</h1>
 
-				<p class="mt-6 max-w-xl text-base leading-7 text-white/60 sm:text-lg sm:leading-8">
+				<p class="mt-5 max-w-xl text-base leading-7 text-white/60 sm:mt-6 sm:text-lg sm:leading-8">
 					{t.hero.text}
 				</p>
 
-				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+				<div class="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
 					<a
 						href={`${homePath}catalog/`}
-						class="inline-flex h-14 items-center justify-center rounded-full bg-accent-color px-9 text-base font-semibold text-main-color transition hover:bg-accent-soft"
+						class="inline-flex h-13 items-center justify-center rounded-full bg-accent-color px-9 text-base font-semibold text-main-color transition hover:bg-accent-soft sm:h-14"
 					>
 						{t.hero.catalog}
 					</a>
 					<a
-						href={'#lead'}
-						class="inline-flex h-14 items-center justify-center rounded-full border border-accent-color/60 px-9 text-base font-semibold text-white transition hover:border-accent-color hover:bg-accent-color/10"
+						href="#lead"
+						class="inline-flex h-13 items-center justify-center rounded-full border border-accent-color/60 px-9 text-base font-semibold text-white transition hover:border-accent-color hover:bg-accent-color/10 sm:h-14"
 					>
 						{t.hero.contact}
 					</a>
 				</div>
 			</div>
 
-			<div class="relative order-first lg:order-none">
+			<!-- Замок в двери — фото 4:5, тёмная сцена сливается с фоном сайта. -->
+			<div
+				class="relative mx-auto aspect-4/5 w-full max-w-120 overflow-hidden rounded-3xl border border-line"
+			>
 				<Image
 					src={heroLock}
-					alt="iLock iL-8"
-					widths={[420, 640, 820]}
-					sizes="(min-width:1024px) 520px, 78vw"
-					class="mx-auto w-[78%] max-w-[520px] drop-shadow-[0_28px_60px_rgba(0,0,0,0.65)] lg:w-full"
+					alt="Умный замок iLock на двери"
+					widths={[480, 720, 960, 1122]}
+					sizes="(min-width:1024px) 480px, 92vw"
+					class="h-full w-full object-cover"
 					loading="eager"
 					fetchpriority="high"
 				/>
@@ -86,7 +80,7 @@ const stats = [
 				stats.map((stat) => (
 					<div
 						class:list={[
-							'rounded-2xl border p-5 backdrop-blur-sm sm:p-6',
+							'rounded-2xl border p-5 sm:p-6',
 							stat.highlight
 								? 'border-accent-color/45 bg-accent-color/10'
 								: 'border-line bg-secondary-color/70',
@@ -96,7 +90,7 @@ const stats = [
 						<dd>
 							<span
 								class:list={[
-									'font-display text-3xl font-bold sm:text-4xl',
+									'text-3xl font-semibold tracking-tight sm:text-4xl',
 									stat.highlight ? 'gold-text' : 'text-white',
 								]}
 							>

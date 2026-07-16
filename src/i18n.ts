@@ -25,11 +25,10 @@ export const ui = {
 	ru: {
 		nav: { catalog: 'Каталог', about: 'О компании', contact: 'Контакты', order: 'Оставить заявку' },
 		hero: {
-			eyebrow: 'Официальный представитель Philips Smart Lock в Казахстане',
-			titleFirst: 'Безопасность',
-			titleAccent: 'дороже',
-			titleLast: 'золота',
-			text: 'Умные замки iLock и Philips с распознаванием лица, отпечатка и вен ладони. Доставка и установка по всему Казахстану, рассрочка от Kaspi.',
+			eyebrow: 'Официальный представитель Philips в Казахстане',
+			title: 'Умные замки iLock',
+			tagline: 'для вашего дома',
+			text: 'Распознавание лица и отпечатка пальца, надёжная защита от взлома и автономная работа без электросети. Установим на любую дверь — доставка и установка до дома.',
 			catalog: 'Смотреть каталог',
 			contact: 'Оставить заявку',
 			choice: 'Выбор страны',
@@ -65,9 +64,8 @@ export const ui = {
 		},
 		lead: {
 			eyebrow: 'Заявка',
-			title: 'Подберём замок',
-			titleAccent: 'под вашу дверь',
-			text: 'Оставьте заявку — перезвоним, уточним тип двери и подберём модель. Консультация бесплатная.',
+			title: 'Оставьте заявку',
+			text: 'Перезвоним, ответим на вопросы и подберём замок под вашу дверь.',
 			name: 'Имя',
 			namePh: 'Как к вам обращаться',
 			phone: 'Телефон',
@@ -87,8 +85,7 @@ export const ui = {
 		},
 		contact: {
 			eyebrow: 'Контакты',
-			title: 'Приезжайте',
-			titleAccent: 'или напишите',
+			title: 'Свяжитесь с нами',
 			phone: 'Телефон',
 			email: 'Почта',
 			address: 'Адрес',
@@ -128,19 +125,19 @@ export const ui = {
 		},
 		footer: {
 			rights: 'Все права защищены',
-			made: 'Официальный представитель Philips Smart Lock в Казахстане',
+			made: 'Официальный представитель Philips в Казахстане',
 			brands: 'Бренды',
 		},
 		featured: {
 			eyebrow: 'Витрина',
 			title: 'Популярные',
 			titleAccent: 'модели',
-			text: 'Флагманы iLock и Philips, которые забирают чаще всего. Полный каталог — 27 моделей от 15 000 ₸.',
+			text: 'Установим без повреждения ваших дверей. Доставка по всему Казахстану. Рассрочка через Kaspi.',
 			all: (n: number) => `Смотреть весь каталог — ${n} моделей`,
 		},
 		catalogPage: {
 			h1: 'Каталог умных замков',
-			lead: 'Все замки iLock, Philips и Smartlock в наличии в Астане: от замка для шкафчика за 15 000 ₸ до флагмана Philips с тремя камерами. Цены с учётом доставки по Астане, рассрочка от Kaspi на любую модель.',
+			lead: 'Установим без повреждения ваших дверей. Доставка по всему Казахстану. Рассрочка через Kaspi.',
 			seoTitle: 'Каталог умных замков — купить в Казахстане | iLOCK',
 			seoDescription:
 				'Каталог умных замков в Казахстане: iLock, Philips и Smartlock — 27 моделей от 15 000 ₸. Face ID, отпечаток пальца, Wi-Fi. Гарантия до 2 лет, рассрочка от Kaspi, доставка по всему Казахстану.',
@@ -250,11 +247,10 @@ export const ui = {
 	kk: {
 		nav: { catalog: 'Каталог', about: 'Компания туралы', contact: 'Байланыс', order: 'Өтінім қалдыру' },
 		hero: {
-			eyebrow: 'Қазақстандағы Philips Smart Lock ресми өкілі',
-			titleFirst: 'Қауіпсіздік',
-			titleAccent: 'алтыннан',
-			titleLast: 'қымбат',
-			text: 'Бет, саусақ ізі және алақан тамырын танитын iLock және Philips ақылды құлыптары. Қазақстан бойынша жеткізу және орнату, Kaspi бөліп төлеу.',
+			eyebrow: 'Қазақстандағы Philips ресми өкілі',
+			title: 'iLock ақылды құлыптары',
+			tagline: 'сіздің үйіңізге',
+			text: 'Бет пен саусақ ізін тану, бұзудан сенімді қорғаныс және электр желісінсіз автономды жұмыс. Кез келген есікке орнатамыз — үйге дейін жеткізу және орнату.',
 			catalog: 'Каталогты қарау',
 			contact: 'Өтінім қалдыру',
 			choice: 'Ел таңдауы',
@@ -290,9 +286,8 @@ export const ui = {
 		},
 		lead: {
 			eyebrow: 'Өтінім',
-			title: 'Есігіңізге',
-			titleAccent: 'құлып таңдаймыз',
-			text: 'Өтінім қалдырыңыз — қайта қоңырау шалып, есік түрін нақтылап, модель таңдаймыз. Кеңес тегін.',
+			title: 'Өтінім қалдырыңыз',
+			text: 'Қайта қоңырау шаламыз, сұрақтарға жауап беріп, есігіңізге құлып таңдаймыз.',
 			name: 'Аты',
 			namePh: 'Сізге қалай жүгінейік',
 			phone: 'Телефон',
@@ -312,8 +307,7 @@ export const ui = {
 		},
 		contact: {
 			eyebrow: 'Байланыс',
-			title: 'Келіңіз',
-			titleAccent: 'немесе жазыңыз',
+			title: 'Бізбен байланысыңыз',
 			phone: 'Телефон',
 			email: 'Пошта',
 			address: 'Мекенжай',
@@ -353,19 +347,19 @@ export const ui = {
 		},
 		footer: {
 			rights: 'Барлық құқықтар қорғалған',
-			made: 'Қазақстандағы Philips Smart Lock ресми өкілі',
+			made: 'Қазақстандағы Philips ресми өкілі',
 			brands: 'Брендтер',
 		},
 		featured: {
 			eyebrow: 'Витрина',
 			title: 'Танымал',
 			titleAccent: 'модельдер',
-			text: 'Жиі таңдайтын iLock және Philips флагмандары. Толық каталог — 15 000 ₸ бастап 27 модель.',
+			text: 'Есігіңізді зақымдамай орнатамыз. Қазақстан бойынша жеткізу. Kaspi арқылы бөліп төлеу.',
 			all: (n: number) => `Толық каталогты қарау — ${n} модель`,
 		},
 		catalogPage: {
 			h1: 'Ақылды құлыптар каталогы',
-			lead: 'Астанада қоймада бар барлық iLock, Philips және Smartlock құлыптары: 15 000 ₸ шкаф құлыбынан үш камералы Philips флагманына дейін. Бағалар Астана бойынша жеткізуді есепке алады, кез келген модельге Kaspi бөліп төлеу.',
+			lead: 'Есігіңізді зақымдамай орнатамыз. Қазақстан бойынша жеткізу. Kaspi арқылы бөліп төлеу.',
 			seoTitle: 'Ақылды құлыптар каталогы — Қазақстанда сатып алу | iLOCK',
 			seoDescription:
 				'Қазақстандағы ақылды құлыптар каталогы: iLock, Philips және Smartlock — 15 000 ₸ бастап 27 модель. Face ID, саусақ ізі, Wi-Fi. 2 жылға дейін кепілдік, Kaspi бөліп төлеу.',
@@ -475,11 +469,10 @@ export const ui = {
 	en: {
 		nav: { catalog: 'Catalog', about: 'About', contact: 'Contact', order: 'Request a call' },
 		hero: {
-			eyebrow: 'Official Philips Smart Lock representative in Kazakhstan',
-			titleFirst: 'Security',
-			titleAccent: 'worth more',
-			titleLast: 'than gold',
-			text: 'iLock and Philips smart locks with face, fingerprint and palm-vein recognition. Delivery and installation across Kazakhstan, Kaspi instalments.',
+			eyebrow: 'Official Philips representative in Kazakhstan',
+			title: 'iLock smart locks',
+			tagline: 'for your home',
+			text: 'Face and fingerprint recognition, solid break-in protection and battery power independent of the mains. We fit any door — delivered and installed at your home.',
 			catalog: 'View catalog',
 			contact: 'Request a call',
 			choice: "Country's Choice",
@@ -515,9 +508,8 @@ export const ui = {
 		},
 		lead: {
 			eyebrow: 'Request',
-			title: "We'll pick a lock",
-			titleAccent: 'for your door',
-			text: 'Leave a request — we will call back, check your door type and pick a model. The consultation is free.',
+			title: 'Leave a request',
+			text: 'We will call back, answer your questions and pick a lock for your door.',
 			name: 'Name',
 			namePh: 'What should we call you',
 			phone: 'Phone',
@@ -537,8 +529,7 @@ export const ui = {
 		},
 		contact: {
 			eyebrow: 'Contact',
-			title: 'Visit us',
-			titleAccent: 'or write',
+			title: 'Contact us',
 			phone: 'Phone',
 			email: 'Email',
 			address: 'Address',
@@ -578,19 +569,19 @@ export const ui = {
 		},
 		footer: {
 			rights: 'All rights reserved',
-			made: 'Official Philips Smart Lock representative in Kazakhstan',
+			made: 'Official Philips representative in Kazakhstan',
 			brands: 'Brands',
 		},
 		featured: {
 			eyebrow: 'Showcase',
 			title: 'Popular',
 			titleAccent: 'models',
-			text: 'The iLock and Philips flagships people pick most often. The full catalog runs to 27 models from 15,000 ₸.',
+			text: 'Installed without damaging your door. Delivery across Kazakhstan. Kaspi instalments.',
 			all: (n: number) => `See the full catalog — ${n} models`,
 		},
 		catalogPage: {
 			h1: 'Smart lock catalog',
-			lead: 'Every iLock, Philips and Smartlock model in stock in Astana: from a 15,000 ₸ locker lock to the three-camera Philips flagship. Prices include delivery within Astana, with Kaspi instalments on any model.',
+			lead: 'Installed without damaging your door. Delivery across Kazakhstan. Kaspi instalments.',
 			seoTitle: 'Smart lock catalog — buy in Kazakhstan | iLOCK',
 			seoDescription:
 				'Smart lock catalog in Kazakhstan: iLock, Philips and Smartlock — 27 models from 15,000 ₸. Face ID, fingerprint, Wi-Fi. Up to 2 years warranty, Kaspi instalments, delivery nationwide.',

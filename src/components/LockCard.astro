@@ -24,9 +24,8 @@ const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] 
 	data-brand={lock.brand}
 	class="lock-card group flex flex-col overflow-hidden rounded-2xl border border-line bg-secondary-color panel-hover"
 >
-	<div class="relative isolate aspect-square overflow-hidden bg-ink">
-		<div class="product-glow absolute inset-0 -z-10"></div>
-
+	<!-- White stage behind the product, so the dark locks stand out (client request). -->
+	<div class="relative aspect-square overflow-hidden bg-white">
 		<Image
 			src={lock.image}
 			alt={lock.title}
@@ -84,7 +83,7 @@ const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] 
 		</ul>
 
 		<div class="mt-5 flex items-end justify-between gap-3 border-t border-line pt-4">
-			<p class="font-display text-xl font-bold text-accent-color sm:text-2xl">
+			<p class="text-xl font-semibold tracking-tight text-accent-color sm:text-2xl">
 				{lock.priceTo && <span class="mr-1 text-sm font-sans font-normal text-white/40">{t.catalog.from}</span>}
 				{formatPrice(lock.price, lock.priceTo)}
 			</p>

@@ -11,8 +11,11 @@
 	--color-accent-soft: #f0bd39;
 	--color-accent-deep: #a97613;
 
-	--font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-	--font-sans: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+	/* Apple-style typography: the system stack resolves to SF Pro on Apple devices. */
+	--font-sans:
+		-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, sans-serif;
+	--font-display: var(--font-sans);
 }
 
 @layer base {
@@ -66,15 +69,6 @@
 	.panel-hover:hover {
 		border-color: color-mix(in srgb, var(--color-accent-color) 45%, transparent);
 		transform: translateY(-3px);
-	}
-
-	/* Radial glow sitting behind product shots so they lift off the dark card. */
-	.product-glow {
-		background: radial-gradient(
-			circle at 50% 55%,
-			color-mix(in srgb, var(--color-accent-color) 14%, transparent) 0%,
-			transparent 68%
-		);
 	}
 
 	.gold-text {
