@@ -107,6 +107,9 @@ export const ui = {
 			others: 'Другие модели',
 			related: 'Похожие модели',
 			askMsg: (t: string) => `Здравствуйте! Интересует замок ${t} с сайта iLOCK.`,
+			orderMsg: (t: string) => `Здравствуйте! Хочу заказать данный замок ${t}.`,
+			kaspiWord: 'Рассрочка',
+			kaspiTerm: (m: string) => `${m} × 12 мес`,
 			rows: {
 				material: 'Корпус',
 				access: 'Методы доступа',
@@ -329,6 +332,9 @@ export const ui = {
 			others: 'Басқа модельдер',
 			related: 'Ұқсас модельдер',
 			askMsg: (t: string) => `Сәлеметсіз бе! iLOCK сайтындағы ${t} құлыбы қызықтырады.`,
+			orderMsg: (t: string) => `Сәлеметсіз бе! Осы ${t} құлыбына тапсырыс бергім келеді.`,
+			kaspiWord: 'Бөліп төлеу',
+			kaspiTerm: (m: string) => `${m} × 12 ай`,
 			rows: {
 				material: 'Корпус',
 				access: 'Қол жеткізу әдістері',
@@ -551,6 +557,9 @@ export const ui = {
 			others: 'Other models',
 			related: 'Similar models',
 			askMsg: (t: string) => `Hello! I'm interested in the ${t} lock from the iLOCK website.`,
+			orderMsg: (t: string) => `Hello! I'd like to order the ${t} lock.`,
+			kaspiWord: 'Instalment',
+			kaspiTerm: (m: string) => `${m} × 12 mo`,
 			rows: {
 				material: 'Body',
 				access: 'Access methods',

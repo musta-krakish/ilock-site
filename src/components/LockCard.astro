@@ -13,7 +13,6 @@ const { lock, lang = 'ru', eager = false } = Astro.props;
 const t = ui[lang];
 const homePath = getLocalePath(lang);
 
-/** The three access methods worth surfacing on a card, in priority order. */
 const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] as const)
 	.filter((a) => lock.access.includes(a))
 	.slice(0, 3);
@@ -24,7 +23,6 @@ const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] 
 	data-brand={lock.brand}
 	class="lock-card group flex flex-col overflow-hidden rounded-2xl border border-line bg-secondary-color panel-hover"
 >
-	<!-- White stage behind the product, so the dark locks stand out (client request). -->
 	<div class="relative aspect-square overflow-hidden bg-white">
 		<Image
 			src={lock.image}
@@ -82,7 +80,7 @@ const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] 
 			}
 		</ul>
 
-		<div class="mt-5 flex items-end justify-between gap-3 border-t border-line pt-4">
+		<div class="mt-auto flex items-end justify-between gap-3 border-t border-line pt-5">
 			<p class="text-xl font-semibold tracking-tight text-accent-color sm:text-2xl">
 				{lock.priceTo && <span class="mr-1 text-sm font-sans font-normal text-white/40">{t.catalog.from}</span>}
 				{formatPrice(lock.price, lock.priceTo)}

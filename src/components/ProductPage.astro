@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import LockCard from './LockCard.astro';
-import { formatPrice } from '../config';
+import { formatPrice, whatsappLink } from '../config';
 import { brandNames, getLocalePath, localizeLock, sortLocks, type Lang, ui } from '../i18n';
 
 interface Props {
@@ -23,6 +23,8 @@ const related = [
 	...all.filter((l) => l.brand === lock.brand),
 	...all.filter((l) => l.brand !== lock.brand),
 ].slice(0, 3);
+
+const monthly = Math.round(lock.price / 12 / 100) * 100;
 
 const accessValue = lock.access
 	.map((a) => {
@@ -111,9 +113,20 @@ const rows = [
 					{formatPrice(lock.price, lock.priceTo)}
 				</p>
 
+				<div class="mt-4 inline-flex items-center gap-2.5 rounded-xl bg-[#F14635] px-3.5 py-2">
+					<span class="rounded-md bg-white px-1.5 py-0.5 text-[13px] font-extrabold leading-none text-[#F14635]">
+						Kaspi
+					</span>
+					<span class="text-sm font-semibold text-white">
+						{t.product.kaspiWord} · {t.product.kaspiTerm(formatPrice(monthly))}
+					</span>
+				</div>
+
 				<div class="mt-7">
 					<a
-						href={'#lead'}
+						href={whatsappLink(t.product.orderMsg(lock.title))}
+						target="_blank"
+						rel="noopener"
 						class="inline-flex h-14 w-full items-center justify-center rounded-full bg-accent-color px-10 text-base font-semibold text-main-color transition hover:bg-accent-soft sm:w-auto"
 					>
 						{t.product.order}

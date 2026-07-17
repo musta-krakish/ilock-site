@@ -9,7 +9,6 @@ interface Props {
 const { lang = 'ru' } = Astro.props;
 const t = ui[lang];
 
-/** Icon per advantage, in the same order as `ui[lang].about.items`. */
 const icons = ['kaspi', 'philips', 'shield', 'tools', 'truck', 'check'] as const;
 const items = t.about.items.map((item, i) => ({ ...item, icon: icons[i] }));
 ---
@@ -29,7 +28,6 @@ const items = t.about.items.map((item, i) => ({ ...item, icon: icons[i] }));
 					<div
 						class:list={[
 							'reveal rounded-2xl border p-6 sm:p-7 panel-hover',
-							// One gold card anchors the grid, echoing the design reference.
 							i === 1
 								? 'border-accent-color/50 bg-linear-to-br from-accent-color/20 to-accent-color/4'
 								: 'border-line bg-secondary-color',

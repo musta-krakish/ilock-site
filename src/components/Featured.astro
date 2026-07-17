@@ -14,10 +14,6 @@ const homePath = getLocalePath(lang);
 
 const all = sortLocks((await getCollection('locks')).map((lock) => localizeLock(lock, lang)));
 
-/**
- * The home page shows a shortlist, not the whole range — `featured` in the frontmatter picks it.
- * Capped at 6 so the grid stays two tidy rows; the full catalog lives at /catalog/.
- */
 const picks = all.filter((lock) => lock.featured).slice(0, 6);
 ---
 
