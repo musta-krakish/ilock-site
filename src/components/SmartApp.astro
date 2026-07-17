@@ -1,0 +1,387 @@
+---
+import { type Lang, ui } from '../i18n';
+
+interface Props {
+	lang?: Lang;
+}
+
+const { lang = 'ru' } = Astro.props;
+const t = ui[lang];
+const a = t.app;
+---
+
+<section id="app" class="overflow-hidden bg-main-color px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+	<div class="mx-auto max-w-7xl">
+		<div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+			<div class="reveal">
+				<p
+					class="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-accent-color sm:text-sm"
+				>
+					<span class="h-px w-8 shrink-0 bg-accent-color sm:w-12"></span>
+					{a.eyebrow}
+				</p>
+
+				<h2 class="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
+					{a.title}{' '}<span class="gold-text">{a.titleAccent}</span>
+				</h2>
+
+				<p class="mt-6 max-w-xl text-base leading-8 text-white/55 sm:text-lg">{a.text}</p>
+
+				<p class="mt-8 flex items-start gap-2 text-sm leading-6 text-white/45">
+					<svg
+						class="mt-0.5 h-4 w-4 shrink-0 text-accent-color"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+					>
+						<circle cx="12" cy="12" r="9"></circle>
+						<path d="m9 12 2 2 4-4"></path>
+					</svg>
+					{a.note}
+				</p>
+			</div>
+
+			<div class="reveal relative flex flex-col items-center gap-6 lg:items-end">
+				<div class="relative flex w-full justify-center lg:justify-end">
+					<div
+						class="pointer-events-none absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-color/15 blur-3xl"
+					>
+					</div>
+
+					<div
+						class="relative w-72 rounded-[2.75rem] border border-white/10 bg-black p-2.5 shadow-[0_50px_90px_-30px_rgba(0,0,0,0.85)]"
+						data-app-slider
+					>
+						<div
+							class="relative aspect-9/19 w-full overflow-hidden rounded-[2.25rem] bg-linear-to-b from-[#171310] to-[#0d0b0a]"
+						>
+							<div
+								class="absolute top-2.5 left-1/2 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-black"
+							>
+							</div>
+
+							<div
+								class="flex h-full touch-pan-y transition-transform duration-500 ease-out"
+								data-track
+							>
+								<div class="flex h-full w-full shrink-0 flex-col px-5 pt-4 pb-5">
+									<div
+										class="flex items-center justify-between text-[11px] font-semibold text-white/75"
+									>
+										<span>10:41</span>
+										<span class="flex items-center gap-1.5">
+											<svg class="h-3 w-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+												><rect x="2" y="14" width="3" height="6" rx="1"></rect><rect
+													x="7"
+													y="10"
+													width="3"
+													height="10"
+													rx="1"></rect><rect x="12" y="6" width="3" height="14" rx="1"></rect><rect
+													x="17"
+													y="2"
+													width="3"
+													height="18"
+													rx="1"></rect></svg
+											>
+											<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+												><rect x="2" y="7" width="18" height="10" rx="2.5" fill="currentColor" opacity="0.9"
+												></rect><rect x="21" y="10" width="2" height="4" rx="1" fill="currentColor"></rect></svg
+											>
+										</span>
+									</div>
+
+									<div class="mt-4 flex items-center justify-between">
+										<span
+											class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70"
+										>
+											<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+										</span>
+										<span class="text-sm font-semibold text-white">{a.door}</span>
+										<span
+											class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70"
+										>
+											<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+										</span>
+									</div>
+
+									<div class="mt-7 flex justify-center">
+										<div
+											class="relative h-40 w-40 rounded-full"
+											style="background:conic-gradient(var(--color-accent-color) 0deg 250deg, rgba(255,255,255,0.08) 250deg 360deg)"
+										>
+											<div
+												class="absolute inset-2.25 flex flex-col items-center justify-center gap-1.5 rounded-full bg-[#141210]"
+											>
+												<svg class="h-8 w-8 text-accent-color" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+													<rect x="5" y="11" width="14" height="10" rx="2"></rect>
+													<path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+												</svg>
+												<span class="text-base font-semibold text-white">{a.status}</span>
+												<span class="text-[11px] text-white/40">{a.battery}</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="mt-6 flex justify-center gap-3">
+										{
+											['finger', 'grid', 'face', 'card'].map((kind) => (
+												<span class="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/8 bg-white/5 text-white/70">
+													{kind === 'finger' && (
+														<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+															<path d="M6 11a6 6 0 0 1 12 0" />
+															<path d="M8.5 11a3.5 3.5 0 0 1 7 0c0 3 .4 5 .4 5" />
+															<path d="M12 11c0 4-.6 6.5-.6 6.5" />
+															<path d="M6 13c0 2 .3 3.2.3 3.2" />
+														</svg>
+													)}
+													{kind === 'grid' && (
+														<svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+															<circle cx="6" cy="6" r="1.6" />
+															<circle cx="12" cy="6" r="1.6" />
+															<circle cx="18" cy="6" r="1.6" />
+															<circle cx="6" cy="12" r="1.6" />
+															<circle cx="12" cy="12" r="1.6" />
+															<circle cx="18" cy="12" r="1.6" />
+															<circle cx="6" cy="18" r="1.6" />
+															<circle cx="12" cy="18" r="1.6" />
+															<circle cx="18" cy="18" r="1.6" />
+														</svg>
+													)}
+													{kind === 'face' && (
+														<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+															<path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2" />
+															<path d="M9 10h.01M15 10h.01M9.5 14.5a3.5 3.5 0 0 0 5 0" />
+														</svg>
+													)}
+													{kind === 'card' && (
+														<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+															<rect x="3" y="6" width="18" height="12" rx="2" />
+															<path d="M3 10h18" />
+														</svg>
+													)}
+												</span>
+											))
+										}
+									</div>
+
+									<button
+										type="button"
+										class="mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-accent-color text-sm font-semibold text-main-color"
+									>
+										<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+											<rect x="5" y="11" width="14" height="10" rx="2"></rect>
+											<path d="M8 11V7a4 4 0 0 1 7.5-2"></path>
+										</svg>
+										{a.unlock}
+									</button>
+
+									<div class="mt-auto pt-6">
+										<p class="mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/35">
+											{a.logLabel}
+										</p>
+										{
+											a.log.map((row) => (
+												<div class="flex items-center gap-3 border-t border-white/6 py-2.5">
+													<span class="flex h-7 w-7 items-center justify-center rounded-full bg-accent-color/12 text-accent-color">
+														<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+															<path d="m5 12 5 5L20 7" />
+														</svg>
+													</span>
+													<span class="flex-1 text-xs text-white/80">{row.who}</span>
+													<span class="text-[11px] text-white/40">{row.time}</span>
+												</div>
+											))
+										}
+									</div>
+								</div>
+
+								<div class="flex h-full w-full shrink-0 flex-col px-5 pt-4 pb-5">
+									<div
+										class="flex items-center justify-between text-[11px] font-semibold text-white/75"
+									>
+										<span>10:41</span>
+										<span class="flex items-center gap-1.5">
+											<svg class="h-3 w-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+												><rect x="2" y="14" width="3" height="6" rx="1"></rect><rect x="7" y="10" width="3" height="10" rx="1"></rect><rect x="12" y="6" width="3" height="14" rx="1"></rect><rect x="17" y="2" width="3" height="18" rx="1"></rect></svg
+											>
+											<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+												><rect x="2" y="7" width="18" height="10" rx="2.5" fill="currentColor" opacity="0.9"></rect><rect x="21" y="10" width="2" height="4" rx="1" fill="currentColor"></rect></svg
+											>
+										</span>
+									</div>
+
+									<div class="mt-4 flex items-center justify-between">
+										<span class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70">
+											<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+										</span>
+										<span class="text-sm font-semibold text-white">{a.codesTitle}</span>
+										<span class="h-8 w-8"></span>
+									</div>
+
+									<div class="mt-6 flex flex-col gap-2.5">
+										{
+											a.codes.map((c) => (
+												<div class="flex items-center gap-3 rounded-2xl border border-white/8 bg-white/5 p-3">
+													<span class="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-color/12 text-accent-color">
+														<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+															<circle cx="8" cy="15" r="4" />
+															<path d="m10.85 12.15 6.15-6.15M15 8l2 2M18 5l2 2" />
+														</svg>
+													</span>
+													<div class="flex-1">
+														<p class="text-[13px] font-medium text-white">{c.name}</p>
+														<p class="text-[11px] text-white/45">{c.sub}</p>
+													</div>
+													<svg class="h-4 w-4 text-white/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+												</div>
+											))
+										}
+									</div>
+
+									<button
+										type="button"
+										class="mt-auto flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-accent-color text-sm font-semibold text-main-color"
+									>
+										<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+										{a.addCode}
+									</button>
+								</div>
+
+								<div class="flex h-full w-full shrink-0 flex-col px-5 pt-4 pb-5">
+									<div
+										class="flex items-center justify-between text-[11px] font-semibold text-white/75"
+									>
+										<span>10:41</span>
+										<span class="flex items-center gap-1.5">
+											<svg class="h-3 w-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+												><rect x="2" y="14" width="3" height="6" rx="1"></rect><rect x="7" y="10" width="3" height="10" rx="1"></rect><rect x="12" y="6" width="3" height="14" rx="1"></rect><rect x="17" y="2" width="3" height="18" rx="1"></rect></svg
+											>
+											<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+												><rect x="2" y="7" width="18" height="10" rx="2.5" fill="currentColor" opacity="0.9"></rect><rect x="21" y="10" width="2" height="4" rx="1" fill="currentColor"></rect></svg
+											>
+										</span>
+									</div>
+
+									<div class="mt-4 flex items-center justify-between">
+										<span class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70">
+											<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+										</span>
+										<span class="text-sm font-semibold text-white">{a.alertsTitle}</span>
+										<span class="relative flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70">
+											<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.5 21a1.7 1.7 0 0 1-3 0" /></svg>
+											<span class="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-accent-color"></span>
+										</span>
+									</div>
+
+									<div class="mt-4 flex flex-col">
+										{
+											a.alerts.map((n) => (
+												<div class="flex items-start gap-3 border-t border-white/6 py-3.5">
+													<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-color/12 text-accent-color">
+														<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+															<rect x="5" y="11" width="14" height="10" rx="2" />
+															<path d="M8 11V7a4 4 0 0 1 8 0v4" />
+														</svg>
+													</span>
+													<div class="flex-1">
+														<p class="text-[13px] font-medium text-white">{n.who}</p>
+														<p class="text-[11px] text-white/45">{n.via}</p>
+													</div>
+													<span class="text-[11px] text-white/40">{n.time}</span>
+												</div>
+											))
+										}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Dots -->
+				<div class="flex items-center gap-2" data-dots>
+					<button
+						type="button"
+						aria-label="1"
+						data-dot
+						class="h-2 w-6 rounded-full bg-accent-color transition-all"></button>
+					<button
+						type="button"
+						aria-label="2"
+						data-dot
+						class="h-2 w-2 rounded-full bg-white/25 transition-all"></button>
+					<button
+						type="button"
+						aria-label="3"
+						data-dot
+						class="h-2 w-2 rounded-full bg-white/25 transition-all"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const root = document.querySelector<HTMLElement>('[data-app-slider]');
+	const dotsWrap = document.querySelector<HTMLElement>('[data-dots]');
+	if (root && dotsWrap) {
+		const track = root.querySelector<HTMLElement>('[data-track]')!;
+		const dots = Array.from(dotsWrap.querySelectorAll<HTMLButtonElement>('[data-dot]'));
+		const count = track.children.length;
+		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		let index = 0;
+		let timer: ReturnType<typeof setInterval> | undefined;
+
+		const render = () => {
+			track.style.transform = `translateX(${-index * 100}%)`;
+			dots.forEach((d, i) => {
+				const on = i === index;
+				d.classList.toggle('w-6', on);
+				d.classList.toggle('bg-accent-color', on);
+				d.classList.toggle('w-2', !on);
+				d.classList.toggle('bg-white/25', !on);
+			});
+		};
+		const go = (i: number) => {
+			index = (i + count) % count;
+			render();
+		};
+		const start = () => {
+			if (reduce) return;
+			stop();
+			timer = setInterval(() => go(index + 1), 4000);
+		};
+		const stop = () => timer && clearInterval(timer);
+
+		dots.forEach((d, i) =>
+			d.addEventListener('click', () => {
+				go(i);
+				start();
+			})
+		);
+
+		// Swipe
+		let x0: number | null = null;
+		track.addEventListener('pointerdown', (e) => {
+			x0 = e.clientX;
+			stop();
+		});
+		track.addEventListener('pointerup', (e) => {
+			if (x0 === null) return;
+			const dx = e.clientX - x0;
+			if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+			x0 = null;
+			start();
+		});
+
+		root.addEventListener('pointerenter', stop);
+		root.addEventListener('pointerleave', start);
+
+		render();
+		start();
+	}
+</script>

@@ -20,10 +20,29 @@ const stats = [
 ];
 ---
 
-<section class="relative isolate overflow-hidden bg-main-color pt-20 text-white">
-	<div class="mx-auto max-w-7xl px-5 pb-10 pt-8 sm:px-8 sm:pb-14 sm:pt-12 lg:px-12">
-		<div class="grid items-start gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-8">
-			<div class="lg:pt-6">
+<section
+	class="relative isolate overflow-hidden bg-main-color px-5 text-white sm:px-8 lg:px-12"
+>
+	<!-- Product visual bleeding off the right edge (desktop) -->
+	<div class="pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] lg:block">
+		<Image
+			src={heroLock}
+			alt="Умный замок iLock на двери"
+			widths={[720, 960, 1122]}
+			sizes="52vw"
+			class="h-full w-full object-cover object-left"
+			loading="eager"
+			fetchpriority="high"
+		/>
+		<div class="absolute inset-0 bg-linear-to-r from-main-color via-main-color/40 to-transparent"></div>
+	</div>
+
+	<div class="relative mx-auto max-w-7xl">
+		<div
+			class="grid items-center gap-12 pt-28 pb-16 sm:pt-32 lg:min-h-152 lg:grid-cols-2 lg:gap-8 lg:pt-40 lg:pb-28"
+		>
+			<!-- Copy -->
+			<div>
 				<p
 					class="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.16em] text-accent-color sm:text-sm"
 				>
@@ -31,57 +50,65 @@ const stats = [
 					{t.hero.eyebrow}
 				</p>
 
-				<h1 class="mt-5 text-[2.5rem] font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+				<h1
+					class="mt-7 text-[2.75rem] font-semibold leading-[1.05] tracking-tight sm:text-6xl"
+				>
 					{t.hero.title}
-					<span class="mt-1 block text-white/85">{t.hero.tagline}</span>
+					<span class="mt-1 block text-white/80">{t.hero.tagline}</span>
 				</h1>
 
-				<p class="mt-5 max-w-xl text-base leading-7 text-white/60 sm:mt-6 sm:text-lg sm:leading-8">
+				<p class="mt-6 max-w-md text-base leading-8 text-white/55 sm:text-lg">
 					{t.hero.text}
 				</p>
 
-				<div class="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
+				<div class="mt-9 flex flex-wrap items-center gap-4">
 					<a
 						href={`${homePath}catalog/`}
-						class="inline-flex h-13 items-center justify-center rounded-full bg-accent-color px-9 text-base font-semibold text-main-color transition hover:bg-accent-soft sm:h-14"
+						class="group inline-flex h-12 items-center gap-2 rounded-full bg-accent-color px-8 text-[15px] font-semibold text-main-color transition hover:bg-accent-soft"
 					>
 						{t.hero.catalog}
+						<svg
+							class="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.25"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<path d="M5 12h14M13 6l6 6-6 6"></path>
+						</svg>
 					</a>
 					<a
 						href="#lead"
-						class="inline-flex h-13 items-center justify-center rounded-full border border-accent-color/60 px-9 text-base font-semibold text-white transition hover:border-accent-color hover:bg-accent-color/10 sm:h-14"
+						class="inline-flex h-12 items-center justify-center rounded-full px-6 text-[15px] font-semibold text-white/80 transition hover:text-accent-color"
 					>
 						{t.hero.contact}
 					</a>
 				</div>
 			</div>
 
+			<!-- Product visual for small screens -->
 			<div
-				class="relative mx-auto aspect-4/5 w-full max-w-120 overflow-hidden rounded-3xl border border-line"
+				class="relative order-first mx-auto aspect-4/5 w-full max-w-96 overflow-hidden rounded-3xl border border-line lg:hidden"
 			>
 				<Image
 					src={heroLock}
 					alt="Умный замок iLock на двери"
-					widths={[480, 720, 960, 1122]}
-					sizes="(min-width:1024px) 480px, 92vw"
+					widths={[480, 720, 960]}
+					sizes="92vw"
 					class="h-full w-full object-cover"
 					loading="eager"
-					fetchpriority="high"
 				/>
 			</div>
 		</div>
 
-		<dl class="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 lg:grid-cols-4">
+		<!-- Trust stats strip -->
+		<dl class="grid grid-cols-2 gap-x-8 gap-y-8 border-t border-line py-10 sm:grid-cols-4 lg:py-12">
 			{
 				stats.map((stat) => (
-					<div
-						class:list={[
-							'rounded-2xl border p-5 sm:p-6',
-							stat.highlight
-								? 'border-accent-color/45 bg-accent-color/10'
-								: 'border-line bg-secondary-color/70',
-						]}
-					>
+					<div>
 						<dt class="sr-only">{stat.label}</dt>
 						<dd>
 							<span
@@ -92,7 +119,7 @@ const stats = [
 							>
 								{stat.value}
 							</span>
-							<span class="mt-2 block text-xs leading-5 text-white/55 sm:text-sm">{stat.label}</span>
+							<span class="mt-2 block text-xs leading-5 text-white/45 sm:text-sm">{stat.label}</span>
 						</dd>
 					</div>
 				))

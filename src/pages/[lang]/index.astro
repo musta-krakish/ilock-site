@@ -4,6 +4,7 @@ import Contact from '../../components/Contact.astro';
 import Featured from '../../components/Featured.astro';
 import Hero from '../../components/Hero.astro';
 import LeadForm from '../../components/LeadForm.astro';
+import SmartApp from '../../components/SmartApp.astro';
 import Layout from '../../layouts/Layout.astro';
 import { langList, type Lang } from '../../i18n';
 
@@ -21,6 +22,7 @@ const { lang } = Astro.props as { lang: Lang };
 	<Hero lang={lang} />
 	<Featured lang={lang} />
 	<Advantages lang={lang} />
+	<SmartApp lang={lang} />
 	<LeadForm lang={lang} />
 	<Contact lang={lang} />
 </Layout>
