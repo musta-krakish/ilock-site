@@ -2,7 +2,8 @@
 import '../index.css';
 import Footer from '../components/Footer.astro';
 import logo from '../assets/ilock-logo-gradient.png';
-import { whatsappLink } from '../config';
+import defaultOg from '../assets/swag-lock.png';
+import { site, whatsappLink } from '../config';
 import {
 	canonicalPath,
 	defaultLang,
@@ -29,7 +30,8 @@ const fullTitle = pageTitle.includes('iLOCK') ? pageTitle : `${pageTitle} | iLOC
 
 const siteUrl = Astro.site ?? Astro.url;
 const canonical = new URL(canonicalPath(Astro.url.pathname), siteUrl).toString();
-const ogImage = image ? new URL(image, siteUrl).toString() : undefined;
+// Every page gets a social image: the passed-in product shot, or the branded default.
+const ogImage = new URL(image ?? defaultOg.src, siteUrl).toString();
 
 const homePath = getLocalePath(lang);
 const currentPath = Astro.url.pathname;
@@ -39,6 +41,53 @@ const navLinks = [
 	{ href: `${homePath}#about`, label: t.nav.about },
 	{ href: `${homePath}#contact`, label: t.nav.contact },
 ];
+
+// Site-wide entity for Google: a local retailer of smart locks in Astana.
+// Powers the Knowledge Panel and helps the local pack for "умный замок Астана"-type queries.
+const organizationLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Store',
+	'@id': `${siteUrl}#organization`,
+	name: 'iLOCK',
+	legalName: 'iLOCK — умные замки Philips',
+	url: siteUrl.toString(),
+	logo: new URL(logo.src, siteUrl).toString(),
+	image: new URL(defaultOg.src, siteUrl).toString(),
+	description: ui.ru.homeDescription,
+	telephone: site.phones[0].tel,
+	email: site.email,
+	priceRange: '₸₸',
+	currenciesAccepted: 'KZT',
+	address: {
+		'@type': 'PostalAddress',
+		streetAddress: 'ул. Куйши Дина, 23/1',
+		addressLocality: 'Астана',
+		addressCountry: 'KZ',
+	},
+	areaServed: { '@type': 'Country', name: 'Казахстан' },
+	openingHoursSpecification: [
+		{
+			'@type': 'OpeningHoursSpecification',
+			dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+			opens: '10:00',
+			closes: '19:00',
+		},
+		{
+			'@type': 'OpeningHoursSpecification',
+			dayOfWeek: ['Saturday', 'Sunday'],
+			opens: '12:00',
+			closes: '16:00',
+		},
+	],
+	contactPoint: site.phones.map((phone) => ({
+		'@type': 'ContactPoint',
+		telephone: phone.tel,
+		contactType: 'sales',
+		areaServed: 'KZ',
+		availableLanguage: ['ru', 'kk', 'en'],
+	})),
+	sameAs: [site.instagramUrl, `https://wa.me/${site.whatsapp}`],
+};
 ---
 
 <!doctype html>
@@ -54,6 +103,7 @@ const navLinks = [
 
 		<title>{fullTitle}</title>
 		<meta name="description" content={pageDescription} />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 		<link rel="canonical" href={canonical} />
 
 		{
@@ -77,10 +127,19 @@ const navLinks = [
 		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:url" content={canonical} />
-		{ogImage && <meta property="og:image" content={ogImage} />}
-		<meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:alt" content={fullTitle} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={fullTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={ogImage} />
 		<meta name="theme-color" content="#100E0E" />
 
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify(organizationLd)}
+			is:inline
+		/>
 	</head>
 
 	<body>
@@ -233,7 +292,6 @@ const navLinks = [
 				if (e.key === 'Escape') setMenu(false);
 			});
 
-			// Reveal sections as they enter the viewport.
 			const reveals = document.querySelectorAll('.reveal');
 			if (reveals.length) {
 				const io = new IntersectionObserver(
