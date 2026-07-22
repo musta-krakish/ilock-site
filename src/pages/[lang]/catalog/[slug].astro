@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import LeadForm from '../../../components/LeadForm.astro';
 import ProductPage from '../../../components/ProductPage.astro';
 import Layout from '../../../layouts/Layout.astro';
-import { langList, localizeLock, type Lang } from '../../../i18n';
+import { formatPrice } from '../../../config';
+import { buildMetaDescription, langList, localizeLock, type Lang, ui } from '../../../i18n';
 
 export async function getStaticPaths() {
 	const locks = await getCollection('locks');
@@ -18,12 +19,21 @@ export async function getStaticPaths() {
 
 const { lang, lock } = Astro.props as { lang: Lang; lock: any };
 const localizedLock = localizeLock(lock, lang);
+const t = ui[lang];
+
+const description = buildMetaDescription(
+	localizedLock.seoDescription,
+	t.product.metaParts(
+		formatPrice(localizedLock.price, localizedLock.priceTo),
+		t.product.years(localizedLock.warranty),
+	),
+);
 ---
 
 <Layout
 	lang={lang}
 	title={localizedLock.seoTitle}
-	description={localizedLock.seoDescription}
+	description={description}
 	image={localizedLock.image.src}
 >
 	<ProductPage lock={lock} lang={lang} />

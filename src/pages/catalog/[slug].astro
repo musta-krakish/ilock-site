@@ -2,7 +2,8 @@
 import { getCollection } from 'astro:content';
 import LeadForm from '../../components/LeadForm.astro';
 import ProductPage from '../../components/ProductPage.astro';
-import { defaultLang, localizeLock } from '../../i18n';
+import { formatPrice } from '../../config';
+import { buildMetaDescription, defaultLang, localizeLock, ui } from '../../i18n';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -17,12 +18,23 @@ export async function getStaticPaths() {
 const { lock } = Astro.props;
 const lang = defaultLang;
 const localizedLock = localizeLock(lock, lang);
+const t = ui[lang];
+
+// Per-model copy runs well under the ~160 characters Google shows, so the selling
+// points fill the rest of the snippet instead of leaving it short.
+const description = buildMetaDescription(
+	localizedLock.seoDescription,
+	t.product.metaParts(
+		formatPrice(localizedLock.price, localizedLock.priceTo),
+		t.product.years(localizedLock.warranty),
+	),
+);
 ---
 
 <Layout
 	lang={lang}
 	title={localizedLock.seoTitle}
-	description={localizedLock.seoDescription}
+	description={description}
 	image={localizedLock.image.src}
 >
 	<ProductPage lock={lock} lang={lang} />

@@ -9,6 +9,7 @@ import {
 	defaultLang,
 	getLocalePath,
 	getTranslatedPath,
+	hreflangCodes,
 	languages,
 	type Lang,
 	ui,
@@ -30,8 +31,9 @@ const fullTitle = pageTitle.includes('iLOCK') ? pageTitle : `${pageTitle} | iLOC
 
 const siteUrl = Astro.site ?? Astro.url;
 const canonical = new URL(canonicalPath(Astro.url.pathname), siteUrl).toString();
-// Every page gets a social image: the passed-in product shot, or the branded default.
 const ogImage = new URL(image ?? defaultOg.src, siteUrl).toString();
+// Open Graph wants `ru_KZ`, not the bare `ru` — same region targeting as hreflang.
+const ogLocale = hreflangCodes[lang].replace('-', '_');
 
 const homePath = getLocalePath(lang);
 const currentPath = Astro.url.pathname;
@@ -42,8 +44,6 @@ const navLinks = [
 	{ href: `${homePath}#contact`, label: t.nav.contact },
 ];
 
-// Site-wide entity for Google: a local retailer of smart locks in Astana.
-// Powers the Knowledge Panel and helps the local pack for "умный замок Астана"-type queries.
 const organizationLd = {
 	'@context': 'https://schema.org',
 	'@type': 'Store',
@@ -110,7 +110,7 @@ const organizationLd = {
 			Object.keys(languages).map((code) => (
 				<link
 					rel="alternate"
-					hreflang={code}
+					hreflang={hreflangCodes[code as Lang]}
 					href={new URL(getTranslatedPath(code as Lang, currentPath), siteUrl).toString()}
 				/>
 			))
@@ -123,7 +123,7 @@ const organizationLd = {
 
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="iLOCK" />
-		<meta property="og:locale" content={lang} />
+		<meta property="og:locale" content={ogLocale} />
 		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:url" content={canonical} />
@@ -256,7 +256,6 @@ const organizationLd = {
 
 		<Footer lang={lang} />
 
-		<!-- Persistent WhatsApp entry point, required by the brief. -->
 		<a
 			href={whatsappLink(t.contact.whatsappHello)}
 			target="_blank"

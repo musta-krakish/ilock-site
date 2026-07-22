@@ -8,6 +8,17 @@ export const languages = {
 
 export type Lang = keyof typeof languages;
 
+/**
+ * hreflang values for `<link rel="alternate">`. Region-qualified for the two languages the
+ * store actually sells in, so the pages target Kazakhstan rather than every ru/kk speaker.
+ * Must stay in sync with the `i18n.locales` map in `astro.config.mjs`, which the sitemap uses.
+ */
+export const hreflangCodes: Record<Lang, string> = {
+	ru: 'ru-KZ',
+	kk: 'kk-KZ',
+	en: 'en',
+};
+
 export const defaultLang: Lang = 'ru';
 export const langList = Object.keys(languages) as Lang[];
 
@@ -156,6 +167,17 @@ export const ui = {
 			months: (v: string) => `до ${v} месяцев`,
 			upTo: 'до',
 			pcs: 'шт',
+			// The model number alone ("DDL 7300") is not a phrase anyone searches for, so the
+			// H1 and the image alt carry the category and the brand around it.
+			h1: (brand: string, title: string) => `Умный замок ${brand} ${title}`,
+			imgAlt: (brand: string, title: string) => `Умный замок ${brand} ${title}`,
+			// Appended to the per-model description until the snippet limit is reached.
+			metaParts: (price: string, warranty: string) => [
+				price,
+				`гарантия ${warranty}`,
+				'рассрочка Kaspi',
+				'доставка по Казахстану',
+			],
 		},
 		footer: {
 			rights: 'Все права защищены',
@@ -412,6 +434,14 @@ export const ui = {
 			months: (v: string) => `${v} айға дейін`,
 			upTo: 'дейін',
 			pcs: 'дана',
+			h1: (brand: string, title: string) => `${brand} ${title} ақылды құлпы`,
+			imgAlt: (brand: string, title: string) => `${brand} ${title} ақылды құлпы`,
+			metaParts: (price: string, warranty: string) => [
+				price,
+				`кепілдік ${warranty}`,
+				'Kaspi бөліп төлеу',
+				'Қазақстан бойынша жеткізу',
+			],
 		},
 		footer: {
 			rights: 'Барлық құқықтар қорғалған',
@@ -668,6 +698,14 @@ export const ui = {
 			months: (v: string) => `up to ${v} months`,
 			upTo: 'up to',
 			pcs: 'pcs',
+			h1: (brand: string, title: string) => `${brand} ${title} smart lock`,
+			imgAlt: (brand: string, title: string) => `${brand} ${title} smart lock`,
+			metaParts: (price: string, warranty: string) => [
+				price,
+				`${warranty} warranty`,
+				'Kaspi instalments',
+				'delivery across Kazakhstan',
+			],
 		},
 		footer: {
 			rights: 'All rights reserved',
@@ -836,6 +874,18 @@ export function localizeLock(lock: LockEntry, lang: Lang): LocalizedLock {
 	const { ru, kk, en, ...specs } = lock.data;
 	const prose = { ru, kk, en }[lang] ?? ru;
 	return { ...specs, ...prose, id: lock.id, slug: lock.id };
+}
+
+/**
+ * Pads a short description with selling points until the snippet limit is reached.
+ * Per-model copy runs 50–120 characters while Google shows ~160, so the leftover room
+ * would otherwise be wasted. Parts are added whole — a clause is never cut mid-word.
+ */
+export function buildMetaDescription(base: string, parts: string[], limit = 158) {
+	return parts.reduce((out, part) => {
+		const next = `${out} · ${part}`;
+		return next.length > limit ? out : next;
+	}, base);
 }
 
 /** Sorts by brand priority (iLock, Philips, then the rest), then by the per-brand order. */

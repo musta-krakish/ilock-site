@@ -68,20 +68,23 @@ const breadcrumbLd = {
 	'@context': 'https://schema.org',
 	'@type': 'BreadcrumbList',
 	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'iLOCK', item: abs(homePath) },
 		{
 			'@type': 'ListItem',
-			position: 1,
+			position: 2,
 			name: t.nav.catalog,
 			item: abs(`${homePath}catalog/`),
 		},
-		{ '@type': 'ListItem', position: 2, name: brandNames[brand], item: canonical },
+		{ '@type': 'ListItem', position: 3, name: brandNames[brand], item: canonical },
 	],
 };
 ---
 
 <section class="bg-main-color px-5 pb-10 pt-28 sm:px-8 sm:pb-14 sm:pt-32 lg:px-12">
 	<div class="mx-auto max-w-7xl">
-		<nav aria-label="breadcrumb" class="flex items-center gap-2 text-sm text-white/40">
+		<nav aria-label="breadcrumb" class="flex flex-wrap items-center gap-2 text-sm text-white/40">
+			<a href={homePath} class="transition hover:text-accent-color">iLOCK</a>
+			<span aria-hidden="true">/</span>
 			<a href={`${homePath}catalog/`} class="transition hover:text-accent-color">{t.nav.catalog}</a>
 			<span aria-hidden="true">/</span>
 			<span class="text-white/70">{brandNames[brand]}</span>
