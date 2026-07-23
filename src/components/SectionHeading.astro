@@ -11,12 +11,12 @@ const { eyebrow, title, accent, text, class: className } = Astro.props;
 ---
 
 <div class:list={['max-w-2xl', className]}>
-	<p class="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-accent-color sm:text-sm">
+	<p class="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-deep sm:text-sm">
 		<span class="h-px w-8 shrink-0 bg-accent-color sm:w-12"></span>
 		{eyebrow}
 	</p>
-	<h2 class="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
+	<h2 class="mt-4 text-[1.75rem] font-semibold leading-tight tracking-tight sm:mt-5 sm:text-5xl">
 		{title}{accent && <>{' '}<span class="gold-text">{accent}</span></>}
 	</h2>
-	{text && <p class="mt-5 text-base leading-7 text-white/55 sm:text-lg">{text}</p>}
+	{text && <p class="mt-4 text-[15px] leading-7 text-ink/65 sm:mt-5 sm:text-lg">{text}</p>}
 </div>

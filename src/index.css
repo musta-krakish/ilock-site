@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-	/* Brand palette — black & gold. Logo colours are unchanged. */
-	--color-ink: #0c0b0b;
-	--color-main-color: #100e0e;
-	--color-secondary-color: #151414;
-	--color-surface: #181616;
-	--color-line: #272322;
+	/* Light ivory base. The black & gold identity now lives in the logo, the
+	   buttons and the accents rather than in the page background. */
+	--color-main-color: #faf7f2;
+	--color-secondary-color: #ffffff;
+	--color-surface: #f3eee5;
+	--color-line: #e7e0d4;
+
+	/* Ink is the text colour; night is the dark brand block (phone UI, dark cards). */
+	--color-ink: #16130f;
+	--color-night: #14110d;
+
 	--color-accent-color: #dfa620;
-	--color-accent-soft: #f0bd39;
-	--color-accent-deep: #a97613;
+	--color-accent-soft: #f0c24a;
+	--color-accent-deep: #b8861a;
 
 	/* Apple-style typography: the system stack resolves to SF Pro on Apple devices. */
 	--font-sans:
@@ -23,19 +28,26 @@
 		scroll-behavior: smooth;
 		scroll-padding-top: 5.5rem;
 		background: var(--color-main-color);
+		/* Stops iOS from inflating body copy when the phone is turned sideways. */
+		-webkit-text-size-adjust: 100%;
 	}
 
 	body {
 		margin: 0;
 		background: var(--color-main-color);
-		color: #fff;
+		color: var(--color-ink);
 		font-family: var(--font-sans);
 		-webkit-font-smoothing: antialiased;
 		overflow-x: hidden;
 	}
 
+	::selection {
+		background: color-mix(in srgb, var(--color-accent-color) 35%, transparent);
+		color: var(--color-ink);
+	}
+
 	:focus-visible {
-		outline: 2px solid var(--color-accent-color);
+		outline: 2px solid var(--color-accent-deep);
 		outline-offset: 2px;
 	}
 
@@ -53,26 +65,73 @@
 }
 
 @layer components {
-	/* Hairline gold border used on cards and panels. */
+	/* Card surface: white on ivory, hairline border, soft warm shadow. */
 	.panel {
 		background: var(--color-secondary-color);
 		border: 1px solid var(--color-line);
+		box-shadow: 0 18px 40px -32px rgba(60, 44, 16, 0.45);
 	}
 
 	.panel-hover {
 		transition:
 			border-color 0.25s ease,
+			box-shadow 0.25s ease,
 			transform 0.25s ease,
 			background-color 0.25s ease;
 	}
 
 	.panel-hover:hover {
-		border-color: color-mix(in srgb, var(--color-accent-color) 45%, transparent);
+		border-color: color-mix(in srgb, var(--color-accent-color) 55%, transparent);
+		box-shadow: 0 26px 50px -30px rgba(90, 66, 16, 0.5);
 		transform: translateY(-3px);
 	}
 
+	/* Primary call to action — gold gradient, ink label. */
+	.btn-gold {
+		background-image: linear-gradient(
+			135deg,
+			#f4cd62 0%,
+			var(--color-accent-color) 48%,
+			var(--color-accent-deep) 100%
+		);
+		color: var(--color-night);
+		box-shadow: 0 12px 26px -14px rgba(176, 128, 24, 0.9);
+		transition:
+			background-image 0.25s ease,
+			box-shadow 0.25s ease,
+			transform 0.2s ease;
+	}
+
+	.btn-gold:hover {
+		background-image: linear-gradient(135deg, #f8da84 0%, #e8b535 48%, #c7941f 100%);
+		box-shadow: 0 16px 32px -14px rgba(176, 128, 24, 0.95);
+	}
+
+	.btn-gold:active {
+		transform: translateY(1px);
+	}
+
+	/* Secondary action — outlined, turns gold on hover. */
+	.btn-ghost {
+		border: 1px solid var(--color-line);
+		color: var(--color-ink);
+		background: var(--color-secondary-color);
+		transition:
+			border-color 0.25s ease,
+			color 0.25s ease,
+			background-color 0.25s ease;
+	}
+
+	.btn-ghost:hover {
+		border-color: color-mix(in srgb, var(--color-accent-color) 65%, transparent);
+		color: var(--color-accent-deep);
+		background: color-mix(in srgb, var(--color-accent-color) 8%, #fff);
+	}
+
+	/* Foil-gold headline accent. Deeper stops than the dark theme used, so it
+	   still reads as gold against ivory. */
 	.gold-text {
-		background: linear-gradient(100deg, #f5d98a 0%, var(--color-accent-color) 45%, #b9821b 100%);
+		background: linear-gradient(100deg, #d9a521 0%, #b8861a 48%, #8f6810 100%);
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;

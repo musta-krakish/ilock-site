@@ -21,15 +21,17 @@ if (preselect) {
 }
 ---
 
-<section id="lead" class="bg-main-color px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
+<section id="lead" class="bg-surface px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
 	<div class="mx-auto max-w-2xl text-center">
-		<h2 class="text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">{t.lead.title}</h2>
-		<p class="mt-4 text-base leading-7 text-white/55 sm:text-lg">{t.lead.text}</p>
+		<h2 class="text-[1.75rem] font-semibold leading-tight tracking-tight sm:text-5xl">
+			{t.lead.title}
+		</h2>
+		<p class="mt-4 text-[15px] leading-7 text-ink/65 sm:text-lg">{t.lead.text}</p>
 
-		<form data-lead-form novalidate class="mt-9 text-left">
+		<form data-lead-form novalidate class="mt-8 text-left sm:mt-9">
 			<input type="hidden" name="model" value={preselectedModel} />
 
-			<div class="grid gap-4 sm:grid-cols-2">
+			<div class="grid gap-3 sm:grid-cols-2 sm:gap-4">
 				<div>
 					<label for="lead-name" class="sr-only">{t.lead.name}</label>
 					<input
@@ -39,9 +41,9 @@ if (preselect) {
 						autocomplete="name"
 						placeholder={t.lead.name}
 						required
-						class="h-14 w-full rounded-full border border-line bg-surface px-6 text-white placeholder:text-white/30 focus:border-accent-color focus:outline-none"
+						class="h-13 w-full rounded-full border border-line bg-secondary-color px-6 text-base text-ink placeholder:text-ink/45 focus:border-accent-color focus:outline-none sm:h-14"
 					/>
-					<p data-error-for="name" hidden class="mt-1.5 pl-6 text-xs text-red-400">{t.lead.errName}</p>
+					<p data-error-for="name" hidden class="mt-1.5 pl-6 text-xs text-red-600">{t.lead.errName}</p>
 				</div>
 
 				<div>
@@ -54,15 +56,15 @@ if (preselect) {
 						autocomplete="tel"
 						placeholder="+7 (___) ___-__-__"
 						required
-						class="h-14 w-full rounded-full border border-line bg-surface px-6 text-white placeholder:text-white/30 focus:border-accent-color focus:outline-none"
+						class="h-13 w-full rounded-full border border-line bg-secondary-color px-6 text-base text-ink placeholder:text-ink/45 focus:border-accent-color focus:outline-none sm:h-14"
 					/>
-					<p data-error-for="phone" hidden class="mt-1.5 pl-6 text-xs text-red-400">{t.lead.errPhone}</p>
+					<p data-error-for="phone" hidden class="mt-1.5 pl-6 text-xs text-red-600">{t.lead.errPhone}</p>
 				</div>
 			</div>
 
 			<button
 				type="submit"
-				class="mt-4 inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-full bg-accent-color px-8 text-base font-semibold text-main-color transition hover:bg-accent-soft"
+				class="btn-gold mt-3.5 inline-flex h-13 w-full items-center justify-center gap-2.5 rounded-full px-8 text-base font-semibold sm:mt-4 sm:h-14"
 			>
 				<svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
 					<path
@@ -72,7 +74,7 @@ if (preselect) {
 				{t.lead.submit}
 			</button>
 
-			<p class="mt-4 text-center text-xs leading-5 text-white/35">{t.lead.note}</p>
+			<p class="mt-4 text-center text-xs leading-5 text-ink/60">{t.lead.note}</p>
 		</form>
 	</div>
 </section>

@@ -10,24 +10,26 @@ const t = ui[lang];
 const a = t.app;
 ---
 
-<section id="app" class="overflow-hidden bg-main-color px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+<section id="app" class="overflow-hidden bg-main-color px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-24">
 	<div class="mx-auto max-w-7xl">
-		<div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+		<div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
 			<div class="reveal">
 				<p
-					class="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-accent-color sm:text-sm"
+					class="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-deep sm:text-sm"
 				>
 					<span class="h-px w-8 shrink-0 bg-accent-color sm:w-12"></span>
 					{a.eyebrow}
 				</p>
 
-				<h2 class="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
+				<h2 class="mt-4 text-[1.75rem] font-semibold leading-tight tracking-tight sm:mt-5 sm:text-5xl">
 					{a.title}{' '}<span class="gold-text">{a.titleAccent}</span>
 				</h2>
 
-				<p class="mt-6 max-w-xl text-base leading-8 text-white/55 sm:text-lg">{a.text}</p>
+				<p class="mt-5 max-w-xl text-[15px] leading-7 text-ink/65 sm:mt-6 sm:text-lg sm:leading-8">
+					{a.text}
+				</p>
 
-				<p class="mt-8 flex items-start gap-2 text-sm leading-6 text-white/45">
+				<p class="mt-6 flex items-start gap-2 text-sm leading-6 text-ink/55 sm:mt-8">
 					<svg
 						class="mt-0.5 h-4 w-4 shrink-0 text-accent-color"
 						viewBox="0 0 24 24"
@@ -48,19 +50,19 @@ const a = t.app;
 			<div class="reveal relative flex flex-col items-center gap-6 lg:items-end">
 				<div class="relative flex w-full justify-center lg:justify-end">
 					<div
-						class="pointer-events-none absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-color/15 blur-3xl"
+						class="pointer-events-none absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-color/25 blur-3xl"
 					>
 					</div>
 
 					<div
-						class="relative w-72 rounded-[2.75rem] border border-white/10 bg-black p-2.5 shadow-[0_50px_90px_-30px_rgba(0,0,0,0.85)]"
+						class="relative w-64 rounded-[2.5rem] border border-night bg-night p-2.5 shadow-[0_45px_80px_-35px_rgba(20,17,13,0.7)] sm:w-72 sm:rounded-[2.75rem]"
 						data-app-slider
 					>
 						<div
 							class="relative aspect-9/19 w-full overflow-hidden rounded-[2.25rem] bg-linear-to-b from-[#171310] to-[#0d0b0a]"
 						>
 							<div
-								class="absolute top-2.5 left-1/2 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-black"
+								class="absolute top-2.5 left-1/2 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-night"
 							>
 							</div>
 
@@ -170,7 +172,7 @@ const a = t.app;
 
 									<button
 										type="button"
-										class="mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-accent-color text-sm font-semibold text-main-color"
+										class="mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-accent-color text-sm font-semibold text-night"
 									>
 										<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 											<rect x="5" y="11" width="14" height="10" rx="2"></rect>
@@ -244,7 +246,7 @@ const a = t.app;
 
 									<button
 										type="button"
-										class="mt-auto flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-accent-color text-sm font-semibold text-main-color"
+										class="mt-auto flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-accent-color text-sm font-semibold text-night"
 									>
 										<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
 										{a.addCode}
@@ -313,12 +315,12 @@ const a = t.app;
 						type="button"
 						aria-label="2"
 						data-dot
-						class="h-2 w-2 rounded-full bg-white/25 transition-all"></button>
+						class="h-2 w-2 rounded-full bg-ink/20 transition-all"></button>
 					<button
 						type="button"
 						aria-label="3"
 						data-dot
-						class="h-2 w-2 rounded-full bg-white/25 transition-all"></button>
+						class="h-2 w-2 rounded-full bg-ink/20 transition-all"></button>
 				</div>
 			</div>
 		</div>
@@ -343,7 +345,7 @@ const a = t.app;
 				d.classList.toggle('w-6', on);
 				d.classList.toggle('bg-accent-color', on);
 				d.classList.toggle('w-2', !on);
-				d.classList.toggle('bg-white/25', !on);
+				d.classList.toggle('bg-ink/20', !on);
 			});
 		};
 		const go = (i: number) => {

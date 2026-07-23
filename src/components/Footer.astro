@@ -1,4 +1,5 @@
 ---
+// The footer stays dark, so it keeps the original gold-on-black lockup.
 import logo from '../assets/ilock-logo-gradient.png';
 import { site, whatsappLink } from '../config';
 import { brandNames, brandOrder, getLocalePath, type Lang, ui } from '../i18n';
@@ -13,32 +14,32 @@ const homePath = getLocalePath(lang);
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-line bg-main-color px-5 py-12 sm:px-8 lg:px-12">
+<footer class="bg-night px-5 pb-[max(3rem,env(safe-area-inset-bottom))] pt-12 sm:px-8 lg:px-12">
 	<div class="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
 		<div>
 			<a href={homePath} aria-label="iLOCK" class="inline-flex">
-				<img src={logo.src} alt="iLOCK" class="h-12 w-auto" width="120" height="48" />
+				<img src={logo.src} alt="iLOCK" class="h-11 w-auto sm:h-12" width="120" height="48" />
 			</a>
-			<p class="mt-4 max-w-sm text-sm leading-6 text-white/40">{t.footer.made}</p>
+			<p class="mt-4 max-w-sm text-sm leading-6 text-white/45">{t.footer.made}</p>
 		</div>
 
 		<div class="flex flex-wrap gap-x-12 gap-y-6">
-			<nav class="flex flex-col gap-3 text-sm text-white/60">
-				<a class="transition hover:text-accent-color" href={`${homePath}catalog/`}>{t.nav.catalog}</a>
-				<a class="transition hover:text-accent-color" href={`${homePath}#about`}>{t.nav.about}</a>
-				<a class="transition hover:text-accent-color" href={`${homePath}#contact`}>{t.nav.contact}</a>
-				<a class="transition hover:text-accent-color" href={`tel:${site.phones[0].tel}`}>
+			<nav class="flex flex-col gap-3 text-sm text-white/65">
+				<a class="transition hover:text-accent-soft" href={`${homePath}catalog/`}>{t.nav.catalog}</a>
+				<a class="transition hover:text-accent-soft" href={`${homePath}#about`}>{t.nav.about}</a>
+				<a class="transition hover:text-accent-soft" href={`${homePath}#contact`}>{t.nav.contact}</a>
+				<a class="transition hover:text-accent-soft" href={`tel:${site.phones[0].tel}`}>
 					{site.phones[0].label}
 				</a>
 			</nav>
 
-			<nav aria-label={t.footer.brands} class="flex flex-col gap-3 text-sm text-white/60">
-				<span class="text-xs font-semibold uppercase tracking-[0.14em] text-white/30">
+			<nav aria-label={t.footer.brands} class="flex flex-col gap-3 text-sm text-white/65">
+				<span class="text-xs font-semibold uppercase tracking-[0.14em] text-white/35">
 					{t.footer.brands}
 				</span>
 				{
 					brandOrder.map((brand) => (
-						<a class="transition hover:text-accent-color" href={`${homePath}catalog/${brand}/`}>
+						<a class="transition hover:text-accent-soft" href={`${homePath}catalog/${brand}/`}>
 							{brandNames[brand]}
 						</a>
 					))
@@ -52,7 +53,7 @@ const year = new Date().getFullYear();
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label={t.contact.whatsapp}
-				class="flex h-11 w-11 items-center justify-center rounded-full border border-line transition hover:border-[#25D366]"
+				class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 transition hover:border-[#25D366]"
 			>
 				<svg viewBox="0 0 24 24" class="h-5 w-5 fill-white/70" aria-hidden="true">
 					<path
@@ -65,7 +66,7 @@ const year = new Date().getFullYear();
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label={t.contact.instagram}
-				class="flex h-11 w-11 items-center justify-center rounded-full border border-line transition hover:border-accent-color"
+				class="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 transition hover:border-accent-color"
 			>
 				<svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
 					<rect x="3" y="3" width="18" height="18" rx="5" class="text-white/70"></rect>
@@ -76,7 +77,7 @@ const year = new Date().getFullYear();
 		</div>
 	</div>
 
-	<div class="mx-auto mt-10 max-w-7xl border-t border-line pt-6 text-xs text-white/30">
+	<div class="mx-auto mt-10 max-w-7xl border-t border-white/12 pt-6 text-xs text-white/35">
 		© {year} iLOCK. {t.footer.rights}.
 	</div>
 </footer>

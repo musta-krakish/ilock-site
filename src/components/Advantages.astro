@@ -17,7 +17,7 @@ const images = [null, lockA, lockB, null, null, lockC];
 const items = t.about.items.map((item, i) => ({ ...item, img: images[i] }));
 ---
 
-<section id="about" class="bg-main-color px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
+<section id="about" class="bg-main-color px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
 	<div class="mx-auto max-w-7xl">
 		<SectionHeading
 			eyebrow={t.about.eyebrow}
@@ -26,16 +26,17 @@ const items = t.about.items.map((item, i) => ({ ...item, img: images[i] }));
 			class="reveal"
 		/>
 
-		<div class="mt-12 grid auto-rows-fr gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
+		{/* auto-rows-fr only once there are real columns — in the single-column phone
+		    layout it would stretch every card to the tallest one. */}
+		<div class="mt-9 grid gap-3.5 sm:mt-14 sm:auto-rows-fr sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
 			{
 				items.map((item, i) => {
 					if (item.img) {
 						return (
 							<article
 								class:list={[
-									'panel-hover group relative flex min-h-64 flex-col justify-between overflow-hidden rounded-3xl border p-7 text-ink sm:p-8',
-									'bg-linear-to-b from-white to-zinc-100 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)]',
-									i === 1 ? 'border-accent-color/50' : 'border-black/5',
+									'panel-hover group relative flex min-h-56 flex-col justify-between overflow-hidden rounded-3xl border bg-linear-to-b from-white to-surface p-6 text-ink shadow-[0_20px_45px_-34px_rgba(60,44,16,0.6)] sm:min-h-64 sm:p-8',
+									i === 1 ? 'border-accent-color/55' : 'border-line',
 								]}
 							>
 								<Image
@@ -46,23 +47,40 @@ const items = t.about.items.map((item, i) => ({ ...item, img: images[i] }));
 									sizes="340px"
 									class="pointer-events-none absolute -right-4 bottom-2 top-2 h-[calc(100%-1rem)] w-auto select-none object-contain"
 								/>
-								<h3 class="relative max-w-[11ch] text-xl font-semibold leading-snug tracking-tight">
+								<h3 class="relative max-w-[14ch] text-lg font-semibold leading-snug tracking-tight sm:max-w-[11ch] sm:text-xl">
 									{item.t}
 								</h3>
-								<p class="relative mt-3 max-w-[min(22ch,54%)] text-[15px] leading-6 text-black/55">
+								<p class="relative mt-3 max-w-[min(24ch,58%)] text-sm leading-6 text-ink/60 sm:max-w-[min(22ch,54%)] sm:text-[15px]">
 									{item.d}
 								</p>
 							</article>
 						);
 					}
+
+					/* One black-gold card keeps the identity present without weighing the page down. */
+					if (i === 0) {
+						return (
+							<article class="panel-hover group relative flex min-h-56 flex-col justify-between overflow-hidden rounded-3xl border border-night bg-night p-6 shadow-[0_24px_50px_-30px_rgba(20,17,13,0.65)] sm:min-h-64 sm:p-8">
+								<div class="pointer-events-none absolute -bottom-16 -right-10 h-52 w-52 rounded-full bg-accent-color/25 blur-3xl transition-opacity duration-500 group-hover:opacity-80" />
+								<h3 class="relative max-w-[16ch] text-lg font-semibold leading-snug tracking-tight text-white sm:text-xl">
+									{item.t}
+								</h3>
+								<p class="relative mt-3 max-w-md text-sm leading-6 text-white/65 sm:text-[15px] sm:leading-7">
+									{item.d}
+								</p>
+							</article>
+						);
+					}
+
 					return (
-						<article class="panel-hover group relative flex min-h-64 flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-surface p-7 shadow-[0_28px_60px_-32px_rgba(0,0,0,0.75)] sm:p-8">
-							<div class="pointer-events-none absolute inset-x-6 top-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
-							<div class="pointer-events-none absolute -bottom-16 -right-10 h-52 w-52 rounded-full bg-accent-color/12 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
-							<h3 class="relative max-w-[16ch] text-xl font-semibold leading-snug tracking-tight text-white">
+						<article class="panel panel-hover group relative flex min-h-56 flex-col justify-between overflow-hidden rounded-3xl p-6 sm:min-h-64 sm:p-8">
+							<div class="pointer-events-none absolute -bottom-16 -right-10 h-52 w-52 rounded-full bg-accent-color/15 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+							<h3 class="relative max-w-[16ch] text-lg font-semibold leading-snug tracking-tight text-ink sm:text-xl">
 								{item.t}
 							</h3>
-							<p class="relative mt-3 max-w-md text-[15px] leading-7 text-white/55">{item.d}</p>
+							<p class="relative mt-3 max-w-md text-sm leading-6 text-ink/60 sm:text-[15px] sm:leading-7">
+								{item.d}
+							</p>
 						</article>
 					);
 				})

@@ -108,32 +108,32 @@ const breadcrumbLd = {
 };
 ---
 
-<section class="bg-main-color px-5 pb-10 pt-28 sm:px-8 sm:pb-14 sm:pt-32 lg:px-12">
+<section class="bg-main-color px-5 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 lg:px-12">
 	<div class="mx-auto max-w-7xl">
 		{/* Mirrors breadcrumbLd below — Google expects the markup to match what a visitor sees.
 		    It is also the only in-page link from a model to its brand page. */}
-		<nav aria-label="breadcrumb" class="flex flex-wrap items-center gap-2 text-sm text-white/40">
-			<a href={homePath} class="transition hover:text-accent-color">iLOCK</a>
+		<nav aria-label="breadcrumb" class="flex flex-wrap items-center gap-2 text-sm text-ink/60">
+			<a href={homePath} class="transition hover:text-accent-deep">iLOCK</a>
 			<span aria-hidden="true">/</span>
-			<a href={`${homePath}catalog/`} class="transition hover:text-accent-color">
+			<a href={`${homePath}catalog/`} class="transition hover:text-accent-deep">
 				{t.nav.catalog}
 			</a>
 			<span aria-hidden="true">/</span>
-			<a href={`${homePath}catalog/${lock.brand}/`} class="transition hover:text-accent-color">
+			<a href={`${homePath}catalog/${lock.brand}/`} class="transition hover:text-accent-deep">
 				{brandNames[lock.brand]}
 			</a>
 			<span aria-hidden="true">/</span>
-			<span class="text-white/70">{lock.title}</span>
+			<span class="text-ink/75">{lock.title}</span>
 		</nav>
 
-		<div class="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-12">
-			<div class="relative overflow-hidden rounded-3xl border border-line bg-white">
+		<div class="mt-7 grid gap-8 sm:mt-8 lg:grid-cols-2 lg:gap-12">
+			<div class="panel relative overflow-hidden rounded-3xl">
 				<Image
 					src={lock.image}
 					alt={t.product.imgAlt(brandNames[lock.brand], lock.title)}
 					widths={[480, 720, 900]}
 					sizes="(min-width:1024px) 560px, 92vw"
-					class="aspect-square w-full object-contain p-8 sm:p-12"
+					class="aspect-square w-full object-contain p-6 sm:p-12"
 					loading="eager"
 					fetchpriority="high"
 				/>
@@ -141,21 +141,21 @@ const breadcrumbLd = {
 				<div class="absolute left-4 top-4 flex flex-col items-start gap-2">
 					{
 						lock.featured && !lock.comingSoon && (
-							<span class="rounded-full bg-accent-color px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-main-color">
+							<span class="btn-gold rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide">
 								{t.catalog.featured}
 							</span>
 						)
 					}
 					{
 						lock.comingSoon && (
-							<span class="rounded-full border border-accent-color/60 bg-main-color/85 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-color">
+							<span class="rounded-full border border-accent-color/60 bg-secondary-color/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-accent-deep backdrop-blur-sm">
 								{t.catalog.soon}
 							</span>
 						)
 					}
 					{
 						lock.kazakhBrand && (
-							<span class="rounded-full border border-white/20 bg-main-color/80 px-3 py-1 text-[11px] font-medium text-white/75">
+							<span class="rounded-full border border-line bg-secondary-color/90 px-3 py-1 text-[11px] font-medium text-ink/70 backdrop-blur-sm">
 								{t.catalog.kazakhBrand}
 							</span>
 						)
@@ -164,21 +164,23 @@ const breadcrumbLd = {
 			</div>
 
 			<div>
-				<p class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-color">
+				<p class="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-accent-deep sm:text-xs">
 					<span class="h-px w-8 bg-accent-color"></span>
 					{brandNames[lock.brand]}
 				</p>
 
-				<h1 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+				<h1 class="mt-4 text-[1.75rem] font-semibold tracking-tight sm:text-4xl lg:text-5xl">
 					{productName}
 				</h1>
 
-				<p class="mt-5 text-base leading-7 text-white/60 sm:text-lg sm:leading-8">{lock.description}</p>
+				<p class="mt-4 text-[15px] leading-7 text-ink/65 sm:mt-5 sm:text-lg sm:leading-8">
+					{lock.description}
+				</p>
 
-				<p class="mt-7 text-3xl font-semibold tracking-tight text-accent-color sm:text-4xl">
+				<p class="mt-6 text-[1.75rem] font-semibold tracking-tight text-accent-deep sm:mt-7 sm:text-4xl">
 					{
 						lock.priceTo && (
-							<span class="mr-1.5 font-sans text-base font-normal text-white/40">{t.catalog.from}</span>
+							<span class="mr-1.5 font-sans text-base font-normal text-ink/60">{t.catalog.from}</span>
 						)
 					}
 					{formatPrice(lock.price, lock.priceTo)}
@@ -198,20 +200,22 @@ const breadcrumbLd = {
 						href={whatsappLink(t.product.orderMsg(lock.title))}
 						target="_blank"
 						rel="noopener"
-						class="inline-flex h-14 w-full items-center justify-center rounded-full bg-accent-color px-10 text-base font-semibold text-main-color transition hover:bg-accent-soft sm:w-auto"
+						class="btn-gold inline-flex h-13 w-full items-center justify-center rounded-full px-10 text-base font-semibold sm:h-14 sm:w-auto"
 					>
 						{t.product.order}
 					</a>
 				</div>
 
-				<div class="mt-9">
-					<h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">{t.product.access}</h2>
+				<div class="mt-8 sm:mt-9">
+					<h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-ink/60 sm:text-sm">
+						{t.product.access}
+					</h2>
 					<ul class="mt-4 flex flex-wrap gap-2">
 						{
 							lock.access.map((a) => (
-								<li class="rounded-full border border-accent-color/30 bg-accent-color/5 px-3.5 py-1.5 text-sm text-white/80">
+								<li class="rounded-full border border-accent-color/40 bg-accent-color/8 px-3.5 py-1.5 text-sm text-ink/80">
 									{S.access[a]}
-									{lock.limits?.[a] && <span class="ml-1 text-white/40">{lock.limits[a]}</span>}
+									{lock.limits?.[a] && <span class="ml-1 text-ink/60">{lock.limits[a]}</span>}
 								</li>
 							))
 						}
@@ -221,12 +225,12 @@ const breadcrumbLd = {
 				{
 					lock.features.length > 0 && (
 						<div class="mt-7">
-							<h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">
+							<h2 class="text-xs font-semibold uppercase tracking-[0.14em] text-ink/60 sm:text-sm">
 								{t.product.features}
 							</h2>
 							<ul class="mt-4 grid gap-2 sm:grid-cols-2">
 								{lock.features.map((f) => (
-									<li class="flex items-start gap-2.5 text-sm leading-6 text-white/70">
+									<li class="flex items-start gap-2.5 text-sm leading-6 text-ink/75">
 										<svg
 											viewBox="0 0 24 24"
 											class="mt-1 h-4 w-4 shrink-0 text-accent-color"
@@ -247,14 +251,16 @@ const breadcrumbLd = {
 			</div>
 		</div>
 
-		<div class="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+		<div class="mt-12 grid gap-8 sm:mt-14 lg:mt-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
 			<div>
-				<h2 class="text-2xl font-bold sm:text-3xl">{t.product.about}</h2>
-				<p class="mt-5 text-base leading-8 text-white/60">{lock.body}</p>
+				<h2 class="text-xl font-bold sm:text-3xl">{t.product.about}</h2>
+				<p class="mt-4 text-[15px] leading-7 text-ink/65 sm:mt-5 sm:text-base sm:leading-8">
+					{lock.body}
+				</p>
 			</div>
 
-			<div class="overflow-hidden rounded-2xl border border-line">
-				<h2 class="border-b border-line bg-secondary-color px-6 py-4 text-lg font-semibold">
+			<div class="panel overflow-hidden rounded-2xl">
+				<h2 class="border-b border-line bg-surface px-5 py-4 text-base font-semibold sm:px-6 sm:text-lg">
 					{t.product.specs}
 				</h2>
 				<dl>
@@ -262,12 +268,12 @@ const breadcrumbLd = {
 						rows.map((row, i) => (
 							<div
 								class:list={[
-									'grid gap-1 px-6 py-4 sm:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] sm:gap-6',
-									i % 2 === 0 ? 'bg-main-color' : 'bg-secondary-color/60',
+									'grid gap-1 px-5 py-3.5 sm:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] sm:gap-6 sm:px-6 sm:py-4',
+									i % 2 === 0 ? 'bg-secondary-color' : 'bg-surface/60',
 								]}
 							>
-								<dt class="text-sm text-white/40">{row.label}</dt>
-								<dd class="text-sm leading-6 text-white/85">{row.value}</dd>
+								<dt class="text-[13px] text-ink/60 sm:text-sm">{row.label}</dt>
+								<dd class="text-[13px] leading-6 text-ink/85 sm:text-sm">{row.value}</dd>
 							</div>
 						))
 					}
@@ -277,17 +283,17 @@ const breadcrumbLd = {
 
 		{
 			related.length > 0 && (
-				<div class="mt-16 sm:mt-24">
+				<div class="mt-14 sm:mt-24">
 					<div class="flex items-end justify-between gap-4">
-						<h2 class="text-2xl font-bold sm:text-3xl">{t.product.related}</h2>
+						<h2 class="text-xl font-bold sm:text-3xl">{t.product.related}</h2>
 						<a
 							href={`${homePath}catalog/`}
-							class="shrink-0 text-sm text-accent-color transition hover:text-accent-soft"
+							class="shrink-0 text-sm font-medium text-accent-deep transition hover:text-accent-color"
 						>
 							{t.product.others} →
 						</a>
 					</div>
-					<div class="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+					<div class="mt-7 grid gap-3.5 sm:mt-8 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
 						{related.map((item) => (
 							<LockCard lock={item} lang={lang} />
 						))}
