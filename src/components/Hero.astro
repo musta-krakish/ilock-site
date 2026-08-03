@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import heroLock from '../assets/swag-lock.png';
+import heroLock from '../assets/zamok.png';
 import { site } from '../config';
 import { getLocalePath, type Lang, ui } from '../i18n';
 
@@ -27,7 +27,7 @@ const stats = [
 			alt="Умный замок iLock на двери"
 			widths={[720, 960, 1122]}
 			sizes="52vw"
-			class="h-full w-full object-cover object-left"
+			class="h-full w-full object-cover object-left-top"
 			loading="eager"
 			fetchpriority="high"
 		/>
@@ -40,14 +40,20 @@ const stats = [
 			alt=""
 			widths={[480, 720, 960]}
 			sizes="100vw"
-			class="h-full w-full scale-105 object-cover object-center"
+			class="h-full w-full scale-105 object-cover object-[78%_top]"
 			loading="eager"
 			fetchpriority="high"
 		/>
 		<div class="absolute inset-0 bg-linear-to-b from-main-color/15 via-main-color/10 to-main-color"></div>
 		<div class="absolute inset-0 bg-linear-to-t from-main-color via-main-color/40 to-transparent"></div>
 		<div class="absolute inset-x-0 top-0 h-36 bg-linear-to-b from-main-color/95 to-transparent"></div>
+		<div class="absolute inset-x-0 bottom-0 h-52 bg-linear-to-t from-main-color via-main-color/95 to-transparent"></div>
 	</div>
+
+	<div
+		class="pointer-events-none absolute inset-x-0 top-[calc(100svh-14rem)] h-64 bg-main-color lg:hidden"
+		aria-hidden="true"
+	></div>
 
 	<div class="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-0">
 		<div
@@ -110,7 +116,7 @@ const stats = [
 				<div class="mt-6 grid grid-cols-3 gap-2 lg:hidden">
 					{stats.slice(1).map((stat) => (
 						<div class="mobile-glass rounded-2xl border px-3 py-3">
-							<span class="block text-xl font-semibold tracking-tight">{stat.value}</span>
+							<span class="gold-text block text-xl font-semibold tracking-tight">{stat.value}</span>
 							<span class="mt-1 block text-[10px] leading-4 text-white/50">{stat.label}</span>
 						</div>
 					))}
@@ -127,7 +133,7 @@ const stats = [
 							<span
 								class:list={[
 									'text-3xl font-semibold tracking-tight sm:text-4xl',
-									stat.highlight ? 'gold-text' : 'text-white',
+									'gold-text',
 								]}
 							>
 								{stat.value}
