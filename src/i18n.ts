@@ -52,7 +52,7 @@ export const ui = {
 			title: 'Почему нас',
 			titleAccent: 'выбирают',
 			items: [
-				{ t: 'Рассрочка через Kaspi RED', d: 'Оформим Kaspi RED прямо при заказе — без переплаты.' },
+				{ t: 'Рассрочка через Kaspi RED', d: 'Оформите заказ удобным для вас способом — без переплат.' },
 				{ t: 'Официальные представители Philips', d: 'Прямые поставки и оригинальная гарантия производителя.' },
 				{ t: 'Гарантия до 24 месяцев', d: 'На всю линейку iLock и Philips — два года.' },
 				{ t: 'Работаем по всему Казахстану', d: '4 филиала и доставка в любой город.' },
@@ -318,7 +318,7 @@ export const ui = {
 			title: 'Бізді неге',
 			titleAccent: 'таңдайды',
 			items: [
-				{ t: 'Kaspi RED арқылы бөліп төлеу', d: 'Тапсырыс кезінде Kaspi RED рәсімдейміз — артық төлемсіз.' },
+				{ t: 'Kaspi RED арқылы бөліп төлеу', d: 'Тапсырысты өзіңізге ыңғайлы тәсілмен рәсімдеңіз — артық төлемсіз.' },
 				{ t: 'Philips ресми өкілі', d: 'Тікелей жеткізу және өндірушінің түпнұсқа кепілдігі.' },
 				{ t: '24 айға дейін кепілдік', d: 'Барлық iLock және Philips желісіне — екі жыл.' },
 				{ t: 'Қазақстан бойынша жұмыс', d: '4 филиал және кез келген қалаға жеткізу.' },
@@ -581,7 +581,7 @@ export const ui = {
 			title: 'Why customers',
 			titleAccent: 'choose us',
 			items: [
-				{ t: 'Instalments with Kaspi RED', d: 'We arrange Kaspi RED as you order — with no markup.' },
+				{ t: 'Instalments with Kaspi RED', d: 'Place your order in the way that suits you — with no markup.' },
 				{ t: 'Official Philips representative', d: 'Direct supply and the original manufacturer warranty.' },
 				{ t: 'Warranty up to 24 months', d: 'Two years across the whole iLock and Philips range.' },
 				{ t: 'We cover all of Kazakhstan', d: '4 branches and delivery to any city.' },
