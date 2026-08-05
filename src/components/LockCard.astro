@@ -23,7 +23,7 @@ const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] 
 	data-brand={lock.brand}
 	class="lock-card group flex min-w-[82vw] snap-start flex-col overflow-hidden rounded-[1.65rem] border border-line bg-secondary-color shadow-[0_28px_70px_-46px_rgba(0,0,0,0.95)] panel-hover sm:min-w-0 sm:rounded-2xl"
 >
-	<div class="relative aspect-[0.92] overflow-hidden bg-white sm:aspect-square">
+	<div class="relative aspect-[0.92] overflow-hidden bg-linear-to-b from-[#d2d2d2] to-[#bdbdbd] sm:aspect-square">
 		<Image
 			src={lock.image}
 			alt={t.product.imgAlt(brandNames[lock.brand], lock.title)}
