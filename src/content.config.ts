@@ -6,7 +6,9 @@ import { glob } from 'astro/loaders';
  * and rendered through the dictionaries in `src/i18n.ts`. Only prose — the short
  * description and the body copy — is written per language.
  */
-const brand = z.enum(['ilock', 'philips', 'smartlock']);
+const brand = z.enum(['ilock', 'philips', 'smartlock', 'safes']);
+
+const kind = z.enum(['lock', 'safe']);
 
 const material = z.enum([
 	'aluminum',
@@ -14,6 +16,7 @@ const material = z.enum([
 	'zinc',
 	'zinc-glass',
 	'steel',
+	'low-carbon-steel',
 ]);
 
 const access = z.enum([
@@ -25,6 +28,7 @@ const access = z.enum([
 	'key',
 	'app',
 	'master-card',
+	'vein',
 ]);
 
 const feature = z.enum([
@@ -36,8 +40,12 @@ const feature = z.enum([
 	'dual-camera',
 	'triple-camera',
 	'voice-change',
+	'voice-ru-kk',
 	'realtime',
 	'pir',
+	'motion',
+	'door-sensor',
+	'night-watch',
 	'auto',
 	'semi-auto',
 	'auto-lock',
@@ -57,6 +65,11 @@ const feature = z.enum([
 	'glass-door',
 	'software',
 	'programmer',
+	'solid-body',
+	'alarm',
+	'storage-sections',
+	'hidden-compartment',
+	'dual-check',
 ]);
 
 const power = z.enum(['aa4', 'li-4200', 'li-5000', 'li-ion', 'li']);
@@ -72,6 +85,8 @@ const color = z.enum([
 	'bronze',
 	'titanium',
 	'coffee',
+	'gray',
+	'white',
 ]);
 
 const prose = z.object({
@@ -87,6 +102,7 @@ const locks = defineCollection({
 		z.object({
 			title: z.string(),
 			brand,
+			kind: kind.default('lock'),
 			/** Sold as an iLock-badged product even though the spec sheet lists another vendor. */
 			kazakhBrand: z.boolean().default(false),
 			comingSoon: z.boolean().default(false),
@@ -110,6 +126,18 @@ const locks = defineCollection({
 			warranty: z.number(),
 			interface: z.array(z.enum(['ru', 'kk', 'en', 'zh'])).nonempty(),
 			colors: z.array(color).nonempty(),
+			variants: z
+				.array(
+					z.object({
+						name: z.string(),
+						price: z.number(),
+						height: z.number().optional(),
+						width: z.number().optional(),
+						depth: z.number().optional(),
+						weight: z.number().optional(),
+					}),
+				)
+				.default([]),
 			ru: prose,
 			kk: prose,
 			en: prose,

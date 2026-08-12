@@ -35,7 +35,7 @@ const related = [
 const monthly = Math.round(lock.price / 12 / 100) * 100;
 
 // "Умный замок Philips DDL 7300" — the model number alone carries no search intent.
-const productName = t.product.h1(brandNames[lock.brand], lock.title);
+const productName = t.product.h1(brandNames[lock.brand], lock.title, lock.kind);
 
 const accessValue = lock.access
 	.map((a) => {
@@ -130,7 +130,7 @@ const breadcrumbLd = {
 			<div class="relative overflow-hidden rounded-3xl border border-line bg-linear-to-b from-[#d2d2d2] to-[#bdbdbd]">
 				<Image
 					src={lock.image}
-					alt={t.product.imgAlt(brandNames[lock.brand], lock.title)}
+					alt={t.product.imgAlt(brandNames[lock.brand], lock.title, lock.kind)}
 					widths={[480, 720, 900]}
 					sizes="(min-width:1024px) 560px, 92vw"
 					class="aspect-square w-full object-contain p-8 sm:p-12"
@@ -195,7 +195,7 @@ const breadcrumbLd = {
 
 				<div class="mt-7">
 					<a
-						href={whatsappLink(t.product.orderMsg(lock.title))}
+						href={whatsappLink(t.product.orderMsg(lock.title, lock.kind))}
 						target="_blank"
 						rel="noopener"
 						class="inline-flex h-14 w-full items-center justify-center rounded-full bg-accent-color px-10 text-base font-semibold text-main-color transition hover:bg-accent-soft sm:w-auto"
@@ -222,7 +222,7 @@ const breadcrumbLd = {
 					lock.features.length > 0 && (
 						<div class="mt-7">
 							<h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">
-								{t.product.features}
+								{lock.kind === 'safe' ? t.product.safeFeatures : t.product.features}
 							</h2>
 							<ul class="mt-4 grid gap-2 sm:grid-cols-2">
 								{lock.features.map((f) => (
@@ -246,6 +246,44 @@ const breadcrumbLd = {
 				}
 			</div>
 		</div>
+
+		{
+			lock.variants.length > 0 && (
+				<div class="mt-14 overflow-hidden rounded-2xl border border-line lg:mt-20">
+					<h2 class="border-b border-line bg-secondary-color px-6 py-4 text-lg font-semibold">
+						{t.product.variants}
+					</h2>
+					<div class="overflow-x-auto">
+						<table class="w-full min-w-[680px] text-left text-sm">
+							<thead class="bg-main-color text-white/45">
+								<tr>
+									<th class="px-6 py-3 font-medium">{t.product.variantModel}</th>
+									<th class="px-6 py-3 font-medium">{t.product.variantPrice}</th>
+									<th class="px-6 py-3 font-medium">{t.product.variantDimensions}</th>
+									<th class="px-6 py-3 font-medium">{t.product.variantWeight}</th>
+								</tr>
+							</thead>
+							<tbody>
+								{lock.variants.map((variant, i) => (
+									<tr class:list={[i % 2 === 0 ? 'bg-secondary-color/60' : 'bg-main-color']}>
+										<td class="px-6 py-4 text-white/85">{variant.name}</td>
+										<td class="px-6 py-4 font-semibold text-accent-color">{formatPrice(variant.price)}</td>
+										<td class="px-6 py-4 text-white/70">
+											{variant.height && variant.width && variant.depth
+												? `${variant.height} × ${variant.width} × ${variant.depth} см`
+												: '—'}
+										</td>
+										<td class="px-6 py-4 text-white/70">
+											{variant.weight ? `${variant.weight} кг` : '—'}
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			)
+		}
 
 		<div class="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
 			<div>

@@ -26,7 +26,7 @@ const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] 
 	<div class="relative aspect-[0.92] overflow-hidden bg-linear-to-b from-[#d2d2d2] to-[#bdbdbd] sm:aspect-square">
 		<Image
 			src={lock.image}
-			alt={t.product.imgAlt(brandNames[lock.brand], lock.title)}
+			alt={t.product.imgAlt(brandNames[lock.brand], lock.title, lock.kind)}
 			widths={[280, 420, 640]}
 			sizes="(min-width:1280px) 320px, (min-width:768px) 40vw, 80vw"
 			class="h-full w-full object-contain p-7 transition-transform duration-500 group-hover:scale-[1.06] sm:p-8"

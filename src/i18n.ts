@@ -23,13 +23,14 @@ export const defaultLang: Lang = 'ru';
 export const langList = Object.keys(languages) as Lang[];
 
 /** Brand groups in the order required by the brief: iLock first, then Philips, then the rest. */
-export const brandOrder = ['ilock', 'philips', 'smartlock'] as const;
+export const brandOrder = ['ilock', 'philips', 'smartlock', 'safes'] as const;
 export type Brand = (typeof brandOrder)[number];
 
 export const brandNames: Record<Brand, string> = {
 	ilock: 'iLock',
 	philips: 'Philips',
 	smartlock: 'Smartlock',
+	safes: 'Philips Safe',
 };
 
 export const ui = {
@@ -142,15 +143,22 @@ export const ui = {
 			specs: 'Технические характеристики',
 			access: 'Способы разблокировки',
 			features: 'Особенности замка',
+			safeFeatures: 'Особенности сейфа',
 			about: 'О модели',
 			order: 'Заказать',
 			ask: 'Спросить в WhatsApp',
 			others: 'Другие модели',
 			related: 'Похожие модели',
 			askMsg: (t: string) => `Здравствуйте! Интересует замок ${t} с сайта iLOCK.`,
-			orderMsg: (t: string) => `Здравствуйте! Хочу заказать данный замок ${t}.`,
+			orderMsg: (t: string, kind = 'lock') =>
+				`Здравствуйте! Хочу заказать ${kind === 'safe' ? 'сейф' : 'данный замок'} ${t}.`,
 			kaspiWord: 'Рассрочка',
 			kaspiTerm: (m: string) => `${m} × 12 мес`,
+			variants: 'Варианты',
+			variantModel: 'Модель',
+			variantPrice: 'Цена',
+			variantDimensions: 'Размеры',
+			variantWeight: 'Вес',
 			rows: {
 				material: 'Корпус',
 				access: 'Методы доступа',
@@ -168,8 +176,10 @@ export const ui = {
 			pcs: 'шт',
 			// The model number alone ("DDL 7300") is not a phrase anyone searches for, so the
 			// H1 and the image alt carry the category and the brand around it.
-			h1: (brand: string, title: string) => `Умный замок ${brand} ${title}`,
-			imgAlt: (brand: string, title: string) => `Умный замок ${brand} ${title}`,
+			h1: (brand: string, title: string, kind = 'lock') =>
+				kind === 'safe' ? `Сейф ${brand} ${title}` : `Умный замок ${brand} ${title}`,
+			imgAlt: (brand: string, title: string, kind = 'lock') =>
+				kind === 'safe' ? `Сейф ${brand} ${title}` : `Умный замок ${brand} ${title}`,
 			// Appended to the per-model description until the snippet limit is reached.
 			metaParts: (price: string, warranty: string) => [
 				price,
@@ -182,6 +192,7 @@ export const ui = {
 			rights: 'Все права защищены',
 			made: 'Официальный представитель Philips в Казахстане',
 			brands: 'Бренды',
+			catalogPdf: 'PDF-каталог',
 		},
 		featured: {
 			eyebrow: 'Витрина',
@@ -191,17 +202,17 @@ export const ui = {
 			all: (n: number) => `Смотреть весь каталог — ${n} моделей`,
 		},
 		catalogPage: {
-			h1: 'Каталог умных замков',
+			h1: 'Каталог умных замков и сейфов',
 			lead: 'Установим без повреждения ваших дверей. Доставка по всему Казахстану. Рассрочка через Kaspi.',
-			seoTitle: 'Каталог умных замков — купить в Казахстане | iLOCK',
+			seoTitle: 'Каталог умных замков и сейфов — купить в Казахстане | iLOCK',
 			seoDescription:
-				'Каталог умных замков в Казахстане: iLock, Philips и Smartlock — 27 моделей от 15 000 ₸. Face ID, отпечаток пальца, Wi-Fi. Гарантия до 2 лет, рассрочка от Kaspi, доставка по всему Казахстану.',
+				'Каталог умных замков и сейфов в Казахстане: iLock, Philips, Smartlock и Philips Safe. Face ID, отпечаток пальца, Wi-Fi, биометрические сейфы. Гарантия до 2 лет, рассрочка Kaspi.',
 		},
 		brandPage: {
 			eyebrow: 'Каталог',
 			models: (n: number) => `${n} ${n % 10 === 1 && n % 100 !== 11 ? 'модель' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'модели' : 'моделей'}`,
 			priceRange: 'Цены',
-			allBrands: 'Все замки',
+			allBrands: 'Все товары',
 			ilock: {
 				h1: 'Умные замки iLock',
 				lead: 'Казахстанский бренд iLock — собственная линейка замков с распознаванием лица и вен ладони, видеоглазком и полностью автоматическим механизмом. Гарантия 2 года, обслуживание бесплатное.',
@@ -223,6 +234,13 @@ export const ui = {
 				seoDescription:
 					'Замки Smartlock в Казахстане: от 15 000 ₸. Биометрия, пин-код и карта, модели для стеклянных и узкопрофильных дверей, гостиниц, шкафчиков и навесные замки.',
 			},
+			safes: {
+				h1: 'Сейфы Philips',
+				lead: 'Линейка Philips Smart Safe: компактные мебельные сейфы, офисные модели и премиальные Valis с биометрией, пин-кодом, аварийным сигналом и гарантией 2 года.',
+				seoTitle: 'Сейфы Philips — купить в Казахстане | iLOCK',
+				seoDescription:
+					'Сейфы Philips Smart Safe в Казахстане: SBX102, SBX202, SBX601, SBX602, SBX701, SBX702 и SBX703 Valis. Биометрия, пин-код, гарантия 2 года, рассрочка Kaspi.',
+			},
 		},
 		homeTitle: 'iLOCK — умные замки Philips и iLock в Казахстане',
 		homeDescription:
@@ -234,6 +252,7 @@ export const ui = {
 				zinc: 'Цинковый сплав',
 				'zinc-glass': 'Цинковый сплав + закалённое стекло',
 				steel: 'Нержавеющая сталь',
+				'low-carbon-steel': 'Низкоуглеродистый сплав',
 			},
 			access: {
 				fingerprint: 'Отпечаток пальца',
@@ -244,6 +263,7 @@ export const ui = {
 				key: 'Механический ключ',
 				app: 'Приложение',
 				'master-card': 'Мастер-карта',
+				vein: 'Распознавание вен на руке',
 			},
 			feature: {
 				wifi: 'Wi-Fi подключение',
@@ -254,8 +274,12 @@ export const ui = {
 				'dual-camera': 'Двусторонняя камера',
 				'triple-camera': 'Трёхсторонняя камера',
 				'voice-change': 'Изменение голоса по видеосвязи',
+				'voice-ru-kk': 'Озвучка на русском и казахском',
 				realtime: 'Мониторинг в реальном времени',
 				pir: 'PIR-датчик приближения',
+				motion: 'Датчик движения',
+				'door-sensor': 'Датчик закрытия двери',
+				'night-watch': 'Ночной часовой',
 				auto: 'Полностью автоматический',
 				'semi-auto': 'Полуавтоматический',
 				'auto-lock': 'Автоматическая блокировка',
@@ -275,6 +299,11 @@ export const ui = {
 				'glass-door': 'Для стеклянных дверей',
 				software: 'Общая программа для замков',
 				programmer: 'Программатор в комплекте',
+				'solid-body': 'Цельный корпус',
+				alarm: 'Аварийный сигнал',
+				'storage-sections': 'Отдельные секции для хранения',
+				'hidden-compartment': 'Скрытый отсек',
+				'dual-check': 'Режим двойной проверки',
 			},
 			power: {
 				aa4: 'Батарейки AA (х4)',
@@ -294,6 +323,8 @@ export const ui = {
 				bronze: 'медно-бронзовый',
 				titanium: 'титаново-серый',
 				coffee: 'кофейный',
+				gray: 'серый',
+				white: 'белый',
 			},
 			iface: { ru: 'русский', kk: 'казахский', en: 'английский', zh: 'китайский' },
 		},
@@ -408,15 +439,22 @@ export const ui = {
 			specs: 'Техникалық сипаттамалар',
 			access: 'Ашу тәсілдері',
 			features: 'Құлып ерекшеліктері',
+			safeFeatures: 'Сейф ерекшеліктері',
 			about: 'Модель туралы',
 			order: 'Тапсырыс беру',
 			ask: 'WhatsApp-та сұрау',
 			others: 'Басқа модельдер',
 			related: 'Ұқсас модельдер',
 			askMsg: (t: string) => `Сәлеметсіз бе! iLOCK сайтындағы ${t} құлыбы қызықтырады.`,
-			orderMsg: (t: string) => `Сәлеметсіз бе! Осы ${t} құлыбына тапсырыс бергім келеді.`,
+			orderMsg: (t: string, kind = 'lock') =>
+				`Сәлеметсіз бе! Осы ${t} ${kind === 'safe' ? 'сейфіне' : 'құлпына'} тапсырыс бергім келеді.`,
 			kaspiWord: 'Бөліп төлеу',
 			kaspiTerm: (m: string) => `${m} × 12 ай`,
+			variants: 'Нұсқалар',
+			variantModel: 'Модель',
+			variantPrice: 'Баға',
+			variantDimensions: 'Өлшемдері',
+			variantWeight: 'Салмағы',
 			rows: {
 				material: 'Корпус',
 				access: 'Қол жеткізу әдістері',
@@ -432,8 +470,10 @@ export const ui = {
 			months: (v: string) => `${v} айға дейін`,
 			upTo: 'дейін',
 			pcs: 'дана',
-			h1: (brand: string, title: string) => `${brand} ${title} ақылды құлпы`,
-			imgAlt: (brand: string, title: string) => `${brand} ${title} ақылды құлпы`,
+			h1: (brand: string, title: string, kind = 'lock') =>
+				kind === 'safe' ? `${brand} ${title} сейфі` : `${brand} ${title} ақылды құлпы`,
+			imgAlt: (brand: string, title: string, kind = 'lock') =>
+				kind === 'safe' ? `${brand} ${title} сейфі` : `${brand} ${title} ақылды құлпы`,
 			metaParts: (price: string, warranty: string) => [
 				price,
 				`кепілдік ${warranty}`,
@@ -445,6 +485,7 @@ export const ui = {
 			rights: 'Барлық құқықтар қорғалған',
 			made: 'Қазақстандағы Philips ресми өкілі',
 			brands: 'Брендтер',
+			catalogPdf: 'PDF-каталог',
 		},
 		featured: {
 			eyebrow: 'Витрина',
@@ -454,17 +495,17 @@ export const ui = {
 			all: (n: number) => `Толық каталогты қарау — ${n} модель`,
 		},
 		catalogPage: {
-			h1: 'Ақылды құлыптар каталогы',
+			h1: 'Ақылды құлыптар мен сейфтер каталогы',
 			lead: 'Есігіңізді зақымдамай орнатамыз. Қазақстан бойынша жеткізу. Kaspi арқылы бөліп төлеу.',
-			seoTitle: 'Ақылды құлыптар каталогы — Қазақстанда сатып алу | iLOCK',
+			seoTitle: 'Ақылды құлыптар мен сейфтер каталогы — Қазақстанда сатып алу | iLOCK',
 			seoDescription:
-				'Қазақстандағы ақылды құлыптар каталогы: iLock, Philips және Smartlock — 15 000 ₸ бастап 27 модель. Face ID, саусақ ізі, Wi-Fi. 2 жылға дейін кепілдік, Kaspi бөліп төлеу.',
+				'Қазақстандағы ақылды құлыптар мен сейфтер каталогы: iLock, Philips, Smartlock және Philips Safe. Face ID, саусақ ізі, Wi-Fi, биометриялық сейфтер. 2 жылға дейін кепілдік, Kaspi бөліп төлеу.',
 		},
 		brandPage: {
 			eyebrow: 'Каталог',
 			models: (n: number) => `${n} модель`,
 			priceRange: 'Бағалар',
-			allBrands: 'Барлық құлыптар',
+			allBrands: 'Барлық тауарлар',
 			ilock: {
 				h1: 'iLock ақылды құлыптары',
 				lead: 'iLock — қазақстандық бренд: бет пен алақан тамырын тану, бейнекөзше және толық автоматты механизм. Кепілдік 2 жыл, қызмет көрсету тегін.',
@@ -486,6 +527,13 @@ export const ui = {
 				seoDescription:
 					'Қазақстанда Smartlock құлыптары: 15 000 ₸ бастап. Биометрия, пин-код және карта, шыны және тар профильді есіктерге, қонақүйлерге, шкафтарға және аспалы құлыптар.',
 			},
+			safes: {
+				h1: 'Philips сейфтері',
+				lead: 'Philips Smart Safe желісі: ықшам жиһаз сейфтері, кеңсе модельдері және биометриясы, пин-коды, авариялық сигналы және 2 жыл кепілдігі бар премиум Valis сериясы.',
+				seoTitle: 'Philips сейфтері — Қазақстанда сатып алу | iLOCK',
+				seoDescription:
+					'Қазақстандағы Philips Smart Safe сейфтері: SBX102, SBX202, SBX601, SBX602, SBX701, SBX702 және SBX703 Valis. Биометрия, пин-код, 2 жыл кепілдік, Kaspi бөліп төлеу.',
+			},
 		},
 		homeTitle: 'iLOCK — Қазақстандағы Philips және iLock ақылды құлыптары',
 		homeDescription:
@@ -497,6 +545,7 @@ export const ui = {
 				zinc: 'Мырыш қорытпасы',
 				'zinc-glass': 'Мырыш қорытпасы + шыңдалған шыны',
 				steel: 'Тот баспайтын болат',
+				'low-carbon-steel': 'Төмен көміртекті қорытпа',
 			},
 			access: {
 				fingerprint: 'Саусақ ізі',
@@ -507,6 +556,7 @@ export const ui = {
 				key: 'Механикалық кілт',
 				app: 'Қосымша',
 				'master-card': 'Мастер-карта',
+				vein: 'Қол тамырын тану',
 			},
 			feature: {
 				wifi: 'Wi-Fi қосылымы',
@@ -517,8 +567,12 @@ export const ui = {
 				'dual-camera': 'Екіжақты камера',
 				'triple-camera': 'Үшжақты камера',
 				'voice-change': 'Бейнебайланыста дауысты өзгерту',
+				'voice-ru-kk': 'Орыс және қазақ тіліндегі дыбыстау',
 				realtime: 'Нақты уақыттағы мониторинг',
 				pir: 'PIR жақындау датчигі',
+				motion: 'Қозғалыс датчигі',
+				'door-sensor': 'Есіктің жабылу датчигі',
+				'night-watch': 'Түнгі қарауыл',
 				auto: 'Толық автоматты',
 				'semi-auto': 'Жартылай автоматты',
 				'auto-lock': 'Автоматты бұғаттау',
@@ -538,6 +592,11 @@ export const ui = {
 				'glass-door': 'Шыны есіктерге',
 				software: 'Құлыптарға ортақ бағдарлама',
 				programmer: 'Жинақта бағдарламалағыш',
+				'solid-body': 'Тұтас корпус',
+				alarm: 'Авариялық сигнал',
+				'storage-sections': 'Бөлек сақтау секциялары',
+				'hidden-compartment': 'Жасырын бөлім',
+				'dual-check': 'Қос тексеру режимі',
 			},
 			power: {
 				aa4: 'AA батареялары (х4)',
@@ -557,6 +616,8 @@ export const ui = {
 				bronze: 'мыс-қола',
 				titanium: 'титан-сұр',
 				coffee: 'кофе',
+				gray: 'сұр',
+				white: 'ақ',
 			},
 			iface: { ru: 'орысша', kk: 'қазақша', en: 'ағылшынша', zh: 'қытайша' },
 		},
@@ -671,15 +732,22 @@ export const ui = {
 			specs: 'Technical specifications',
 			access: 'Unlocking methods',
 			features: 'Lock features',
+			safeFeatures: 'Safe features',
 			about: 'About the model',
 			order: 'Order',
 			ask: 'Ask on WhatsApp',
 			others: 'Other models',
 			related: 'Similar models',
 			askMsg: (t: string) => `Hello! I'm interested in the ${t} lock from the iLOCK website.`,
-			orderMsg: (t: string) => `Hello! I'd like to order the ${t} lock.`,
+			orderMsg: (t: string, kind = 'lock') =>
+				`Hello! I'd like to order the ${t} ${kind === 'safe' ? 'safe' : 'lock'}.`,
 			kaspiWord: 'Instalment',
 			kaspiTerm: (m: string) => `${m} × 12 mo`,
+			variants: 'Variants',
+			variantModel: 'Model',
+			variantPrice: 'Price',
+			variantDimensions: 'Dimensions',
+			variantWeight: 'Weight',
 			rows: {
 				material: 'Body',
 				access: 'Access methods',
@@ -695,8 +763,10 @@ export const ui = {
 			months: (v: string) => `up to ${v} months`,
 			upTo: 'up to',
 			pcs: 'pcs',
-			h1: (brand: string, title: string) => `${brand} ${title} smart lock`,
-			imgAlt: (brand: string, title: string) => `${brand} ${title} smart lock`,
+			h1: (brand: string, title: string, kind = 'lock') =>
+				kind === 'safe' ? `${brand} ${title} safe` : `${brand} ${title} smart lock`,
+			imgAlt: (brand: string, title: string, kind = 'lock') =>
+				kind === 'safe' ? `${brand} ${title} safe` : `${brand} ${title} smart lock`,
 			metaParts: (price: string, warranty: string) => [
 				price,
 				`${warranty} warranty`,
@@ -708,6 +778,7 @@ export const ui = {
 			rights: 'All rights reserved',
 			made: 'Official Philips representative in Kazakhstan',
 			brands: 'Brands',
+			catalogPdf: 'PDF catalog',
 		},
 		featured: {
 			eyebrow: 'Showcase',
@@ -717,17 +788,17 @@ export const ui = {
 			all: (n: number) => `See the full catalog — ${n} models`,
 		},
 		catalogPage: {
-			h1: 'Smart lock catalog',
+			h1: 'Smart locks and safes catalog',
 			lead: 'Installed without damaging your door. Delivery across Kazakhstan. Kaspi instalments.',
-			seoTitle: 'Smart lock catalog — buy in Kazakhstan | iLOCK',
+			seoTitle: 'Smart locks and safes catalog — buy in Kazakhstan | iLOCK',
 			seoDescription:
-				'Smart lock catalog in Kazakhstan: iLock, Philips and Smartlock — 27 models from 15,000 ₸. Face ID, fingerprint, Wi-Fi. Up to 2 years warranty, Kaspi instalments, delivery nationwide.',
+				'Smart locks and safes in Kazakhstan: iLock, Philips, Smartlock and Philips Safe. Face ID, fingerprint, Wi-Fi and biometric safes. Up to 2 years warranty, Kaspi instalments.',
 		},
 		brandPage: {
 			eyebrow: 'Catalog',
 			models: (n: number) => `${n} ${n === 1 ? 'model' : 'models'}`,
 			priceRange: 'Prices',
-			allBrands: 'All locks',
+			allBrands: 'All products',
 			ilock: {
 				h1: 'iLock smart locks',
 				lead: 'iLock is our own Kazakhstani brand — locks with face and palm-vein recognition, a video peephole and a fully automatic mechanism. Two-year warranty and free servicing.',
@@ -749,6 +820,13 @@ export const ui = {
 				seoDescription:
 					'Smartlock locks in Kazakhstan from 15,000 ₸. Biometrics, PIN and card entry, models for glass and narrow-profile doors, hotels, lockers, plus padlocks.',
 			},
+			safes: {
+				h1: 'Philips safes',
+				lead: 'The Philips Smart Safe range: compact drawer safes, office models and premium Valis safes with biometrics, PIN entry, emergency alarm and a two-year warranty.',
+				seoTitle: 'Philips safes — buy in Kazakhstan | iLOCK',
+				seoDescription:
+					'Philips Smart Safe in Kazakhstan: SBX102, SBX202, SBX601, SBX602, SBX701, SBX702 and SBX703 Valis. Biometrics, PIN entry, 2-year warranty, Kaspi instalments.',
+			},
 		},
 		homeTitle: 'iLOCK — Philips and iLock smart locks in Kazakhstan',
 		homeDescription:
@@ -760,6 +838,7 @@ export const ui = {
 				zinc: 'Zinc alloy',
 				'zinc-glass': 'Zinc alloy + tempered glass',
 				steel: 'Stainless steel',
+				'low-carbon-steel': 'Low-carbon alloy',
 			},
 			access: {
 				fingerprint: 'Fingerprint',
@@ -770,6 +849,7 @@ export const ui = {
 				key: 'Mechanical key',
 				app: 'Mobile app',
 				'master-card': 'Master card',
+				vein: 'Hand-vein recognition',
 			},
 			feature: {
 				wifi: 'Wi-Fi connection',
@@ -780,8 +860,12 @@ export const ui = {
 				'dual-camera': 'Dual camera',
 				'triple-camera': 'Triple camera',
 				'voice-change': 'Voice changer on video calls',
+				'voice-ru-kk': 'Russian and Kazakh voice prompts',
 				realtime: 'Real-time monitoring',
 				pir: 'PIR proximity sensor',
+				motion: 'Motion sensor',
+				'door-sensor': 'Door closing sensor',
+				'night-watch': 'Night watch mode',
 				auto: 'Fully automatic',
 				'semi-auto': 'Semi-automatic',
 				'auto-lock': 'Automatic locking',
@@ -801,6 +885,11 @@ export const ui = {
 				'glass-door': 'For glass doors',
 				software: 'Shared lock software',
 				programmer: 'Programmer included',
+				'solid-body': 'Solid body',
+				alarm: 'Emergency alarm',
+				'storage-sections': 'Separate storage sections',
+				'hidden-compartment': 'Hidden compartment',
+				'dual-check': 'Dual verification mode',
 			},
 			power: {
 				aa4: 'AA batteries (x4)',
@@ -820,6 +909,8 @@ export const ui = {
 				bronze: 'copper bronze',
 				titanium: 'titanium grey',
 				coffee: 'coffee',
+				gray: 'grey',
+				white: 'white',
 			},
 			iface: { ru: 'Russian', kk: 'Kazakh', en: 'English', zh: 'Chinese' },
 		},

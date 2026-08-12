@@ -1,0 +1,64 @@
+---
+title: "SBX703 Valis"
+brand: "safes"
+kind: "safe"
+price: 1700000
+priceTo: 13900000
+image: "../../assets/images/locks/sbx703-valis.png"
+order: 7
+featured: true
+material: "low-carbon-steel"
+access:
+  - "vein"
+  - "pin"
+limits:
+  vein: 30
+  pin: 10
+features:
+  - "solid-body"
+  - "alarm"
+  - "storage-sections"
+  - "dual-check"
+temp:
+  min: 0
+  max: 45
+power: "aa4"
+battery: "6-12"
+warranty: 2
+interface:
+  - "en"
+  - "zh"
+colors:
+  - "gray"
+  - "gold"
+variants:
+  - { name: "5BU", price: 1700000, height: 57.5, width: 43, depth: 40, weight: 93 }
+  - { name: "6BU", price: 2000000, height: 67.5, width: 47, depth: 42, weight: 113 }
+  - { name: "8BU", price: 2600000, height: 87.5, width: 53, depth: 48, weight: 163 }
+  - { name: "Pro", price: 9900000, height: 117.5, width: 63, depth: 55, weight: 254 }
+  - { name: "Max", price: 13900000, height: 157.5, width: 68, depth: 58, weight: 358 }
+ru:
+  description: "Премиальная серия Philips SBX703 Valis с распознаванием вен на руке и ценой до 13 900 000 ₸."
+  seoTitle: "Philips SBX703 Valis — купить премиальный сейф в Казахстане | iLOCK"
+  seoDescription: "Philips SBX703 Valis 5BU, 6BU, 8BU, Pro, Max: распознавание вен на руке, пин-код, 93–358 кг."
+  body: >-
+    SBX703 Valis — премиальная серия Philips Smart Safe. Вместо отпечатка используется
+    распознавание вен на руке до 30 пользователей, а линейка охватывает модели от 5BU до массивного
+    Max весом 358 кг.
+kk:
+  description: "Philips SBX703 Valis премиум сериясы: қол тамырын тану және бағасы 13 900 000 ₸ дейін."
+  seoTitle: "Philips SBX703 Valis — Қазақстанда премиум сейф сатып алу | iLOCK"
+  seoDescription: "Philips SBX703 Valis 5BU, 6BU, 8BU, Pro, Max: қол тамырын тану, пин-код, 93–358 кг."
+  body: >-
+    SBX703 Valis — Philips Smart Safe премиум сериясы. Саусақ ізінің орнына 30 пайдаланушыға дейін
+    қол тамырын тану қолданылады, ал желі 5BU моделінен салмағы 358 кг массивті Max нұсқасына дейін
+    қамтиды.
+en:
+  description: "The premium Philips SBX703 Valis series with hand-vein recognition and prices up to 13,900,000 ₸."
+  seoTitle: "Philips SBX703 Valis — buy a premium safe in Kazakhstan | iLOCK"
+  seoDescription: "Philips SBX703 Valis 5BU, 6BU, 8BU, Pro, Max: hand-vein recognition, PIN entry, 93–358 kg."
+  body: >-
+    SBX703 Valis is the premium Philips Smart Safe series. Instead of fingerprints it uses hand-vein
+    recognition for up to 30 users, with models ranging from 5BU to the massive 358 kg Max.
+
+---

@@ -41,7 +41,7 @@ const itemListLd = {
 		position: i + 1,
 		item: {
 			'@type': 'Product',
-			name: t.product.h1(brandNames[lock.brand], lock.title),
+			name: t.product.h1(brandNames[lock.brand], lock.title, lock.kind),
 			description: lock.description,
 			brand: { '@type': 'Brand', name: brandNames[lock.brand] },
 			url: abs(`${homePath}catalog/${lock.slug}/`),

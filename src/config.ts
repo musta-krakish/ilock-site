@@ -22,5 +22,5 @@ export function whatsappLink(message: string) {
  */
 export function formatPrice(value: number, to?: number) {
 	const one = (n: number) => n.toLocaleString('ru-RU');
-	return to ? `${one(value)}–${one(to)} ₸` : `${one(value)} ₸`;
+	return to ? `${one(value)}–${one(to)}\u00a0₸` : `${one(value)}\u00a0₸`;
 }

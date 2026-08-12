@@ -25,6 +25,9 @@ const year = new Date().getFullYear();
 		<div class="flex flex-wrap gap-x-12 gap-y-6">
 			<nav class="flex flex-col gap-3 text-sm text-white/60">
 				<a class="transition hover:text-accent-color" href={`${homePath}catalog/`}>{t.nav.catalog}</a>
+				<a class="transition hover:text-accent-color" href="/catalog.pdf" target="_blank" rel="noopener">
+					{t.footer.catalogPdf}
+				</a>
 				<a class="transition hover:text-accent-color" href={`${homePath}#about`}>{t.nav.about}</a>
 				<a class="transition hover:text-accent-color" href={`${homePath}#contact`}>{t.nav.contact}</a>
 				<a class="transition hover:text-accent-color" href={`tel:${site.phones[0].tel}`}>
