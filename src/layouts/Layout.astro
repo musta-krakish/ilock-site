@@ -37,10 +37,12 @@ const ogLocale = hreflangCodes[lang].replace('-', '_');
 
 const homePath = getLocalePath(lang);
 const currentPath = Astro.url.pathname;
+const orderHref = `${homePath}#lead`;
 
 const navLinks = [
 	{ href: `${homePath}catalog/`, label: t.nav.catalog },
 	{ href: `${homePath}#about`, label: t.nav.about },
+	{ href: `${homePath}faq/`, label: t.nav.faq },
 	{ href: `${homePath}#contact`, label: t.nav.contact },
 ];
 
@@ -66,7 +68,7 @@ const organizationLd = {
 	currenciesAccepted: 'KZT',
 	address: {
 		'@type': 'PostalAddress',
-		streetAddress: 'ул. Куйши Дина, 23/1',
+		streetAddress: site.branches[0].address,
 		addressLocality: 'Астана',
 		addressCountry: 'KZ',
 	},
@@ -92,7 +94,7 @@ const organizationLd = {
 		areaServed: 'KZ',
 		availableLanguage: ['ru', 'kk', 'en'],
 	})),
-	sameAs: [site.instagramUrl, `https://wa.me/${site.whatsapp}`],
+	sameAs: [site.instagramUrl, site.youtubeUrl, `https://wa.me/${site.whatsapp}`],
 };
 ---
 
@@ -195,7 +197,7 @@ const organizationLd = {
 					</div>
 
 					<a
-						href={'#lead'}
+						href={orderHref}
 						class="hidden h-11 items-center rounded-full bg-accent-color px-6 text-sm font-semibold text-main-color transition hover:bg-accent-soft lg:inline-flex"
 					>
 						{t.nav.order}
@@ -234,7 +236,7 @@ const organizationLd = {
 
 					<a
 						data-menu-link
-						href={'#lead'}
+						href={orderHref}
 						class="mt-5 inline-flex h-14 w-full items-center justify-center rounded-full bg-accent-color px-7 py-3 font-semibold text-main-color shadow-[0_18px_40px_-20px_rgba(223,166,32,0.95)]"
 					>
 						{t.nav.order}
@@ -294,7 +296,7 @@ const organizationLd = {
 				{t.nav.catalog}
 			</a>
 			<a
-				href="#lead"
+				href={orderHref}
 				class="inline-flex h-11 items-center justify-center rounded-full bg-accent-color px-2.5 text-[13px] font-semibold text-main-color"
 			>
 				{quickOrderLabel[lang]}

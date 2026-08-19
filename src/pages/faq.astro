@@ -1,0 +1,12 @@
+---
+import Faq from '../components/Faq.astro';
+import Layout from '../layouts/Layout.astro';
+import { defaultLang, ui } from '../i18n';
+
+const lang = defaultLang;
+const copy = ui[lang].faq;
+---
+
+<Layout lang={lang} title={copy.pageTitle} description={copy.pageDescription}>
+	<Faq lang={lang} standalone />
+</Layout>

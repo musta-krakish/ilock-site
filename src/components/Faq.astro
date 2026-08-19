@@ -1,0 +1,88 @@
+---
+import { getCollection, render } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+import { type Lang, ui } from '../i18n';
+
+interface Props {
+	lang?: Lang;
+	standalone?: boolean;
+}
+
+const { lang = 'ru', standalone = false } = Astro.props;
+const t = ui[lang];
+const faqItems = await Promise.all(
+	(await getCollection('faq'))
+		.filter((item) => item.data.lang === lang)
+		.sort((a, b) => a.data.order - b.data.order)
+		.map(async (item) => ({
+			...item.data,
+			Content: (await render(item)).Content,
+		})),
+);
+---
+
+<section
+	id="faq"
+	class:list={[
+		'bg-ink px-5 py-10 sm:px-8 sm:py-14 lg:px-12',
+		standalone && 'pt-28 sm:pt-32',
+	]}
+>
+	<div class="mx-auto max-w-7xl">
+		<SectionHeading
+			eyebrow={t.faq.eyebrow}
+			title={t.faq.title}
+			accent={t.faq.titleAccent}
+			class="reveal"
+		/>
+
+		{
+			standalone && (
+				<div class="reveal mt-10 grid gap-4 sm:mt-12 lg:grid-cols-2">
+					{t.faq.sections.map((section) => (
+						<article class="rounded-2xl border border-accent-color/25 bg-secondary-color p-6 shadow-[0_20px_70px_-45px_rgba(223,166,32,0.75)] sm:p-7">
+							<h2 class="text-2xl font-semibold text-white">{section.title}</h2>
+							<p class="mt-4 text-base leading-7 text-white/58">{section.text}</p>
+							<ul class="mt-6 grid gap-3 text-sm font-medium text-white/72">
+								{section.items.map((item) => (
+									<li class="flex gap-3">
+										<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent-color" />
+										<span>{item}</span>
+									</li>
+								))}
+							</ul>
+						</article>
+					))}
+				</div>
+			)
+		}
+
+		<div class="reveal mt-10 grid gap-3 sm:mt-12 lg:grid-cols-2">
+			{
+				faqItems.map((item) => (
+					<details class="faq-item group rounded-2xl border border-line bg-secondary-color/72 transition open:border-accent-color/45">
+						<summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-base font-semibold leading-snug text-white transition hover:text-accent-color sm:px-6">
+							<span>{item.question}</span>
+							<span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-lg text-white/45 transition group-open:rotate-45 group-open:border-accent-color group-open:text-accent-color">
+								+
+							</span>
+						</summary>
+						<div class="faq-answer px-5 pb-5 text-sm leading-7 text-white/55 sm:px-6 sm:text-base">
+							<item.Content />
+						</div>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-answer :global(p) {
+		margin: 0;
+	}
+</style>

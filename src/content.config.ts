@@ -6,7 +6,7 @@ import { glob } from 'astro/loaders';
  * and rendered through the dictionaries in `src/i18n.ts`. Only prose — the short
  * description and the body copy — is written per language.
  */
-const brand = z.enum(['ilock', 'philips', 'smartlock', 'safes']);
+const brand = z.enum(['ilock', 'philips', 'smartlock', 'safes', 'tiger']);
 
 const kind = z.enum(['lock', 'safe']);
 
@@ -70,6 +70,7 @@ const feature = z.enum([
 	'storage-sections',
 	'hidden-compartment',
 	'dual-check',
+	'wall-mount',
 ]);
 
 const power = z.enum(['aa4', 'li-4200', 'li-5000', 'li-ion', 'li']);
@@ -124,6 +125,7 @@ const locks = defineCollection({
 			battery: z.string(),
 			app: z.string().optional(),
 			warranty: z.number(),
+			origin: z.object({ ru: z.string(), kk: z.string(), en: z.string() }).optional(),
 			interface: z.array(z.enum(['ru', 'kk', 'en', 'zh'])).nonempty(),
 			colors: z.array(color).nonempty(),
 			variants: z
@@ -144,4 +146,13 @@ const locks = defineCollection({
 		}),
 });
 
-export const collections = { locks };
+const faq = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/faq' }),
+	schema: z.object({
+		lang: z.enum(['ru', 'kk', 'en']),
+		order: z.number(),
+		question: z.string(),
+	}),
+});
+
+export const collections = { locks, faq };

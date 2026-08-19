@@ -9,8 +9,6 @@ interface Props {
 
 const { lang = 'ru' } = Astro.props;
 const t = ui[lang];
-
-const mapQuery = encodeURIComponent('Астана, улица Куйши Дина 23/1');
 ---
 
 <section id="contact" class="border-t border-line bg-ink px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
@@ -55,9 +53,23 @@ const mapQuery = encodeURIComponent('Астана, улица Куйши Дин�
 
 						<div>
 							<dt class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">
-								{t.contact.address}
+								{t.contact.branches}
 							</dt>
-							<dd class="mt-2 text-lg leading-7 text-white">{site.address}</dd>
+							<dd class="mt-3 grid gap-3">
+								{
+									site.branches.map((branch) => (
+										<div class="rounded-xl border border-line/80 bg-main-color/35 px-4 py-3">
+											<p class="text-lg font-semibold text-white">{branch.city}</p>
+											<p class="mt-1 text-base leading-6 text-white/70">{branch.address}</p>
+											{'floor' in branch && (
+												<p class="mt-1 text-sm text-white/45">
+													{t.contact.floor}: {branch.floor}
+												</p>
+											)}
+										</div>
+									))
+								}
+							</dd>
 						</div>
 
 						<div>
@@ -95,10 +107,10 @@ const mapQuery = encodeURIComponent('Астана, улица Куйши Дин�
 					<span class="ml-auto text-white/30 transition group-hover:text-[#25D366]">→</span>
 				</a>
 
-				<a
-					href={site.instagramUrl}
-					target="_blank"
-					rel="noopener noreferrer"
+					<a
+						href={site.instagramUrl}
+						target="_blank"
+						rel="noopener noreferrer"
 					class="group flex items-center gap-4 rounded-2xl border border-line bg-secondary-color p-6 transition hover:border-accent-color/60"
 				>
 					<span
@@ -114,18 +126,42 @@ const mapQuery = encodeURIComponent('Астана, улица Куйши Дин�
 						<span class="block font-semibold text-white">{t.contact.instagram}</span>
 						<span class="block text-sm text-white/45">@{site.instagram}</span>
 					</span>
-					<span class="ml-auto text-white/30 transition group-hover:text-accent-color">→</span>
-				</a>
-			</div>
+						<span class="ml-auto text-white/30 transition group-hover:text-accent-color">→</span>
+					</a>
 
-			<div class="reveal min-h-80 overflow-hidden rounded-2xl border border-line bg-secondary-color lg:min-h-full">
-				<iframe
-					title={site.address}
-					src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"
-					class="h-full min-h-80 w-full grayscale-[0.5] contrast-[1.1]"
-				></iframe>
+					<a
+						href={site.youtubeUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group flex items-center gap-4 rounded-2xl border border-line bg-secondary-color p-6 transition hover:border-[#ff0033]/60"
+					>
+						<span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#ff0033]">
+							<svg viewBox="0 0 24 24" class="h-6 w-6 fill-white" aria-hidden="true">
+								<path d="M21.58 7.19a2.64 2.64 0 0 0-1.86-1.87C18.08 4.88 11.5 4.88 11.5 4.88s-6.58 0-8.22.44a2.64 2.64 0 0 0-1.86 1.87A27.3 27.3 0 0 0 1 12.2a27.3 27.3 0 0 0 .42 5.01 2.64 2.64 0 0 0 1.86 1.87c1.64.44 8.22.44 8.22.44s6.58 0 8.22-.44a2.64 2.64 0 0 0 1.86-1.87A27.3 27.3 0 0 0 22 12.2a27.3 27.3 0 0 0-.42-5.01ZM9.36 15.31V9.09l5.47 3.11-5.47 3.11Z" />
+							</svg>
+						</span>
+						<span class="min-w-0">
+							<span class="block font-semibold text-white">{t.contact.youtube}</span>
+							<span class="block text-sm text-white/45">{site.youtube}</span>
+						</span>
+						<span class="ml-auto text-white/30 transition group-hover:text-[#ff0033]">→</span>
+					</a>
+				</div>
+
+			<div class="reveal grid gap-4">
+				{
+					site.branches.map((branch) => (
+						<div class="min-h-72 overflow-hidden rounded-2xl border border-line bg-secondary-color">
+							<iframe
+								title={`${branch.city}, ${branch.address}`}
+								src={`https://www.google.com/maps?q=${encodeURIComponent(branch.mapQuery)}&output=embed`}
+								loading="lazy"
+								referrerpolicy="no-referrer-when-downgrade"
+								class="h-full min-h-72 w-full grayscale-[0.5] contrast-[1.1]"
+							/>
+						</div>
+					))
+				}
 			</div>
 		</div>
 	</div>

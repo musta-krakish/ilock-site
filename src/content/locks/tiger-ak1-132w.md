@@ -1,0 +1,56 @@
+---
+title: "AK1 132W"
+brand: "tiger"
+kind: "safe"
+price: 420000
+image: "../../assets/images/locks/tiger-ak1-132w.png"
+order: 1
+material: "steel"
+access:
+  - "fingerprint"
+  - "pin"
+  - "key"
+limits: {}
+features:
+  - "wall-mount"
+  - "storage-sections"
+temp:
+  min: 0
+  max: 40
+power: "aa4"
+battery: "6-12"
+warranty: 1
+origin:
+  ru: "Китай"
+  kk: "Қытай"
+  en: "China"
+interface:
+  - "en"
+  - "zh"
+colors:
+  - "black"
+variants:
+  - { name: "AK1 132W", price: 420000, height: 132, width: 54, depth: 39 }
+ru:
+  description: "Оружейный сейф Tiger AK1 132W с обязательным креплением к стене, высотой 132 см и ценой 420 000 ₸."
+  seoTitle: "Tiger AK1 132W — купить оружейный сейф в Казахстане | iLOCK"
+  seoDescription: "Оружейный сейф Tiger AK1 132W: 132×54×39 см, обязательное крепление к стене, производство Китай, цена 420 000 ₸."
+  body: >-
+    Tiger AK1 132W — высокий оружейный сейф для хранения с обязательным креплением к стене.
+    Размеры корпуса: В1320 × Ш540 × Г390 мм. Модель производится в Китае и стоит 420 000 ₸.
+kk:
+  description: "Tiger AK1 132W қару-жарақ сейфі: қабырғаға міндетті бекіту, биіктігі 132 см және бағасы 420 000 ₸."
+  seoTitle: "Tiger AK1 132W — Қазақстанда қару-жарақ сейфін сатып алу | iLOCK"
+  seoDescription: "Tiger AK1 132W қару-жарақ сейфі: 132×54×39 см, қабырғаға міндетті бекіту, Қытай өндірісі, бағасы 420 000 ₸."
+  body: >-
+    Tiger AK1 132W — қабырғаға міндетті түрде бекітілетін биік қару-жарақ сейфі.
+    Корпус өлшемдері: Б1320 × Е540 × Т390 мм. Модель Қытайда өндіріледі және бағасы 420 000 ₸.
+en:
+  description: "Tiger AK1 132W gun safe with mandatory wall mounting, 132 cm height and a 420,000 ₸ price."
+  seoTitle: "Tiger AK1 132W — buy a gun safe in Kazakhstan | iLOCK"
+  seoDescription: "Tiger AK1 132W gun safe: 132×54×39 cm, mandatory wall mounting, made in China, price 420,000 ₸."
+  body: >-
+    Tiger AK1 132W is a tall gun safe for firearm storage with mandatory wall mounting.
+    Body dimensions are H1320 × W540 × D390 mm. The model is made in China and costs 420,000 ₸.
+
+---

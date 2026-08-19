@@ -40,9 +40,9 @@ interface:
 colors:
   - "black"
 ru:
-  description: "Флагман казахстанского бренда iLock: распознавание лица и вен ладони, видеоглазок и полностью автоматический замок."
+  description: "Флагман бренда iLock: распознавание лица и вен ладони, видеоглазок и полностью автоматический замок."
   seoTitle: "iL-8 — купить умный замок iLock в Казахстане | iLOCK"
-  seoDescription: "Флагман казахстанского бренда iLock: распознавание лица и вен ладони, видеоглазок и полностью автоматический замок."
+  seoDescription: "Флагман бренда iLock: распознавание лица и вен ладони, видеоглазок и полностью автоматический замок."
   body: >-
     iL-8 — флагман собственного бренда iLock. Помимо отпечатка и пин-кода он открывается по лицу и
     по венам ладони, а встроенный видеоглазок с двусторонней аудиосвязью позволяет говорить с гостем
@@ -50,9 +50,9 @@ ru:
     запитать через аварийную зарядку.
 
 kk:
-  description: "iLock қазақстандық брендінің флагманы: бет пен алақан тамырын тану, бейнекөзше және толық автоматты құлып."
+  description: "iLock брендінің флагманы: бет пен алақан тамырын тану, бейнекөзше және толық автоматты құлып."
   seoTitle: "iL-8 — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
-  seoDescription: "iLock қазақстандық брендінің флагманы: бет пен алақан тамырын тану, бейнекөзше және толық автоматты құлып."
+  seoDescription: "iLock брендінің флагманы: бет пен алақан тамырын тану, бейнекөзше және толық автоматты құлып."
   body: >-
     iL-8 — iLock меншікті брендінің флагманы. Саусақ ізі мен пин-кодтан бөлек ол бет және алақан
     тамыры арқылы ашылады, ал кірістірілген бейнекөзше екіжақты аудиобайланыспен қонақпен смартфон
@@ -60,9 +60,9 @@ kk:
     құлыпты авариялық қуаттандыру арқылы қосуға болады.
 
 en:
-  description: "The flagship of the Kazakhstani iLock brand: face and palm-vein recognition, a video peephole and a fully automatic lock."
+  description: "The flagship of the iLock brand: face and palm-vein recognition, a video peephole and a fully automatic lock."
   seoTitle: "iL-8 — buy an iLock smart lock in Kazakhstan | iLOCK"
-  seoDescription: "The flagship of the Kazakhstani iLock brand: face and palm-vein recognition, a video peephole and a fully automatic lock."
+  seoDescription: "The flagship of the iLock brand: face and palm-vein recognition, a video peephole and a fully automatic lock."
   body: >-
     iL-8 is the flagship of our own iLock brand. Beyond fingerprint and PIN it opens by face and by
     palm vein, while the built-in video peephole with two-way audio lets you speak to a guest from

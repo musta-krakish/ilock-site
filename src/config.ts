@@ -5,11 +5,26 @@ export const site = {
 	],
 	email: 'ilock.kz@gmail.com',
 	address: 'г. Астана, ул. Куйши Дина, 23/1',
+	branches: [
+		{
+			city: 'Астана',
+			address: 'ул. Куйши Дина, 23/1',
+			mapQuery: 'Астана, улица Куйши Дина 23/1',
+		},
+		{
+			city: 'Алматы',
+			address: 'ул. Айтиева, 154/1',
+			floor: '1 этаж',
+			mapQuery: 'Алматы, улица Айтиева 154/1',
+		},
+	],
 	whatsapp: '77773000558',
 	instagram: 'ilock.kz',
 	instagramUrl: 'https://instagram.com/ilock.kz',
+	youtube: '@ilock_kz',
+	youtubeUrl: 'https://www.youtube.com/@ilock_kz',
 	hours: { weekdays: '10:00–19:00', weekend: '12:00–16:00' },
-	stats: { years: 6, branches: 4, warranty: 2, choiceYear: 2022 },
+	stats: { years: 6, branches: 2, warranty: 2, choiceYear: 2022 },
 } as const;
 
 export function whatsappLink(message: string) {

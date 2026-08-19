@@ -16,11 +16,44 @@ const homePath = getLocalePath(lang);
 const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] as const)
 	.filter((a) => lock.access.includes(a))
 	.slice(0, 3);
+
+const cardFilterValues = new Set<string>();
+const hasAnyColor = (colors: typeof lock.colors) => colors.some((color) => lock.colors.includes(color));
+const hasAnyFeature = (features: typeof lock.features) => features.some((feature) => lock.features.includes(feature));
+
+if (lock.kind === 'lock') {
+	if (hasAnyColor(['gray', 'silver', 'titanium'])) cardFilterValues.add('color-gray');
+	if (hasAnyColor(['black', 'matte-black', 'charcoal', 'obsidian'])) cardFilterValues.add('color-black');
+	if (hasAnyColor(['bronze', 'copper', 'coffee'])) cardFilterValues.add('color-bronze');
+	if (hasAnyColor(['gold'])) cardFilterValues.add('color-gold');
+
+	if (lock.access.includes('face')) cardFilterValues.add('access-face');
+	if (lock.access.includes('palm') || lock.access.includes('vein')) cardFilterValues.add('access-palm');
+	if (lock.features.includes('wifi')) cardFilterValues.add('connection-wifi');
+	if (lock.features.includes('bluetooth')) cardFilterValues.add('connection-bluetooth');
+
+	if (hasAnyFeature(['push-pull', 'auto', 'auto-lock']) || lock.access.includes('face') || lock.access.includes('palm')) {
+		cardFilterValues.add('handle-modern');
+	} else {
+		cardFilterValues.add('handle-classic');
+	}
+
+	if (hasAnyFeature(['auto', 'auto-lock'])) {
+		cardFilterValues.add('mechanism-auto');
+	} else if (lock.features.includes('semi-auto')) {
+		cardFilterValues.add('mechanism-semi');
+	} else {
+		cardFilterValues.add('mechanism-ordinary');
+	}
+}
 ---
 
 <a
 	href={`${homePath}catalog/${lock.slug}/`}
 	data-brand={lock.brand}
+	data-kind={lock.kind}
+	data-filter-values={Array.from(cardFilterValues).join(' ')}
+	data-search-name={`${brandNames[lock.brand]} ${lock.title}`.toLowerCase()}
 	class="lock-card group flex min-w-[82vw] snap-start flex-col overflow-hidden rounded-[1.65rem] border border-line bg-secondary-color shadow-[0_28px_70px_-46px_rgba(0,0,0,0.95)] panel-hover sm:min-w-0 sm:rounded-2xl"
 >
 	<div class="relative aspect-[0.92] overflow-hidden bg-linear-to-b from-[#d2d2d2] to-[#bdbdbd] sm:aspect-square">

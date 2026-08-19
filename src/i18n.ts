@@ -23,7 +23,7 @@ export const defaultLang: Lang = 'ru';
 export const langList = Object.keys(languages) as Lang[];
 
 /** Brand groups in the order required by the brief: iLock first, then Philips, then the rest. */
-export const brandOrder = ['ilock', 'philips', 'smartlock', 'safes'] as const;
+export const brandOrder = ['ilock', 'philips', 'smartlock', 'safes', 'tiger'] as const;
 export type Brand = (typeof brandOrder)[number];
 
 export const brandNames: Record<Brand, string> = {
@@ -31,11 +31,12 @@ export const brandNames: Record<Brand, string> = {
 	philips: 'Philips',
 	smartlock: 'Smartlock',
 	safes: 'Philips Safe',
+	tiger: 'Tiger',
 };
 
 export const ui = {
 	ru: {
-		nav: { catalog: 'Каталог', about: 'О компании', contact: 'Контакты', order: 'Оставить заявку' },
+		nav: { catalog: 'Каталог', about: 'О компании', contact: 'Контакты', faq: 'Установка и доставка', order: 'Оставить заявку' },
 		hero: {
 			eyebrow: 'Официальный представитель Philips в Казахстане',
 			title: 'Умные замки iLock',
@@ -54,9 +55,9 @@ export const ui = {
 			titleAccent: 'выбирают',
 			items: [
 				{ t: 'Рассрочка и Kaspi Red', d: 'Оформите заказ удобным для вас способом — без переплат.' },
-				{ t: 'Официальные представители Philips', d: 'Прямые поставки и оригинальная гарантия производителя.' },
+				{ t: 'Официальные представители Philips', d: 'Гарантия производителя на все замки.' },
 				{ t: 'Гарантия до 24 месяцев', d: 'На всю линейку iLock и Philips — два года.' },
-				{ t: 'Работаем по всему Казахстану', d: '4 филиала и доставка в любой город.' },
+				{ t: 'Работаем по всему Казахстану', d: '2 филиала и доставка в любой город.' },
 				{ t: 'Вся продукция сертифицирована', d: 'Официальные документы на каждый замок.' },
 			],
 		},
@@ -91,18 +92,86 @@ export const ui = {
 				{ who: 'Попытка входа', via: 'Неверный PIN', time: 'Вчера' },
 			],
 		},
+		faq: {
+			eyebrow: 'Сервис',
+			title: 'Установка и',
+			titleAccent: 'доставка',
+			pageTitle: 'Установка и доставка',
+			pageDescription: 'Ответы на частые вопросы об умных замках iLOCK: установка, совместимость с дверью, батарея, Wi-Fi, безопасность, доступ и гарантия.',
+			sections: [
+				{
+					title: 'Установка',
+					text: 'Перед монтажом уточняем тип двери, толщину полотна и конструкцию замка. Подбираем подходящую модель и устанавливаем без повреждения двери.',
+					items: ['Профессиональный монтаж', 'Проверка всех способов открытия', 'Настройка приложения и пользователей'],
+				},
+				{
+					title: 'Доставка',
+					text: 'Доставляем замки и сейфы по Казахстану. В Астане и Алматы можно обратиться в филиал, а по другим городам подскажем удобный способ получения.',
+					items: ['Филиалы в Астане и Алматы', 'Доставка по Казахстану', 'Консультация перед отправкой'],
+				},
+			],
+		},
 		catalog: {
 			eyebrow: 'Каталог',
 			title: 'Умные замки',
 			titleAccent: 'в наличии',
 			text: 'Цены указаны с учётом доставки по Астане. Рассрочка от Kaspi доступна на любую модель.',
 			all: 'Все',
+			categories: 'Категории товаров',
+			smartLocks: 'Умные замки',
+			safes: 'Сейфы',
 			from: 'от',
 			featured: 'Хит продаж',
 			soon: 'Скоро в продаже',
-			kazakhBrand: 'Казахстанский бренд',
+			kazakhBrand: 'Бренд',
 			details: 'Подробнее',
 			empty: 'В этой категории пока нет моделей.',
+		},
+		catalogFilters: {
+			title: 'Фильтры',
+			reset: 'Сбросить',
+			search: 'Поиск по названию',
+			searchPlaceholder: 'Поиск по модели или бренду',
+			groups: [
+				{
+					title: 'Цвет',
+					options: [
+						{ value: 'color-gray', label: 'Серый' },
+						{ value: 'color-black', label: 'Чёрный' },
+						{ value: 'color-bronze', label: 'Бронза' },
+						{ value: 'color-gold', label: 'Золотой' },
+					],
+				},
+				{
+					title: 'Способ открытия',
+					options: [
+						{ value: 'access-face', label: 'Face ID' },
+						{ value: 'access-palm', label: 'Распознавание вен ладони' },
+					],
+				},
+				{
+					title: 'Подключение и управление',
+					options: [
+						{ value: 'connection-wifi', label: 'Wi-Fi' },
+						{ value: 'connection-bluetooth', label: 'Bluetooth' },
+					],
+				},
+				{
+					title: 'Тип ручки',
+					options: [
+						{ value: 'handle-classic', label: 'Классическая ручка' },
+						{ value: 'handle-modern', label: 'Современная ручка' },
+					],
+				},
+				{
+					title: 'Механизм',
+					options: [
+						{ value: 'mechanism-auto', label: 'Автоматический' },
+						{ value: 'mechanism-semi', label: 'Полуавтоматический' },
+						{ value: 'mechanism-ordinary', label: 'Обычный' },
+					],
+				},
+			],
 		},
 		lead: {
 			eyebrow: 'Заявка',
@@ -131,13 +200,16 @@ export const ui = {
 			phone: 'Телефон',
 			email: 'Почта',
 			address: 'Адрес',
+			branches: 'Филиалы',
+			floor: 'Этаж',
 			hours: 'График работы',
 			weekdays: 'Пн–Пт',
-			weekend: 'Сб–Вс',
-			whatsapp: 'Написать в WhatsApp',
-			instagram: 'Мы в Instagram',
-			whatsappHello: 'Здравствуйте! Пишу с сайта iLOCK — хочу проконсультироваться по умным замкам.',
-		},
+				weekend: 'Сб–Вс',
+				whatsapp: 'Написать в WhatsApp',
+				instagram: 'Мы в Instagram',
+				youtube: 'Наш YouTube',
+				whatsappHello: 'Здравствуйте! Пишу с сайта iLOCK — хочу проконсультироваться по умным замкам.',
+			},
 		product: {
 			back: 'Назад в каталог',
 			specs: 'Технические характеристики',
@@ -167,6 +239,7 @@ export const ui = {
 				battery: 'Работа без подзарядки',
 				app: 'Приложение',
 				brand: 'Бренд / Гарантия',
+				origin: 'Страна',
 				iface: 'Язык интерфейса',
 				colors: 'Цвет корпуса',
 			},
@@ -215,10 +288,10 @@ export const ui = {
 			allBrands: 'Все товары',
 			ilock: {
 				h1: 'Умные замки iLock',
-				lead: 'Казахстанский бренд iLock — собственная линейка замков с распознаванием лица и вен ладони, видеоглазком и полностью автоматическим механизмом. Гарантия 2 года, обслуживание бесплатное.',
+					lead: 'Бренд iLock — собственная линейка замков с распознаванием лица и вен ладони, видеоглазком и полностью автоматическим механизмом. Гарантия 2 года, обслуживание бесплатное.',
 				seoTitle: 'Умные замки iLock — купить в Казахстане | iLOCK',
 				seoDescription:
-					'Умные замки казахстанского бренда iLock: iL-8 и S90 с Face ID, распознаванием вен ладони, видеоглазком и Wi-Fi. Гарантия 2 года, рассрочка от Kaspi, доставка по Казахстану.',
+						'Умные замки бренда iLock: iL-8 и S90 с Face ID, распознаванием вен ладони, видеоглазком и Wi-Fi. Гарантия 2 года, рассрочка от Kaspi, доставка по Казахстану.',
 			},
 			philips: {
 				h1: 'Умные замки Philips',
@@ -241,10 +314,17 @@ export const ui = {
 				seoDescription:
 					'Сейфы Philips Smart Safe в Казахстане: SBX102, SBX202, SBX601, SBX602, SBX701, SBX702 и SBX703 Valis. Биометрия, пин-код, гарантия 2 года, рассрочка Kaspi.',
 			},
+			tiger: {
+				h1: 'Сейфы Tiger',
+				lead: 'Оружейные сейфы Tiger для хранения с обязательным креплением к стене, электронным доступом и прочным стальным корпусом.',
+				seoTitle: 'Оружейные сейфы Tiger — купить в Казахстане | iLOCK',
+				seoDescription:
+					'Оружейный сейф Tiger AK1 132W в Казахстане: 132×54×39 см, обязательное крепление к стене, цена 420 000 ₸.',
+			},
 		},
 		homeTitle: 'iLOCK — умные замки Philips и iLock в Казахстане',
 		homeDescription:
-			'Официальный представитель Philips Smart Lock в Казахстане. Умные замки iLock и Philips с Face ID, отпечатком и Wi-Fi. Гарантия до 2 лет, рассрочка от Kaspi, 4 филиала.',
+			'Официальный представитель Philips Smart Lock в Казахстане. Умные замки iLock и Philips с Face ID, отпечатком и Wi-Fi. Гарантия до 2 лет, рассрочка от Kaspi, 2 филиала.',
 		specs: {
 			material: {
 				aluminum: 'Алюминиевый сплав',
@@ -304,6 +384,7 @@ export const ui = {
 				'storage-sections': 'Отдельные секции для хранения',
 				'hidden-compartment': 'Скрытый отсек',
 				'dual-check': 'Режим двойной проверки',
+				'wall-mount': 'Обязательное крепление к стене',
 			},
 			power: {
 				aa4: 'Батарейки AA (х4)',
@@ -331,7 +412,7 @@ export const ui = {
 	},
 
 	kk: {
-		nav: { catalog: 'Каталог', about: 'Компания туралы', contact: 'Байланыс', order: 'Өтінім қалдыру' },
+		nav: { catalog: 'Каталог', about: 'Компания туралы', contact: 'Байланыс', faq: 'Орнату және жеткізу', order: 'Өтінім қалдыру' },
 		hero: {
 			eyebrow: 'Қазақстандағы Philips ресми өкілі',
 			title: 'iLock ақылды құлыптары',
@@ -350,9 +431,9 @@ export const ui = {
 			titleAccent: 'таңдайды',
 			items: [
 				{ t: 'Бөліп төлеу және Kaspi Red', d: 'Тапсырысты өзіңізге ыңғайлы тәсілмен рәсімдеңіз — артық төлемсіз.' },
-				{ t: 'Philips ресми өкілі', d: 'Тікелей жеткізу және өндірушінің түпнұсқа кепілдігі.' },
+				{ t: 'Philips ресми өкілі', d: 'Барлық құлыптарға өндіруші кепілдігі.' },
 				{ t: '24 айға дейін кепілдік', d: 'Барлық iLock және Philips желісіне — екі жыл.' },
-				{ t: 'Қазақстан бойынша жұмыс', d: '4 филиал және кез келген қалаға жеткізу.' },
+				{ t: 'Қазақстан бойынша жұмыс', d: '2 филиал және кез келген қалаға жеткізу.' },
 				{ t: 'Барлық өнім сертификатталған', d: 'Әр құлыпқа ресми құжаттар.' },
 			],
 		},
@@ -387,18 +468,86 @@ export const ui = {
 				{ who: 'Кіру әрекеті', via: 'Қате PIN', time: 'Кеше' },
 			],
 		},
+		faq: {
+			eyebrow: 'Сервис',
+			title: 'Орнату және',
+			titleAccent: 'жеткізу',
+			pageTitle: 'Орнату және жеткізу',
+			pageDescription: 'iLOCK ақылды құлыптары туралы жиі қойылатын сұрақтарға жауаптар: орнату, есікпен үйлесімділік, батарея, Wi-Fi, қауіпсіздік, рұқсат және кепілдік.',
+			sections: [
+				{
+					title: 'Орнату',
+					text: 'Монтаж алдында есіктің түрін, қалыңдығын және құлып құрылымын нақтылаймыз. Қолайлы модель таңдап, есікті зақымдамай орнатамыз.',
+					items: ['Кәсіби монтаж', 'Барлық ашу тәсілдерін тексеру', 'Қосымша мен пайдаланушыларды баптау'],
+				},
+				{
+					title: 'Жеткізу',
+					text: 'Құлыптар мен сейфтерді Қазақстан бойынша жеткіземіз. Астана мен Алматыда филиалға келуге болады, басқа қалаларға ыңғайлы алу тәсілін ұсынамыз.',
+					items: ['Астана және Алматы филиалдары', 'Қазақстан бойынша жеткізу', 'Жіберер алдында кеңес беру'],
+				},
+			],
+		},
 		catalog: {
 			eyebrow: 'Каталог',
 			title: 'Ақылды құлыптар',
 			titleAccent: 'қоймада бар',
 			text: 'Бағалар Астана бойынша жеткізуді есепке алады. Kaspi бөліп төлеу кез келген модельге қолжетімді.',
 			all: 'Барлығы',
+			categories: 'Тауар санаттары',
+			smartLocks: 'Ақылды құлыптар',
+			safes: 'Сейфтер',
 			from: 'бастап',
 			featured: 'Хит',
 			soon: 'Жақында сатылымда',
-			kazakhBrand: 'Қазақстандық бренд',
+			kazakhBrand: 'Бренд',
 			details: 'Толығырақ',
 			empty: 'Бұл санатта әзірге модель жоқ.',
+		},
+		catalogFilters: {
+			title: 'Сүзгілер',
+			reset: 'Тазарту',
+			search: 'Атауы бойынша іздеу',
+			searchPlaceholder: 'Модель немесе бренд бойынша іздеу',
+			groups: [
+				{
+					title: 'Түс',
+					options: [
+						{ value: 'color-gray', label: 'Сұр' },
+						{ value: 'color-black', label: 'Қара' },
+						{ value: 'color-bronze', label: 'Қола' },
+						{ value: 'color-gold', label: 'Алтын' },
+					],
+				},
+				{
+					title: 'Ашу тәсілі',
+					options: [
+						{ value: 'access-face', label: 'Face ID' },
+						{ value: 'access-palm', label: 'Алақан тамырын тану' },
+					],
+				},
+				{
+					title: 'Қосылу және басқару',
+					options: [
+						{ value: 'connection-wifi', label: 'Wi-Fi' },
+						{ value: 'connection-bluetooth', label: 'Bluetooth' },
+					],
+				},
+				{
+					title: 'Тұтқа түрі',
+					options: [
+						{ value: 'handle-classic', label: 'Классикалық тұтқа' },
+						{ value: 'handle-modern', label: 'Заманауи тұтқа' },
+					],
+				},
+				{
+					title: 'Механизм',
+					options: [
+						{ value: 'mechanism-auto', label: 'Автоматты' },
+						{ value: 'mechanism-semi', label: 'Жартылай автоматты' },
+						{ value: 'mechanism-ordinary', label: 'Кәдімгі' },
+					],
+				},
+			],
 		},
 		lead: {
 			eyebrow: 'Өтінім',
@@ -427,13 +576,16 @@ export const ui = {
 			phone: 'Телефон',
 			email: 'Пошта',
 			address: 'Мекенжай',
+			branches: 'Филиалдар',
+			floor: 'Қабат',
 			hours: 'Жұмыс кестесі',
 			weekdays: 'Дс–Жм',
-			weekend: 'Сб–Жс',
-			whatsapp: 'WhatsApp-қа жазу',
-			instagram: 'Instagram-да біз',
-			whatsappHello: 'Сәлеметсіз бе! iLOCK сайтынан жазып отырмын — ақылды құлыптар бойынша кеңес алғым келеді.',
-		},
+				weekend: 'Сб–Жс',
+				whatsapp: 'WhatsApp-қа жазу',
+				instagram: 'Instagram-да біз',
+				youtube: 'Біздің YouTube',
+				whatsappHello: 'Сәлеметсіз бе! iLOCK сайтынан жазып отырмын — ақылды құлыптар бойынша кеңес алғым келеді.',
+			},
 		product: {
 			back: 'Каталогқа оралу',
 			specs: 'Техникалық сипаттамалар',
@@ -463,6 +615,7 @@ export const ui = {
 				battery: 'Зарядсыз жұмыс',
 				app: 'Қосымша',
 				brand: 'Бренд / Кепілдік',
+				origin: 'Елі',
 				iface: 'Интерфейс тілі',
 				colors: 'Корпус түсі',
 			},
@@ -508,10 +661,10 @@ export const ui = {
 			allBrands: 'Барлық тауарлар',
 			ilock: {
 				h1: 'iLock ақылды құлыптары',
-				lead: 'iLock — қазақстандық бренд: бет пен алақан тамырын тану, бейнекөзше және толық автоматты механизм. Кепілдік 2 жыл, қызмет көрсету тегін.',
+					lead: 'iLock бренді: бет пен алақан тамырын тану, бейнекөзше және толық автоматты механизм. Кепілдік 2 жыл, қызмет көрсету тегін.',
 				seoTitle: 'iLock ақылды құлыптары — Қазақстанда сатып алу | iLOCK',
 				seoDescription:
-					'Қазақстандық iLock брендінің ақылды құлыптары: Face ID, алақан тамырын тану, бейнекөзше және Wi-Fi бар iL-8 және S90. Кепілдік 2 жыл, Kaspi бөліп төлеу.',
+						'iLock брендінің ақылды құлыптары: Face ID, алақан тамырын тану, бейнекөзше және Wi-Fi бар iL-8 және S90. Кепілдік 2 жыл, Kaspi бөліп төлеу.',
 			},
 			philips: {
 				h1: 'Philips ақылды құлыптары',
@@ -534,10 +687,17 @@ export const ui = {
 				seoDescription:
 					'Қазақстандағы Philips Smart Safe сейфтері: SBX102, SBX202, SBX601, SBX602, SBX701, SBX702 және SBX703 Valis. Биометрия, пин-код, 2 жыл кепілдік, Kaspi бөліп төлеу.',
 			},
+			tiger: {
+				h1: 'Tiger сейфтері',
+				lead: 'Tiger қару-жарақ сейфтері қабырғаға міндетті бекітумен, электрондық қолжетімділікпен және берік болат корпуспен жасалған.',
+				seoTitle: 'Tiger қару-жарақ сейфтері — Қазақстанда сатып алу | iLOCK',
+				seoDescription:
+					'Tiger AK1 132W қару-жарақ сейфі Қазақстанда: 132×54×39 см, қабырғаға міндетті бекіту, бағасы 420 000 ₸.',
+			},
 		},
 		homeTitle: 'iLOCK — Қазақстандағы Philips және iLock ақылды құлыптары',
 		homeDescription:
-			'Қазақстандағы Philips Smart Lock ресми өкілі. Face ID, саусақ ізі және Wi-Fi бар iLock және Philips ақылды құлыптары. 2 жылға дейін кепілдік, Kaspi бөліп төлеу, 4 филиал.',
+			'Қазақстандағы Philips Smart Lock ресми өкілі. Face ID, саусақ ізі және Wi-Fi бар iLock және Philips ақылды құлыптары. 2 жылға дейін кепілдік, Kaspi бөліп төлеу, 2 филиал.',
 		specs: {
 			material: {
 				aluminum: 'Алюминий қорытпасы',
@@ -597,6 +757,7 @@ export const ui = {
 				'storage-sections': 'Бөлек сақтау секциялары',
 				'hidden-compartment': 'Жасырын бөлім',
 				'dual-check': 'Қос тексеру режимі',
+				'wall-mount': 'Қабырғаға міндетті бекіту',
 			},
 			power: {
 				aa4: 'AA батареялары (х4)',
@@ -624,7 +785,7 @@ export const ui = {
 	},
 
 	en: {
-		nav: { catalog: 'Catalog', about: 'About', contact: 'Contact', order: 'Request a call' },
+		nav: { catalog: 'Catalog', about: 'About', contact: 'Contact', faq: 'Installation and delivery', order: 'Request a call' },
 		hero: {
 			eyebrow: 'Official Philips representative in Kazakhstan',
 			title: 'iLock smart locks',
@@ -643,9 +804,9 @@ export const ui = {
 			titleAccent: 'choose us',
 			items: [
 				{ t: 'Instalments and Kaspi Red', d: 'Place your order in the way that suits you — with no markup.' },
-				{ t: 'Official Philips representative', d: 'Direct supply and the original manufacturer warranty.' },
+				{ t: 'Official Philips representative', d: 'Manufacturer warranty on every lock.' },
 				{ t: 'Warranty up to 24 months', d: 'Two years across the whole iLock and Philips range.' },
-				{ t: 'We cover all of Kazakhstan', d: '4 branches and delivery to any city.' },
+				{ t: 'We cover all of Kazakhstan', d: '2 branches and delivery to any city.' },
 				{ t: 'Every product is certified', d: 'Official documentation with each lock.' },
 			],
 		},
@@ -680,18 +841,86 @@ export const ui = {
 				{ who: 'Entry attempt', via: 'Wrong PIN', time: 'Yesterday' },
 			],
 		},
+		faq: {
+			eyebrow: 'Service',
+			title: 'Installation and',
+			titleAccent: 'delivery',
+			pageTitle: 'Installation and delivery',
+			pageDescription: 'Answers to common questions about iLOCK smart locks: installation, door compatibility, battery, Wi-Fi, security, access and warranty.',
+			sections: [
+				{
+					title: 'Installation',
+					text: 'Before installation, we check the door type, leaf thickness and lock construction. We choose the right model and install it without damaging the door.',
+					items: ['Professional installation', 'Testing every opening method', 'App and user setup'],
+				},
+				{
+					title: 'Delivery',
+					text: 'We deliver locks and safes across Kazakhstan. In Astana and Almaty you can visit a branch, and for other cities we help choose a convenient delivery option.',
+					items: ['Branches in Astana and Almaty', 'Delivery across Kazakhstan', 'Consultation before dispatch'],
+				},
+			],
+		},
 		catalog: {
 			eyebrow: 'Catalog',
 			title: 'Smart locks',
 			titleAccent: 'in stock',
 			text: 'Prices include delivery within Astana. Kaspi instalments are available on every model.',
 			all: 'All',
+			categories: 'Product categories',
+			smartLocks: 'Smart locks',
+			safes: 'Safes',
 			from: 'from',
 			featured: 'Best seller',
 			soon: 'Coming soon',
-			kazakhBrand: 'Kazakhstani brand',
+			kazakhBrand: 'Brand',
 			details: 'Details',
 			empty: 'No models in this category yet.',
+		},
+		catalogFilters: {
+			title: 'Filters',
+			reset: 'Reset',
+			search: 'Search by name',
+			searchPlaceholder: 'Search by model or brand',
+			groups: [
+				{
+					title: 'Colour',
+					options: [
+						{ value: 'color-gray', label: 'Grey' },
+						{ value: 'color-black', label: 'Black' },
+						{ value: 'color-bronze', label: 'Bronze' },
+						{ value: 'color-gold', label: 'Gold' },
+					],
+				},
+				{
+					title: 'Opening method',
+					options: [
+						{ value: 'access-face', label: 'Face ID' },
+						{ value: 'access-palm', label: 'Palm-vein recognition' },
+					],
+				},
+				{
+					title: 'Connection and control',
+					options: [
+						{ value: 'connection-wifi', label: 'Wi-Fi' },
+						{ value: 'connection-bluetooth', label: 'Bluetooth' },
+					],
+				},
+				{
+					title: 'Handle type',
+					options: [
+						{ value: 'handle-classic', label: 'Classic handle' },
+						{ value: 'handle-modern', label: 'Modern handle' },
+					],
+				},
+				{
+					title: 'Mechanism',
+					options: [
+						{ value: 'mechanism-auto', label: 'Automatic' },
+						{ value: 'mechanism-semi', label: 'Semi-automatic' },
+						{ value: 'mechanism-ordinary', label: 'Standard' },
+					],
+				},
+			],
 		},
 		lead: {
 			eyebrow: 'Request',
@@ -720,13 +949,16 @@ export const ui = {
 			phone: 'Phone',
 			email: 'Email',
 			address: 'Address',
+			branches: 'Branches',
+			floor: 'Floor',
 			hours: 'Opening hours',
 			weekdays: 'Mon–Fri',
-			weekend: 'Sat–Sun',
-			whatsapp: 'Message on WhatsApp',
-			instagram: 'Follow on Instagram',
-			whatsappHello: 'Hello! Writing from the iLOCK website — I would like advice on smart locks.',
-		},
+				weekend: 'Sat–Sun',
+				whatsapp: 'Message on WhatsApp',
+				instagram: 'Follow on Instagram',
+				youtube: 'Our YouTube',
+				whatsappHello: 'Hello! Writing from the iLOCK website — I would like advice on smart locks.',
+			},
 		product: {
 			back: 'Back to catalog',
 			specs: 'Technical specifications',
@@ -756,6 +988,7 @@ export const ui = {
 				battery: 'Runtime per charge',
 				app: 'App',
 				brand: 'Brand / Warranty',
+				origin: 'Country',
 				iface: 'Interface language',
 				colors: 'Body colour',
 			},
@@ -801,10 +1034,10 @@ export const ui = {
 			allBrands: 'All products',
 			ilock: {
 				h1: 'iLock smart locks',
-				lead: 'iLock is our own Kazakhstani brand — locks with face and palm-vein recognition, a video peephole and a fully automatic mechanism. Two-year warranty and free servicing.',
+					lead: 'iLock is our own brand — locks with face and palm-vein recognition, a video peephole and a fully automatic mechanism. Two-year warranty and free servicing.',
 				seoTitle: 'iLock smart locks — buy in Kazakhstan | iLOCK',
 				seoDescription:
-					'Smart locks from the Kazakhstani iLock brand: iL-8 and S90 with Face ID, palm-vein recognition, a video peephole and Wi-Fi. Two-year warranty, Kaspi instalments, delivery across Kazakhstan.',
+					'Smart locks from the iLock brand: iL-8 and S90 with Face ID, palm-vein recognition, a video peephole and Wi-Fi. Two-year warranty, Kaspi instalments, delivery across Kazakhstan.',
 			},
 			philips: {
 				h1: 'Philips smart locks',
@@ -827,10 +1060,17 @@ export const ui = {
 				seoDescription:
 					'Philips Smart Safe in Kazakhstan: SBX102, SBX202, SBX601, SBX602, SBX701, SBX702 and SBX703 Valis. Biometrics, PIN entry, 2-year warranty, Kaspi instalments.',
 			},
+			tiger: {
+				h1: 'Tiger safes',
+				lead: 'Tiger gun safes for firearm storage with mandatory wall mounting, electronic access and a sturdy steel body.',
+				seoTitle: 'Tiger gun safes — buy in Kazakhstan | iLOCK',
+				seoDescription:
+					'Tiger AK1 132W gun safe in Kazakhstan: 132×54×39 cm, mandatory wall mounting, price 420,000 ₸.',
+			},
 		},
 		homeTitle: 'iLOCK — Philips and iLock smart locks in Kazakhstan',
 		homeDescription:
-			'Official Philips Smart Lock representative in Kazakhstan. iLock and Philips smart locks with Face ID, fingerprint and Wi-Fi. Up to 2 years warranty, Kaspi instalments, 4 branches.',
+			'Official Philips Smart Lock representative in Kazakhstan. iLock and Philips smart locks with Face ID, fingerprint and Wi-Fi. Up to 2 years warranty, Kaspi instalments, 2 branches.',
 		specs: {
 			material: {
 				aluminum: 'Aluminium alloy',
@@ -890,6 +1130,7 @@ export const ui = {
 				'storage-sections': 'Separate storage sections',
 				'hidden-compartment': 'Hidden compartment',
 				'dual-check': 'Dual verification mode',
+				'wall-mount': 'Mandatory wall mounting',
 			},
 			power: {
 				aa4: 'AA batteries (x4)',

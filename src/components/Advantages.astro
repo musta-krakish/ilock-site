@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import SectionHeading from './SectionHeading.astro';
 import lockA from '../assets/images/locks/s940-max.png';
-import lockB from '../assets/images/locks/g18.png';
+import warrantyLock from '../assets/images/locks/warranty-lock.png';
 import lockC from '../assets/images/locks/s90.png';
 import { type Lang, ui } from '../i18n';
 
@@ -13,7 +13,7 @@ interface Props {
 const { lang = 'ru' } = Astro.props;
 const t = ui[lang];
 
-const images = [null, lockA, lockB, null, lockC];
+const images = [null, lockA, warrantyLock, null, lockC];
 const items = t.about.items.map((item, i) => ({ ...item, img: images[i] }));
 ---
 
