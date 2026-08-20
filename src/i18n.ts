@@ -105,24 +105,21 @@ export const ui = {
 			titleAccent: 'доставка',
 			pageTitle: 'Установка и доставка',
 			pageDescription: 'Профессиональная установка электронных замков iLOCK: монтаж, настройка функций, проверка работы и обучение использованию.',
-			intro: 'Мы не просто доставляем электронный замок — мы обеспечиваем его профессиональную установку.',
-			afterPurchase: 'После покупки к вам выезжает наш специалист, который:',
 			sections: [
 				{
-					title: 'Монтаж',
-					text: 'Аккуратно установит электронный замок на дверь.',
+					title: 'Установка',
+					text: 'Мы не просто доставляем электронный замок — мы обеспечиваем его профессиональную установку. После покупки к вам выезжает наш специалист, который:',
+					items: [
+						'Аккуратно установит электронный замок на дверь',
+						'Настроит все необходимые функции',
+						'Проверит корректность работы замка',
+						'Подробно объяснит, как пользоваться замком и всеми доступными способами открытия',
+					],
 				},
 				{
-					title: 'Настройка',
-					text: 'Настроит все необходимые функции.',
-				},
-				{
-					title: 'Проверка',
-					text: 'Проверит корректность работы замка.',
-				},
-				{
-					title: 'Обучение',
-					text: 'Подробно объяснит, как пользоваться замком и всеми доступными способами открытия.',
+					title: 'Доставка',
+					text: 'Доставляем замки и сейфы по Казахстану. В Астане и Алматы можно обратиться в филиал, а по другим городам подскажем удобный способ получения.',
+					items: ['Филиалы в Астане и Алматы', 'Доставка по Казахстану', 'Консультация перед отправкой'],
 				},
 			],
 		},
@@ -496,24 +493,21 @@ export const ui = {
 			titleAccent: 'жеткізу',
 			pageTitle: 'Орнату және жеткізу',
 			pageDescription: 'iLOCK электронды құлыптарын кәсіби орнату: монтаж, функцияларды баптау, жұмысты тексеру және қолдануды түсіндіру.',
-			intro: 'Біз электронды құлыпты жай ғана жеткізбейміз — оның кәсіби орнатылуын қамтамасыз етеміз.',
-			afterPurchase: 'Сатып алғаннан кейін сізге біздің маман барады, ол:',
 			sections: [
 				{
 					title: 'Орнату',
-					text: 'Электронды құлыпты есікке ұқыпты орнатады.',
+					text: 'Біз электронды құлыпты жай ғана жеткізбейміз — оның кәсіби орнатылуын қамтамасыз етеміз. Сатып алғаннан кейін сізге біздің маман барады, ол:',
+					items: [
+						'Электронды құлыпты есікке ұқыпты орнатады',
+						'Барлық қажетті функцияларды баптайды',
+						'Құлыптың дұрыс жұмыс істейтінін тексереді',
+						'Құлыпты және барлық қолжетімді ашу тәсілдерін қалай қолдану керегін толық түсіндіреді',
+					],
 				},
 				{
-					title: 'Баптау',
-					text: 'Барлық қажетті функцияларды баптайды.',
-				},
-				{
-					title: 'Тексеру',
-					text: 'Құлыптың дұрыс жұмыс істейтінін тексереді.',
-				},
-				{
-					title: 'Түсіндіру',
-					text: 'Құлыпты және барлық қолжетімді ашу тәсілдерін қалай қолдану керегін толық түсіндіреді.',
+					title: 'Жеткізу',
+					text: 'Құлыптар мен сейфтерді Қазақстан бойынша жеткіземіз. Астана мен Алматыда филиалға келуге болады, басқа қалаларға ыңғайлы алу тәсілін ұсынамыз.',
+					items: ['Астана және Алматы филиалдары', 'Қазақстан бойынша жеткізу', 'Жіберер алдында кеңес беру'],
 				},
 			],
 		},
@@ -884,24 +878,21 @@ export const ui = {
 			titleAccent: 'delivery',
 			pageTitle: 'Installation and delivery',
 			pageDescription: 'Professional installation of iLOCK electronic locks: fitting, function setup, work check and usage guidance.',
-			intro: 'We do not just deliver an electronic lock — we provide professional installation.',
-			afterPurchase: 'After purchase, our specialist comes to you and:',
 			sections: [
 				{
 					title: 'Installation',
-					text: 'Carefully installs the electronic lock on the door.',
+					text: 'We do not just deliver an electronic lock — we provide professional installation. After purchase, our specialist comes to you and:',
+					items: [
+						'Carefully installs the electronic lock on the door',
+						'Sets up all the necessary functions',
+						'Checks that the lock works correctly',
+						'Explains in detail how to use the lock and every available opening method',
+					],
 				},
 				{
-					title: 'Setup',
-					text: 'Sets up all the necessary functions.',
-				},
-				{
-					title: 'Check',
-					text: 'Checks that the lock works correctly.',
-				},
-				{
-					title: 'Guidance',
-					text: 'Explains in detail how to use the lock and every available opening method.',
+					title: 'Delivery',
+					text: 'We deliver locks and safes across Kazakhstan. In Astana and Almaty you can visit a branch, and for other cities we help choose a convenient delivery option.',
+					items: ['Branches in Astana and Almaty', 'Delivery across Kazakhstan', 'Consultation before dispatch'],
 				},
 			],
 		},
