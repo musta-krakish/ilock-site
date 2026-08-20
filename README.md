@@ -32,12 +32,17 @@ content.
 The panel contains:
 
 - **Замки и сейфы** — product details, prices, options, three language versions
-  of descriptions, and image upload to `src/assets/images/locks`.
+  of descriptions, image upload with a thumbnail, and a tidy per-model folder
+  at `src/assets/images/locks/<model>/image.<extension>`.
 - **FAQ — русский / қазақша / English** — separate, language-safe collections
   with question, answer, and display order.
 
 Saving in the production panel commits the content and uploaded images to GitHub.
 Your normal GitHub deployment then publishes those changes.
+
+After saving an entry, the **Preview** button opens its current GitHub version
+immediately. It does not wait for the Vercel deployment; refresh the preview
+tab after each save. The preview itself is not indexed by search engines.
 
 ## Deploy to Vercel
 

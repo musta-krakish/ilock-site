@@ -1,7 +1,7 @@
 # Catalog pipeline
 
 One-off tooling used to build the catalog from `iLock Каталог Замков.pdf`. **The site does not
-run these** — `src/content/locks/*.yaml` and `src/assets/images/locks/*.png` are committed and are
+run these** — `src/content/locks/*.yaml` and `src/assets/images/locks/*/image.png` are committed and are
 the source of truth. Use the Keystatic admin panel for routine changes (a price, a description).
 
 Reach for these only when a **new catalogue PDF** arrives and the whole set needs regenerating.

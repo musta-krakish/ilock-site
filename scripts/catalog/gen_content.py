@@ -390,7 +390,7 @@ for slug, d in P.items():
     if d.get("comingSoon"):  lines.append("comingSoon: true")
     lines.append(f'price: {d["price"]}')
     if d.get("priceTo"): lines.append(f'priceTo: {d["priceTo"]}')
-    lines.append(f'image: "../../assets/images/locks/{slug}.png"')
+    lines.append(f'image: "../../assets/images/locks/{slug}/image.png"')
     lines.append(f'order: {d["order"]}')
     if d.get("featured"): lines.append("featured: true")
     lines.append(f'material: "{d["material"]}"')

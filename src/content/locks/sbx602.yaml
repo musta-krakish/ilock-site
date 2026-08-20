@@ -3,7 +3,7 @@ brand: "safes"
 kind: "safe"
 price: 1420000
 priceTo: 2120000
-image: "../../assets/images/locks/sbx602.png"
+image: "../../assets/images/locks/sbx602/image.png"
 order: 3
 material: "low-carbon-steel"
 access:

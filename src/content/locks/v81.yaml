@@ -3,7 +3,7 @@ brand: "ilock"
 kind: "lock"
 kazakhBrand: true
 price: 200000
-image: "../../assets/images/locks/v81.png"
+image: "../../assets/images/locks/v81/image.png"
 order: 3
 featured: true
 material: "aluminum"

@@ -1,7 +1,7 @@
 title: "S604L"
 brand: "smartlock"
 price: 50000
-image: "../../assets/images/locks/s604l.png"
+image: "../../assets/images/locks/s604l/image.png"
 order: 10
 material: "zinc"
 access:

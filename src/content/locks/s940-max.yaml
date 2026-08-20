@@ -1,7 +1,7 @@
 title: "S940 Max"
 brand: "smartlock"
 price: 130000
-image: "../../assets/images/locks/s940-max.png"
+image: "../../assets/images/locks/s940-max/image.png"
 order: 6
 material: "aluminum"
 access:

@@ -39,7 +39,8 @@ for slug,(page,xrefs) in MAP.items():
         knockout(raw,ko)
         subprocess.run(["magick",ko,"-trim","+repage",cl],check=True)
         parts.append(cl)
-    out=f"{OUT}/{slug}.png"
+    out=f"{OUT}/{slug}/image.png"
+    os.makedirs(os.path.dirname(out), exist_ok=True)
     if len(parts)>1:
         subprocess.run(["magick"]+parts+["-background","none","-gravity","South","+append","-trim","+repage",out],check=True)
     else:

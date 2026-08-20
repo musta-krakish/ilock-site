@@ -1,7 +1,7 @@
 title: "Alpha VP"
 brand: "philips"
 price: 348000
-image: "../../assets/images/locks/alpha-vp.png"
+image: "../../assets/images/locks/alpha-vp/image.png"
 order: 7
 material: "aluminum"
 access:

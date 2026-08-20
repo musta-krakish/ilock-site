@@ -1,0 +1,51 @@
+---
+import YAML from 'yaml';
+import { getGitHubText, isPreviewBranch, isPreviewSlug } from '../../lib/github-preview';
+import Layout from '../../layouts/Layout.astro';
+
+export const prerender = false;
+
+const branch = Astro.url.searchParams.get('branch');
+const slug = Astro.url.searchParams.get('slug');
+const lang = Astro.url.searchParams.get('lang');
+const validLang = lang === 'ru' || lang === 'kk' || lang === 'en' ? lang : null;
+let question = '';
+let answer = '';
+let error = '';
+
+if (!isPreviewBranch(branch) || !isPreviewSlug(slug) || !validLang) {
+	error = 'Не удалось определить вопрос или ветку для предпросмотра.';
+} else {
+	try {
+		const source = await getGitHubText(`src/content/faq/${validLang}/${slug}.md`, branch);
+		const match = source.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
+		if (!match) throw new Error('Invalid FAQ document');
+		const header = YAML.parse(match[1]) as { question?: unknown };
+		question = typeof header.question === 'string' ? header.question : '';
+		answer = match[2].trim();
+	} catch {
+		error = 'Эта версия вопроса ещё не найдена в GitHub. Сначала сохраните изменения в Keystatic.';
+	}
+}
+---
+
+<Layout lang={validLang ?? 'ru'} title={`Предпросмотр FAQ${question ? ` · ${question}` : ''}`} description={answer} noindex>
+	<section class="min-h-screen bg-main-color px-5 pb-16 pt-28 text-white sm:px-8 sm:pt-32 lg:px-12">
+		<div class="mx-auto max-w-3xl">
+			<div class="mb-8 rounded-2xl border border-accent-color/30 bg-accent-color/10 px-5 py-3 text-sm text-white/80">
+				<strong class="font-semibold text-accent-color">Предпросмотр FAQ</strong> · изменения из ветки {branch ?? '—'}
+			</div>
+			{
+				error ? (
+					<div class="rounded-3xl border border-red-400/30 bg-red-400/10 p-8 text-lg text-white/80">{error}</div>
+				) : (
+					<article class="rounded-3xl border border-line bg-secondary-color p-7 sm:p-10">
+						<p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent-color">Вопрос и ответ</p>
+						<h1 class="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">{question}</h1>
+						<div class="mt-6 border-t border-line pt-6 whitespace-pre-line text-base leading-8 text-white/65">{answer}</div>
+					</article>
+				)
+			}
+		</div>
+	</section>
+</Layout>

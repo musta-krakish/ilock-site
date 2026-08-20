@@ -1,7 +1,7 @@
 title: "D501"
 brand: "smartlock"
 price: 30000
-image: "../../assets/images/locks/d501.png"
+image: "../../assets/images/locks/d501/image.png"
 order: 13
 material: "zinc"
 access:

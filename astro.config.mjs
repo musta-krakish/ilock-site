@@ -7,6 +7,19 @@ import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import keystatic from '@keystatic/astro';
 
+const keystaticInlinePreview = {
+	name: 'keystatic-inline-preview',
+	enforce: /** @type {'pre'} */ ('pre'),
+	transform(/** @type {string} */ code, /** @type {string} */ id) {
+		if (id.includes('@keystatic/astro/internal/keystatic-page.js')) {
+			return {
+				code: `import '/src/scripts/keystatic-inline-preview.ts';\n${code}`,
+				map: null,
+			};
+		}
+	},
+};
+
 // https://astro.build/config
 export default defineConfig({
 	// Used for canonical URLs, hreflang, sitemap and JSON-LD.
@@ -33,6 +46,6 @@ export default defineConfig({
 		optimizeDeps: {
 			include: ['react-dom/client'],
 		},
-		plugins: [tailwindcss()],
+		plugins: [keystaticInlinePreview, tailwindcss()],
 	},
 });

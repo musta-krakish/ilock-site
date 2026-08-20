@@ -1,7 +1,7 @@
 title: "Q28S"
 brand: "smartlock"
 price: 120000
-image: "../../assets/images/locks/q28s.png"
+image: "../../assets/images/locks/q28s/image.png"
 order: 4
 material: "aluminum"
 access:

@@ -1,7 +1,7 @@
 title: "G10S"
 brand: "smartlock"
 price: 60000
-image: "../../assets/images/locks/g10s.png"
+image: "../../assets/images/locks/g10s/image.png"
 order: 9
 material: "aluminum"
 access:

@@ -1,7 +1,7 @@
 title: "S819-2Max"
 brand: "smartlock"
 price: 90000
-image: "../../assets/images/locks/s819-2max.png"
+image: "../../assets/images/locks/s819-2max/image.png"
 order: 3
 material: "aluminum"
 access:

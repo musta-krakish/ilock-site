@@ -20,9 +20,10 @@ interface Props {
 	description?: string;
 	image?: string;
 	lang?: Lang;
+	noindex?: boolean;
 }
 
-const { title, description, image, lang = 'ru' } = Astro.props;
+const { title, description, image, lang = 'ru', noindex = false } = Astro.props;
 const t = ui[lang];
 
 const pageTitle = title ?? t.homeTitle;
@@ -111,7 +112,7 @@ const organizationLd = {
 
 		<title>{fullTitle}</title>
 		<meta name="description" content={pageDescription} />
-		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+		<meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
 		<link rel="canonical" href={canonical} />
 
 		{

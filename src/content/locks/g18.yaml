@@ -2,7 +2,7 @@ title: "G18"
 brand: "smartlock"
 kazakhBrand: true
 price: 85000
-image: "../../assets/images/locks/g18.png"
+image: "../../assets/images/locks/g18/image.png"
 order: 2
 material: "aluminum-glass"
 access:

@@ -1,7 +1,7 @@
 title: "Гостиничный замок"
 brand: "smartlock"
 price: 50000
-image: "../../assets/images/locks/hotel.png"
+image: "../../assets/images/locks/hotel/image.png"
 order: 11
 material: "steel"
 access:

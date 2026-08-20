@@ -1,7 +1,7 @@
 title: "S31B"
 brand: "smartlock"
 price: 90000
-image: "../../assets/images/locks/s31b.png"
+image: "../../assets/images/locks/s31b/image.png"
 order: 8
 material: "steel"
 access:

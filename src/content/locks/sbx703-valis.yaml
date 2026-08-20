@@ -3,7 +3,7 @@ brand: "safes"
 kind: "safe"
 price: 1700000
 priceTo: 13900000
-image: "../../assets/images/locks/sbx703-valis.png"
+image: "../../assets/images/locks/sbx703-valis/image.png"
 order: 7
 featured: true
 material: "low-carbon-steel"

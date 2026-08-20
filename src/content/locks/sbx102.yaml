@@ -2,7 +2,7 @@ title: "SBX102 (2CO)"
 brand: "safes"
 kind: "safe"
 price: 390000
-image: "../../assets/images/locks/sbx102.png"
+image: "../../assets/images/locks/sbx102/image.png"
 order: 6
 material: "low-carbon-steel"
 access:

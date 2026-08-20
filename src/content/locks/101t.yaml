@@ -1,7 +1,7 @@
 title: "101T"
 brand: "smartlock"
 price: 28800
-image: "../../assets/images/locks/101t.png"
+image: "../../assets/images/locks/101t/image.png"
 order: 14
 material: "zinc"
 access:

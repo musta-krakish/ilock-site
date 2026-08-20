@@ -2,7 +2,7 @@ title: "Электронный замок для шкафа"
 brand: "smartlock"
 price: 15000
 priceTo: 25000
-image: "../../assets/images/locks/cabinet.png"
+image: "../../assets/images/locks/cabinet/image.png"
 order: 12
 material: "zinc"
 access:

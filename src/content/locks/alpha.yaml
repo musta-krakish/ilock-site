@@ -1,7 +1,7 @@
 title: "Alpha"
 brand: "philips"
 price: 240000
-image: "../../assets/images/locks/alpha.png"
+image: "../../assets/images/locks/alpha/image.png"
 order: 5
 material: "aluminum"
 access:

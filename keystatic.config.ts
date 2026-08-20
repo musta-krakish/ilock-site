@@ -1,4 +1,5 @@
-import { collection, config, fields } from '@keystatic/core';
+import { collection, config, fields, type FormFieldInputProps } from '@keystatic/core';
+import { createElement } from 'react';
 
 const repository = 'musta-krakish/ilock-site';
 
@@ -106,6 +107,114 @@ const options = {
 const requiredText = (label: string, description?: string) =>
 	fields.text({ label, description, validation: { isRequired: true } });
 
+type CompactOption = { readonly label: string; readonly value: string };
+
+type CompactMultiselectOptions = {
+	description?: string;
+	columns?: number;
+	collapsed?: boolean;
+};
+
+const compactMultiselect = (
+	label: string,
+	options: readonly CompactOption[],
+	{ description, columns = 3, collapsed = false }: CompactMultiselectOptions = {},
+) => {
+	const knownValues = new Set(options.map((option) => option.value));
+	const parse = (value: unknown): string[] => {
+		if (value === undefined) return [];
+		if (!Array.isArray(value) || !value.every((item) => typeof item === 'string' && knownValues.has(item))) {
+			throw new Error(`Некорректное значение поля «${label}».`);
+		}
+		return value;
+	};
+
+	return {
+		kind: 'form' as const,
+		label,
+		Input({ value, onChange }: FormFieldInputProps<string[]>) {
+			const selected = new Set(value);
+			return createElement(
+				'details',
+				{
+					open: !collapsed,
+					style: {
+						border: '1px solid rgba(127, 127, 127, 0.35)',
+						borderRadius: '10px',
+						padding: '0.75rem 0.875rem',
+					},
+				},
+				[
+					createElement(
+						'summary',
+						{
+							key: 'summary',
+							style: {
+								cursor: 'pointer',
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'space-between',
+								gap: '1rem',
+								fontWeight: 600,
+							},
+						},
+						[
+							createElement('span', { key: 'label' }, label),
+							createElement(
+								'span',
+								{ key: 'count', style: { color: 'var(--color-neutral-emphasis, #a3a3a3)', fontSize: '0.8125rem', fontWeight: 400 } },
+								`${value.length} выбрано`,
+							),
+						],
+					),
+					description && createElement('p', { key: 'description', style: { margin: '0.75rem 0 0', color: 'var(--color-neutral-emphasis, #a3a3a3)', fontSize: '0.8125rem' } }, description),
+					createElement(
+						'div',
+						{
+							key: 'options',
+							style: {
+								display: 'grid',
+								gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+								gap: '0.625rem 1rem',
+								marginTop: '0.875rem',
+							},
+						},
+						options.map((option) =>
+							createElement(
+								'label',
+								{ key: option.value, style: { alignItems: 'flex-start', cursor: 'pointer', display: 'flex', gap: '0.5rem', lineHeight: 1.3 } },
+								[
+									createElement('input', {
+										key: 'input',
+										type: 'checkbox',
+										checked: selected.has(option.value),
+										onChange: (event: Event) => {
+											const checked = (event.currentTarget as HTMLInputElement).checked;
+											onChange(checked ? [...value, option.value] : value.filter((item) => item !== option.value));
+										},
+									}),
+									createElement('span', { key: 'text' }, option.label),
+								],
+							),
+						),
+					),
+				],
+			);
+		},
+		defaultValue(): string[] {
+			return [];
+		},
+		parse,
+		serialize(value: string[]) {
+			return { value };
+		},
+		validate(value: string[]) {
+			return value;
+		},
+		reader: { parse },
+	};
+};
+
 const translatedCopy = (label: string) =>
 	fields.object(
 		{
@@ -126,7 +235,11 @@ const translatedCopy = (label: string) =>
 				validation: { isRequired: true },
 			}),
 		},
-		{ label },
+		{
+			label,
+			description: 'Заполните карточку так, как она будет показана на сайте.',
+			layout: [12, 6, 6, 12],
+		},
 	);
 
 const usageLimit = (label: string) =>
@@ -145,8 +258,9 @@ const lockSchema = {
 	priceTo: fields.number({ label: 'Цена до, ₸', description: 'Оставьте пустым для одной цены.' }),
 	image: fields.image({
 		label: 'Фото товара',
+		description: 'PNG, JPG или WebP. После загрузки сразу появится миниатюра; файл сохранится в папке этой модели.',
 		directory: 'src/assets/images/locks',
-		publicPath: '../../assets/images/locks/',
+		publicPath: '../../assets/images/locks',
 		validation: { isRequired: true },
 	}),
 	order: fields.integer({
@@ -155,7 +269,9 @@ const lockSchema = {
 	}),
 	featured: fields.checkbox({ label: 'Показывать как популярный', defaultValue: false }),
 	material: fields.select({ label: 'Материал', options: options.material, defaultValue: 'aluminum' }),
-	access: fields.multiselect({ label: 'Способы открытия', options: options.access }),
+	access: compactMultiselect('Способы открытия', options.access, {
+		description: 'Выберите доступные способы разблокировки.',
+	}),
 	limits: fields.object(
 		{
 			fingerprint: usageLimit('Отпечатки пальцев'),
@@ -171,9 +287,13 @@ const lockSchema = {
 		{
 			label: 'Лимиты пользователей',
 			description: 'Оставьте поле пустым, если лимит для способа доступа не указан.',
+			layout: [4, 4, 4, 4, 4, 4, 4, 4, 4],
 		},
 	),
-	features: fields.multiselect({ label: 'Функции', options: options.feature }),
+	features: compactMultiselect('Функции', options.feature, {
+		description: 'Список можно раскрыть при необходимости.',
+		collapsed: true,
+	}),
 	temp: fields.object(
 		{
 			min: fields.integer({ label: 'Минимум, °C', validation: { isRequired: true } }),
@@ -191,19 +311,22 @@ const lockSchema = {
 			kk: fields.text({ label: 'Қазақша' }),
 			en: fields.text({ label: 'In English' }),
 		},
-		{ label: 'Страна происхождения', description: 'Необязательное поле.' },
+		{ label: 'Страна происхождения', description: 'Необязательное поле.', layout: [4, 4, 4] },
 	),
-	interface: fields.multiselect({ label: 'Языки интерфейса', options: options.interface }),
-	colors: fields.multiselect({ label: 'Цвета', options: options.color }),
+	interface: compactMultiselect('Языки интерфейса', options.interface, { columns: 2, collapsed: true }),
+	colors: compactMultiselect('Цвета', options.color, { columns: 2, collapsed: true }),
 	variants: fields.array(
-		fields.object({
-			name: requiredText('Название варианта'),
-			price: fields.integer({ label: 'Цена, ₸', validation: { isRequired: true, min: 0 } }),
-			height: fields.number({ label: 'Высота, см' }),
-			width: fields.number({ label: 'Ширина, см' }),
-			depth: fields.number({ label: 'Глубина, см' }),
-			weight: fields.number({ label: 'Вес, кг' }),
-		}),
+		fields.object(
+			{
+				name: requiredText('Название варианта'),
+				price: fields.integer({ label: 'Цена, ₸', validation: { isRequired: true, min: 0 } }),
+				height: fields.number({ label: 'Высота, см' }),
+				width: fields.number({ label: 'Ширина, см' }),
+				depth: fields.number({ label: 'Глубина, см' }),
+				weight: fields.number({ label: 'Вес, кг' }),
+			},
+			{ layout: [12, 6, 3, 3, 3, 3] },
+		),
 		{
 			label: 'Варианты модели',
 			itemLabel: (props) => props.fields.name.value || 'Новый вариант',
@@ -223,7 +346,9 @@ const createFaqCollection = (
 		label,
 		path: `src/content/faq/${lang}/*`,
 		slugField: 'question',
+		entryLayout: 'content',
 		format: { contentField: 'content' },
+		previewUrl: `/preview/faq?branch={branch}&lang=${lang}&slug={slug}`,
 		columns: ['order', 'lang'],
 		schema: {
 			lang: fields.select({
@@ -248,7 +373,7 @@ export default config({
 	storage: { kind: 'github', repo: repository },
 	locale: 'ru-RU',
 	ui: {
-		brand: { name: 'iLOCK — админка' },
+		brand: { name: 'iLOCK · управление сайтом' },
 		navigation: {
 			Каталог: ['locks'],
 			FAQ: ['faqRu', 'faqKk', 'faqEn'],
@@ -259,7 +384,8 @@ export default config({
 			label: 'Замки и сейфы',
 			path: 'src/content/locks/*',
 			slugField: 'title',
-			columns: ['brand', 'kind', 'price', 'comingSoon'],
+			columns: ['image', 'brand', 'kind', 'price', 'comingSoon'],
+			previewUrl: '/preview/product?branch={branch}&slug={slug}',
 			schema: lockSchema,
 		}),
 		faqRu: createFaqCollection('ru', 'FAQ — русский', 'Русский'),
