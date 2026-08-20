@@ -28,6 +28,11 @@ export default defineConfig({
 		}),
 	],
 	vite: {
+		// Keystatic's client UI imports ReactDOM dynamically. Pre-bundling this
+		// CommonJS entry preserves createRoot for the Astro React client renderer.
+		optimizeDeps: {
+			include: ['react-dom/client'],
+		},
 		plugins: [tailwindcss()],
 	},
 });
