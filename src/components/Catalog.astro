@@ -42,8 +42,6 @@ const categoryTabs = [
 const siteUrl = Astro.site ?? Astro.url;
 const abs = (path: string) => new URL(canonicalPath(path), siteUrl).toString();
 
-// The full catalogue as one list, so the category page can qualify for a rich result
-// instead of being read as an undifferentiated wall of links. Mirrors BrandPage.astro.
 const itemListLd = {
 	'@context': 'https://schema.org',
 	'@type': 'ItemList',

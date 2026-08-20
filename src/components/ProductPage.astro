@@ -34,7 +34,6 @@ const related = [
 
 const monthly = Math.round(lock.price / 12 / 100) * 100;
 
-// "Умный замок Philips DDL 7300" — the model number alone carries no search intent.
 const productName = t.product.h1(brandNames[lock.brand], lock.title, lock.kind);
 
 const accessValue = lock.access
@@ -60,7 +59,6 @@ const rows = [
 	{ label: t.product.rows.colors, value: lock.colors.map((c) => S.color[c]).join(', ') },
 ];
 
-// Rich-result structured data for this product page.
 const siteUrl = Astro.site ?? Astro.url;
 const abs = (path: string) => new URL(canonicalPath(path), siteUrl).toString();
 const canonical = abs(Astro.url.pathname);
@@ -111,8 +109,6 @@ const breadcrumbLd = {
 
 <section class="bg-main-color px-5 pb-10 pt-28 sm:px-8 sm:pb-14 sm:pt-32 lg:px-12">
 	<div class="mx-auto max-w-7xl">
-		{/* Mirrors breadcrumbLd below — Google expects the markup to match what a visitor sees.
-		    It is also the only in-page link from a model to its brand page. */}
 		<nav aria-label="breadcrumb" class="flex flex-wrap items-center gap-2 text-sm text-white/40">
 			<a href={homePath} class="transition hover:text-accent-color">iLOCK</a>
 			<span aria-hidden="true">/</span>
