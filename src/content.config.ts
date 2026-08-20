@@ -98,7 +98,9 @@ const prose = z.object({
 });
 
 const locks = defineCollection({
-	loader: glob({ pattern: '**/*.md', base: './src/content/locks' }),
+	// Keystatic writes structured product records as YAML. FAQ entries remain
+	// Markdown because their answers are rendered as page content.
+	loader: glob({ pattern: '**/*.yaml', base: './src/content/locks' }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
@@ -109,13 +111,13 @@ const locks = defineCollection({
 			comingSoon: z.boolean().default(false),
 			/** Price in KZT. `priceTo` marks a range (the cabinet lock is sold 15–25k). */
 			price: z.number(),
-			priceTo: z.number().optional(),
+			priceTo: z.number().nullable().optional(),
 			image: image(),
 			/** Ordering within a brand group; lower is shown first. */
 			order: z.number(),
 			featured: z.boolean().default(false),
 			material,
-			access: z.array(access).nonempty(),
+			access: z.array(access),
 			/** Enrolment limits, e.g. `{ fingerprint: 100, pin: 20 }`. */
 			limits: z.record(z.string(), z.number()).default({}),
 			features: z.array(feature).default([]),
@@ -123,20 +125,20 @@ const locks = defineCollection({
 			power,
 			/** Months of use between charges/battery swaps, e.g. "4-6" or "10". */
 			battery: z.string(),
-			app: z.string().optional(),
+			app: z.string().nullable().optional(),
 			warranty: z.number(),
-			origin: z.object({ ru: z.string(), kk: z.string(), en: z.string() }).optional(),
-			interface: z.array(z.enum(['ru', 'kk', 'en', 'zh'])).nonempty(),
-			colors: z.array(color).nonempty(),
+			origin: z.object({ ru: z.string(), kk: z.string(), en: z.string() }).nullable().optional(),
+			interface: z.array(z.enum(['ru', 'kk', 'en', 'zh'])),
+			colors: z.array(color),
 			variants: z
 				.array(
 					z.object({
 						name: z.string(),
 						price: z.number(),
-						height: z.number().optional(),
-						width: z.number().optional(),
-						depth: z.number().optional(),
-						weight: z.number().optional(),
+						height: z.number().nullable().optional(),
+						width: z.number().nullable().optional(),
+						depth: z.number().nullable().optional(),
+						weight: z.number().nullable().optional(),
 					}),
 				)
 				.default([]),

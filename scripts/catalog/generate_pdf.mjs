@@ -111,16 +111,14 @@ const formatPrice = (value, to) => {
 
 const parseFrontmatter = (file) => {
 	const raw = fs.readFileSync(file, 'utf8');
-	const match = raw.match(/^---\n([\s\S]*?)\n---/);
-	if (!match) throw new Error(`No frontmatter in ${file}`);
-	return YAML.parse(match[1]);
+	return YAML.parse(raw);
 };
 
 const resolveImage = (file, image) => path.resolve(path.dirname(file), image);
 
 const productFiles = fs
 	.readdirSync(contentDir)
-	.filter((name) => name.endsWith('.md'))
+	.filter((name) => name.endsWith('.yaml'))
 	.map((name) => path.join(contentDir, name));
 
 const products = productFiles
@@ -128,7 +126,7 @@ const products = productFiles
 		const data = parseFrontmatter(file);
 		return {
 			...data,
-			slug: path.basename(file, '.md'),
+			slug: path.basename(file, '.yaml'),
 			imagePath: resolveImage(file, data.image),
 			description: data.ru?.description ?? '',
 			body: data.ru?.body ?? '',

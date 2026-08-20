@@ -381,11 +381,11 @@ def block(lang, title, brandname, desc, body):
 
 os.makedirs(OUT, exist_ok=True)
 for f in os.listdir(OUT):
-    if f.endswith(".md"): os.remove(os.path.join(OUT, f))
+    if f.endswith(".yaml"): os.remove(os.path.join(OUT, f))
 
 for slug, d in P.items():
     bn = BRAND_NAME[d["brand"]]
-    lines = ["---", f'title: "{d["title"]}"', f'brand: "{d["brand"]}"']
+    lines = [f'title: "{d["title"]}"', f'brand: "{d["brand"]}"']
     if d.get("kazakhBrand"): lines.append("kazakhBrand: true")
     if d.get("comingSoon"):  lines.append("comingSoon: true")
     lines.append(f'price: {d["price"]}')
@@ -414,9 +414,8 @@ for slug, d in P.items():
     for lang in ("ru", "kk", "en"):
         desc, body = d[lang]
         lines.append(block(lang, d["title"], bn, desc, body))
-    lines.append("---")
     lines.append("")
-    open(os.path.join(OUT, f"{slug}.md"), "w").write("\n".join(lines))
+    open(os.path.join(OUT, f"{slug}.yaml"), "w").write("\n".join(lines))
 
 print(f"wrote {len(P)} files")
 by = {}

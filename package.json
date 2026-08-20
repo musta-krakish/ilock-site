@@ -14,12 +14,22 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/markdoc": "1.0.6",
+    "@astrojs/react": "4.4.2",
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^6.1.8"
+    "@astrojs/vercel": "10.0.8",
+    "@keystatic/astro": "6.0.0",
+    "@keystatic/core": "0.6.8",
+    "@markdoc/markdoc": "^0.5.9",
+    "astro": "^6.1.8",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "@tailwindcss/vite": "^4.2.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "pdfkit": "^0.19.1",
     "sharp": "^0.35.3",
     "tailwindcss": "^4.2.2",

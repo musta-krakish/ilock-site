@@ -1,4 +1,3 @@
----
 title: "D501"
 brand: "smartlock"
 price: 30000
@@ -53,5 +52,3 @@ en:
   body: >-
     D501 is a padlock for a warehouse, gate, container or garage. It opens by fingerprint or the
     TTLock app, with a mechanical key kept as backup. IP67 protection lets it live outdoors.
-
----

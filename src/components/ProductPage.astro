@@ -55,7 +55,7 @@ const rows = [
 		label: t.product.rows.brand,
 		value: `${brandNames[lock.brand]} / ${t.product.years(lock.warranty)}`,
 	},
-	...(lock.origin ? [{ label: t.product.rows.origin, value: lock.origin[lang] }] : []),
+	...(lock.origin?.[lang] ? [{ label: t.product.rows.origin, value: lock.origin[lang] }] : []),
 	{ label: t.product.rows.iface, value: lock.interface.map((i) => S.iface[i]).join(', ') },
 	{ label: t.product.rows.colors, value: lock.colors.map((c) => S.color[c]).join(', ') },
 ];

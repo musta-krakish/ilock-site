@@ -1,8 +1,8 @@
 # Catalog pipeline
 
 One-off tooling used to build the catalog from `iLock Каталог Замков.pdf`. **The site does not
-run these** — `src/content/locks/*.md` and `src/assets/images/locks/*.png` are committed and are
-the source of truth. Edit the markdown directly for routine changes (a price, a description).
+run these** — `src/content/locks/*.yaml` and `src/assets/images/locks/*.png` are committed and are
+the source of truth. Use the Keystatic admin panel for routine changes (a price, a description).
 
 Reach for these only when a **new catalogue PDF** arrives and the whole set needs regenerating.
 
@@ -39,13 +39,13 @@ images are fitted to 780px and only upscaled when unavoidable.
 
 ## Content — `gen_content.py`
 
-Writes the 27 markdown files from the `P` table (specs + prices + ru/kk/en prose).
+Writes the 27 YAML files from the `P` table (specs + prices + ru/kk/en prose).
 
 ```sh
 ./venv/bin/python gen_content.py
 ```
 
-It **deletes every `.md` in the target directory first**. Any hand-edits made to the markdown
+It **deletes every `.yaml` in the target directory first**. Any hand-edits made to the content
 since the last run are lost unless they are folded back into the `P` table.
 
 Specs are stored as language-neutral keys (`aluminum`, `fingerprint`, `wifi`) and translated once

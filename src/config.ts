@@ -35,7 +35,7 @@ export function whatsappLink(message: string) {
  * Formats a KZT price, e.g. 180000 -> "180 000 ₸".
  * ru-RU groups digits with U+202F (narrow no-break space), so a price never wraps mid-number.
  */
-export function formatPrice(value: number, to?: number) {
+export function formatPrice(value: number, to?: number | null) {
 	const one = (n: number) => n.toLocaleString('ru-RU');
 	return to ? `${one(value)}–${one(to)}\u00a0₸` : `${one(value)}\u00a0₸`;
 }
