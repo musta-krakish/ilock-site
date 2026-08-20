@@ -36,7 +36,7 @@ export const brandNames: Record<Brand, string> = {
 
 export const ui = {
 	ru: {
-		nav: { catalog: 'Каталог', about: 'О компании', contact: 'Контакты', faq: 'Установка и доставка', order: 'Оставить заявку' },
+		nav: { catalog: 'Каталог', about: 'О компании', contact: 'Контакты', faq: 'Частые вопросы', installDelivery: 'Установка и доставка', order: 'Оставить заявку' },
 		hero: {
 			eyebrow: 'Официальный представитель Philips в Казахстане',
 			title: 'Умные замки iLock',
@@ -93,21 +93,36 @@ export const ui = {
 			],
 		},
 		faq: {
+			eyebrow: 'FAQ',
+			title: 'Частые',
+			titleAccent: 'вопросы',
+			pageTitle: 'Частые вопросы',
+			pageDescription: 'Ответы на частые вопросы об умных замках iLOCK: установка, совместимость с дверью, батарея, Wi-Fi, безопасность, доступ и гарантия.',
+		},
+		installDelivery: {
 			eyebrow: 'Сервис',
 			title: 'Установка и',
 			titleAccent: 'доставка',
 			pageTitle: 'Установка и доставка',
-			pageDescription: 'Ответы на частые вопросы об умных замках iLOCK: установка, совместимость с дверью, батарея, Wi-Fi, безопасность, доступ и гарантия.',
+			pageDescription: 'Профессиональная установка электронных замков iLOCK: монтаж, настройка функций, проверка работы и обучение использованию.',
+			intro: 'Мы не просто доставляем электронный замок — мы обеспечиваем его профессиональную установку.',
+			afterPurchase: 'После покупки к вам выезжает наш специалист, который:',
 			sections: [
 				{
-					title: 'Установка',
-					text: 'Перед монтажом уточняем тип двери, толщину полотна и конструкцию замка. Подбираем подходящую модель и устанавливаем без повреждения двери.',
-					items: ['Профессиональный монтаж', 'Проверка всех способов открытия', 'Настройка приложения и пользователей'],
+					title: 'Монтаж',
+					text: 'Аккуратно установит электронный замок на дверь.',
 				},
 				{
-					title: 'Доставка',
-					text: 'Доставляем замки и сейфы по Казахстану. В Астане и Алматы можно обратиться в филиал, а по другим городам подскажем удобный способ получения.',
-					items: ['Филиалы в Астане и Алматы', 'Доставка по Казахстану', 'Консультация перед отправкой'],
+					title: 'Настройка',
+					text: 'Настроит все необходимые функции.',
+				},
+				{
+					title: 'Проверка',
+					text: 'Проверит корректность работы замка.',
+				},
+				{
+					title: 'Обучение',
+					text: 'Подробно объяснит, как пользоваться замком и всеми доступными способами открытия.',
 				},
 			],
 		},
@@ -412,7 +427,7 @@ export const ui = {
 	},
 
 	kk: {
-		nav: { catalog: 'Каталог', about: 'Компания туралы', contact: 'Байланыс', faq: 'Орнату және жеткізу', order: 'Өтінім қалдыру' },
+		nav: { catalog: 'Каталог', about: 'Компания туралы', contact: 'Байланыс', faq: 'Жиі сұрақтар', installDelivery: 'Орнату және жеткізу', order: 'Өтінім қалдыру' },
 		hero: {
 			eyebrow: 'Қазақстандағы Philips ресми өкілі',
 			title: 'iLock ақылды құлыптары',
@@ -469,21 +484,36 @@ export const ui = {
 			],
 		},
 		faq: {
+			eyebrow: 'FAQ',
+			title: 'Жиі қойылатын',
+			titleAccent: 'сұрақтар',
+			pageTitle: 'Жиі қойылатын сұрақтар',
+			pageDescription: 'iLOCK ақылды құлыптары туралы жиі қойылатын сұрақтарға жауаптар: орнату, есікпен үйлесімділік, батарея, Wi-Fi, қауіпсіздік, рұқсат және кепілдік.',
+		},
+		installDelivery: {
 			eyebrow: 'Сервис',
 			title: 'Орнату және',
 			titleAccent: 'жеткізу',
 			pageTitle: 'Орнату және жеткізу',
-			pageDescription: 'iLOCK ақылды құлыптары туралы жиі қойылатын сұрақтарға жауаптар: орнату, есікпен үйлесімділік, батарея, Wi-Fi, қауіпсіздік, рұқсат және кепілдік.',
+			pageDescription: 'iLOCK электронды құлыптарын кәсіби орнату: монтаж, функцияларды баптау, жұмысты тексеру және қолдануды түсіндіру.',
+			intro: 'Біз электронды құлыпты жай ғана жеткізбейміз — оның кәсіби орнатылуын қамтамасыз етеміз.',
+			afterPurchase: 'Сатып алғаннан кейін сізге біздің маман барады, ол:',
 			sections: [
 				{
 					title: 'Орнату',
-					text: 'Монтаж алдында есіктің түрін, қалыңдығын және құлып құрылымын нақтылаймыз. Қолайлы модель таңдап, есікті зақымдамай орнатамыз.',
-					items: ['Кәсіби монтаж', 'Барлық ашу тәсілдерін тексеру', 'Қосымша мен пайдаланушыларды баптау'],
+					text: 'Электронды құлыпты есікке ұқыпты орнатады.',
 				},
 				{
-					title: 'Жеткізу',
-					text: 'Құлыптар мен сейфтерді Қазақстан бойынша жеткіземіз. Астана мен Алматыда филиалға келуге болады, басқа қалаларға ыңғайлы алу тәсілін ұсынамыз.',
-					items: ['Астана және Алматы филиалдары', 'Қазақстан бойынша жеткізу', 'Жіберер алдында кеңес беру'],
+					title: 'Баптау',
+					text: 'Барлық қажетті функцияларды баптайды.',
+				},
+				{
+					title: 'Тексеру',
+					text: 'Құлыптың дұрыс жұмыс істейтінін тексереді.',
+				},
+				{
+					title: 'Түсіндіру',
+					text: 'Құлыпты және барлық қолжетімді ашу тәсілдерін қалай қолдану керегін толық түсіндіреді.',
 				},
 			],
 		},
@@ -785,7 +815,7 @@ export const ui = {
 	},
 
 	en: {
-		nav: { catalog: 'Catalog', about: 'About', contact: 'Contact', faq: 'Installation and delivery', order: 'Request a call' },
+		nav: { catalog: 'Catalog', about: 'About', contact: 'Contact', faq: 'FAQ', installDelivery: 'Installation and delivery', order: 'Request a call' },
 		hero: {
 			eyebrow: 'Official Philips representative in Kazakhstan',
 			title: 'iLock smart locks',
@@ -842,21 +872,36 @@ export const ui = {
 			],
 		},
 		faq: {
+			eyebrow: 'FAQ',
+			title: 'Frequently asked',
+			titleAccent: 'questions',
+			pageTitle: 'Frequently asked questions',
+			pageDescription: 'Answers to common questions about iLOCK smart locks: installation, door compatibility, battery, Wi-Fi, security, access and warranty.',
+		},
+		installDelivery: {
 			eyebrow: 'Service',
 			title: 'Installation and',
 			titleAccent: 'delivery',
 			pageTitle: 'Installation and delivery',
-			pageDescription: 'Answers to common questions about iLOCK smart locks: installation, door compatibility, battery, Wi-Fi, security, access and warranty.',
+			pageDescription: 'Professional installation of iLOCK electronic locks: fitting, function setup, work check and usage guidance.',
+			intro: 'We do not just deliver an electronic lock — we provide professional installation.',
+			afterPurchase: 'After purchase, our specialist comes to you and:',
 			sections: [
 				{
 					title: 'Installation',
-					text: 'Before installation, we check the door type, leaf thickness and lock construction. We choose the right model and install it without damaging the door.',
-					items: ['Professional installation', 'Testing every opening method', 'App and user setup'],
+					text: 'Carefully installs the electronic lock on the door.',
 				},
 				{
-					title: 'Delivery',
-					text: 'We deliver locks and safes across Kazakhstan. In Astana and Almaty you can visit a branch, and for other cities we help choose a convenient delivery option.',
-					items: ['Branches in Astana and Almaty', 'Delivery across Kazakhstan', 'Consultation before dispatch'],
+					title: 'Setup',
+					text: 'Sets up all the necessary functions.',
+				},
+				{
+					title: 'Check',
+					text: 'Checks that the lock works correctly.',
+				},
+				{
+					title: 'Guidance',
+					text: 'Explains in detail how to use the lock and every available opening method.',
 				},
 			],
 		},

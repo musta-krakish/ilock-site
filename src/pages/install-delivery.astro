@@ -1,0 +1,12 @@
+---
+import InstallDelivery from '../components/InstallDelivery.astro';
+import Layout from '../layouts/Layout.astro';
+import { defaultLang, ui } from '../i18n';
+
+const lang = defaultLang;
+const copy = ui[lang].installDelivery;
+---
+
+<Layout lang={lang} title={copy.pageTitle} description={copy.pageDescription}>
+	<InstallDelivery lang={lang} />
+</Layout>

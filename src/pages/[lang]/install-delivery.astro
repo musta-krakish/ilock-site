@@ -1,0 +1,19 @@
+---
+import InstallDelivery from '../../components/InstallDelivery.astro';
+import Layout from '../../layouts/Layout.astro';
+import { langList, type Lang, ui } from '../../i18n';
+
+export function getStaticPaths() {
+	return langList.map((lang) => ({
+		params: { lang },
+		props: { lang },
+	}));
+}
+
+const { lang } = Astro.props as { lang: Lang };
+const copy = ui[lang].installDelivery;
+---
+
+<Layout lang={lang} title={copy.pageTitle} description={copy.pageDescription}>
+	<InstallDelivery lang={lang} />
+</Layout>
