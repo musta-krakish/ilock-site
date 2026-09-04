@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeading from './SectionHeading.astro';
+import kappasGroupOne from '../assets/images/company/kappas-group-1.jpg';
+import countryChoice from '../assets/images/company/country-choice-2022.jpg';
+import mansurStroy from '../assets/images/company/mansur-stroy.jpg';
+import kappasGroupTwo from '../assets/images/company/kappas-group-2.jpg';
+import philipsAuthorisation from '../assets/images/company/philips-authorisation.jpg';
+import ezvizDistributor from '../assets/images/company/ezviz-distributor-2022.jpg';
+import { type Lang, ui } from '../i18n';
+
+interface Props {
+	lang?: Lang;
+	standalone?: boolean;
+}
+
+const { lang = 'ru', standalone = false } = Astro.props;
+const t = ui[lang];
+const documents = [
+	kappasGroupOne,
+	countryChoice,
+	mansurStroy,
+	kappasGroupTwo,
+	philipsAuthorisation,
+	ezvizDistributor,
+];
+
+---
+
+<section
+	id="about"
+	class:list={[
+		'relative overflow-hidden bg-ink px-5 py-10 sm:px-8 sm:py-14 lg:px-12 xl:py-20',
+		standalone && '!pt-28 sm:!pt-32',
+	]}
+>
+	<div class="pointer-events-none absolute -left-48 -top-48 h-96 w-96 rounded-full bg-accent-color/[0.09] blur-[120px]"></div>
+	<div class="pointer-events-none absolute right-0 top-[32rem] h-px w-1/2 bg-linear-to-l from-accent-color/35 to-transparent"></div>
+
+	<div class="relative mx-auto max-w-7xl">
+		{
+			standalone && (
+				<nav aria-label="breadcrumb" class="flex items-center gap-2 text-sm text-white/40">
+					<a href={lang === 'ru' ? '/' : `/${lang}/`} class="transition hover:text-accent-color">iLOCK</a>
+					<span aria-hidden="true">/</span>
+					<span class="text-white/70">{t.company.eyebrow}</span>
+				</nav>
+			)
+		}
+
+		<div class:list={[
+			'grid items-end gap-9 lg:grid-cols-[minmax(0,1fr)_23rem] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_27rem]',
+			standalone && 'mt-8',
+		]}>
+			<SectionHeading
+				eyebrow={t.company.eyebrow}
+				title={t.company.title}
+				accent={t.company.titleAccent}
+				text={t.company.text}
+				class="reveal"
+				headingLevel={standalone ? 'h1' : 'h2'}
+				pageSize={standalone}
+			/>
+
+			<div class="relative overflow-hidden rounded-3xl border border-accent-color/30 bg-secondary-color/80 p-6 shadow-[0_30px_80px_-45px_rgba(229,174,29,0.55)] sm:p-7">
+				<div class="absolute right-0 top-0 h-32 w-32 rounded-full bg-accent-color/15 blur-3xl"></div>
+				<div class="relative flex items-start justify-between">
+					<div>
+						<p class="text-xs font-medium uppercase tracking-[0.2em] text-accent-color">{t.company.trustLabel}</p>
+						<p class="mt-3 max-w-[17rem] text-lg font-medium leading-snug text-white">{t.company.trustText}</p>
+					</div>
+					<span class="font-serif text-5xl leading-none text-accent-color/70">01</span>
+				</div>
+				<div class="relative mt-7 flex items-center gap-3 border-t border-white/10 pt-5 text-sm text-white/55">
+					<span class="flex h-7 w-7 items-center justify-center rounded-full border border-accent-color/45 text-accent-color">✓</span>
+					{t.company.trustNote}
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-12 grid gap-3 sm:mt-14 sm:grid-cols-3 sm:gap-4">
+			{
+				t.company.facts.map((fact, i) => (
+					<article class="group relative overflow-hidden rounded-2xl border border-line bg-secondary-color/60 p-5 transition duration-300 hover:-translate-y-1 hover:border-accent-color/40 sm:p-6">
+						<span class="absolute right-5 top-3 text-5xl font-semibold tracking-tighter text-white/[0.045] transition duration-300 group-hover:text-accent-color/15 sm:text-6xl">
+							0{i + 1}
+						</span>
+						<div class="h-px w-10 bg-accent-color"></div>
+						<h3 class="relative mt-7 text-lg font-semibold text-white">{fact.t}</h3>
+						<p class="relative mt-2 text-sm leading-6 text-white/55">{fact.d}</p>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="mt-16 border-t border-line pt-9 sm:mt-20 sm:pt-12">
+			<div class="flex flex-wrap items-end justify-between gap-4">
+				<div>
+					<p class="text-xs font-medium uppercase tracking-[0.18em] text-accent-color">{t.company.trustLabel}</p>
+					<h3 class="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{t.company.documents}</h3>
+				</div>
+				<span class="hidden text-sm text-white/40 sm:block">01 — 06</span>
+			</div>
+			<div class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+				{
+					documents.map((document, i) => (
+						<figure class="group relative overflow-hidden rounded-2xl border border-line bg-secondary-color transition duration-300 hover:-translate-y-1 hover:border-accent-color/45">
+							<div class="relative flex aspect-[3/4] items-center justify-center overflow-hidden bg-[#201e1b] p-2">
+								<div class="absolute inset-0 bg-linear-to-br from-accent-color/10 via-transparent to-black/30"></div>
+								<Image
+									src={document}
+									alt={t.company.documentItems[i]}
+									widths={[240, 360, 480]}
+									sizes="(min-width:1024px) 33vw, (min-width:640px) 30vw, 45vw"
+									class="relative h-full w-full object-contain transition duration-500 group-hover:scale-[1.025]"
+								/>
+							</div>
+							<figcaption class="relative border-t border-line px-3 py-3 text-xs leading-5 text-white/55 sm:px-4">
+								<span class="mr-2 text-accent-color/80">0{i + 1}</span>
+								{t.company.documentItems[i]}
+							</figcaption>
+						</figure>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>

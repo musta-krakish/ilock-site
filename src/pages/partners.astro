@@ -1,0 +1,12 @@
+---
+import Partners from '../components/Partners.astro';
+import Layout from '../layouts/Layout.astro';
+import { defaultLang, ui } from '../i18n';
+
+const lang = defaultLang;
+const copy = ui[lang].partners;
+---
+
+<Layout lang={lang} title={copy.pageTitle} description={copy.pageDescription}>
+	<Partners lang={lang} standalone />
+</Layout>

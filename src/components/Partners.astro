@@ -1,0 +1,165 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeading from './SectionHeading.astro';
+import { whatsappLink } from '../config';
+import ddl7300 from '../assets/images/locks/ddl-7300/image.png';
+import hotelLock from '../assets/images/locks/hotel/image.png';
+import cabinetLock from '../assets/images/locks/cabinet/image.png';
+import { type Lang, ui } from '../i18n';
+
+interface Props {
+	lang?: Lang;
+	standalone?: boolean;
+}
+
+const { lang = 'ru', standalone = false } = Astro.props;
+const t = ui[lang].partners;
+const images = [ddl7300, hotelLock, cabinetLock];
+const residentialProjects = [
+	{ slug: 'sati-club-house', name: 'Sati Club House', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'sati-park-house', name: 'Sati Park House', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'nova-city', name: 'Nova City', city: { ru: 'Актобе', kk: 'Ақтөбе', en: 'Aktobe' } },
+	{ slug: 'shugyla', name: 'Shugyla', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'four-seasons', name: 'Four Seasons', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'kingsland-residence', name: 'KingsLand Residence', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'daulettiq-qalashiq-bilim-1', name: 'Daulettiq Qalashiq Bilim 1', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'daulettiq-qalashiq-bilim-2', name: 'Daulettiq Qalashiq Bilim 2', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'stolichnyy-2', name: 'Столичный 2', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'ray-residence', name: 'Ray Residence', city: { ru: 'Усть-Каменогорск', kk: 'Өскемен', en: 'Ust-Kamenogorsk' } },
+	{ slug: 'abat', name: 'Abat', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'samal-park', name: 'Samal Park', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'maryam-residence', name: 'Maryam Residence', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'sandi-qala-1', name: 'Sandi Qala 1', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'sandi-qala-2', name: 'Sandi Qala 2', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'safia', name: 'Safia', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'cosmic-city-2', name: 'Cosmic City 2', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'alatau-park', name: 'Alatau Park', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'altyn-adam', name: 'Altyn Adam', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'gakku', name: 'Gakku', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'daur', name: 'Daur', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'parkside', name: 'Parkside', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'nexpo-vision', name: 'Nexpo Vision', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+	{ slug: 'dariya', name: 'Dariya', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
+];
+---
+
+<section
+	id="partners"
+	class:list={[
+		'border-t border-line bg-ink px-5 py-10 sm:px-8 sm:py-14 lg:px-12',
+		standalone && '!pt-28 sm:!pt-32',
+	]}
+>
+	<div class="mx-auto max-w-7xl">
+		{
+			standalone && (
+				<nav aria-label="breadcrumb" class="flex items-center gap-2 text-sm text-white/40">
+					<a href={lang === 'ru' ? '/' : `/${lang}/`} class="transition hover:text-accent-color">iLOCK</a>
+					<span aria-hidden="true">/</span>
+					<span class="text-white/70">{t.eyebrow}</span>
+				</nav>
+			)
+		}
+
+		<div class:list={['flex flex-wrap items-end justify-between gap-6', standalone && 'mt-8']}>
+			<SectionHeading
+				eyebrow={t.eyebrow}
+				title={t.title}
+				accent={t.titleAccent}
+				text={t.text}
+				class="reveal"
+				headingLevel={standalone ? 'h1' : 'h2'}
+				pageSize={standalone}
+			/>
+			<a
+				href="/developer-presentation.pdf"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group inline-flex items-center gap-3 rounded-full border border-accent-color/55 px-5 py-3 text-sm font-semibold text-white transition hover:bg-accent-color hover:text-ink"
+			>
+				{t.presentation}
+				<span class="text-accent-color transition group-hover:text-ink">↗</span>
+			</a>
+		</div>
+
+		<div class="mt-12 grid gap-4 sm:mt-16 lg:grid-cols-3">
+			{
+				t.items.map((item, i) => (
+					<article class:list={[
+						'group relative flex min-h-[25rem] flex-col overflow-hidden rounded-3xl border border-line p-6 transition duration-300 hover:-translate-y-1 hover:border-accent-color/55 sm:min-h-[28rem] sm:p-7',
+						i === 0 ? 'bg-linear-to-br from-[#282015] via-secondary-color to-secondary-color' : 'bg-secondary-color',
+					]}>
+						<div class="pointer-events-none absolute -right-14 -top-14 h-48 w-48 rounded-full bg-accent-color/10 blur-3xl"></div>
+						<Image
+							src={images[i]}
+							alt=""
+							aria-hidden="true"
+							widths={[240, 360, 480]}
+							sizes="(min-width:1024px) 30vw, (min-width:640px) 45vw, 85vw"
+							class="pointer-events-none absolute -bottom-14 -right-14 h-[68%] w-[72%] select-none object-contain opacity-75 transition duration-500 group-hover:scale-105 group-hover:opacity-90"
+						/>
+
+						<div class="relative max-w-[15rem]">
+							<p class="text-xs font-medium uppercase tracking-[0.18em] text-accent-color">{item.eyebrow}</p>
+							<h3 class="mt-4 text-2xl font-semibold leading-tight tracking-tight text-white">{item.title}</h3>
+							<p class="mt-3 text-sm leading-6 text-white/60">{item.text}</p>
+						</div>
+
+						<div class="relative mt-auto max-w-[17rem]">
+							<ul class="space-y-2 border-l border-accent-color/45 pl-3 text-sm leading-5 text-white/65">
+								{item.facts.map((fact) => <li>{fact}</li>)}
+							</ul>
+							<div class="mt-5 flex flex-wrap gap-3">
+								<a
+									href={whatsappLink(item.message)}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="inline-flex items-center gap-2 rounded-full bg-accent-color px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-white"
+								>
+									{t.cta}<span>→</span>
+								</a>
+								{i === 0 && (
+									<a href="/developer-presentation.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full px-2 py-2.5 text-sm font-medium text-white/55 transition hover:text-accent-color">
+										PDF ↗
+									</a>
+								)}
+							</div>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="mt-16 border-t border-line pt-9 sm:mt-20 sm:pt-12">
+			<div class="max-w-2xl">
+				<p class="text-xs font-medium uppercase tracking-[0.18em] text-accent-color">iLock · portfolio</p>
+				<h2 class="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{t.projects}</h2>
+				<p class="mt-3 text-base leading-7 text-white/55">{t.projectsText}</p>
+			</div>
+
+			<div class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+				{
+					residentialProjects.map((project) => (
+						<article class="group overflow-hidden rounded-2xl border border-line bg-secondary-color transition duration-300 hover:-translate-y-1 hover:border-accent-color/45">
+							<div class="aspect-[16/9] overflow-hidden bg-main-color">
+								<img
+									src={`/projects/residential/${project.slug}.webp`}
+									alt={`${project.name}, ${project.city[lang]}`}
+									width="512"
+									height="284"
+									loading="lazy"
+									decoding="async"
+									class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+								/>
+							</div>
+							<div class="min-h-17 px-3 py-3 sm:px-4">
+								<p class="text-sm font-semibold leading-5 text-white">{project.name}</p>
+								<p class="mt-1 text-xs text-white/45">{project.city[lang]}</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>

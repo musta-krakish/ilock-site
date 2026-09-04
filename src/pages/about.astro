@@ -1,0 +1,12 @@
+---
+import AboutUs from '../components/AboutUs.astro';
+import Layout from '../layouts/Layout.astro';
+import { defaultLang, ui } from '../i18n';
+
+const lang = defaultLang;
+const copy = ui[lang].company;
+---
+
+<Layout lang={lang} title={copy.pageTitle} description={copy.pageDescription}>
+	<AboutUs lang={lang} standalone />
+</Layout>
