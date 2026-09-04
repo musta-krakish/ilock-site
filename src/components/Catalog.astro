@@ -237,7 +237,8 @@ const breadcrumbLd = {
 	const reset = document.querySelector<HTMLButtonElement>('[data-filter-reset]');
 	const cards = document.querySelectorAll<HTMLElement>('[data-lock-grid] .lock-card');
 	const empty = document.querySelector<HTMLElement>('[data-empty]');
-	let activeKind = 'lock';
+	const requestedKind = new URLSearchParams(window.location.search).get('kind');
+	let activeKind = ['lock', 'safe', 'accessory'].includes(requestedKind ?? '') ? requestedKind! : 'lock';
 	let activeBrand = 'all';
 
 	const getActiveFilters = () => {

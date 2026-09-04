@@ -40,8 +40,9 @@ export const ui = {
 		hero: {
 			eyebrow: 'Официальный представитель Philips в Казахстане',
 			title: 'Умные замки iLock',
-			tagline: 'для вашего дома',
-			text: 'Распознавание лица и отпечатка пальца, надёжная защита от взлома и автономная работа без электросети. Установим на любую дверь — доставка и установка до дома.',
+			tagline: 'Умному человеку — умный замок.',
+			text: 'Распознавание лица и отпечатка пальца, надёжная защита от взлома и автономная работа без электросети. Подберём и профессионально установим замок на любую дверь.',
+			delivery: 'Доставка по всему Казахстану и СНГ',
 			catalog: 'Смотреть каталог',
 			contact: 'Оставить заявку',
 			choice: 'Выбор страны',
@@ -289,6 +290,12 @@ export const ui = {
 			title: 'Популярные',
 			titleAccent: 'модели',
 			text: 'Установим без повреждения ваших дверей. Доставка по всему Казахстану. Рассрочка через Kaspi.',
+			categories: {
+				locks: 'Умные замки',
+				safes: 'Сейфы',
+				accessories: 'Полезности',
+				kaspi: 'Магазин на Kaspi',
+			},
 			all: (n: number) => `Смотреть весь каталог — ${n} моделей`,
 		},
 		catalogPage: {
@@ -433,8 +440,9 @@ export const ui = {
 		hero: {
 			eyebrow: 'Қазақстандағы Philips ресми өкілі',
 			title: 'iLock ақылды құлыптары',
-			tagline: 'сіздің үйіңізге',
-			text: 'Бет пен саусақ ізін тану, бұзудан сенімді қорғаныс және электр желісінсіз автономды жұмыс. Кез келген есікке орнатамыз — үйге дейін жеткізу және орнату.',
+			tagline: 'Ақылды адамға — ақылды құлып.',
+			text: 'Бет пен саусақ ізін тану, бұзудан сенімді қорғаныс және электр желісінсіз автономды жұмыс. Кез келген есікке құлыпты таңдап, кәсіби түрде орнатып береміз.',
+			delivery: 'Қазақстан мен ТМД бойынша жеткізу',
 			catalog: 'Каталогты қарау',
 			contact: 'Өтінім қалдыру',
 			choice: 'Ел таңдауы',
@@ -679,6 +687,12 @@ export const ui = {
 			title: 'Танымал',
 			titleAccent: 'модельдер',
 			text: 'Есігіңізді зақымдамай орнатамыз. Қазақстан бойынша жеткізу. Kaspi арқылы бөліп төлеу.',
+			categories: {
+				locks: 'Ақылды құлыптар',
+				safes: 'Сейфтер',
+				accessories: 'Пайдалы заттар',
+				kaspi: 'Kaspi дүкені',
+			},
 			all: (n: number) => `Толық каталогты қарау — ${n} модель`,
 		},
 		catalogPage: {
@@ -823,8 +837,9 @@ export const ui = {
 		hero: {
 			eyebrow: 'Official Philips representative in Kazakhstan',
 			title: 'iLock smart locks',
-			tagline: 'for your home',
-			text: 'Face and fingerprint recognition, solid break-in protection and battery power independent of the mains. We fit any door — delivered and installed at your home.',
+			tagline: 'A smart lock for a smart person.',
+			text: 'Face and fingerprint recognition, solid break-in protection and battery power independent of the mains. We will select and professionally install a lock for any door.',
+			delivery: 'Delivery across Kazakhstan and the CIS',
 			catalog: 'View catalog',
 			contact: 'Request a call',
 			choice: "Country's Choice",
@@ -1069,6 +1084,12 @@ export const ui = {
 			title: 'Popular',
 			titleAccent: 'models',
 			text: 'Installed without damaging your door. Delivery across Kazakhstan. Kaspi instalments.',
+			categories: {
+				locks: 'Smart locks',
+				safes: 'Safes',
+				accessories: 'Accessories',
+				kaspi: 'Kaspi store',
+			},
 			all: (n: number) => `See the full catalog — ${n} models`,
 		},
 		catalogPage: {
