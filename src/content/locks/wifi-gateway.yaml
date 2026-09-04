@@ -1,0 +1,30 @@
+title: "Шлюз WiFi"
+brand: "smartlock"
+kind: "accessory"
+price: 64800
+image: "../../assets/images/locks/wifi-gateway/image.png"
+order: 1
+material: "steel"
+access: []
+features: []
+temp: { min: 0, max: 0 }
+power: "aa4"
+battery: "—"
+warranty: 1
+interface: ["ru"]
+colors: []
+ru:
+  description: "Шлюз для дистанционного управления совместимым умным замком через приложение."
+  seoTitle: "Шлюз WiFi для умных замков — купить в Казахстане | iLOCK"
+  seoDescription: "Шлюз WiFi Smartlock для дистанционного управления умным замком через приложение. Гарантия 1 год."
+  body: "Подключает совместимый умный замок к интернету: замок связывается со шлюзом по Bluetooth, а шлюз — с роутером по WiFi."
+kk:
+  description: "Үйлесімді ақылды құлыпты қосымша арқылы қашықтан басқаруға арналған шлюз."
+  seoTitle: "Ақылды құлыптарға арналған WiFi шлюзі — Қазақстанда сатып алу | iLOCK"
+  seoDescription: "Ақылды құлыпты қосымша арқылы қашықтан басқаруға арналған Smartlock WiFi шлюзі. Кепілдік 1 жыл."
+  body: "Үйлесімді ақылды құлыпты интернетке қосады: құлып шлюзбен Bluetooth арқылы, ал шлюз роутермен WiFi арқылы байланысады."
+en:
+  description: "A gateway for controlling a compatible smart lock remotely through the app."
+  seoTitle: "WiFi gateway for smart locks — buy in Kazakhstan | iLOCK"
+  seoDescription: "Smartlock WiFi gateway for remote smart-lock control through the app. One-year warranty."
+  body: "Connects a compatible smart lock to the internet: the lock communicates with the gateway via Bluetooth, while the gateway connects to the router via WiFi."

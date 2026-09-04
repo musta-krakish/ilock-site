@@ -25,11 +25,10 @@ const locks = sortLocks((await getCollection('locks')).map((lock) => localizeLoc
 const groups = brandOrder
 	.map((brand) => {
 		const brandLocks = locks.filter((lock) => lock.brand === brand);
-		const safeCount = brandLocks.filter((lock) => lock.kind === 'safe').length;
 		return {
 			brand,
 			count: brandLocks.length,
-			kind: safeCount === brandLocks.length ? 'safe' : 'lock',
+			kinds: [...new Set(brandLocks.map((lock) => lock.kind))],
 		};
 	})
 	.filter((g) => g.count > 0);
@@ -37,6 +36,7 @@ const groups = brandOrder
 const categoryTabs = [
 	{ kind: 'lock', label: t.catalog.smartLocks, count: locks.filter((lock) => lock.kind === 'lock').length },
 	{ kind: 'safe', label: t.catalog.safes, count: locks.filter((lock) => lock.kind === 'safe').length },
+	{ kind: 'accessory', label: t.catalog.accessories, count: locks.filter((lock) => lock.kind === 'accessory').length },
 ];
 
 const siteUrl = Astro.site ?? Astro.url;
@@ -137,7 +137,7 @@ const breadcrumbLd = {
 						type="button"
 						role="tab"
 						data-brand-filter={group.brand}
-						data-brand-kind={group.kind}
+						data-brand-kinds={group.kinds.join(' ')}
 						aria-selected="false"
 						class="filter-tab rounded-full border border-line px-5 py-2.5 text-sm font-medium text-white/60 transition"
 					>
@@ -155,7 +155,7 @@ const breadcrumbLd = {
 					<a
 						href={`${homePath}catalog/${group.brand}/`}
 						data-brand-link
-						data-brand-kind={group.kind}
+						data-brand-kinds={group.kinds.join(' ')}
 						class="text-white/60 underline decoration-line underline-offset-4 transition hover:text-accent-color hover:decoration-accent-color"
 					>
 						{t.brandPage[group.brand].h1}
@@ -262,14 +262,14 @@ const breadcrumbLd = {
 
 		brandTabs.forEach((tab) => {
 			const brand = tab.dataset.brandFilter;
-			const brandKind = tab.dataset.brandKind;
-			const visible = brand === 'all' || brandKind === activeKind;
+			const brandKinds = tab.dataset.brandKinds?.split(' ') ?? [];
+			const visible = brand === 'all' || brandKinds.includes(activeKind);
 			tab.hidden = !visible;
 			tab.setAttribute('aria-selected', String(visible && brand === activeBrand));
 		});
 
 		brandLinks.forEach((link) => {
-			link.hidden = link.dataset.brandKind !== activeKind;
+			link.hidden = !(link.dataset.brandKinds?.split(' ') ?? []).includes(activeKind);
 		});
 
 		if (lockFilters) lockFilters.hidden = activeKind !== 'lock';

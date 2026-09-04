@@ -8,7 +8,7 @@ import { glob } from 'astro/loaders';
  */
 const brand = z.enum(['ilock', 'philips', 'smartlock', 'safes', 'tiger']);
 
-const kind = z.enum(['lock', 'safe']);
+const kind = z.enum(['lock', 'safe', 'accessory']);
 
 const material = z.enum([
 	'aluminum',
@@ -126,6 +126,8 @@ const locks = defineCollection({
 			/** Months of use between charges/battery swaps, e.g. "4-6" or "10". */
 			battery: z.string(),
 			app: z.string().nullable().optional(),
+			compatibility: z.object({ ru: z.string(), kk: z.string(), en: z.string() }).nullable().optional(),
+			included: z.object({ ru: z.string(), kk: z.string(), en: z.string() }).nullable().optional(),
 			warranty: z.number(),
 			origin: z.object({ ru: z.string(), kk: z.string(), en: z.string() }).nullable().optional(),
 			interface: z.array(z.enum(['ru', 'kk', 'en', 'zh'])),

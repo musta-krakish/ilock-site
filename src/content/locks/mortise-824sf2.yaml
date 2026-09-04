@@ -1,0 +1,34 @@
+title: "Mortise 824SF2"
+brand: "philips"
+kind: "accessory"
+price: 58200
+image: "../../assets/images/locks/mortise-824sf2/image.png"
+order: 8
+material: "steel"
+access: []
+features: []
+temp: { min: 0, max: 0 }
+power: "aa4"
+battery: "—"
+warranty: 2
+compatibility:
+  ru: "Philips DDL 7300"
+  kk: "Philips DDL 7300"
+  en: "Philips DDL 7300"
+interface: []
+colors: ["silver"]
+ru:
+  description: "Врезной механизм Philips Mortise 824SF2 для модели DDL 7300."
+  seoTitle: "Mortise 824SF2 для Philips DDL 7300 — купить | iLOCK"
+  seoDescription: "Врезной механизм Philips Mortise 824SF2 для DDL 7300. Гарантия 2 года."
+  body: "Сменный врезной механизм Philips Mortise 824SF2, совместимый с электронным замком DDL 7300."
+kk:
+  description: "Philips DDL 7300 үшін Mortise 824SF2 кіріктірме механизмі."
+  seoTitle: "Philips DDL 7300 үшін Mortise 824SF2 — сатып алу | iLOCK"
+  seoDescription: "Philips DDL 7300 үшін Mortise 824SF2 кіріктірме механизмі. Кепілдік 2 жыл."
+  body: "DDL 7300 электрондық құлпымен үйлесімді Philips Mortise 824SF2 ауыстырмалы кіріктірме механизмі."
+en:
+  description: "A Philips Mortise 824SF2 mortise mechanism for the DDL 7300 model."
+  seoTitle: "Mortise 824SF2 for Philips DDL 7300 — buy | iLOCK"
+  seoDescription: "Philips Mortise 824SF2 mortise mechanism for DDL 7300. Two-year warranty."
+  body: "A replacement Philips Mortise 824SF2 mortise mechanism compatible with the DDL 7300 electronic lock."

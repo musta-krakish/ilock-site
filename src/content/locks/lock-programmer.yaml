@@ -1,0 +1,30 @@
+title: "Программатор замков"
+brand: "smartlock"
+kind: "accessory"
+price: 100000
+image: "../../assets/images/locks/lock-programmer/image.png"
+order: 2
+material: "steel"
+access: []
+features: []
+temp: { min: 0, max: 0 }
+power: "aa4"
+battery: "—"
+warranty: 1
+interface: ["ru"]
+colors: []
+ru:
+  description: "Программатор для настройки совместимых электронных замков Smartlock."
+  seoTitle: "Программатор замков Smartlock — купить в Казахстане | iLOCK"
+  seoDescription: "Программатор Smartlock для настройки совместимых электронных замков. Гарантия 1 год."
+  body: "Сервисный программатор для настройки и обслуживания совместимых электронных замков Smartlock."
+kk:
+  description: "Үйлесімді Smartlock электрондық құлыптарын баптауға арналған бағдарламалаушы."
+  seoTitle: "Smartlock құлып бағдарламалаушысы — Қазақстанда сатып алу | iLOCK"
+  seoDescription: "Үйлесімді электрондық құлыптарды баптауға арналған Smartlock бағдарламалаушысы. Кепілдік 1 жыл."
+  body: "Үйлесімді Smartlock электрондық құлыптарын баптауға және қызмет көрсетуге арналған сервистік бағдарламалаушы."
+en:
+  description: "A programmer for configuring compatible Smartlock electronic locks."
+  seoTitle: "Smartlock lock programmer — buy in Kazakhstan | iLOCK"
+  seoDescription: "Smartlock programmer for configuring compatible electronic locks. One-year warranty."
+  body: "A service programmer for configuring and maintaining compatible Smartlock electronic locks."

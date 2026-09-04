@@ -23,13 +23,14 @@ const t = ui[lang];
 const lock = localizeLock(entry, lang);
 const homePath = getLocalePath(lang);
 const S = t.specs;
+const isAccessory = lock.kind === 'accessory';
 
 const all = sortLocks((await getCollection('locks')).map((l) => localizeLock(l, lang))).filter(
 	(l) => l.slug !== lock.slug,
 );
 const related = [
-	...all.filter((l) => l.brand === lock.brand),
-	...all.filter((l) => l.brand !== lock.brand),
+	...all.filter((l) => l.kind === lock.kind && l.brand === lock.brand),
+	...all.filter((l) => l.kind === lock.kind && l.brand !== lock.brand),
 ].slice(0, 3);
 
 const monthly = Math.round(lock.price / 12 / 100) * 100;
@@ -43,7 +44,7 @@ const accessValue = lock.access
 	})
 	.join(' · ');
 
-const rows = [
+const lockRows = [
 	{ label: t.product.rows.material, value: S.material[lock.material] },
 	{ label: t.product.rows.access, value: accessValue },
 	{ label: t.product.rows.temp, value: `${lock.temp.min} °C … +${lock.temp.max} °C` },
@@ -59,6 +60,33 @@ const rows = [
 	{ label: t.product.rows.colors, value: lock.colors.map((c) => S.color[c]).join(', ') },
 ];
 
+const accessoryRows = [
+	{
+		label: t.product.rows.brand,
+		value: `${brandNames[lock.brand]} / ${t.product.years(lock.warranty)}`,
+	},
+	...(lock.compatibility?.[lang] ? [{ label: t.product.rows.compatibility, value: lock.compatibility[lang] }] : []),
+	...(lock.included?.[lang] ? [{ label: t.product.rows.included, value: lock.included[lang] }] : []),
+	...(lock.interface.length > 0
+		? [{ label: t.product.rows.iface, value: lock.interface.map((i) => S.iface[i]).join(', ') }]
+		: []),
+	...(lock.features.includes('rechargeable')
+		? [
+				{ label: t.product.rows.power, value: S.power[lock.power] },
+				{ label: t.product.rows.battery, value: t.product.months(lock.battery) },
+			]
+		: []),
+];
+
+const rows = isAccessory ? accessoryRows : lockRows;
+const additionalProperties = isAccessory
+	? accessoryRows.map((row) => ({ '@type': 'PropertyValue', name: row.label, value: row.value }))
+	: [
+		{ '@type': 'PropertyValue', name: t.product.rows.material, value: S.material[lock.material] },
+		{ '@type': 'PropertyValue', name: t.product.rows.access, value: accessValue },
+		{ '@type': 'PropertyValue', name: t.product.rows.battery, value: t.product.months(lock.battery) },
+	];
+
 const siteUrl = Astro.site ?? Astro.url;
 const abs = (path: string) => new URL(canonicalPath(path), siteUrl).toString();
 const canonical = abs(Astro.url.pathname);
@@ -70,7 +98,7 @@ const productLd = {
 	description: lock.seoDescription,
 	image: new URL(lock.image.src, siteUrl).toString(),
 	sku: lock.slug,
-	category: t.catalog.title,
+	category: isAccessory ? t.catalog.accessories : t.catalog.title,
 	brand: { '@type': 'Brand', name: brandNames[lock.brand] },
 	offers: {
 		'@type': 'Offer',
@@ -83,11 +111,7 @@ const productLd = {
 		itemCondition: 'https://schema.org/NewCondition',
 		seller: { '@type': 'Organization', name: 'iLOCK' },
 	},
-	additionalProperty: [
-		{ '@type': 'PropertyValue', name: t.product.rows.material, value: S.material[lock.material] },
-		{ '@type': 'PropertyValue', name: t.product.rows.access, value: accessValue },
-		{ '@type': 'PropertyValue', name: t.product.rows.battery, value: t.product.months(lock.battery) },
-	],
+	additionalProperty: additionalProperties,
 };
 
 const breadcrumbLd = {
@@ -194,7 +218,9 @@ const breadcrumbLd = {
 					</a>
 				</div>
 
-				<div class="mt-9">
+				{
+					lock.access.length > 0 && (
+						<div class="mt-9">
 					<h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">{t.product.access}</h2>
 					<ul class="mt-4 flex flex-wrap gap-2">
 						{
@@ -206,13 +232,19 @@ const breadcrumbLd = {
 							))
 						}
 					</ul>
-				</div>
+						</div>
+					)
+				}
 
 				{
 					lock.features.length > 0 && (
 						<div class="mt-7">
 							<h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white/45">
-								{lock.kind === 'safe' ? t.product.safeFeatures : t.product.features}
+								{lock.kind === 'safe'
+									? t.product.safeFeatures
+									: isAccessory
+										? t.product.accessoryFeatures
+										: t.product.features}
 							</h2>
 							<ul class="mt-4 grid gap-2 sm:grid-cols-2">
 								{lock.features.map((f) => (

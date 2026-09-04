@@ -14,6 +14,7 @@ const options = {
 	kind: [
 		{ label: 'Умный замок', value: 'lock' },
 		{ label: 'Сейф', value: 'safe' },
+		{ label: 'Прочее / аксессуар', value: 'accessory' },
 	],
 	material: [
 		{ label: 'Алюминиевый сплав', value: 'aluminum' },
@@ -304,6 +305,22 @@ const lockSchema = {
 	power: fields.select({ label: 'Питание', options: options.power, defaultValue: 'aa4' }),
 	battery: requiredText('Срок работы, месяцев', 'Например: 4-6 или 10.'),
 	app: fields.text({ label: 'Приложение' }),
+	compatibility: fields.object(
+		{
+			ru: fields.text({ label: 'По-русски' }),
+			kk: fields.text({ label: 'Қазақша' }),
+			en: fields.text({ label: 'In English' }),
+		},
+		{ label: 'Совместимость', description: 'Необязательное поле для аксессуаров.', layout: [4, 4, 4] },
+	),
+	included: fields.object(
+		{
+			ru: fields.text({ label: 'По-русски' }),
+			kk: fields.text({ label: 'Қазақша' }),
+			en: fields.text({ label: 'In English' }),
+		},
+		{ label: 'Комплектация', description: 'Необязательное поле для аксессуаров.', layout: [4, 4, 4] },
+	),
 	warranty: fields.integer({ label: 'Гарантия, лет', validation: { isRequired: true, min: 0 } }),
 	origin: fields.object(
 		{

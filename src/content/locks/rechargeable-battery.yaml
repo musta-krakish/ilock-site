@@ -1,0 +1,30 @@
+title: "Перезаряжаемый аккумулятор"
+brand: "philips"
+kind: "accessory"
+price: 28000
+image: "../../assets/images/locks/rechargeable-battery/image.png"
+order: 6
+material: "steel"
+access: []
+features: ["rechargeable"]
+temp: { min: 0, max: 0 }
+power: "li-ion"
+battery: "4-6"
+warranty: 2
+interface: []
+colors: ["black"]
+ru:
+  description: "Перезаряжаемый аккумулятор Philips для совместимых электронных замков, до 4–6 месяцев работы."
+  seoTitle: "Перезаряжаемый аккумулятор Philips для замков — купить | iLOCK"
+  seoDescription: "Перезаряжаемый аккумулятор Philips для совместимых замков, до 4–6 месяцев работы. Гарантия 2 года."
+  body: "Оригинальный перезаряжаемый аккумулятор Philips для совместимых электронных замков. Одного заряда хватает до 4–6 месяцев в зависимости от интенсивности использования."
+kk:
+  description: "Үйлесімді электрондық құлыптарға арналған Philips қайта зарядталатын аккумуляторы, 4–6 айға дейін жұмыс істейді."
+  seoTitle: "Құлыптарға арналған Philips қайта зарядталатын аккумуляторы — сатып алу | iLOCK"
+  seoDescription: "Үйлесімді құлыптарға арналған Philips қайта зарядталатын аккумуляторы, 4–6 айға дейін жұмыс істейді. Кепілдік 2 жыл."
+  body: "Үйлесімді электрондық құлыптарға арналған түпнұсқа Philips қайта зарядталатын аккумуляторы. Пайдалану жиілігіне қарай бір заряд 4–6 айға дейін жетеді."
+en:
+  description: "A rechargeable Philips battery for compatible electronic locks, with up to 4–6 months of use."
+  seoTitle: "Rechargeable Philips lock battery — buy | iLOCK"
+  seoDescription: "Rechargeable Philips battery for compatible locks, with up to 4–6 months of use. Two-year warranty."
+  body: "An original rechargeable Philips battery for compatible electronic locks. One charge lasts up to 4–6 months, depending on usage intensity."

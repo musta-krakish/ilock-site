@@ -132,6 +132,8 @@ export const ui = {
 			categories: 'Категории товаров',
 			smartLocks: 'Умные замки',
 			safes: 'Сейфы',
+			accessories: 'Прочее',
+			accessory: 'Аксессуар',
 			from: 'от',
 			featured: 'Хит продаж',
 			soon: 'Скоро в продаже',
@@ -228,6 +230,7 @@ export const ui = {
 			access: 'Способы разблокировки',
 			features: 'Особенности замка',
 			safeFeatures: 'Особенности сейфа',
+			accessoryFeatures: 'Особенности товара',
 			about: 'О модели',
 			order: 'Заказать',
 			ask: 'Спросить в WhatsApp',
@@ -235,7 +238,7 @@ export const ui = {
 			related: 'Похожие модели',
 			askMsg: (t: string) => `Здравствуйте! Интересует замок ${t} с сайта iLOCK.`,
 			orderMsg: (t: string, kind = 'lock') =>
-				`Здравствуйте! Хочу заказать ${kind === 'safe' ? 'сейф' : 'данный замок'} ${t}.`,
+				`Здравствуйте! Хочу заказать ${kind === 'safe' ? 'сейф' : kind === 'accessory' ? 'данный аксессуар' : 'данный замок'} ${t}.`,
 			kaspiWord: 'Рассрочка',
 			kaspiTerm: (m: string) => `${m} × 12 мес`,
 			variants: 'Варианты',
@@ -250,6 +253,8 @@ export const ui = {
 				power: 'Питание',
 				battery: 'Работа без подзарядки',
 				app: 'Приложение',
+				compatibility: 'Совместимость',
+				included: 'Комплектация',
 				brand: 'Бренд / Гарантия',
 				origin: 'Страна',
 				iface: 'Язык интерфейса',
@@ -262,9 +267,9 @@ export const ui = {
 			// The model number alone ("DDL 7300") is not a phrase anyone searches for, so the
 			// H1 and the image alt carry the category and the brand around it.
 			h1: (brand: string, title: string, kind = 'lock') =>
-				kind === 'safe' ? `Сейф ${brand} ${title}` : `Умный замок ${brand} ${title}`,
+				kind === 'safe' ? `Сейф ${brand} ${title}` : kind === 'accessory' ? `Аксессуар ${brand} ${title}` : `Умный замок ${brand} ${title}`,
 			imgAlt: (brand: string, title: string, kind = 'lock') =>
-				kind === 'safe' ? `Сейф ${brand} ${title}` : `Умный замок ${brand} ${title}`,
+				kind === 'safe' ? `Сейф ${brand} ${title}` : kind === 'accessory' ? `Аксессуар ${brand} ${title}` : `Умный замок ${brand} ${title}`,
 			// Appended to the per-model description until the snippet limit is reached.
 			metaParts: (price: string, warranty: string) => [
 				price,
@@ -520,6 +525,8 @@ export const ui = {
 			categories: 'Тауар санаттары',
 			smartLocks: 'Ақылды құлыптар',
 			safes: 'Сейфтер',
+			accessories: 'Басқа',
+			accessory: 'Аксессуар',
 			from: 'бастап',
 			featured: 'Хит',
 			soon: 'Жақында сатылымда',
@@ -616,6 +623,7 @@ export const ui = {
 			access: 'Ашу тәсілдері',
 			features: 'Құлып ерекшеліктері',
 			safeFeatures: 'Сейф ерекшеліктері',
+			accessoryFeatures: 'Тауардың ерекшеліктері',
 			about: 'Модель туралы',
 			order: 'Тапсырыс беру',
 			ask: 'WhatsApp-та сұрау',
@@ -623,7 +631,7 @@ export const ui = {
 			related: 'Ұқсас модельдер',
 			askMsg: (t: string) => `Сәлеметсіз бе! iLOCK сайтындағы ${t} құлыбы қызықтырады.`,
 			orderMsg: (t: string, kind = 'lock') =>
-				`Сәлеметсіз бе! Осы ${t} ${kind === 'safe' ? 'сейфіне' : 'құлпына'} тапсырыс бергім келеді.`,
+				`Сәлеметсіз бе! Осы ${t} ${kind === 'safe' ? 'сейфіне' : kind === 'accessory' ? 'аксессуарына' : 'құлпына'} тапсырыс бергім келеді.`,
 			kaspiWord: 'Бөліп төлеу',
 			kaspiTerm: (m: string) => `${m} × 12 ай`,
 			variants: 'Нұсқалар',
@@ -638,6 +646,8 @@ export const ui = {
 				power: 'Қуат көзі',
 				battery: 'Зарядсыз жұмыс',
 				app: 'Қосымша',
+				compatibility: 'Үйлесімділік',
+				included: 'Жинақтама',
 				brand: 'Бренд / Кепілдік',
 				origin: 'Елі',
 				iface: 'Интерфейс тілі',
@@ -648,9 +658,9 @@ export const ui = {
 			upTo: 'дейін',
 			pcs: 'дана',
 			h1: (brand: string, title: string, kind = 'lock') =>
-				kind === 'safe' ? `${brand} ${title} сейфі` : `${brand} ${title} ақылды құлпы`,
+				kind === 'safe' ? `${brand} ${title} сейфі` : kind === 'accessory' ? `${brand} ${title} аксессуары` : `${brand} ${title} ақылды құлпы`,
 			imgAlt: (brand: string, title: string, kind = 'lock') =>
-				kind === 'safe' ? `${brand} ${title} сейфі` : `${brand} ${title} ақылды құлпы`,
+				kind === 'safe' ? `${brand} ${title} сейфі` : kind === 'accessory' ? `${brand} ${title} аксессуары` : `${brand} ${title} ақылды құлпы`,
 			metaParts: (price: string, warranty: string) => [
 				price,
 				`кепілдік ${warranty}`,
@@ -905,6 +915,8 @@ export const ui = {
 			categories: 'Product categories',
 			smartLocks: 'Smart locks',
 			safes: 'Safes',
+			accessories: 'Other',
+			accessory: 'Accessory',
 			from: 'from',
 			featured: 'Best seller',
 			soon: 'Coming soon',
@@ -1001,6 +1013,7 @@ export const ui = {
 			access: 'Unlocking methods',
 			features: 'Lock features',
 			safeFeatures: 'Safe features',
+			accessoryFeatures: 'Product features',
 			about: 'About the model',
 			order: 'Order',
 			ask: 'Ask on WhatsApp',
@@ -1008,7 +1021,7 @@ export const ui = {
 			related: 'Similar models',
 			askMsg: (t: string) => `Hello! I'm interested in the ${t} lock from the iLOCK website.`,
 			orderMsg: (t: string, kind = 'lock') =>
-				`Hello! I'd like to order the ${t} ${kind === 'safe' ? 'safe' : 'lock'}.`,
+				`Hello! I'd like to order the ${t} ${kind === 'safe' ? 'safe' : kind === 'accessory' ? 'accessory' : 'lock'}.`,
 			kaspiWord: 'Instalment',
 			kaspiTerm: (m: string) => `${m} × 12 mo`,
 			variants: 'Variants',
@@ -1023,6 +1036,8 @@ export const ui = {
 				power: 'Power',
 				battery: 'Runtime per charge',
 				app: 'App',
+				compatibility: 'Compatibility',
+				included: 'In the box',
 				brand: 'Brand / Warranty',
 				origin: 'Country',
 				iface: 'Interface language',
@@ -1033,9 +1048,9 @@ export const ui = {
 			upTo: 'up to',
 			pcs: 'pcs',
 			h1: (brand: string, title: string, kind = 'lock') =>
-				kind === 'safe' ? `${brand} ${title} safe` : `${brand} ${title} smart lock`,
+				kind === 'safe' ? `${brand} ${title} safe` : kind === 'accessory' ? `${brand} ${title} accessory` : `${brand} ${title} smart lock`,
 			imgAlt: (brand: string, title: string, kind = 'lock') =>
-				kind === 'safe' ? `${brand} ${title} safe` : `${brand} ${title} smart lock`,
+				kind === 'safe' ? `${brand} ${title} safe` : kind === 'accessory' ? `${brand} ${title} accessory` : `${brand} ${title} smart lock`,
 			metaParts: (price: string, warranty: string) => [
 				price,
 				`${warranty} warranty`,
@@ -1254,8 +1269,11 @@ export function buildMetaDescription(base: string, parts: string[], limit = 158)
 }
 
 /** Sorts by brand priority (iLock, Philips, then the rest), then by the per-brand order. */
-export function sortLocks<T extends { brand: Brand; order: number }>(locks: T[]) {
+export function sortLocks<T extends { brand: Brand; order: number; kind?: string }>(locks: T[]) {
 	return [...locks].sort(
-		(a, b) => brandOrder.indexOf(a.brand) - brandOrder.indexOf(b.brand) || a.order - b.order,
+		(a, b) =>
+			(a.kind === 'accessory' && b.kind === 'accessory'
+				? 0
+				: brandOrder.indexOf(a.brand) - brandOrder.indexOf(b.brand)) || a.order - b.order,
 	);
 }

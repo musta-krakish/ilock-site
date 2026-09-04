@@ -1,0 +1,30 @@
+title: "RFID-карта для гостиничных замков"
+brand: "smartlock"
+kind: "accessory"
+price: 700
+image: "../../assets/images/locks/rfid-hotel-card/image.png"
+order: 3
+material: "steel"
+access: []
+features: []
+temp: { min: 0, max: 0 }
+power: "aa4"
+battery: "—"
+warranty: 1
+interface: []
+colors: ["white"]
+ru:
+  description: "RFID-карта доступа для совместимых гостиничных замков Smartlock."
+  seoTitle: "RFID-карта для гостиничных замков — купить в Казахстане | iLOCK"
+  seoDescription: "RFID-карта доступа для гостиничных замков Smartlock. Гарантия 1 год."
+  body: "Карта предназначена для выдачи доступа гостям в совместимых гостиничных электронных замках Smartlock."
+kk:
+  description: "Үйлесімді Smartlock қонақүй құлыптарына арналған RFID қолжетімділік картасы."
+  seoTitle: "Қонақүй құлыптарына арналған RFID-карта — Қазақстанда сатып алу | iLOCK"
+  seoDescription: "Smartlock қонақүй құлыптарына арналған RFID қолжетімділік картасы. Кепілдік 1 жыл."
+  body: "Карта үйлесімді Smartlock қонақүй электрондық құлыптарында қонақтарға қолжетімділік беруге арналған."
+en:
+  description: "An RFID access card for compatible Smartlock hotel locks."
+  seoTitle: "RFID card for hotel locks — buy in Kazakhstan | iLOCK"
+  seoDescription: "RFID access card for Smartlock hotel locks. One-year warranty."
+  body: "The card is used to issue guest access on compatible Smartlock hotel electronic locks."
