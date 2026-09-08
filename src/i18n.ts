@@ -183,8 +183,8 @@ export const ui = {
 				},
 				{
 					title: 'Доставка',
-					text: 'Доставляем замки и сейфы по Казахстану. В Астане и Алматы можно обратиться в филиал, а по другим городам подскажем удобный способ получения.',
-					items: ['Филиалы в Астане и Алматы', 'Доставка по Казахстану', 'Консультация перед отправкой'],
+					text: 'Доставляем замки и сейфы по всему Казахстану и в страны СНГ. В Астане и Алматы можно обратиться в филиал, а по другим городам подскажем удобный способ получения.',
+					items: ['Филиалы в Астане и Алматы', 'Доставка по всему Казахстану и СНГ', 'Консультация перед отправкой'],
 					outro: [],
 				},
 			],
@@ -647,8 +647,8 @@ export const ui = {
 				},
 				{
 					title: 'Жеткізу',
-					text: 'Құлыптар мен сейфтерді Қазақстан бойынша жеткіземіз. Астана мен Алматыда филиалға келуге болады, басқа қалаларға ыңғайлы алу тәсілін ұсынамыз.',
-					items: ['Астана және Алматы филиалдары', 'Қазақстан бойынша жеткізу', 'Жіберер алдында кеңес беру'],
+					text: 'Құлыптар мен сейфтерді Қазақстан мен ТМД елдері бойынша жеткіземіз. Астана мен Алматыда филиалға келуге болады, басқа қалаларға ыңғайлы алу тәсілін ұсынамыз.',
+					items: ['Астана және Алматы филиалдары', 'Қазақстан мен ТМД бойынша жеткізу', 'Жіберер алдында кеңес беру'],
 					outro: [],
 				},
 			],
@@ -1108,8 +1108,8 @@ export const ui = {
 				},
 				{
 					title: 'Delivery',
-					text: 'We deliver locks and safes across Kazakhstan. In Astana and Almaty you can visit a branch, and for other cities we help choose a convenient delivery option.',
-					items: ['Branches in Astana and Almaty', 'Delivery across Kazakhstan', 'Consultation before dispatch'],
+					text: 'We deliver locks and safes across Kazakhstan and to the CIS countries. In Astana and Almaty you can visit a branch, and for other cities we help choose a convenient delivery option.',
+					items: ['Branches in Astana and Almaty', 'Delivery across Kazakhstan and the CIS', 'Consultation before dispatch'],
 					outro: [],
 				},
 			],

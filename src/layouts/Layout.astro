@@ -40,12 +40,13 @@ const homePath = getLocalePath(lang);
 const currentPath = Astro.url.pathname;
 const orderHref = `${homePath}#lead`;
 
-const navLinks = [
+const navLinks: { href: string; label: string; external?: boolean }[] = [
 	{ href: `${homePath}catalog/`, label: t.nav.catalog },
 	{ href: `${homePath}about/`, label: t.nav.about },
 	{ href: `${homePath}faq/`, label: t.nav.faq },
 	{ href: `${homePath}install-delivery/`, label: t.nav.installDelivery },
 	{ href: `${homePath}partners/`, label: t.nav.partners },
+	{ href: site.kaspiUrl, label: t.featured.categories.kaspi, external: true },
 ];
 
 const quickOrderLabel: Record<Lang, string> = {
@@ -173,8 +174,17 @@ const organizationLd = {
 				<nav class="hidden items-center gap-6 text-sm text-white/70 xl:flex">
 					{
 						navLinks.map((link) => (
-							<a class="transition hover:text-accent-color" href={link.href}>
+							<a
+								class:list={[
+									'whitespace-nowrap transition',
+									link.external ? 'text-[#ff776b] hover:text-[#F14635]' : 'hover:text-accent-color',
+								]}
+								href={link.href}
+								target={link.external ? '_blank' : undefined}
+								rel={link.external ? 'noopener noreferrer' : undefined}
+							>
 								{link.label}
+								{link.external && <span aria-hidden="true"> ↗</span>}
 							</a>
 						))
 					}
@@ -227,10 +237,16 @@ const organizationLd = {
 							navLinks.map((link) => (
 								<a
 									data-menu-link
-									class="mobile-glass rounded-2xl border px-5 py-4 transition hover:text-accent-color"
+									class:list={[
+										'mobile-glass rounded-2xl border px-5 py-4 transition',
+										link.external ? '!border-[#F14635]/55 text-[#ff776b]' : 'hover:text-accent-color',
+									]}
 									href={link.href}
+									target={link.external ? '_blank' : undefined}
+									rel={link.external ? 'noopener noreferrer' : undefined}
 								>
 									{link.label}
+									{link.external && <span aria-hidden="true"> ↗</span>}
 								</a>
 							))
 						}

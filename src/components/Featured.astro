@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import LockCard from './LockCard.astro';
 import SectionHeading from './SectionHeading.astro';
+import { site } from '../config';
 import { getLocalePath, localizeLock, sortLocks, type Lang, ui } from '../i18n';
 
 interface Props {
@@ -53,7 +54,7 @@ const mobileAllText: Record<Lang, string> = {
 						{t.featured.categories.accessories}
 					</a>
 					<a
-						href="https://kaspi.kz/shop/m/Asilver/products?text=&q=%3AlistingType%3AmerchantListing%3Acategory%3AConstruction%20and%20repair%3AallMerchants%3AAsilver&sort=relevance&filteredByCategory=false&sc="
+						href={site.kaspiUrl}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="rounded-full border border-[#F14635]/65 bg-[#F14635]/10 px-4 py-2 text-sm font-semibold text-[#ff776b] transition hover:bg-[#F14635] hover:text-white"
