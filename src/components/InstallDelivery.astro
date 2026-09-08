@@ -30,13 +30,29 @@ const t = ui[lang];
 							{section.text}
 						</p>
 						<ul class="mt-10 grid gap-5 text-lg font-semibold leading-7 text-white/72 sm:text-xl">
-							{section.items.map((item) => (
-								<li class="flex gap-5">
-									<span class="mt-2.5 h-3 w-3 shrink-0 rounded-full bg-accent-color shadow-[0_0_20px_rgba(223,166,32,0.65)]" />
-									<span>{item}</span>
-								</li>
-							))}
+							{section.items.map((item) => {
+								/* Items may carry a short lead followed by an em dash explanation — the lead stays bright, the rest reads as body copy. */
+								const [lead, ...rest] = item.split(' — ');
+								const detail = rest.join(' — ');
+
+								return (
+									<li class="flex gap-5">
+										<span class="mt-2.5 h-3 w-3 shrink-0 rounded-full bg-accent-color shadow-[0_0_20px_rgba(223,166,32,0.65)]" />
+										<span>
+											<span class="text-white">{lead}</span>
+											{detail && <span class="font-normal text-white/58"> — {detail}</span>}
+										</span>
+									</li>
+								);
+							})}
 						</ul>
+						{section.outro.length > 0 && (
+							<div class="mt-10 grid gap-5 text-lg leading-8 text-white/58 sm:text-xl sm:leading-9">
+								{section.outro.map((paragraph) => (
+									<p>{paragraph}</p>
+								))}
+							</div>
+						)}
 					</article>
 				))
 			}

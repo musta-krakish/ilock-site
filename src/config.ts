@@ -3,7 +3,7 @@ export const site = {
 		{ label: '+7 777 300 05 58', tel: '+77773000558' },
 		{ label: '+7 705 833 83 33', tel: '+77058338333' },
 	],
-	email: 'ilock.kz@gmail.com',
+	email: 'company.ilock.kz@gmail.com',
 	address: 'г. Астана, ул. Куйши Дина, 23/1',
 	branches: [
 		{
