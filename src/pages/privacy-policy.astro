@@ -1,0 +1,13 @@
+---
+import PrivacyPolicy from '../components/PrivacyPolicy.astro';
+import { privacyPageCopy } from '../lib/privacy-policy';
+import Layout from '../layouts/Layout.astro';
+import { defaultLang } from '../i18n';
+
+const lang = defaultLang;
+const copy = privacyPageCopy[lang];
+---
+
+<Layout lang={lang} title={copy.title} description={copy.description}>
+	<PrivacyPolicy lang={lang} />
+</Layout>

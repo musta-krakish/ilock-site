@@ -7,6 +7,7 @@ const options = {
 	brand: [
 		{ label: 'iLOCK', value: 'ilock' },
 		{ label: 'Philips', value: 'philips' },
+		{ label: 'EZVIZ', value: 'ezviz' },
 		{ label: 'Smartlock', value: 'smartlock' },
 		{ label: 'Сейфы Philips', value: 'safes' },
 		{ label: 'Tiger', value: 'tiger' },
@@ -75,6 +76,10 @@ const options = {
 		{ label: 'Отдельные секции хранения', value: 'storage-sections' },
 		{ label: 'Скрытый отсек', value: 'hidden-compartment' },
 		{ label: 'Крепление к стене', value: 'wall-mount' },
+		{ label: 'Zigbee 3.0', value: 'zigbee' },
+		{ label: 'Аварийное питание MicroUSB', value: 'micro-usb' },
+		{ label: 'Блокировка двойным поднятием ручки', value: 'double-handle-lock' },
+		{ label: 'Звуковое сопровождение событий', value: 'sound-prompts' },
 	],
 	power: [
 		{ label: '4 батарейки AA', value: 'aa4' },

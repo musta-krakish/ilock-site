@@ -6,7 +6,7 @@ import { glob } from 'astro/loaders';
  * and rendered through the dictionaries in `src/i18n.ts`. Only prose — the short
  * description and the body copy — is written per language.
  */
-const brand = z.enum(['ilock', 'philips', 'smartlock', 'safes', 'tiger']);
+const brand = z.enum(['ilock', 'philips', 'ezviz', 'smartlock', 'safes', 'tiger']);
 
 const kind = z.enum(['lock', 'safe', 'accessory']);
 
@@ -71,6 +71,10 @@ const feature = z.enum([
 	'hidden-compartment',
 	'dual-check',
 	'wall-mount',
+	'zigbee',
+	'micro-usb',
+	'double-handle-lock',
+	'sound-prompts',
 ]);
 
 const power = z.enum(['aa4', 'li-4200', 'li-5000', 'li-ion', 'li']);

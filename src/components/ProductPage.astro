@@ -56,7 +56,9 @@ const lockRows = [
 		value: `${brandNames[lock.brand]} / ${t.product.years(lock.warranty)}`,
 	},
 	...(lock.origin?.[lang] ? [{ label: t.product.rows.origin, value: lock.origin[lang] }] : []),
-	{ label: t.product.rows.iface, value: lock.interface.map((i) => S.iface[i]).join(', ') },
+	...(lock.interface.length > 0
+		? [{ label: t.product.rows.iface, value: lock.interface.map((i) => S.iface[i]).join(', ') }]
+		: []),
 	{ label: t.product.rows.colors, value: lock.colors.map((c) => S.color[c]).join(', ') },
 ];
 

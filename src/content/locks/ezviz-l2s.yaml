@@ -1,0 +1,72 @@
+title: "L2S"
+brand: "ezviz"
+price: 75000
+image: "../../assets/images/locks/ezviz-l2s/image.png"
+order: 1
+material: "aluminum"
+access:
+  - "fingerprint"
+  - "card"
+  - "pin"
+  - "key"
+limits:
+  fingerprint: 50
+  card: 50
+  pin: 50
+features:
+  - "zigbee"
+  - "micro-usb"
+  - "doorbell"
+  - "double-handle-lock"
+  - "sound-prompts"
+  - "tamper-alarm"
+  - "c-cylinder"
+  - "low-battery"
+temp:
+  min: -25
+  max: 70
+power: "aa4"
+battery: "12"
+app: "EZVIZ App"
+warranty: 1
+interface: []
+colors:
+  - "black"
+ru:
+  description: "EZVIZ L2S с отпечатком, картой, пин-кодом и ключом — для дома, квартиры или офиса. До года работы на четырёх батарейках AA."
+  seoTitle: "EZVIZ L2S CS-L2S-11FCP-A0 — купить умный замок в Казахстане | iLOCK"
+  seoDescription: "Умный замок EZVIZ L2S CS-L2S-11FCP-A0: отпечаток, карта, пин-код, механический ключ, Zigbee 3.0 и до 12 месяцев работы на батарейках AA."
+  body: >-
+    EZVIZ L2S — электромеханический замок с биометрической системой контроля доступа для дома,
+    квартиры, кабинета, офиса или магазина. Открывается отпечатком пальца, бесконтактной картой,
+    паролем или механическим ключом. В память можно добавить до 50 отпечатков, 50 карт и 50 паролей.
+    Замок подключается по Zigbee 3.0 и работает с приложением EZVIZ. Полупроводниковый сенсор
+    отпечатка встроен в ручку. Корпус из алюминиевого сплава рассчитан на двери шириной 40–110 мм;
+    размер панели — 307 × 74 × 32 мм. Четырёх батареек AA хватает до 12 месяцев при 10 открытиях в
+    день, а MicroUSB позволяет подать аварийное питание от пауэрбанка.
+
+kk:
+  description: "Саусақ ізі, карта, пин-код және кілті бар EZVIZ L2S — үйге, пәтерге немесе кеңсеге арналған. Төрт AA батареясымен бір жылға дейін жұмыс істейді."
+  seoTitle: "EZVIZ L2S CS-L2S-11FCP-A0 — Қазақстанда ақылды құлыпты сатып алу | iLOCK"
+  seoDescription: "EZVIZ L2S CS-L2S-11FCP-A0 ақылды құлпы: саусақ ізі, карта, пин-код, механикалық кілт, Zigbee 3.0 және AA батареясымен 12 айға дейін жұмыс."
+  body: >-
+    EZVIZ L2S — үйге, пәтерге, кабинетке, кеңсеге немесе дүкенге арналған биометриялық қолжетімділікті
+    электромеханикалық құлып. Саусақ ізімен, жанаспайтын картамен, парольмен немесе механикалық
+    кілтпен ашылады. Жадына 50 саусақ ізін, 50 картаны және 50 парольді қосуға болады. Құлып Zigbee
+    3.0 арқылы қосылады және EZVIZ қолданбасымен жұмыс істейді. Жартылай өткізгіш саусақ ізі сенсоры
+    тұтқаға орнатылған. Алюминий қорытпасынан жасалған корпус 40–110 мм есіктерге арналған; панель
+    өлшемі — 307 × 74 × 32 мм. Төрт AA батареясы күніне 10 рет ашқанда 12 айға дейін жетеді, ал
+    MicroUSB пауэрбанктан авариялық қуат беруге мүмкіндік береді.
+
+en:
+  description: "EZVIZ L2S with fingerprint, card, PIN and key access for a house, apartment or office. Up to a year of use on four AA batteries."
+  seoTitle: "EZVIZ L2S CS-L2S-11FCP-A0 — buy a smart lock in Kazakhstan | iLOCK"
+  seoDescription: "EZVIZ L2S CS-L2S-11FCP-A0 smart lock: fingerprint, card, PIN, mechanical key, Zigbee 3.0 and up to 12 months on AA batteries."
+  body: >-
+    EZVIZ L2S is an electromechanical lock with biometric access control for a house, apartment,
+    study, office or shop. It unlocks with a fingerprint, proximity card, password or mechanical
+    key. Memory holds up to 50 fingerprints, 50 cards and 50 passwords. The lock connects over
+    Zigbee 3.0 and works with the EZVIZ app. Its semiconductor fingerprint sensor is built into
+    the handle. The aluminium-alloy body fits 40–110 mm doors; the panel measures 307 × 74 × 32 mm.
+    Four AA batteries last up to 12 months at 10 openings a day, while MicroUSB allows emergency
+    power from a power bank.

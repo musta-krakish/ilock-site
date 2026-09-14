@@ -23,12 +23,13 @@ export const defaultLang: Lang = 'ru';
 export const langList = Object.keys(languages) as Lang[];
 
 /** Brand groups in the order required by the brief: iLock first, then Philips, then the rest. */
-export const brandOrder = ['ilock', 'philips', 'smartlock', 'safes', 'tiger'] as const;
+export const brandOrder = ['ilock', 'philips', 'ezviz', 'smartlock', 'safes', 'tiger'] as const;
 export type Brand = (typeof brandOrder)[number];
 
 export const brandNames: Record<Brand, string> = {
 	ilock: 'iLock',
 	philips: 'Philips',
+	ezviz: 'EZVIZ',
 	smartlock: 'Smartlock',
 	safes: 'Philips Safe',
 	tiger: 'Tiger',
@@ -406,6 +407,13 @@ export const ui = {
 				seoDescription:
 					'Умные замки Philips в Казахстане от официального представителя: DDL 603E, DDL 610, DDL 7300, Alpha, 702 FVP, 709 FVP, 902 MVP. Оригинальная гарантия 2 года, рассрочка от Kaspi.',
 			},
+			ezviz: {
+				h1: 'Умные замки EZVIZ',
+				lead: 'Умные замки EZVIZ для дома, квартиры и офиса: биометрический доступ, карты, пин-коды и управление через экосистему EZVIZ.',
+				seoTitle: 'Умные замки EZVIZ — купить в Казахстане | iLOCK',
+				seoDescription:
+					'Умные замки EZVIZ в Казахстане: отпечаток пальца, пин-код, карта, механический ключ и подключение Zigbee 3.0.',
+			},
 			smartlock: {
 				h1: 'Умные замки Smartlock',
 				lead: 'Доступная линейка Smartlock: врезные замки, замки для стеклянных и узкопрофильных дверей, гостиничные карточные замки, замки для шкафчиков и навесные замки с отпечатком пальца.',
@@ -491,6 +499,10 @@ export const ui = {
 				'hidden-compartment': 'Скрытый отсек',
 				'dual-check': 'Режим двойной проверки',
 				'wall-mount': 'Обязательное крепление к стене',
+				zigbee: 'Подключение Zigbee 3.0',
+				'micro-usb': 'Аварийное питание MicroUSB',
+				'double-handle-lock': 'Блокировка двойным поднятием ручки',
+				'sound-prompts': 'Звуковое сопровождение событий',
 			},
 			power: {
 				aa4: 'Батарейки AA (х4)',
@@ -867,6 +879,13 @@ export const ui = {
 				seoDescription:
 					'Қазақстанда ресми өкілден Philips ақылды құлыптары: DDL 603E, DDL 610, DDL 7300, Alpha, 702 FVP, 709 FVP, 902 MVP. Түпнұсқа 2 жылдық кепілдік, Kaspi бөліп төлеу.',
 			},
+			ezviz: {
+				h1: 'EZVIZ ақылды құлыптары',
+				lead: 'Үйге, пәтерге және кеңсеге арналған EZVIZ ақылды құлыптары: биометриялық қолжетімділік, карталар, пин-кодтар және EZVIZ экожүйесі арқылы басқару.',
+				seoTitle: 'EZVIZ ақылды құлыптары — Қазақстанда сатып алу | iLOCK',
+				seoDescription:
+					'Қазақстандағы EZVIZ ақылды құлыптары: саусақ ізі, пин-код, карта, механикалық кілт және Zigbee 3.0 қосылымы.',
+			},
 			smartlock: {
 				h1: 'Smartlock ақылды құлыптары',
 				lead: 'Қолжетімді Smartlock желісі: кіріктірме құлыптар, шыны және тар профильді есіктерге арналған құлыптар, қонақүй карта-құлыптары, шкаф құлыптары және саусақ ізі бар аспалы құлыптар.',
@@ -952,6 +971,10 @@ export const ui = {
 				'hidden-compartment': 'Жасырын бөлім',
 				'dual-check': 'Қос тексеру режимі',
 				'wall-mount': 'Қабырғаға міндетті бекіту',
+				zigbee: 'Zigbee 3.0 қосылымы',
+				'micro-usb': 'MicroUSB авариялық қуаттандыруы',
+				'double-handle-lock': 'Тұтқаны екі рет көтеру арқылы бұғаттау',
+				'sound-prompts': 'Оқиғаларды дыбыстық хабарлау',
 			},
 			power: {
 				aa4: 'AA батареялары (х4)',
@@ -1328,6 +1351,13 @@ export const ui = {
 				seoDescription:
 					'Philips smart locks in Kazakhstan from the official representative: DDL 603E, DDL 610, DDL 7300, Alpha, 702 FVP, 709 FVP, 902 MVP. Original two-year warranty, Kaspi instalments.',
 			},
+			ezviz: {
+				h1: 'EZVIZ smart locks',
+				lead: 'EZVIZ smart locks for homes, apartments and offices: biometric access, cards, PIN codes and management through the EZVIZ ecosystem.',
+				seoTitle: 'EZVIZ smart locks — buy in Kazakhstan | iLOCK',
+				seoDescription:
+					'EZVIZ smart locks in Kazakhstan: fingerprint, PIN code, card, mechanical key and Zigbee 3.0 connectivity.',
+			},
 			smartlock: {
 				h1: 'Smartlock smart locks',
 				lead: 'The affordable Smartlock range: mortise locks, locks for glass and narrow-profile doors, hotel card locks, locker locks and fingerprint padlocks.',
@@ -1413,6 +1443,10 @@ export const ui = {
 				'hidden-compartment': 'Hidden compartment',
 				'dual-check': 'Dual verification mode',
 				'wall-mount': 'Mandatory wall mounting',
+				zigbee: 'Zigbee 3.0 connection',
+				'micro-usb': 'MicroUSB emergency power',
+				'double-handle-lock': 'Locking by lifting the handle twice',
+				'sound-prompts': 'Audible event prompts',
 			},
 			power: {
 				aa4: 'AA batteries (x4)',

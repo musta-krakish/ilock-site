@@ -1,0 +1,17 @@
+---
+import PrivacyPolicy from '../../components/PrivacyPolicy.astro';
+import { privacyPageCopy } from '../../lib/privacy-policy';
+import Layout from '../../layouts/Layout.astro';
+import { defaultLang, langList, type Lang } from '../../i18n';
+
+export function getStaticPaths() {
+	return langList.filter((lang) => lang !== defaultLang).map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const copy = privacyPageCopy[lang];
+---
+
+<Layout lang={lang} title={copy.title} description={copy.description}>
+	<PrivacyPolicy lang={lang} />
+</Layout>
