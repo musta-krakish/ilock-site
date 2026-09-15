@@ -40,6 +40,9 @@ importers:
       react-dom:
         specifier: ^19.2.8
         version: 19.2.8(react@19.2.8)
+      sharp:
+        specifier: 0.35.3
+        version: 0.35.3(@types/node@24.13.3)
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.9
@@ -56,9 +59,6 @@ importers:
       pdfkit:
         specifier: ^0.19.1
         version: 0.19.1
-      sharp:
-        specifier: ^0.35.3
-        version: 0.35.3(@types/node@24.13.3)
       tailwindcss:
         specifier: ^4.2.2
         version: 4.2.2
