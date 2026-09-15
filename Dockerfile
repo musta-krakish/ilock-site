@@ -1,9 +1,8 @@
 FROM node:22.12.0-bookworm-slim AS base
 
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-
-RUN corepack enable
+# Installing the pinned pnpm release directly avoids Corepack key rotation
+# failures in older Node base-image releases.
+RUN npm install --global pnpm@10.22.0
 WORKDIR /app
 
 FROM base AS dependencies
