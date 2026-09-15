@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import markdoc from '@astrojs/markdoc';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel';
+import node from '@astrojs/node';
 import tailwindcss from '@tailwindcss/vite';
 import keystatic from '@keystatic/astro';
 
@@ -23,10 +23,11 @@ const keystaticInlinePreview = {
 // https://astro.build/config
 export default defineConfig({
 	// Used for canonical URLs, hreflang, sitemap and JSON-LD.
-	// CHANGE THIS if the site ships on a different domain.
-	site: 'https://ilock-site.vercel.app',
-	// Public pages remain static; Vercel serves Keystatic's dynamic admin and OAuth routes.
-	adapter: vercel(),
+	// Set `SITE_URL` on the production host to the public HTTPS URL.
+	site: process.env.SITE_URL ?? 'https://ilock-site.vercel.app',
+	// Keystatic's GitHub OAuth routes need a running server in production.
+	output: 'server',
+	adapter: node({ mode: 'standalone' }),
 	integrations: [
 		react(),
 		markdoc(),

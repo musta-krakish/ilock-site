@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SITE_URL: ${SITE_URL:?Set SITE_URL in .env to the public HTTPS URL}
+        PUBLIC_KEYSTATIC_GITHUB_APP_SLUG: ${PUBLIC_KEYSTATIC_GITHUB_APP_SLUG:?Set PUBLIC_KEYSTATIC_GITHUB_APP_SLUG in .env}
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 4321
+    ports:
+      - "127.0.0.1:${APP_PORT:-4321}:4321"
+    restart: unless-stopped
+    init: true

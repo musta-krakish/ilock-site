@@ -22,12 +22,14 @@ content.
 2. Sign in with GitHub. On the first login Keystatic guides you through creating
    and installing a GitHub App for this repository.
 3. The setup creates the values in `.env`. Do not commit that file.
-4. Copy those values to the production host's environment variables, using
-   [.env.example](.env.example) as the key list. `PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`
-   must be available during the production build as well as at runtime.
+4. Copy those values to the production host's `.env`, using
+   [.env.example](.env.example) as the key list. Set `SITE_URL` to the public
+   HTTPS address, for example `https://ilock.example.com`.
+   `PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` must be available during the production
+   build as well as at runtime.
 5. In the GitHub App settings, add the production callback URL
-   `https://ilock-site.vercel.app/api/keystatic/github/oauth/callback` (you can
-   keep the local URL created during setup), then redeploy.
+   `https://ilock.example.com/api/keystatic/github/oauth/callback` (you can
+   keep the local URL created during setup), then rebuild and restart the app.
 
 The panel contains:
 
@@ -38,23 +40,33 @@ The panel contains:
   with question, answer, and display order.
 
 Saving in the production panel commits the content and uploaded images to GitHub.
-Your normal GitHub deployment then publishes those changes.
+Rebuild and restart the container after pulling those changes on the server.
 
 After saving an entry, the **Preview** button opens its current GitHub version
-immediately. It does not wait for the Vercel deployment; refresh the preview
+immediately. It does not wait for the production rebuild; refresh the preview
 tab after each save. The preview itself is not indexed by search engines.
 
-## Deploy to Vercel
+## Production: Docker and Caddy
 
-Keystatic's `/keystatic` and OAuth API routes are deployed as Vercel serverless
-functions; public pages remain statically generated. In Vercel open **Project
-Settings → Environment Variables**, add the four values from `.env.example` for
-the Production environment, then redeploy the `master` branch.
+Astro runs in a Node.js container because Keystatic's `/keystatic` and OAuth
+routes need server-side rendering. Caddy terminates HTTPS and proxies requests
+to the loopback-only port exposed by Docker.
 
-```bash
-pnpm build
-```
+1. On the server, copy `.env.example` to `.env` and fill in the values. Do not
+   commit this file. `SITE_URL` must match the public Caddy domain.
+2. Build and start the service:
 
-Vercel detects the Astro build automatically. If you later connect `ilock.kz`,
-change the callback URL in the GitHub App and the `site` setting in
-`astro.config.mjs` to that domain.
+   ```bash
+   docker compose up -d --build
+   ```
+
+3. Add a site to the host Caddy configuration, then reload Caddy:
+
+   ```caddyfile
+   ilock.example.com {
+       reverse_proxy 127.0.0.1:4321
+   }
+   ```
+
+The application is bound to `127.0.0.1:4321`, so it is not publicly reachable
+without Caddy. To use another local port, set `APP_PORT` in `.env`.
