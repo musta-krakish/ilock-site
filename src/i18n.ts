@@ -167,6 +167,17 @@ export const ui = {
 			titleAccent: 'доставка',
 			pageTitle: 'Установка и доставка',
 			pageDescription: 'Как проходит установка электронных замков iLOCK: какие фотографии двери прислать, оценка монтажником, согласование стоимости и времени монтажа.',
+			pricing: {
+				title: 'Стоимость установки',
+				range: 'от 25 000 до 70 000 ₸',
+				depends: 'Итоговая стоимость зависит от типа двери и сложности установки.',
+				average: 'В среднем установка стоит 30 000 ₸',
+				includedTitle: 'Дополнительно в стоимость входят',
+				endPlate: 'Торцевая планка — 8 000 ₸',
+				facePlate: 'Лицевая планка — 10 000 ₸',
+				gift: 'При покупке замков iLOCK торцевая и лицевая планки — в подарок.',
+				note: 'Точную стоимость установки менеджер определит после консультации с учётом особенностей вашей двери.',
+			},
 			sections: [
 				{
 					title: 'Как проходит установка замка',
@@ -325,6 +336,7 @@ export const ui = {
 				`Здравствуйте! Хочу заказать ${kind === 'safe' ? 'сейф' : kind === 'accessory' ? 'данный аксессуар' : 'данный замок'} ${t}.`,
 			kaspiWord: 'Рассрочка',
 			kaspiTerm: (m: string) => `${m} × 12 мес`,
+			installment24: 'Рассрочка до 24 месяцев',
 			variants: 'Варианты',
 			variantModel: 'Модель',
 			variantPrice: 'Цена',
@@ -642,6 +654,17 @@ export const ui = {
 			titleAccent: 'жеткізу',
 			pageTitle: 'Орнату және жеткізу',
 			pageDescription: 'iLOCK электронды құлыптарын орнату қалай өтеді: есіктің қандай фотосуреттерін жіберу керек, орнатушының бағалауы, монтаж құны мен уақытын келісу.',
+			pricing: {
+				title: 'Орнату құны',
+				range: '25 000 ₸-ден 70 000 ₸-ге дейін',
+				depends: 'Нақты құны есіктің түрі мен орнату күрделілігіне байланысты.',
+				average: 'Орташа алғанда орнату 30 000 ₸ тұрады',
+				includedTitle: 'Құнына қосымша кіреді',
+				endPlate: 'Торцевая планка — 8 000 ₸',
+				facePlate: 'Беткі планка — 10 000 ₸',
+				gift: 'iLOCK құлыптарын сатып алғанда торцевая және беткі планкалар сыйлыққа беріледі.',
+				note: 'Менеджер есігіңіздің ерекшеліктерін ескере отырып, кеңестен кейін орнатудың нақты құнын анықтайды.',
+			},
 			sections: [
 				{
 					title: 'Құлыпты орнату қалай өтеді',
@@ -800,6 +823,7 @@ export const ui = {
 				`Сәлеметсіз бе! Осы ${t} ${kind === 'safe' ? 'сейфіне' : kind === 'accessory' ? 'аксессуарына' : 'құлпына'} тапсырыс бергім келеді.`,
 			kaspiWord: 'Бөліп төлеу',
 			kaspiTerm: (m: string) => `${m} × 12 ай`,
+			installment24: '24 айға дейін бөліп төлеу',
 			variants: 'Нұсқалар',
 			variantModel: 'Модель',
 			variantPrice: 'Баға',
@@ -1114,6 +1138,17 @@ export const ui = {
 			titleAccent: 'delivery',
 			pageTitle: 'Installation and delivery',
 			pageDescription: 'How installation of iLOCK electronic locks works: which photos of your door to send, the installer’s assessment, and agreeing the cost and time of the fitting.',
+			pricing: {
+				title: 'Installation cost',
+				range: 'from 25,000 to 70,000 ₸',
+				depends: 'The final price depends on the door type and installation complexity.',
+				average: 'Average installation cost: 30,000 ₸',
+				includedTitle: 'Additional items included',
+				endPlate: 'End plate — 8,000 ₸',
+				facePlate: 'Face plate — 10,000 ₸',
+				gift: 'When you buy an iLOCK lock, the end and face plates are included as a gift.',
+				note: 'Our manager will confirm the exact installation price after a consultation about your door.',
+			},
 			sections: [
 				{
 					title: 'How the lock installation works',
@@ -1272,6 +1307,7 @@ export const ui = {
 				`Hello! I'd like to order the ${t} ${kind === 'safe' ? 'safe' : kind === 'accessory' ? 'accessory' : 'lock'}.`,
 			kaspiWord: 'Instalment',
 			kaspiTerm: (m: string) => `${m} × 12 mo`,
+			installment24: 'Up to 24-month instalments',
 			variants: 'Variants',
 			variantModel: 'Model',
 			variantPrice: 'Price',

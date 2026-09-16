@@ -231,6 +231,15 @@ const breadcrumbLd = {
 					</span>
 				</div>
 
+				{
+					lock.kind === 'lock' && (
+						<p class="mt-3 inline-flex items-center gap-2 rounded-xl border border-accent-color/35 bg-accent-color/10 px-3.5 py-2 text-sm font-semibold text-accent-color">
+							<span class="rounded-md bg-accent-color px-1.5 py-0.5 text-xs font-extrabold text-main-color">₸</span>
+							{t.product.installment24}
+						</p>
+					)
+				}
+
 				<div class="mt-7">
 					<a
 						href={whatsappLink(t.product.orderMsg(lock.title, lock.kind))}
