@@ -14,13 +14,27 @@ case "$ARCHIVE_PATH" in
 		;;
 esac
 
-test -f "$ARCHIVE_PATH"
-test -f "$PROJECT_DIR/docker-compose.yml"
-test -f "$PROJECT_DIR/.env"
+require_file() {
+	if [ ! -f "$1" ]; then
+		echo "Required file is missing: $1" >&2
+		exit 1
+	fi
+}
 
+require_file "$ARCHIVE_PATH"
+require_file "$PROJECT_DIR/docker-compose.yml"
+require_file "$PROJECT_DIR/.env"
+
+if ! command -v docker >/dev/null 2>&1; then
+	echo "Docker is not available for the deployment user" >&2
+	exit 1
+fi
+
+echo "Importing Docker image..."
 docker load --input "$ARCHIVE_PATH"
 docker image inspect "$APP_IMAGE" >/dev/null
 
+echo "Restarting application container..."
 cd "$PROJECT_DIR"
 APP_IMAGE="$APP_IMAGE" docker compose --env-file .env up -d --no-build --force-recreate app
 
