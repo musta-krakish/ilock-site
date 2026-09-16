@@ -97,8 +97,7 @@ And these repository **Secrets**:
 - `DEPLOY_PATH` — absolute deployment directory, e.g. `/opt/ilock-site`;
 - `DEPLOY_PASSWORD` — SSH password for that Linux deployment user;
 
-The workflow creates `DEPLOY_PATH`, its `incoming` directory and an empty
-`.env` if they do not exist. It uploads `docker-compose.production.yml` itself.
-To use the Keystatic admin panel, add its real GitHub credentials to the server
-`.env` once; deployments preserve that file. Ensure the deployment user can run
-Docker without `sudo`.
+The workflow creates `DEPLOY_PATH` and its `incoming` directory, and uploads
+`docker-compose.production.yml` itself. Before the first deploy, create the
+real `DEPLOY_PATH/.env` with the Keystatic GitHub credentials; deployments
+preserve that file. Ensure the deployment user can run Docker without `sudo`.

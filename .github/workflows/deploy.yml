@@ -78,7 +78,7 @@ jobs:
               sshpass -e ssh -p "$DEPLOY_PORT" \
                 -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
                 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-                "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '\''$DEPLOY_PATH/incoming'\'' && touch '\''$DEPLOY_PATH/.env'\'' && echo Remote directory is ready"
+                "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '\''$DEPLOY_PATH/incoming'\'' && echo Remote directory is ready"
               echo "Uploading Docker image archive..."
               sshpass -e scp -P "$DEPLOY_PORT" \
                 -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \

@@ -23,10 +23,7 @@ require_file() {
 
 require_file "$ARCHIVE_PATH"
 require_file "$PROJECT_DIR/docker-compose.production.yml"
-
-# Keep the existing production secrets intact. A new deployment directory may
-# not have an .env yet; an empty file is enough to start the public site.
-touch "$PROJECT_DIR/.env"
+require_file "$PROJECT_DIR/.env"
 
 if ! command -v docker >/dev/null 2>&1; then
 	echo "Docker is not available for the deployment user" >&2
