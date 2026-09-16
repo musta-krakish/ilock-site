@@ -4,6 +4,7 @@ import LockCard from './LockCard.astro';
 import SectionHeading from './SectionHeading.astro';
 import { site } from '../config';
 import { getLocalePath, localizeLock, sortLocks, type Lang, ui } from '../i18n';
+import { hasGiftInstallation, promotionCopy } from '../lib/promotions';
 
 interface Props {
 	lang?: Lang;
@@ -11,11 +12,14 @@ interface Props {
 
 const { lang = 'ru' } = Astro.props;
 const t = ui[lang];
+const promo = promotionCopy[lang];
 const homePath = getLocalePath(lang);
 
 const all = sortLocks((await getCollection('locks')).map((lock) => localizeLock(lock, lang)));
 
-const picks = all.filter((lock) => lock.featured).slice(0, 6);
+const promotionRank = (lock: (typeof all)[number]) =>
+	lock.slug === 'ezviz-l2s' ? 0 : lock.brand === 'ilock' ? 1 : 2;
+const picks = all.filter(hasGiftInstallation).sort((a, b) => promotionRank(a) - promotionRank(b) || a.order - b.order);
 const mobileAllText: Record<Lang, string> = {
 	ru: `Все ${all.length} моделей`,
 	kk: `Барлығы ${all.length} модель`,
@@ -28,10 +32,10 @@ const mobileAllText: Record<Lang, string> = {
 		<div class="flex flex-wrap items-end justify-between gap-6 px-5 sm:px-0">
 			<div class="reveal max-w-2xl">
 				<SectionHeading
-					eyebrow={t.featured.eyebrow}
-					title={t.featured.title}
-					accent={t.featured.titleAccent}
-					text={t.featured.text}
+					eyebrow={promo.eyebrow}
+					title={promo.title}
+					accent={promo.accent}
+					text={promo.text}
 				/>
 
 				<nav class="mt-5 flex flex-wrap gap-2" aria-label={t.catalog.categories}>

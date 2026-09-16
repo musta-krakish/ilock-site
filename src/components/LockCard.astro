@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { formatPrice } from '../config';
 import { brandNames, getLocalePath, type Lang, type LocalizedLock, ui } from '../i18n';
 import { lockFilterValues } from '../lib/lock-filters';
+import { hasGiftInstallation, promotionCopy } from '../lib/promotions';
 
 interface Props {
 	lock: LocalizedLock;
@@ -13,6 +14,8 @@ interface Props {
 const { lock, lang = 'ru', eager = false } = Astro.props;
 const t = ui[lang];
 const homePath = getLocalePath(lang);
+const promo = promotionCopy[lang];
+const hasInstallationGift = hasGiftInstallation(lock);
 
 const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] as const)
 	.filter((a) => lock.access.includes(a))
@@ -41,6 +44,14 @@ const cardFilterValues = lockFilterValues(lock);
 		/>
 
 		<div class="absolute left-3 top-3 flex flex-col items-start gap-2">
+			{
+				hasInstallationGift && (
+					<span class="inline-flex items-center gap-1.5 rounded-full border border-amber-100/60 bg-linear-to-r from-fuchsia-600 via-violet-600 to-amber-500 px-3 py-1 text-[11px] font-bold tracking-wide text-white shadow-[0_0_24px_rgba(217,70,239,0.75)]">
+						<span aria-hidden="true">✦</span>
+						{promo.giftInstallation}
+					</span>
+				)
+			}
 			{
 				lock.featured && !lock.comingSoon && (
 					<span class="rounded-full bg-accent-color px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-main-color">
@@ -85,10 +96,13 @@ const cardFilterValues = lockFilterValues(lock);
 		}
 
 		<div class="mt-auto flex items-end justify-between gap-3 border-t border-line pt-5">
-			<p class="text-2xl font-semibold tracking-tight text-accent-color">
-				{lock.priceTo && <span class="mr-1 text-sm font-sans font-normal text-white/40">{t.catalog.from}</span>}
-				{formatPrice(lock.price, lock.priceTo)}
-			</p>
+			<div>
+				{lock.oldPrice && <p class="mb-0.5 text-sm font-medium text-white/40 line-through">{formatPrice(lock.oldPrice)}</p>}
+				<p class="text-2xl font-semibold tracking-tight text-accent-color">
+					{lock.priceTo && <span class="mr-1 text-sm font-sans font-normal text-white/40">{t.catalog.from}</span>}
+					{formatPrice(lock.price, lock.priceTo)}
+				</p>
+			</div>
 			<span class="text-xs font-medium text-white/45 transition group-hover:text-accent-color">
 				{t.catalog.details} →
 			</span>

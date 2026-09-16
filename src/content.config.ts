@@ -116,6 +116,8 @@ const locks = defineCollection({
 			/** Price in KZT. `priceTo` marks a range (the cabinet lock is sold 15–25k). */
 			price: z.number(),
 			priceTo: z.number().nullable().optional(),
+			/** Previous price in KZT, displayed with a strikethrough during a promotion. */
+			oldPrice: z.number().nullable().optional(),
 			image: image(),
 			/** Ordering within a brand group; lower is shown first. */
 			order: z.number(),

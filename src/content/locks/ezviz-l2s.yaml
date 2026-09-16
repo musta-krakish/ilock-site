@@ -1,6 +1,7 @@
 title: "L2S"
 brand: "ezviz"
-price: 75000
+price: 65000
+oldPrice: 105000
 image: "../../assets/images/locks/ezviz-l2s/image.png"
 order: 1
 material: "aluminum"

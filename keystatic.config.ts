@@ -262,6 +262,7 @@ const lockSchema = {
 	comingSoon: fields.checkbox({ label: 'Скоро в продаже', defaultValue: false }),
 	price: fields.integer({ label: 'Цена от, ₸', validation: { isRequired: true, min: 0 } }),
 	priceTo: fields.number({ label: 'Цена до, ₸', description: 'Оставьте пустым для одной цены.' }),
+	oldPrice: fields.number({ label: 'Старая цена, ₸', description: 'Будет зачёркнута на карточке во время акции.' }),
 	image: fields.image({
 		label: 'Фото товара',
 		description: 'PNG, JPG или WebP. После загрузки сразу появится миниатюра; файл сохранится в папке этой модели.',
