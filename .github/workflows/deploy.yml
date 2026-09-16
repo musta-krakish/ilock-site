@@ -19,6 +19,9 @@ jobs:
     # If more self-hosted Linux runners are added later, give ubuntu-kirpich a
     # custom label and add it to this list.
     runs-on: [self-hosted, linux, x64]
+    # Deployment credentials and public build settings are stored in this
+    # GitHub Environment, not as repository-wide values.
+    environment: production
     timeout-minutes: 60
     env:
       SITE_URL: ${{ vars.SITE_URL }}
