@@ -1,30 +1,49 @@
-title: "RFID-карта для гостиничных замков"
-brand: "ilock"
-kind: "accessory"
+title: RFID-карта для гостиничных замков
+brand: ilock
+kind: accessory
+kazakhBrand: false
+comingSoon: false
 price: 700
-image: "../../assets/images/locks/rfid-hotel-card/image.png"
+image: ../../assets/images/locks/rfid-hotel-card/image.png
 order: 3
-material: "steel"
+featured: false
+material: steel
 access: []
+limits: {}
 features: []
-temp: { min: 0, max: 0 }
-power: "aa4"
-battery: "—"
+temp:
+  min: 0
+  max: 0
+power: aa4
+battery: —
+compatibility: {}
+included: {}
 warranty: 1
+origin: {}
 interface: []
-colors: ["white"]
+colors:
+  - white
+variants: []
 ru:
-  description: "RFID-карта доступа для совместимых гостиничных замков iLock."
-  seoTitle: "RFID-карта для гостиничных замков — купить в Казахстане | iLOCK"
-  seoDescription: "RFID-карта доступа для гостиничных замков iLock. Гарантия 1 год."
-  body: "Карта предназначена для выдачи доступа гостям в совместимых гостиничных электронных замках iLock."
+  description: RFID-карта доступа для совместимых гостиничных замков iLock.
+  seoTitle: RFID-карта для гостиничных замков — купить в Казахстане | iLOCK
+  seoDescription: RFID-карта доступа для гостиничных замков iLock. Гарантия 1 год.
+  body: >-
+    Карта предназначена для выдачи доступа гостям в совместимых гостиничных
+    электронных замках iLock.
 kk:
-  description: "Үйлесімді iLock қонақүй құлыптарына арналған RFID қолжетімділік картасы."
-  seoTitle: "Қонақүй құлыптарына арналған RFID-карта — Қазақстанда сатып алу | iLOCK"
-  seoDescription: "iLock қонақүй құлыптарына арналған RFID қолжетімділік картасы. Кепілдік 1 жыл."
-  body: "Карта үйлесімді iLock қонақүй электрондық құлыптарында қонақтарға қолжетімділік беруге арналған."
+  description: Үйлесімді iLock қонақүй құлыптарына арналған RFID қолжетімділік картасы.
+  seoTitle: Қонақүй құлыптарына арналған RFID-карта — Қазақстанда сатып алу | iLOCK
+  seoDescription: >-
+    iLock қонақүй құлыптарына арналған RFID қолжетімділік картасы. Кепілдік 1
+    жыл.
+  body: >-
+    Карта үйлесімді iLock қонақүй электрондық құлыптарында қонақтарға
+    қолжетімділік беруге арналған.
 en:
-  description: "An RFID access card for compatible iLock hotel locks."
-  seoTitle: "RFID card for hotel locks — buy in Kazakhstan | iLOCK"
-  seoDescription: "RFID access card for iLock hotel locks. One-year warranty."
-  body: "The card is used to issue guest access on compatible iLock hotel electronic locks."
+  description: An RFID access card for compatible iLock hotel locks.
+  seoTitle: RFID card for hotel locks — buy in Kazakhstan | iLOCK
+  seoDescription: RFID access card for iLock hotel locks. One-year warranty.
+  body: >-
+    The card is used to issue guest access on compatible iLock hotel electronic
+    locks.
