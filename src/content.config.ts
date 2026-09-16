@@ -132,10 +132,13 @@ const locks = defineCollection({
 			/** Months of use between charges/battery swaps, e.g. "4-6" or "10". */
 			battery: z.string(),
 			app: z.string().nullable().optional(),
-			compatibility: z.object({ ru: z.string(), kk: z.string(), en: z.string() }).nullable().optional(),
-			included: z.object({ ru: z.string(), kk: z.string(), en: z.string() }).nullable().optional(),
+			// Keystatic omits empty nested inputs when an accessory is saved. Keep
+			// these product-detail rows genuinely optional rather than rejecting the
+			// entire catalogue on an unrelated image update.
+			compatibility: z.object({ ru: z.string().optional(), kk: z.string().optional(), en: z.string().optional() }).nullable().optional(),
+			included: z.object({ ru: z.string().optional(), kk: z.string().optional(), en: z.string().optional() }).nullable().optional(),
 			warranty: z.number(),
-			origin: z.object({ ru: z.string(), kk: z.string(), en: z.string() }).nullable().optional(),
+			origin: z.object({ ru: z.string().optional(), kk: z.string().optional(), en: z.string().optional() }).nullable().optional(),
 			interface: z.array(z.enum(['ru', 'kk', 'en', 'zh'])),
 			colors: z.array(color),
 			variants: z
