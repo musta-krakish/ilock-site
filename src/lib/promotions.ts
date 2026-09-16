@@ -1,9 +1,13 @@
 import type { Lang } from '../i18n';
 
-type PromotionCandidate = { brand: string; slug: string };
+type PromotionCandidate = { brand: string; slug: string; kind?: string };
 
 /** iLOCK's own models plus the two models included in the current campaign. */
 export function hasGiftInstallation(lock: PromotionCandidate) {
+	// Gateways, programmers and cards are iLOCK accessories, but installation
+	// is relevant only to locks themselves.
+	if (lock.kind === 'accessory') return false;
+
 	return lock.brand === 'ilock' || lock.slug === 'ezviz-l2s' || lock.slug === 's940-max';
 }
 
