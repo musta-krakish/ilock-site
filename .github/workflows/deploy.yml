@@ -73,15 +73,18 @@ jobs:
             -v "$RUNNER_TEMP:/release:ro" \
             alpine:3.21 sh -ec '
               apk add --no-cache openssh-client sshpass
+              echo "Checking SSH login and deployment directory..."
               sshpass -e ssh -p "$DEPLOY_PORT" \
                 -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
                 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-                "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '\''$DEPLOY_PATH/incoming'\''"
+                "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '\''$DEPLOY_PATH/incoming'\'' && echo Remote directory is ready"
+              echo "Uploading Docker image archive..."
               sshpass -e scp -P "$DEPLOY_PORT" \
                 -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
                 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
                 "/release/$ARCHIVE_NAME" \
                 "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/incoming/$ARCHIVE_NAME"
+              echo "Archive uploaded"
             '
 
       - name: Load image and restart service
