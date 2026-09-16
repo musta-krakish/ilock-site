@@ -63,38 +63,39 @@ jobs:
           docker image inspect "$APP_IMAGE" >/dev/null
           docker save "$APP_IMAGE" | gzip -1 > "$RUNNER_TEMP/$ARCHIVE_NAME"
 
-      - name: Install password authentication helper
-        shell: bash
-        run: |
-          set -euo pipefail
-          if ! command -v sshpass >/dev/null; then
-            sudo apt-get update
-            sudo apt-get install --yes --no-install-recommends sshpass
-          fi
-
       - name: Upload release archive
         shell: bash
         run: |
           set -euo pipefail
-          export SSHPASS="$DEPLOY_PASSWORD"
-          sshpass -e ssh -p "$DEPLOY_PORT" \
-            -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
-            -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_PATH/incoming'"
-          sshpass -e scp -P "$DEPLOY_PORT" \
-            -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
-            -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            "$RUNNER_TEMP/$ARCHIVE_NAME" \
-            "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/incoming/$ARCHIVE_NAME"
+          docker run --rm \
+            -e SSHPASS="$DEPLOY_PASSWORD" \
+            -e DEPLOY_HOST -e DEPLOY_PORT -e DEPLOY_USER -e DEPLOY_PATH -e ARCHIVE_NAME \
+            -v "$RUNNER_TEMP:/release:ro" \
+            alpine:3.21 sh -ec '
+              apk add --no-cache openssh-client sshpass
+              sshpass -e ssh -p "$DEPLOY_PORT" \
+                -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
+                -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+                "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '\''$DEPLOY_PATH/incoming'\''"
+              sshpass -e scp -P "$DEPLOY_PORT" \
+                -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
+                -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+                "/release/$ARCHIVE_NAME" \
+                "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/incoming/$ARCHIVE_NAME"
+            '
 
       - name: Load image and restart service
         shell: bash
         run: |
           set -euo pipefail
-          export SSHPASS="$DEPLOY_PASSWORD"
-          sshpass -e ssh -p "$DEPLOY_PORT" \
-            -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
-            -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            "$DEPLOY_USER@$DEPLOY_HOST" \
-            "ARCHIVE_PATH='$DEPLOY_PATH/incoming/$ARCHIVE_NAME' APP_IMAGE='$APP_IMAGE' PROJECT_DIR='$DEPLOY_PATH' sh -s" \
-            < scripts/deploy/load-image.sh
+          docker run --rm -i \
+            -e SSHPASS="$DEPLOY_PASSWORD" \
+            -e DEPLOY_HOST -e DEPLOY_PORT -e DEPLOY_USER -e DEPLOY_PATH -e ARCHIVE_NAME -e APP_IMAGE \
+            alpine:3.21 sh -ec '
+              apk add --no-cache openssh-client sshpass
+              sshpass -e ssh -p "$DEPLOY_PORT" \
+                -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
+                -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+                "$DEPLOY_USER@$DEPLOY_HOST" \
+                "ARCHIVE_PATH='\''$DEPLOY_PATH/incoming/$ARCHIVE_NAME'\'' APP_IMAGE='\''$APP_IMAGE'\'' PROJECT_DIR='\''$DEPLOY_PATH'\'' sh -s"
+            ' < scripts/deploy/load-image.sh
