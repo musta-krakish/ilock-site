@@ -1,5 +1,5 @@
 title: "S819-2Max"
-brand: "smartlock"
+brand: "ilock"
 price: 90000
 image: "../../assets/images/locks/s819-2max/image.png"
 order: 3
@@ -35,7 +35,7 @@ colors:
   - "black"
 ru:
   description: "Экран, видеоглазок и Wi-Fi — но всё ещё на батарейках AA с запасом на 10 месяцев."
-  seoTitle: "S819-2Max — купить умный замок Smartlock в Казахстане | iLOCK"
+  seoTitle: "S819-2Max — купить умный замок iLock в Казахстане | iLOCK"
   seoDescription: "Экран, видеоглазок и Wi-Fi — но всё ещё на батарейках AA с запасом на 10 месяцев."
   body: >-
     S819-2Max добавляет к обычному замку экран и видеоглазок: видно, кто за дверью, не открывая её.
@@ -44,7 +44,7 @@ ru:
 
 kk:
   description: "Экран, бейнекөзше және Wi-Fi — бірақ әлі де 10 айға жететін AA батареяларында."
-  seoTitle: "S819-2Max — Қазақстанда Smartlock ақылды құлыпты сатып алу | iLOCK"
+  seoTitle: "S819-2Max — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
   seoDescription: "Экран, бейнекөзше және Wi-Fi — бірақ әлі де 10 айға жететін AA батареяларында."
   body: >-
     S819-2Max кәдімгі құлыпқа экран мен бейнекөзше қосады: есікті ашпай-ақ, ар жағында кім тұрғанын
@@ -53,7 +53,7 @@ kk:
 
 en:
   description: "A screen, a video peephole and Wi-Fi — still running on AA batteries for about 10 months."
-  seoTitle: "S819-2Max — buy a Smartlock smart lock in Kazakhstan | iLOCK"
+  seoTitle: "S819-2Max — buy an iLock smart lock in Kazakhstan | iLOCK"
   seoDescription: "A screen, a video peephole and Wi-Fi — still running on AA batteries for about 10 months."
   body: >-
     S819-2Max adds a screen and a video peephole to an ordinary lock, so you can see who is outside

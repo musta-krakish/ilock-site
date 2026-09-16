@@ -8,7 +8,6 @@ const options = {
 		{ label: 'iLOCK', value: 'ilock' },
 		{ label: 'Philips', value: 'philips' },
 		{ label: 'EZVIZ', value: 'ezviz' },
-		{ label: 'Smartlock', value: 'smartlock' },
 		{ label: 'Сейфы Philips', value: 'safes' },
 		{ label: 'Tiger', value: 'tiger' },
 	],

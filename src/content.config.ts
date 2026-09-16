@@ -6,7 +6,7 @@ import { glob } from 'astro/loaders';
  * and rendered through the dictionaries in `src/i18n.ts`. Only prose — the short
  * description and the body copy — is written per language.
  */
-const brand = z.enum(['ilock', 'philips', 'ezviz', 'smartlock', 'safes', 'tiger']);
+const brand = z.enum(['ilock', 'philips', 'ezviz', 'safes', 'tiger']);
 
 const kind = z.enum(['lock', 'safe', 'accessory']);
 

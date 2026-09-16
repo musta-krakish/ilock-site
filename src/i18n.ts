@@ -23,14 +23,13 @@ export const defaultLang: Lang = 'ru';
 export const langList = Object.keys(languages) as Lang[];
 
 /** Brand groups in the order required by the brief: iLock first, then Philips, then the rest. */
-export const brandOrder = ['ilock', 'philips', 'ezviz', 'smartlock', 'safes', 'tiger'] as const;
+export const brandOrder = ['ilock', 'philips', 'ezviz', 'safes', 'tiger'] as const;
 export type Brand = (typeof brandOrder)[number];
 
 export const brandNames: Record<Brand, string> = {
 	ilock: 'iLock',
 	philips: 'Philips',
 	ezviz: 'EZVIZ',
-	smartlock: 'Smartlock',
 	safes: 'Philips Safe',
 	tiger: 'Tiger',
 };
@@ -398,7 +397,7 @@ export const ui = {
 			lead: 'Установим без повреждения ваших дверей. Доставка по всему Казахстану. Рассрочка через Kaspi.',
 			seoTitle: 'Каталог умных замков и сейфов — купить в Казахстане | iLOCK',
 			seoDescription:
-				'Каталог умных замков и сейфов в Казахстане: iLock, Philips, Smartlock и Philips Safe. Face ID, отпечаток пальца, Wi-Fi, биометрические сейфы. Гарантия до 2 лет, рассрочка Kaspi.',
+				'Каталог умных замков и сейфов в Казахстане: iLock, Philips, EZVIZ и Philips Safe. Face ID, отпечаток пальца, Wi-Fi, биометрические сейфы. Гарантия до 2 лет, рассрочка Kaspi.',
 		},
 		brandPage: {
 			eyebrow: 'Каталог',
@@ -407,10 +406,10 @@ export const ui = {
 			allBrands: 'Все товары',
 			ilock: {
 				h1: 'Умные замки iLock',
-					lead: 'Бренд iLock — собственная линейка замков с распознаванием лица и вен ладони, видеоглазком и полностью автоматическим механизмом. Гарантия 2 года, обслуживание бесплатное.',
+					lead: 'Линейка iLock: замки с распознаванием лица и вен ладони, видеоглазком, решения для стеклянных и узкопрофильных дверей, гостиниц, шкафчиков и навесные замки.',
 				seoTitle: 'Умные замки iLock — купить в Казахстане | iLOCK',
 				seoDescription:
-						'Умные замки бренда iLock: iL-8 и S90 с Face ID, распознаванием вен ладони, видеоглазком и Wi-Fi. Гарантия 2 года, рассрочка от Kaspi, доставка по Казахстану.',
+						'Умные замки iLock в Казахстане: Face ID, отпечаток пальца, пин-код, видеоглазок, модели для дома, офиса, гостиниц, шкафчиков и стеклянных дверей.',
 			},
 			philips: {
 				h1: 'Умные замки Philips',
@@ -425,13 +424,6 @@ export const ui = {
 				seoTitle: 'Умные замки EZVIZ — купить в Казахстане | iLOCK',
 				seoDescription:
 					'Умные замки EZVIZ в Казахстане: отпечаток пальца, пин-код, карта, механический ключ и подключение Zigbee 3.0.',
-			},
-			smartlock: {
-				h1: 'Умные замки Smartlock',
-				lead: 'Доступная линейка Smartlock: врезные замки, замки для стеклянных и узкопрофильных дверей, гостиничные карточные замки, замки для шкафчиков и навесные замки с отпечатком пальца.',
-				seoTitle: 'Умные замки Smartlock — купить в Казахстане | iLOCK',
-				seoDescription:
-					'Замки Smartlock в Казахстане: от 15 000 ₸. Биометрия, пин-код и карта, модели для стеклянных и узкопрофильных дверей, гостиниц, шкафчиков и навесные замки.',
 			},
 			safes: {
 				h1: 'Сейфы Philips',
@@ -882,7 +874,7 @@ export const ui = {
 			lead: 'Есігіңізді зақымдамай орнатамыз. Қазақстан бойынша жеткізу. Kaspi арқылы бөліп төлеу.',
 			seoTitle: 'Ақылды құлыптар мен сейфтер каталогы — Қазақстанда сатып алу | iLOCK',
 			seoDescription:
-				'Қазақстандағы ақылды құлыптар мен сейфтер каталогы: iLock, Philips, Smartlock және Philips Safe. Face ID, саусақ ізі, Wi-Fi, биометриялық сейфтер. 2 жылға дейін кепілдік, Kaspi бөліп төлеу.',
+				'Қазақстандағы ақылды құлыптар мен сейфтер каталогы: iLock, Philips, EZVIZ және Philips Safe. Face ID, саусақ ізі, Wi-Fi, биометриялық сейфтер. 2 жылға дейін кепілдік, Kaspi бөліп төлеу.',
 		},
 		brandPage: {
 			eyebrow: 'Каталог',
@@ -891,10 +883,10 @@ export const ui = {
 			allBrands: 'Барлық тауарлар',
 			ilock: {
 				h1: 'iLock ақылды құлыптары',
-					lead: 'iLock бренді: бет пен алақан тамырын тану, бейнекөзше және толық автоматты механизм. Кепілдік 2 жыл, қызмет көрсету тегін.',
+					lead: 'iLock желісі: бет пен алақан тамырын тану, бейнекөзше, шыны және тар профильді есіктерге, қонақүйлерге, шкафтарға және аспалы құлыптарға арналған шешімдер.',
 				seoTitle: 'iLock ақылды құлыптары — Қазақстанда сатып алу | iLOCK',
 				seoDescription:
-						'iLock брендінің ақылды құлыптары: Face ID, алақан тамырын тану, бейнекөзше және Wi-Fi бар iL-8 және S90. Кепілдік 2 жыл, Kaspi бөліп төлеу.',
+						'Қазақстандағы iLock ақылды құлыптары: Face ID, саусақ ізі, пин-код, бейнекөзше, үйге, кеңсеге, қонақүйге, шкафқа және шыны есікке арналған модельдер.',
 			},
 			philips: {
 				h1: 'Philips ақылды құлыптары',
@@ -909,13 +901,6 @@ export const ui = {
 				seoTitle: 'EZVIZ ақылды құлыптары — Қазақстанда сатып алу | iLOCK',
 				seoDescription:
 					'Қазақстандағы EZVIZ ақылды құлыптары: саусақ ізі, пин-код, карта, механикалық кілт және Zigbee 3.0 қосылымы.',
-			},
-			smartlock: {
-				h1: 'Smartlock ақылды құлыптары',
-				lead: 'Қолжетімді Smartlock желісі: кіріктірме құлыптар, шыны және тар профильді есіктерге арналған құлыптар, қонақүй карта-құлыптары, шкаф құлыптары және саусақ ізі бар аспалы құлыптар.',
-				seoTitle: 'Smartlock ақылды құлыптары — Қазақстанда сатып алу | iLOCK',
-				seoDescription:
-					'Қазақстанда Smartlock құлыптары: 15 000 ₸ бастап. Биометрия, пин-код және карта, шыны және тар профильді есіктерге, қонақүйлерге, шкафтарға және аспалы құлыптар.',
 			},
 			safes: {
 				h1: 'Philips сейфтері',
@@ -1366,7 +1351,7 @@ export const ui = {
 			lead: 'Installed without damaging your door. Delivery across Kazakhstan. Kaspi instalments.',
 			seoTitle: 'Smart locks and safes catalog — buy in Kazakhstan | iLOCK',
 			seoDescription:
-				'Smart locks and safes in Kazakhstan: iLock, Philips, Smartlock and Philips Safe. Face ID, fingerprint, Wi-Fi and biometric safes. Up to 2 years warranty, Kaspi instalments.',
+				'Smart locks and safes in Kazakhstan: iLock, Philips, EZVIZ and Philips Safe. Face ID, fingerprint, Wi-Fi and biometric safes. Up to 2 years warranty, Kaspi instalments.',
 		},
 		brandPage: {
 			eyebrow: 'Catalog',
@@ -1375,10 +1360,10 @@ export const ui = {
 			allBrands: 'All products',
 			ilock: {
 				h1: 'iLock smart locks',
-					lead: 'iLock is our own brand — locks with face and palm-vein recognition, a video peephole and a fully automatic mechanism. Two-year warranty and free servicing.',
+					lead: 'The iLock range includes face and palm-vein recognition, video peepholes, plus solutions for glass and narrow-profile doors, hotels, lockers and padlocks.',
 				seoTitle: 'iLock smart locks — buy in Kazakhstan | iLOCK',
 				seoDescription:
-					'Smart locks from the iLock brand: iL-8 and S90 with Face ID, palm-vein recognition, a video peephole and Wi-Fi. Two-year warranty, Kaspi instalments, delivery across Kazakhstan.',
+					'iLock smart locks in Kazakhstan: Face ID, fingerprint, PIN access, video peepholes, and models for homes, offices, hotels, lockers and glass doors.',
 			},
 			philips: {
 				h1: 'Philips smart locks',
@@ -1393,13 +1378,6 @@ export const ui = {
 				seoTitle: 'EZVIZ smart locks — buy in Kazakhstan | iLOCK',
 				seoDescription:
 					'EZVIZ smart locks in Kazakhstan: fingerprint, PIN code, card, mechanical key and Zigbee 3.0 connectivity.',
-			},
-			smartlock: {
-				h1: 'Smartlock smart locks',
-				lead: 'The affordable Smartlock range: mortise locks, locks for glass and narrow-profile doors, hotel card locks, locker locks and fingerprint padlocks.',
-				seoTitle: 'Smartlock smart locks — buy in Kazakhstan | iLOCK',
-				seoDescription:
-					'Smartlock locks in Kazakhstan from 15,000 ₸. Biometrics, PIN and card entry, models for glass and narrow-profile doors, hotels, lockers, plus padlocks.',
 			},
 			safes: {
 				h1: 'Philips safes',

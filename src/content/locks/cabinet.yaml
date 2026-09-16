@@ -1,5 +1,5 @@
 title: "Электронный замок для шкафа"
-brand: "smartlock"
+brand: "ilock"
 price: 15000
 priceTo: 25000
 image: "../../assets/images/locks/cabinet/image.png"
@@ -30,7 +30,7 @@ colors:
   - "coffee"
 ru:
   description: "Для шкафчиков в спортзалах, бассейнах и раздевалках — пин-код или карта, два цвета."
-  seoTitle: "Электронный замок для шкафа — купить умный замок Smartlock в Казахстане | iLOCK"
+  seoTitle: "Электронный замок для шкафа — купить умный замок iLock в Казахстане | iLOCK"
   seoDescription: "Для шкафчиков в спортзалах, бассейнах и раздевалках — пин-код или карта, два цвета."
   body: >-
     Компактный замок для шкафчиков в спортзалах, бассейнах, банях и раздевалках. Открывается пин-
@@ -39,7 +39,7 @@ ru:
 
 kk:
   description: "Спортзалдардағы, бассейндердегі және киім ауыстыратын бөлмелердегі шкафтарға — пин-код немесе карта, екі түс."
-  seoTitle: "Электронный замок для шкафа — Қазақстанда Smartlock ақылды құлыпты сатып алу | iLOCK"
+  seoTitle: "Электронный замок для шкафа — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
   seoDescription: "Спортзалдардағы, бассейндердегі және киім ауыстыратын бөлмелердегі шкафтарға — пин-код немесе карта, екі түс."
   body: >-
     Спортзалдардағы, бассейндердегі, моншалардағы және киім ауыстыратын бөлмелердегі шкафтарға
@@ -48,7 +48,7 @@ kk:
 
 en:
   description: "For lockers in gyms, pools and changing rooms — PIN or card, two colours."
-  seoTitle: "Электронный замок для шкафа — buy a Smartlock smart lock in Kazakhstan | iLOCK"
+  seoTitle: "Электронный замок для шкафа — buy an iLock smart lock in Kazakhstan | iLOCK"
   seoDescription: "For lockers in gyms, pools and changing rooms — PIN or card, two colours."
   body: >-
     A compact lock for lockers in gyms, pools, saunas and changing rooms. It opens by PIN or card,

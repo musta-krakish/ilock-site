@@ -170,8 +170,8 @@ add("902-mvp", title="902 MVP", brand="philips", price=582000, order=10, feature
     en=("The Philips flagship: three cameras, palm-vein entry, wireless charging and voice changing on video calls.",
         "902 MVP is the most equipped lock in the catalogue. Three cameras cover the whole approach to the door, entry works by face and palm vein, and your voice can be altered during a video call — useful when a child is home alone. The body is zinc alloy with tempered glass."))
 
-# ── Smartlock ────────────────────────────────────────────────────────────────
-add("s819", title="S819", brand="smartlock", price=70000, order=1,
+# ── iLock ────────────────────────────────────────────────────────────────────
+add("s819", title="S819", brand="ilock", price=70000, order=1,
     material="aluminum-glass", access=["fingerprint","pin","card","key","app"],
     limits={"fingerprint":100,"pin":50,"card":2,"key":2},
     features=["tamper-alarm","low-battery","emergency-charge"],
@@ -184,7 +184,7 @@ add("s819", title="S819", brand="smartlock", price=70000, order=1,
     en=("The most affordable lock in the catalogue: biometrics, a tamper alarm and operation down to −25 °C.",
         "S819 is the most affordable way into smart locks. Fingerprint, PIN, card and key, an alarm on tampering attempts and a low-battery warning. It works down to −25 °C — with margin for a Kazakhstani winter."))
 
-add("g18", title="G18", brand="smartlock", price=85000, order=2, kazakhBrand=True,
+add("g18", title="G18", brand="ilock", price=85000, order=2, kazakhBrand=True,
     material="aluminum-glass", access=["fingerprint","pin","card","key","app"],
     limits={"fingerprint":100,"pin":100,"card":2,"key":2},
     features=["tamper-alarm","low-battery","emergency-charge"],
@@ -197,7 +197,7 @@ add("g18", title="G18", brand="smartlock", price=85000, order=2, kazakhBrand=Tru
     en=("A lock sold under the iLock badge: up to 100 fingerprints and 100 PINs, managed through TTLock.",
         "G18 is sold under the iLock badge and suits homes where many people need access: up to 100 fingerprints and 100 PINs. The TTLock app lets you issue a temporary code to a guest or a work crew and revoke it at any moment."))
 
-add("s819-2max", title="S819-2Max", brand="smartlock", price=90000, order=3,
+add("s819-2max", title="S819-2Max", brand="ilock", price=90000, order=3,
     material="aluminum", access=["fingerprint","pin","card","key","app"],
     limits={"fingerprint":100,"pin":100,"card":2,"key":2},
     features=["wifi","video-peephole","doorbell","tamper-alarm","emergency-charge"],
@@ -210,7 +210,7 @@ add("s819-2max", title="S819-2Max", brand="smartlock", price=90000, order=3,
     en=("A screen, a video peephole and Wi-Fi — still running on AA batteries for about 10 months.",
         "S819-2Max adds a screen and a video peephole to an ordinary lock, so you can see who is outside without opening it. It still runs on AA batteries — roughly 10 months hands-off, where most screen-equipped locks need recharging every 4–6 months."))
 
-add("q28s", title="Q28S", brand="smartlock", price=120000, order=4,
+add("q28s", title="Q28S", brand="ilock", price=120000, order=4,
     material="aluminum", access=["fingerprint","pin","face","card","key","app"],
     limits={"fingerprint":100,"pin":100,"face":50,"card":2,"key":2},
     features=["wifi","doorbell","tamper-alarm","emergency-charge","two-way-audio","rechargeable","video-peephole","semi-auto"],
@@ -223,7 +223,7 @@ add("q28s", title="Q28S", brand="smartlock", price=120000, order=4,
     en=("Face recognition and a video peephole for less than Philips — in a distinctive curved body.",
         "Q28S delivers face recognition, a video peephole and two-way audio for noticeably less than comparable Philips models. The curved body sets it apart from flat panels, and the 4200 mAh battery lasts 4–6 months."))
 
-add("s959-max", title="S959 Max", brand="smartlock", price=125000, order=5,
+add("s959-max", title="S959 Max", brand="ilock", price=125000, order=5,
     material="aluminum", access=["fingerprint","pin","face","card","key","app"],
     limits={"fingerprint":100,"pin":100,"face":50,"card":2,"key":2},
     features=["wifi","doorbell","tamper-alarm","emergency-charge","two-way-audio","rechargeable","video-peephole","semi-auto"],
@@ -236,7 +236,7 @@ add("s959-max", title="S959 Max", brand="smartlock", price=125000, order=5,
     en=("Face ID, a screen and a security alarm in a slim vertical body.",
         "S959 Max gathers what a flat needs: face recognition for up to 50 profiles, a screen with a video peephole, two-way audio and a security alarm. The slim vertical body fits standard steel doors."))
 
-add("s940-max", title="S940 Max", brand="smartlock", price=130000, order=6,
+add("s940-max", title="S940 Max", brand="ilock", price=130000, order=6,
     material="aluminum", access=["fingerprint","pin","face","card","key","app"],
     limits={"fingerprint":100,"pin":100,"face":50,"card":2,"key":2},
     features=["wifi","doorbell","realtime","emergency-charge","two-way-audio","rechargeable","video-peephole","semi-auto"],
@@ -249,20 +249,20 @@ add("s940-max", title="S940 Max", brand="smartlock", price=130000, order=6,
     en=("Real-time monitoring: you can open the lock's camera at any moment.",
         "S940 Max stands out for real-time monitoring — the lock's camera can be opened from Tuya Smart whenever you like, not only when someone rings. Face recognition, a screen and two-way audio round it out."))
 
-add("v6j", title="V6J", brand="smartlock", price=150000, order=7, featured=True,
+add("v6j", title="V6J", brand="ilock", price=150000, order=7, featured=True,
     material="aluminum", access=["fingerprint","pin","face","card","key","app"],
     limits={"fingerprint":100,"pin":100,"face":50,"card":2,"key":2},
     features=["wifi","doorbell","tamper-alarm","emergency-charge","two-way-audio","rechargeable","video-peephole","semi-auto"],
     temp=(-20,60), power="li-4200", battery="4-6", app="Tuya Smart", warranty=1,
     interface=["ru","kk"], colors=["black"],
-    ru=("Старший Smartlock: большой AI-экран, Face ID и видеоглазок в едином стеклянном корпусе.",
-        "V6J — верх линейки Smartlock. Крупный экран с AI-камерой занимает всю внешнюю панель, распознавание лица работает до 50 профилей, а видеоглазок с двусторонней связью выводит гостя на телефон."),
-    kk=("Smartlock желісінің үлкені: үлкен AI-экран, Face ID және бейнекөзше біртұтас шыны корпуста.",
-        "V6J — Smartlock желісінің шыңы. AI-камерасы бар ірі экран сыртқы панельді толық алып жатыр, бет тану 50 профильге дейін жұмыс істейді, ал екіжақты байланысы бар бейнекөзше қонақты телефонға шығарады."),
-    en=("The top Smartlock: a large AI screen, Face ID and a video peephole in one glass body.",
-        "V6J tops the Smartlock range. A large screen with an AI camera fills the outer panel, face recognition handles up to 50 profiles, and the video peephole with two-way audio puts the guest on your phone."))
+    ru=("Старший iLock: большой AI-экран, Face ID и видеоглазок в едином стеклянном корпусе.",
+        "V6J — верх линейки iLock. Крупный экран с AI-камерой занимает всю внешнюю панель, распознавание лица работает до 50 профилей, а видеоглазок с двусторонней связью выводит гостя на телефон."),
+    kk=("iLock желісінің үлкені: үлкен AI-экран, Face ID және бейнекөзше біртұтас шыны корпуста.",
+        "V6J — iLock желісінің шыңы. AI-камерасы бар ірі экран сыртқы панельді толық алып жатыр, бет тану 50 профильге дейін жұмыс істейді, ал екіжақты байланысы бар бейнекөзше қонақты телефонға шығарады."),
+    en=("The top iLock: a large AI screen, Face ID and a video peephole in one glass body.",
+        "V6J tops the iLock range. A large screen with an AI camera fills the outer panel, face recognition handles up to 50 profiles, and the video peephole with two-way audio puts the guest on your phone."))
 
-add("s31b", title="S31B", brand="smartlock", price=90000, order=8,
+add("s31b", title="S31B", brand="ilock", price=90000, order=8,
     material="steel", access=["fingerprint","pin","card","key","app"],
     limits={"fingerprint":200,"pin":150,"card":2,"key":2},
     features=["slim-door","waterproof","bluetooth","anti-pry"],
@@ -275,7 +275,7 @@ add("s31b", title="S31B", brand="smartlock", price=90000, order=8,
     en=("Stainless steel, up to 200 fingerprints and four colours — for narrow-profile doors.",
         "S31B is built for narrow-profile doors and holds more users than any other model in the catalogue: up to 200 fingerprints and 150 PINs. The stainless-steel body comes in gold, silver, titanium grey and black."))
 
-add("g10s", title="G10S", brand="smartlock", price=60000, order=9,
+add("g10s", title="G10S", brand="ilock", price=60000, order=9,
     material="aluminum", access=["fingerprint","pin","card","key","app"],
     limits={"fingerprint":50,"pin":100,"card":2,"key":2},
     features=["glass-door","anti-pry"],
@@ -288,7 +288,7 @@ add("g10s", title="G10S", brand="smartlock", price=60000, order=9,
     en=("For glass doors: offices, salons and showrooms — no drilling of the panel.",
         "G10S mounts on glass doors — office, salon, showroom — without drilling the panel. Fingerprint, PIN, card and the Tuya Smart app, powered by AA batteries for about 10 months."))
 
-add("s604l", title="S604L", brand="smartlock", price=50000, order=10,
+add("s604l", title="S604L", brand="ilock", price=50000, order=10,
     material="zinc", access=["fingerprint","pin","card","key","app"],
     limits={"fingerprint":50,"pin":100,"card":2,"key":2},
     features=["anti-pry","waterproof","bluetooth"],
@@ -301,7 +301,7 @@ add("s604l", title="S604L", brand="smartlock", price=50000, order=10,
     en=("A mortise handle-lock for interior and office doors — biometrics for 50,000 ₸.",
         "S604L is a compact handle-lock for interior, office and internal doors where a full panel is overkill. The fingerprint reader sits in the handle itself, holding up to 50 prints and 100 PINs."))
 
-add("hotel", title="Гостиничный замок", brand="smartlock", price=50000, order=11,
+add("hotel", title="Гостиничный замок", brand="ilock", price=50000, order=11,
     material="steel", access=["card","master-card"], limits={"card":1},
     features=["software","programmer"],
     temp=(-20,70), power="aa4", battery="10", warranty=1,
@@ -313,7 +313,7 @@ add("hotel", title="Гостиничный замок", brand="smartlock", price
     en=("A card lock for hotels and hostels: a staff master card and a programmer included.",
         "A lock for hotels, hostels and apart-hotels: guests open the room with a card, staff with a master card. The programmer and shared software let the front desk reissue cards in seconds without reconfiguring the lock itself."))
 
-add("cabinet", title="Электронный замок для шкафа", brand="smartlock", price=15000, priceTo=25000,
+add("cabinet", title="Электронный замок для шкафа", brand="ilock", price=15000, priceTo=25000,
     order=12, material="zinc", access=["pin","card","master-card"], limits={"pin":100,"card":1},
     features=["software","programmer"],
     temp=(-10,50), power="aa4", battery="10", app="Tuya Smart", warranty=1,
@@ -325,7 +325,7 @@ add("cabinet", title="Электронный замок для шкафа", bran
     en=("For lockers in gyms, pools and changing rooms — PIN or card, two colours.",
         "A compact lock for lockers in gyms, pools, saunas and changing rooms. It opens by PIN or card, and a staff master card opens any locker. Available in silver and coffee."))
 
-add("d501", title="D501", brand="smartlock", price=30000, order=13,
+add("d501", title="D501", brand="ilock", price=30000, order=13,
     material="zinc", access=["fingerprint","key","app"], limits={"fingerprint":100,"key":2},
     features=["ip67","rechargeable","bluetooth","emergency-charge"],
     temp=(-20,70), power="li-ion", battery="4-6", app="TTLock", warranty=1,
@@ -337,7 +337,7 @@ add("d501", title="D501", brand="smartlock", price=30000, order=13,
     en=("A padlock with fingerprint entry and IP67: warehouses, gates, containers and garages.",
         "D501 is a padlock for a warehouse, gate, container or garage. It opens by fingerprint or the TTLock app, with a mechanical key kept as backup. IP67 protection lets it live outdoors."))
 
-add("101t", title="101T", brand="smartlock", price=28800, order=14,
+add("101t", title="101T", brand="ilock", price=28800, order=14,
     material="zinc", access=["fingerprint"], limits={"fingerprint":50},
     features=["ip67","rechargeable","bluetooth","emergency-charge"],
     temp=(-10,45), power="li", battery="4-6", warranty=1,
@@ -349,7 +349,7 @@ add("101t", title="101T", brand="smartlock", price=28800, order=14,
     en=("A compact padlock that opens with a single touch of a finger.",
         "101T opens at the touch of a finger — no key, no code. It suits lockers, storerooms, suitcases and bicycles. A charge lasts 4–6 months and the body is IP67-rated."))
 
-add("101p", title="101P", brand="smartlock", price=17000, order=15,
+add("101p", title="101P", brand="ilock", price=17000, order=15,
     material="zinc", access=["pin"], limits={"pin":10},
     features=["ip67","rechargeable"],
     temp=(-10,45), power="li", battery="4-6", warranty=1,
@@ -361,7 +361,7 @@ add("101p", title="101P", brand="smartlock", price=17000, order=15,
     en=("The most affordable lock in the catalogue: a padlock with a PIN and IP67 protection.",
         "101P is a PIN-operated padlock and the most affordable item in the catalogue. Keys are not needed at all — the code is entered on the buttons. IP67 protection and a 4–6 month charge."))
 
-BRAND_NAME = {"ilock":"iLock","philips":"Philips","smartlock":"Smartlock"}
+BRAND_NAME = {"ilock":"iLock","philips":"Philips"}
 SEO = {
  "ru": lambda t,b: (f"{t} — купить умный замок {b} в Казахстане | iLOCK",),
  "kk": lambda t,b: (f"{t} — Қазақстанда {b} ақылды құлыпты сатып алу | iLOCK",),

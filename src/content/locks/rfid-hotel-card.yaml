@@ -1,5 +1,5 @@
 title: "RFID-карта для гостиничных замков"
-brand: "smartlock"
+brand: "ilock"
 kind: "accessory"
 price: 700
 image: "../../assets/images/locks/rfid-hotel-card/image.png"
@@ -14,17 +14,17 @@ warranty: 1
 interface: []
 colors: ["white"]
 ru:
-  description: "RFID-карта доступа для совместимых гостиничных замков Smartlock."
+  description: "RFID-карта доступа для совместимых гостиничных замков iLock."
   seoTitle: "RFID-карта для гостиничных замков — купить в Казахстане | iLOCK"
-  seoDescription: "RFID-карта доступа для гостиничных замков Smartlock. Гарантия 1 год."
-  body: "Карта предназначена для выдачи доступа гостям в совместимых гостиничных электронных замках Smartlock."
+  seoDescription: "RFID-карта доступа для гостиничных замков iLock. Гарантия 1 год."
+  body: "Карта предназначена для выдачи доступа гостям в совместимых гостиничных электронных замках iLock."
 kk:
-  description: "Үйлесімді Smartlock қонақүй құлыптарына арналған RFID қолжетімділік картасы."
+  description: "Үйлесімді iLock қонақүй құлыптарына арналған RFID қолжетімділік картасы."
   seoTitle: "Қонақүй құлыптарына арналған RFID-карта — Қазақстанда сатып алу | iLOCK"
-  seoDescription: "Smartlock қонақүй құлыптарына арналған RFID қолжетімділік картасы. Кепілдік 1 жыл."
-  body: "Карта үйлесімді Smartlock қонақүй электрондық құлыптарында қонақтарға қолжетімділік беруге арналған."
+  seoDescription: "iLock қонақүй құлыптарына арналған RFID қолжетімділік картасы. Кепілдік 1 жыл."
+  body: "Карта үйлесімді iLock қонақүй электрондық құлыптарында қонақтарға қолжетімділік беруге арналған."
 en:
-  description: "An RFID access card for compatible Smartlock hotel locks."
+  description: "An RFID access card for compatible iLock hotel locks."
   seoTitle: "RFID card for hotel locks — buy in Kazakhstan | iLOCK"
-  seoDescription: "RFID access card for Smartlock hotel locks. One-year warranty."
-  body: "The card is used to issue guest access on compatible Smartlock hotel electronic locks."
+  seoDescription: "RFID access card for iLock hotel locks. One-year warranty."
+  body: "The card is used to issue guest access on compatible iLock hotel electronic locks."

@@ -1,5 +1,5 @@
 title: "S959 Max"
-brand: "smartlock"
+brand: "ilock"
 price: 125000
 image: "../../assets/images/locks/s959-max/image.png"
 order: 5
@@ -40,7 +40,7 @@ colors:
   - "black"
 ru:
   description: "Face ID, экран и охранная сигнализация в узком вертикальном корпусе."
-  seoTitle: "S959 Max — купить умный замок Smartlock в Казахстане | iLOCK"
+  seoTitle: "S959 Max — купить умный замок iLock в Казахстане | iLOCK"
   seoDescription: "Face ID, экран и охранная сигнализация в узком вертикальном корпусе."
   body: >-
     S959 Max собирает всё нужное для квартиры: распознавание лица до 50 профилей, экран с
@@ -49,7 +49,7 @@ ru:
 
 kk:
   description: "Face ID, экран және күзет дабылы — тар тік корпуста."
-  seoTitle: "S959 Max — Қазақстанда Smartlock ақылды құлыпты сатып алу | iLOCK"
+  seoTitle: "S959 Max — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
   seoDescription: "Face ID, экран және күзет дабылы — тар тік корпуста."
   body: >-
     S959 Max пәтерге қажеттінің бәрін жинайды: 50 профильге дейін бет тану, бейнекөзшесі бар экран,
@@ -57,7 +57,7 @@ kk:
 
 en:
   description: "Face ID, a screen and a security alarm in a slim vertical body."
-  seoTitle: "S959 Max — buy a Smartlock smart lock in Kazakhstan | iLOCK"
+  seoTitle: "S959 Max — buy an iLock smart lock in Kazakhstan | iLOCK"
   seoDescription: "Face ID, a screen and a security alarm in a slim vertical body."
   body: >-
     S959 Max gathers what a flat needs: face recognition for up to 50 profiles, a screen with a

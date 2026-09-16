@@ -12,11 +12,10 @@ const contentDir = path.join(root, 'src/content/locks');
 const outFile = path.join(root, 'public/catalog.pdf');
 const imageCacheDir = path.join(root, '.astro/pdf-catalog-images');
 
-const brandOrder = ['ilock', 'philips', 'smartlock', 'safes'];
+const brandOrder = ['ilock', 'philips', 'ezviz', 'safes'];
 const brandNames = {
 	ilock: 'iLock',
 	philips: 'Philips',
-	smartlock: 'Smartlock',
 	safes: 'Philips Safe',
 };
 

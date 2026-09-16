@@ -1,5 +1,5 @@
 title: "G18"
-brand: "smartlock"
+brand: "ilock"
 kazakhBrand: true
 price: 85000
 image: "../../assets/images/locks/g18/image.png"
@@ -34,7 +34,7 @@ colors:
   - "black"
 ru:
   description: "Замок под маркой iLock: до 100 отпечатков и 100 пин-кодов, управление через TTLock."
-  seoTitle: "G18 — купить умный замок Smartlock в Казахстане | iLOCK"
+  seoTitle: "G18 — купить умный замок iLock в Казахстане | iLOCK"
   seoDescription: "Замок под маркой iLock: до 100 отпечатков и 100 пин-кодов, управление через TTLock."
   body: >-
     G18 продаётся под маркой iLock и рассчитан на квартиры, где ключи нужны многим: до 100
@@ -43,7 +43,7 @@ ru:
 
 kk:
   description: "iLock маркасымен шығатын құлып: 100 саусақ ізі және 100 пин-кодқа дейін, TTLock арқылы басқару."
-  seoTitle: "G18 — Қазақстанда Smartlock ақылды құлыпты сатып алу | iLOCK"
+  seoTitle: "G18 — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
   seoDescription: "iLock маркасымен шығатын құлып: 100 саусақ ізі және 100 пин-кодқа дейін, TTLock арқылы басқару."
   body: >-
     G18 iLock маркасымен сатылады және кілт көп адамға қажет пәтерлерге есептелген: 100 саусақ ізіне
@@ -52,7 +52,7 @@ kk:
 
 en:
   description: "A lock sold under the iLock badge: up to 100 fingerprints and 100 PINs, managed through TTLock."
-  seoTitle: "G18 — buy a Smartlock smart lock in Kazakhstan | iLOCK"
+  seoTitle: "G18 — buy an iLock smart lock in Kazakhstan | iLOCK"
   seoDescription: "A lock sold under the iLock badge: up to 100 fingerprints and 100 PINs, managed through TTLock."
   body: >-
     G18 is sold under the iLock badge and suits homes where many people need access: up to 100

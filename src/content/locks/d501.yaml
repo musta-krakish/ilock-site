@@ -1,5 +1,5 @@
 title: "D501"
-brand: "smartlock"
+brand: "ilock"
 price: 30000
 image: "../../assets/images/locks/d501/image.png"
 order: 13
@@ -29,7 +29,7 @@ colors:
   - "black"
 ru:
   description: "Навесной замок с отпечатком и IP67: склады, ворота, контейнеры и гаражи."
-  seoTitle: "D501 — купить умный замок Smartlock в Казахстане | iLOCK"
+  seoTitle: "D501 — купить умный замок iLock в Казахстане | iLOCK"
   seoDescription: "Навесной замок с отпечатком и IP67: склады, ворота, контейнеры и гаражи."
   body: >-
     D501 — навесной замок для склада, ворот, контейнера или гаража. Открывается отпечатком или
@@ -38,7 +38,7 @@ ru:
 
 kk:
   description: "Саусақ ізі және IP67 бар аспалы құлып: қоймалар, қақпалар, контейнерлер және гараждар."
-  seoTitle: "D501 — Қазақстанда Smartlock ақылды құлыпты сатып алу | iLOCK"
+  seoTitle: "D501 — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
   seoDescription: "Саусақ ізі және IP67 бар аспалы құлып: қоймалар, қақпалар, контейнерлер және гараждар."
   body: >-
     D501 — қойма, қақпа, контейнер немесе гаражға арналған аспалы құлып. Саусақ ізімен немесе TTLock
@@ -47,7 +47,7 @@ kk:
 
 en:
   description: "A padlock with fingerprint entry and IP67: warehouses, gates, containers and garages."
-  seoTitle: "D501 — buy a Smartlock smart lock in Kazakhstan | iLOCK"
+  seoTitle: "D501 — buy an iLock smart lock in Kazakhstan | iLOCK"
   seoDescription: "A padlock with fingerprint entry and IP67: warehouses, gates, containers and garages."
   body: >-
     D501 is a padlock for a warehouse, gate, container or garage. It opens by fingerprint or the

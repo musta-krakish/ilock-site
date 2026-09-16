@@ -1,5 +1,5 @@
 title: "101P"
-brand: "smartlock"
+brand: "ilock"
 price: 17000
 image: "../../assets/images/locks/101p/image.png"
 order: 15
@@ -23,7 +23,7 @@ colors:
   - "black"
 ru:
   description: "Самый доступный замок каталога: навесной, на пин-коде, с защитой IP67."
-  seoTitle: "101P — купить умный замок Smartlock в Казахстане | iLOCK"
+  seoTitle: "101P — купить умный замок iLock в Казахстане | iLOCK"
   seoDescription: "Самый доступный замок каталога: навесной, на пин-коде, с защитой IP67."
   body: >-
     101P — навесной замок на пин-коде и самая доступная позиция каталога. Ключи не нужны совсем: код
@@ -31,7 +31,7 @@ ru:
 
 kk:
   description: "Каталогтағы ең қолжетімді құлып: аспалы, пин-кодпен, IP67 қорғанысымен."
-  seoTitle: "101P — Қазақстанда Smartlock ақылды құлыпты сатып алу | iLOCK"
+  seoTitle: "101P — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
   seoDescription: "Каталогтағы ең қолжетімді құлып: аспалы, пин-кодпен, IP67 қорғанысымен."
   body: >-
     101P — пин-кодпен жұмыс істейтін аспалы құлып және каталогтың ең қолжетімді позициясы. Кілт
@@ -39,7 +39,7 @@ kk:
 
 en:
   description: "The most affordable lock in the catalogue: a padlock with a PIN and IP67 protection."
-  seoTitle: "101P — buy a Smartlock smart lock in Kazakhstan | iLOCK"
+  seoTitle: "101P — buy an iLock smart lock in Kazakhstan | iLOCK"
   seoDescription: "The most affordable lock in the catalogue: a padlock with a PIN and IP67 protection."
   body: >-
     101P is a PIN-operated padlock and the most affordable item in the catalogue. Keys are not

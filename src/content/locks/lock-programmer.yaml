@@ -1,5 +1,5 @@
 title: "Программатор замков"
-brand: "smartlock"
+brand: "ilock"
 kind: "accessory"
 price: 100000
 image: "../../assets/images/locks/lock-programmer/image.png"
@@ -14,17 +14,17 @@ warranty: 1
 interface: ["ru"]
 colors: []
 ru:
-  description: "Программатор для настройки совместимых электронных замков Smartlock."
-  seoTitle: "Программатор замков Smartlock — купить в Казахстане | iLOCK"
-  seoDescription: "Программатор Smartlock для настройки совместимых электронных замков. Гарантия 1 год."
-  body: "Сервисный программатор для настройки и обслуживания совместимых электронных замков Smartlock."
+  description: "Программатор для настройки совместимых электронных замков iLock."
+  seoTitle: "Программатор замков iLock — купить в Казахстане | iLOCK"
+  seoDescription: "Программатор iLock для настройки совместимых электронных замков. Гарантия 1 год."
+  body: "Сервисный программатор для настройки и обслуживания совместимых электронных замков iLock."
 kk:
-  description: "Үйлесімді Smartlock электрондық құлыптарын баптауға арналған бағдарламалаушы."
-  seoTitle: "Smartlock құлып бағдарламалаушысы — Қазақстанда сатып алу | iLOCK"
-  seoDescription: "Үйлесімді электрондық құлыптарды баптауға арналған Smartlock бағдарламалаушысы. Кепілдік 1 жыл."
-  body: "Үйлесімді Smartlock электрондық құлыптарын баптауға және қызмет көрсетуге арналған сервистік бағдарламалаушы."
+  description: "Үйлесімді iLock электрондық құлыптарын баптауға арналған бағдарламалаушы."
+  seoTitle: "iLock құлып бағдарламалаушысы — Қазақстанда сатып алу | iLOCK"
+  seoDescription: "Үйлесімді электрондық құлыптарды баптауға арналған iLock бағдарламалаушысы. Кепілдік 1 жыл."
+  body: "Үйлесімді iLock электрондық құлыптарын баптауға және қызмет көрсетуге арналған сервистік бағдарламалаушы."
 en:
-  description: "A programmer for configuring compatible Smartlock electronic locks."
-  seoTitle: "Smartlock lock programmer — buy in Kazakhstan | iLOCK"
-  seoDescription: "Smartlock programmer for configuring compatible electronic locks. One-year warranty."
-  body: "A service programmer for configuring and maintaining compatible Smartlock electronic locks."
+  description: "A programmer for configuring compatible iLock electronic locks."
+  seoTitle: "iLock lock programmer — buy in Kazakhstan | iLOCK"
+  seoDescription: "iLock programmer for configuring compatible electronic locks. One-year warranty."
+  body: "A service programmer for configuring and maintaining compatible iLock electronic locks."

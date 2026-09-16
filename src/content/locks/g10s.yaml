@@ -1,5 +1,5 @@
 title: "G10S"
-brand: "smartlock"
+brand: "ilock"
 price: 60000
 image: "../../assets/images/locks/g10s/image.png"
 order: 9
@@ -32,7 +32,7 @@ colors:
   - "black"
 ru:
   description: "Для стеклянных дверей: офисы, салоны и шоурумы — без сверления полотна."
-  seoTitle: "G10S — купить умный замок Smartlock в Казахстане | iLOCK"
+  seoTitle: "G10S — купить умный замок iLock в Казахстане | iLOCK"
   seoDescription: "Для стеклянных дверей: офисы, салоны и шоурумы — без сверления полотна."
   body: >-
     G10S ставится на стеклянные двери — офис, салон, шоурум — и не требует сверлить полотно.
@@ -41,7 +41,7 @@ ru:
 
 kk:
   description: "Шыны есіктерге: кеңселер, салондар және шоурумдар — есікті бұрғылаусыз."
-  seoTitle: "G10S — Қазақстанда Smartlock ақылды құлыпты сатып алу | iLOCK"
+  seoTitle: "G10S — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
   seoDescription: "Шыны есіктерге: кеңселер, салондар және шоурумдар — есікті бұрғылаусыз."
   body: >-
     G10S шыны есіктерге орнатылады — кеңсе, салон, шоурум — және есікті бұрғылауды қажет етпейді.
@@ -49,7 +49,7 @@ kk:
 
 en:
   description: "For glass doors: offices, salons and showrooms — no drilling of the panel."
-  seoTitle: "G10S — buy a Smartlock smart lock in Kazakhstan | iLOCK"
+  seoTitle: "G10S — buy an iLock smart lock in Kazakhstan | iLOCK"
   seoDescription: "For glass doors: offices, salons and showrooms — no drilling of the panel."
   body: >-
     G10S mounts on glass doors — office, salon, showroom — without drilling the panel. Fingerprint,

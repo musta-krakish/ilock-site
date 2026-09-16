@@ -1,5 +1,5 @@
 title: "Гостиничный замок"
-brand: "smartlock"
+brand: "ilock"
 price: 50000
 image: "../../assets/images/locks/hotel/image.png"
 order: 11
@@ -24,7 +24,7 @@ colors:
   - "black"
 ru:
   description: "Карточный замок для гостиниц и хостелов: мастер-карта для персонала и программатор в комплекте."
-  seoTitle: "Гостиничный замок — купить умный замок Smartlock в Казахстане | iLOCK"
+  seoTitle: "Гостиничный замок — купить умный замок iLock в Казахстане | iLOCK"
   seoDescription: "Карточный замок для гостиниц и хостелов: мастер-карта для персонала и программатор в комплекте."
   body: >-
     Замок для гостиниц, хостелов и апарт-отелей: гость открывает номер картой, персонал — мастер-
@@ -33,7 +33,7 @@ ru:
 
 kk:
   description: "Қонақүйлер мен хостелдерге арналған карта-құлып: қызметкерлерге мастер-карта және бағдарламалағыш жинақта."
-  seoTitle: "Гостиничный замок — Қазақстанда Smartlock ақылды құлыпты сатып алу | iLOCK"
+  seoTitle: "Гостиничный замок — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
   seoDescription: "Қонақүйлер мен хостелдерге арналған карта-құлып: қызметкерлерге мастер-карта және бағдарламалағыш жинақта."
   body: >-
     Қонақүйлерге, хостелдерге және апарт-отельдерге арналған құлып: қонақ нөмірді картамен ашады,
@@ -42,7 +42,7 @@ kk:
 
 en:
   description: "A card lock for hotels and hostels: a staff master card and a programmer included."
-  seoTitle: "Гостиничный замок — buy a Smartlock smart lock in Kazakhstan | iLOCK"
+  seoTitle: "Гостиничный замок — buy an iLock smart lock in Kazakhstan | iLOCK"
   seoDescription: "A card lock for hotels and hostels: a staff master card and a programmer included."
   body: >-
     A lock for hotels, hostels and apart-hotels: guests open the room with a card, staff with a

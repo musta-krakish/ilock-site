@@ -1,5 +1,5 @@
 title: "S819"
-brand: "smartlock"
+brand: "ilock"
 price: 70000
 image: "../../assets/images/locks/s819/image.png"
 order: 1
@@ -33,7 +33,7 @@ colors:
   - "black"
 ru:
   description: "Самый доступный замок каталога: биометрия, сигнализация о вскрытии и работа до −25 °C."
-  seoTitle: "S819 — купить умный замок Smartlock в Казахстане | iLOCK"
+  seoTitle: "S819 — купить умный замок iLock в Казахстане | iLOCK"
   seoDescription: "Самый доступный замок каталога: биометрия, сигнализация о вскрытии и работа до −25 °C."
   body: >-
     S819 — самый доступный вход в умные замки. Отпечаток, пин-код, карта и ключ, сигнализация при
@@ -42,7 +42,7 @@ ru:
 
 kk:
   description: "Каталогтағы ең қолжетімді құлып: биометрия, бұзу дабылы және −25 °C дейін жұмыс."
-  seoTitle: "S819 — Қазақстанда Smartlock ақылды құлыпты сатып алу | iLOCK"
+  seoTitle: "S819 — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
   seoDescription: "Каталогтағы ең қолжетімді құлып: биометрия, бұзу дабылы және −25 °C дейін жұмыс."
   body: >-
     S819 — ақылды құлыптарға ең қолжетімді кіру нүктесі. Саусақ ізі, пин-код, карта және кілт,
@@ -51,7 +51,7 @@ kk:
 
 en:
   description: "The most affordable lock in the catalogue: biometrics, a tamper alarm and operation down to −25 °C."
-  seoTitle: "S819 — buy a Smartlock smart lock in Kazakhstan | iLOCK"
+  seoTitle: "S819 — buy an iLock smart lock in Kazakhstan | iLOCK"
   seoDescription: "The most affordable lock in the catalogue: biometrics, a tamper alarm and operation down to −25 °C."
   body: >-
     S819 is the most affordable way into smart locks. Fingerprint, PIN, card and key, an alarm on
