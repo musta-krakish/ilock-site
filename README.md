@@ -70,3 +70,35 @@ to the loopback-only port exposed by Docker.
 
 The application is bound to `127.0.0.1:4321`, so it is not publicly reachable
 without Caddy. To use another local port, set `APP_PORT` in `.env`.
+
+The initial build generates the catalogue and product images. Give Docker at
+least 1 GB of RAM and enable swap on a small VPS. The image build serialises
+native image processing and caps the Node.js heap at 768 MiB by default. On a
+host with at least 2 GB available to Docker, `BUILD_MAX_OLD_SPACE_SIZE=1536`
+can make the build faster; do not raise it on a 1 GB server.
+
+## CI/CD: build on the self-hosted runner and deploy by SSH
+
+The workflow in `.github/workflows/deploy.yml` builds the Docker image on the
+self-hosted Linux runner, uploads a compressed image archive to the production
+host with SCP, imports it there, then runs `docker compose up --no-build`.
+It runs on pushes to `master` and may also be started manually from GitHub
+Actions.
+
+Before the first run, create these repository **Variables**:
+
+- `SITE_URL` — public HTTPS URL, e.g. `https://ilock.example.com`;
+- `PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` — GitHub App slug;
+- `BUILD_MAX_OLD_SPACE_SIZE` — optional, defaults to `768`.
+
+And these repository **Secrets**:
+
+- `DEPLOY_HOST`, `DEPLOY_PORT` (optional; defaults to `22`), `DEPLOY_USER`;
+- `DEPLOY_PATH` — absolute directory containing `docker-compose.yml` and the
+  production `.env`, e.g. `/opt/ilock-site`;
+- `DEPLOY_PASSWORD` — SSH password for that Linux deployment user;
+
+On the production server, prepare `DEPLOY_PATH` once: place the current
+`docker-compose.yml` there, create the real `.env` with Keystatic secrets and
+ensure the deployment user can run Docker without `sudo`. The workflow does
+not transfer `.env` or secrets.

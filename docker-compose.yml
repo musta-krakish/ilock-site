@@ -1,11 +1,17 @@
 services:
   app:
+    # CI can load a pre-built image on the server and start it with
+    # `docker compose up --no-build`. Local deployments keep this default.
+    image: ${APP_IMAGE:-ilock-site-app:latest}
     build:
       context: .
       dockerfile: Dockerfile
       args:
         SITE_URL: ${SITE_URL:?Set SITE_URL in .env to the public HTTPS URL}
         PUBLIC_KEYSTATIC_GITHUB_APP_SLUG: ${PUBLIC_KEYSTATIC_GITHUB_APP_SLUG:?Set PUBLIC_KEYSTATIC_GITHUB_APP_SLUG in .env}
+        # Cap the JavaScript heap during static generation; native image work has
+        # its own memory budget. Raise this only on hosts with more RAM.
+        BUILD_MAX_OLD_SPACE_SIZE: ${BUILD_MAX_OLD_SPACE_SIZE:-768}
     env_file:
       - .env
     environment:

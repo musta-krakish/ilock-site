@@ -35,8 +35,7 @@ const cardFilterValues = lockFilterValues(lock);
 		<Image
 			src={lock.image}
 			alt={t.product.imgAlt(brandNames[lock.brand], lock.title, lock.kind)}
-			widths={[280, 420, 640]}
-			sizes="(min-width:1280px) 320px, (min-width:768px) 40vw, 80vw"
+			width={640}
 			class="h-full w-full object-contain p-7 transition-transform duration-500 group-hover:scale-[1.06] sm:p-8"
 			loading={eager ? 'eager' : 'lazy'}
 		/>

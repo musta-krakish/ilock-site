@@ -1,0 +1,95 @@
+name: Build and deploy production
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Never upload or start two releases simultaneously on the same host.
+concurrency:
+  group: ilock-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    # These are GitHub's default labels for the registered ubuntu-kirpich runner.
+    # If more self-hosted Linux runners are added later, give ubuntu-kirpich a
+    # custom label and add it to this list.
+    runs-on: [self-hosted, linux, x64]
+    timeout-minutes: 60
+    env:
+      SITE_URL: ${{ vars.SITE_URL }}
+      PUBLIC_KEYSTATIC_GITHUB_APP_SLUG: ${{ vars.PUBLIC_KEYSTATIC_GITHUB_APP_SLUG }}
+      BUILD_MAX_OLD_SPACE_SIZE: ${{ vars.BUILD_MAX_OLD_SPACE_SIZE || '768' }}
+      APP_IMAGE: ilock-site-app:${{ github.sha }}
+      ARCHIVE_NAME: ilock-site-${{ github.sha }}.tar.gz
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+      DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+
+    steps:
+      - name: Check out release
+        uses: actions/checkout@v4
+
+      - name: Verify deployment settings
+        shell: bash
+        run: |
+          set -euo pipefail
+          : "${SITE_URL:?Set repository variable SITE_URL}"
+          : "${PUBLIC_KEYSTATIC_GITHUB_APP_SLUG:?Set repository variable PUBLIC_KEYSTATIC_GITHUB_APP_SLUG}"
+          : "${DEPLOY_HOST:?Set repository secret DEPLOY_HOST}"
+          : "${DEPLOY_USER:?Set repository secret DEPLOY_USER}"
+          : "${DEPLOY_PATH:?Set repository secret DEPLOY_PATH}"
+          : "${DEPLOY_PASSWORD:?Set repository secret DEPLOY_PASSWORD}"
+
+      - name: Build Docker image on ubuntu-kirpich
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Compose reads this runtime file even for build-only commands. It is
+          # ignored by Git and is not copied into the Docker image.
+          touch .env
+          docker compose build --pull app
+          docker image inspect "$APP_IMAGE" >/dev/null
+          docker save "$APP_IMAGE" | gzip -1 > "$RUNNER_TEMP/$ARCHIVE_NAME"
+
+      - name: Install password authentication helper
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v sshpass >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends sshpass
+          fi
+
+      - name: Upload release archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          export SSHPASS="$DEPLOY_PASSWORD"
+          sshpass -e ssh -p "$DEPLOY_PORT" \
+            -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
+            -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+            "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_PATH/incoming'"
+          sshpass -e scp -P "$DEPLOY_PORT" \
+            -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
+            -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+            "$RUNNER_TEMP/$ARCHIVE_NAME" \
+            "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/incoming/$ARCHIVE_NAME"
+
+      - name: Load image and restart service
+        shell: bash
+        run: |
+          set -euo pipefail
+          export SSHPASS="$DEPLOY_PASSWORD"
+          sshpass -e ssh -p "$DEPLOY_PORT" \
+            -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
+            -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+            "$DEPLOY_USER@$DEPLOY_HOST" \
+            "ARCHIVE_PATH='$DEPLOY_PATH/incoming/$ARCHIVE_NAME' APP_IMAGE='$APP_IMAGE' PROJECT_DIR='$DEPLOY_PATH' sh -s" \
+            < scripts/deploy/load-image.sh
