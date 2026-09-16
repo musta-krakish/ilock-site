@@ -78,8 +78,9 @@ self-hosted runner at least 2 GB of RAM available to Docker.
 ## CI/CD: build on the self-hosted runner and deploy by SSH
 
 The workflow in `.github/workflows/deploy.yml` builds the Docker image on the
-self-hosted Linux runner, uploads a compressed image archive to the production
-host with SCP, imports it there, then runs `docker compose up --no-build`.
+self-hosted Linux runner, uploads a compressed image archive and the production
+Compose file to the production host with SCP, imports the image there, then
+runs `docker compose up --no-build`.
 It runs on pushes to `master` and may also be started manually from GitHub
 Actions.
 
@@ -93,11 +94,11 @@ Before the first run, create these repository **Variables**:
 And these repository **Secrets**:
 
 - `DEPLOY_HOST`, `DEPLOY_PORT` (optional; defaults to `22`), `DEPLOY_USER`;
-- `DEPLOY_PATH` — absolute directory containing `docker-compose.yml` and the
-  production `.env`, e.g. `/opt/ilock-site`;
+- `DEPLOY_PATH` — absolute deployment directory, e.g. `/opt/ilock-site`;
 - `DEPLOY_PASSWORD` — SSH password for that Linux deployment user;
 
-On the production server, prepare `DEPLOY_PATH` once: place the current
-`docker-compose.yml` there, create the real `.env` with Keystatic secrets and
-ensure the deployment user can run Docker without `sudo`. The workflow does
-not transfer `.env` or secrets.
+The workflow creates `DEPLOY_PATH`, its `incoming` directory and an empty
+`.env` if they do not exist. It uploads `docker-compose.production.yml` itself.
+To use the Keystatic admin panel, add its real GitHub credentials to the server
+`.env` once; deployments preserve that file. Ensure the deployment user can run
+Docker without `sudo`.

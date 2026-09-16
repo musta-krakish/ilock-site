@@ -22,13 +22,23 @@ require_file() {
 }
 
 require_file "$ARCHIVE_PATH"
-require_file "$PROJECT_DIR/docker-compose.yml"
-require_file "$PROJECT_DIR/.env"
+require_file "$PROJECT_DIR/docker-compose.production.yml"
+
+# Keep the existing production secrets intact. A new deployment directory may
+# not have an .env yet; an empty file is enough to start the public site.
+touch "$PROJECT_DIR/.env"
 
 if ! command -v docker >/dev/null 2>&1; then
 	echo "Docker is not available for the deployment user" >&2
 	exit 1
 fi
+
+echo "Validating deployment configuration..."
+(
+	cd "$PROJECT_DIR"
+	APP_IMAGE="$APP_IMAGE" docker compose \
+		-f docker-compose.production.yml --env-file .env config -q
+)
 
 echo "Importing Docker image..."
 docker load --input "$ARCHIVE_PATH"
@@ -36,7 +46,9 @@ docker image inspect "$APP_IMAGE" >/dev/null
 
 echo "Restarting application container..."
 cd "$PROJECT_DIR"
-APP_IMAGE="$APP_IMAGE" docker compose --env-file .env up -d --no-build --force-recreate app
+APP_IMAGE="$APP_IMAGE" docker compose \
+	-f docker-compose.production.yml --env-file .env \
+	up -d --no-build --force-recreate app
 
 # The archive is no longer needed after Docker has imported the image. It stays
 # in place on a failed deploy to make diagnosis and a retry possible.

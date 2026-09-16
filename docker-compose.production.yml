@@ -1,0 +1,14 @@
+services:
+  app:
+    # The CI workflow imports this image on the server before starting it.
+    image: ${APP_IMAGE:?APP_IMAGE is required}
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 4321
+    ports:
+      - "127.0.0.1:${APP_PORT:-4321}:4321"
+    restart: unless-stopped
+    init: true
