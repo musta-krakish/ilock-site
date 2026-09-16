@@ -25,6 +25,15 @@ export default defineConfig({
 	// Used for canonical URLs, hreflang, sitemap and JSON-LD.
 	// Set `SITE_URL` on the production host to the public HTTPS URL.
 	site: process.env.SITE_URL ?? 'https://ilock-site.vercel.app',
+	// The Node server is behind Caddy. Astro only trusts X-Forwarded-* headers
+	// for explicitly allowed public origins; without this, Keystatic builds its
+	// OAuth callback from the internal http://localhost:4321 request.
+	security: {
+		allowedDomains: [
+			{ protocol: 'https', hostname: 'ilock.kz' },
+			{ protocol: 'https', hostname: 'www.ilock.kz' },
+		],
+	},
 	// Public pages use `getStaticPaths()` and are generated during the build.
 	// Keystatic and preview routes opt into on-demand rendering individually.
 	output: 'static',
