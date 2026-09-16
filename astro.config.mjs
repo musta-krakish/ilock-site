@@ -25,8 +25,9 @@ export default defineConfig({
 	// Used for canonical URLs, hreflang, sitemap and JSON-LD.
 	// Set `SITE_URL` on the production host to the public HTTPS URL.
 	site: process.env.SITE_URL ?? 'https://ilock-site.vercel.app',
-	// Keystatic's GitHub OAuth routes need a running server in production.
-	output: 'server',
+	// Public pages use `getStaticPaths()` and are generated during the build.
+	// Keystatic and preview routes opt into on-demand rendering individually.
+	output: 'static',
 	adapter: node({ mode: 'standalone' }),
 	integrations: [
 		react(),
