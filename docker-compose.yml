@@ -11,7 +11,7 @@ services:
         PUBLIC_KEYSTATIC_GITHUB_APP_SLUG: ${PUBLIC_KEYSTATIC_GITHUB_APP_SLUG:?Set PUBLIC_KEYSTATIC_GITHUB_APP_SLUG in .env}
         # Cap the JavaScript heap during static generation; native image work has
         # its own memory budget. Raise this only on hosts with more RAM.
-        BUILD_MAX_OLD_SPACE_SIZE: ${BUILD_MAX_OLD_SPACE_SIZE:-768}
+        BUILD_MAX_OLD_SPACE_SIZE: ${BUILD_MAX_OLD_SPACE_SIZE:-1536}
     env_file:
       - .env
     environment:

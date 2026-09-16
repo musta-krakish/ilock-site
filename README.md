@@ -71,11 +71,9 @@ to the loopback-only port exposed by Docker.
 The application is bound to `127.0.0.1:4321`, so it is not publicly reachable
 without Caddy. To use another local port, set `APP_PORT` in `.env`.
 
-The initial build generates the catalogue and product images. Give Docker at
-least 1 GB of RAM and enable swap on a small VPS. The image build serialises
-native image processing and caps the Node.js heap at 768 MiB by default. On a
-host with at least 2 GB available to Docker, `BUILD_MAX_OLD_SPACE_SIZE=1536`
-can make the build faster; do not raise it on a 1 GB server.
+The CI build generates the catalogue and product images. It serialises native
+image processing and caps the Node.js heap at 1536 MiB by default. Give the
+self-hosted runner at least 2 GB of RAM available to Docker.
 
 ## CI/CD: build on the self-hosted runner and deploy by SSH
 
@@ -89,7 +87,8 @@ Before the first run, create these repository **Variables**:
 
 - `SITE_URL` — public HTTPS URL, e.g. `https://ilock.example.com`;
 - `PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` — GitHub App slug;
-- `BUILD_MAX_OLD_SPACE_SIZE` — optional, defaults to `768`.
+- `BUILD_MAX_OLD_SPACE_SIZE` — optional; CI defaults to `4096` MiB (the
+  `ubuntu-kirpich` runner has 24 GB RAM).
 
 And these repository **Secrets**:
 

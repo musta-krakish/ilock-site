@@ -17,7 +17,7 @@ COPY . ./
 # Static generation processes every catalogue image. Keep its native image work
 # serial and cap V8 so a small VPS does not let the Docker build exhaust all RAM.
 # This affects the build stage only; the running site retains Node's defaults.
-ARG BUILD_MAX_OLD_SPACE_SIZE=768
+ARG BUILD_MAX_OLD_SPACE_SIZE=1536
 ENV NODE_OPTIONS="--max-old-space-size=${BUILD_MAX_OLD_SPACE_SIZE}" \
 	UV_THREADPOOL_SIZE=1 \
 	MALLOC_ARENA_MAX=2

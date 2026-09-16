@@ -26,7 +26,9 @@ jobs:
     env:
       SITE_URL: ${{ vars.SITE_URL }}
       PUBLIC_KEYSTATIC_GITHUB_APP_SLUG: ${{ vars.PUBLIC_KEYSTATIC_GITHUB_APP_SLUG }}
-      BUILD_MAX_OLD_SPACE_SIZE: ${{ vars.BUILD_MAX_OLD_SPACE_SIZE || '768' }}
+      # ubuntu-kirpich has 24 GB RAM; leave sufficient room for Astro's static
+      # generation instead of inheriting the low-memory VPS default.
+      BUILD_MAX_OLD_SPACE_SIZE: ${{ vars.BUILD_MAX_OLD_SPACE_SIZE || '4096' }}
       APP_IMAGE: ilock-site-app:${{ github.sha }}
       ARCHIVE_NAME: ilock-site-${{ github.sha }}.tar.gz
       DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
