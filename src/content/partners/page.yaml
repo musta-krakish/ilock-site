@@ -1,56 +1,176 @@
 certificates:
-  - image: "../../assets/images/company/kappas-group-1.jpg"
+  - image: ../../assets/images/company/certificates/0/image.jpg
     title:
-      ru: "Благодарность Kappas Group"
-      kk: "Kappas Group алғыс хаты"
-      en: "Kappas Group letter of appreciation"
-  - image: "../../assets/images/company/country-choice-2022.jpg"
+      ru: Благодарность Kappas Group.
+      kk: Kappas Group алғыс хаты
+      en: Kappas Group letter of appreciation
+  - image: ../../assets/images/company/certificates/1/image.jpg
     title:
-      ru: "Знак качества «Выбор страны 2022»"
-      kk: "«Ел таңдауы 2022» сапа белгісі"
-      en: "Country Choice 2022 quality award"
-  - image: "../../assets/images/company/mansur-stroy.jpg"
+      ru: Знак качества «Выбор страны 2022»
+      kk: «Ел таңдауы 2022» сапа белгісі
+      en: Country Choice 2022 quality award
+  - image: ../../assets/images/company/certificates/2/image.jpg
     title:
-      ru: "Благодарность «Мансур-Строй С»"
-      kk: "«Мансур-Строй С» алғыс хаты"
-      en: "Mansur-Stroy S letter of appreciation"
-  - image: "../../assets/images/company/kappas-group-2.jpg"
+      ru: Благодарность «Мансур-Строй С»
+      kk: «Мансур-Строй С» алғыс хаты
+      en: Mansur-Stroy S letter of appreciation
+  - image: ../../assets/images/company/certificates/3/image.jpg
     title:
-      ru: "Благодарность Kappas Group · Sai Park House"
-      kk: "Kappas Group · Sai Park House алғыс хаты"
-      en: "Kappas Group · Sai Park House letter of appreciation"
-  - image: "../../assets/images/company/philips-authorisation.jpg"
+      ru: Благодарность Kappas Group · Sai Park House
+      kk: Kappas Group · Sai Park House алғыс хаты
+      en: Kappas Group · Sai Park House letter of appreciation
+  - image: ../../assets/images/company/certificates/4/image.jpg
     title:
-      ru: "Авторизационное письмо Philips"
-      kk: "Philips авторизация хаты"
-      en: "Philips authorisation letter"
-  - image: "../../assets/images/company/ezviz-distributor-2022.jpg"
+      ru: Авторизационное письмо Philips
+      kk: Philips авторизация хаты
+      en: Philips authorisation letter
+  - image: ../../assets/images/company/certificates/5/image.jpg
     title:
-      ru: "Сертификат дистрибьютора EZVIZ · 2022"
-      kk: "EZVIZ дистрибьюторының сертификаты · 2022"
-      en: "EZVIZ distributor certificate · 2022"
+      ru: Сертификат дистрибьютора EZVIZ · 2022
+      kk: EZVIZ дистрибьюторының сертификаты · 2022
+      en: EZVIZ distributor certificate · 2022
 projects:
-  - { name: "Sati Club House", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/sati-club-house.webp" }
-  - { name: "Sati Park House", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/sati-park-house.webp" }
-  - { name: "Nova City", city: { ru: "Актобе", kk: "Ақтөбе", en: "Aktobe" }, image: "/projects/residential/nova-city.webp" }
-  - { name: "Shugyla", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/shugyla.webp" }
-  - { name: "Four Seasons", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/four-seasons.webp" }
-  - { name: "KingsLand Residence", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/kingsland-residence.webp" }
-  - { name: "Daulettiq Qalashiq Bilim 1", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/daulettiq-qalashiq-bilim-1.webp" }
-  - { name: "Daulettiq Qalashiq Bilim 2", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/daulettiq-qalashiq-bilim-2.webp" }
-  - { name: "Столичный 2", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/stolichnyy-2.webp" }
-  - { name: "Ray Residence", city: { ru: "Усть-Каменогорск", kk: "Өскемен", en: "Ust-Kamenogorsk" }, image: "/projects/residential/ray-residence.webp" }
-  - { name: "Abat", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/abat.webp" }
-  - { name: "Samal Park", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/samal-park.webp" }
-  - { name: "Maryam Residence", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/maryam-residence.webp" }
-  - { name: "Sandi Qala 1", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/sandi-qala-1.webp" }
-  - { name: "Sandi Qala 2", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/sandi-qala-2.webp" }
-  - { name: "Safia", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/safia.webp" }
-  - { name: "Cosmic City 2", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/cosmic-city-2.webp" }
-  - { name: "Alatau Park", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/alatau-park.webp" }
-  - { name: "Altyn Adam", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/altyn-adam.webp" }
-  - { name: "Gakku", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/gakku.webp" }
-  - { name: "Daur", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/daur.webp" }
-  - { name: "Parkside", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/parkside.webp" }
-  - { name: "Nexpo Vision", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/nexpo-vision.webp" }
-  - { name: "Dariya", city: { ru: "Астана", kk: "Астана", en: "Astana" }, image: "/projects/residential/dariya.webp" }
+  - name: Sati Club House
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/0/image.webp
+  - name: Sati Park House
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/1/image.webp
+  - name: Nova City
+    city:
+      ru: Актобе
+      kk: Ақтөбе
+      en: Aktobe
+    image: /projects/residential/projects/2/image.webp
+  - name: Shugyla
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/3/image.webp
+  - name: Four Seasons
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/4/image.webp
+  - name: KingsLand Residence
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/5/image.webp
+  - name: Daulettiq Qalashiq Bilim 1
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/6/image.webp
+  - name: Daulettiq Qalashiq Bilim 2
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/7/image.webp
+  - name: Столичный 2
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/8/image.webp
+  - name: Ray Residence
+    city:
+      ru: Усть-Каменогорск
+      kk: Өскемен
+      en: Ust-Kamenogorsk
+    image: /projects/residential/projects/9/image.webp
+  - name: Abat
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/10/image.webp
+  - name: Samal Park
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/11/image.webp
+  - name: Maryam Residence
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/12/image.webp
+  - name: Sandi Qala 1
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/13/image.webp
+  - name: Sandi Qala 2
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/14/image.webp
+  - name: Safia
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/15/image.webp
+  - name: Cosmic City 2
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/16/image.webp
+  - name: Alatau Park
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/17/image.webp
+  - name: Altyn Adam
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/18/image.webp
+  - name: Gakku
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/19/image.webp
+  - name: Daur
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/20/image.webp
+  - name: Parkside
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/21/image.webp
+  - name: Nexpo Vision
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/22/image.webp
+  - name: Dariya
+    city:
+      ru: Астана
+      kk: Астана
+      en: Astana
+    image: /projects/residential/projects/23/image.webp
