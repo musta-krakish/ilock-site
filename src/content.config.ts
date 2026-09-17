@@ -101,6 +101,12 @@ const prose = z.object({
 	seoDescription: z.string(),
 });
 
+const translatedText = z.object({
+	ru: z.string(),
+	kk: z.string(),
+	en: z.string(),
+});
+
 const locks = defineCollection({
 	// Keystatic writes structured product records as YAML. FAQ entries remain
 	// Markdown because their answers are rendered as page content.
@@ -168,4 +174,29 @@ const faq = defineCollection({
 	}),
 });
 
-export const collections = { locks, faq };
+const partners = defineCollection({
+	loader: glob({ pattern: 'page.yaml', base: './src/content/partners' }),
+	schema: ({ image }) =>
+		z.object({
+			certificates: z
+				.array(
+					z.object({
+						image: image(),
+						title: translatedText,
+					}),
+				)
+				.default([]),
+			projects: z
+				.array(
+					z.object({
+						name: z.string(),
+						city: translatedText,
+						/** Public file path, e.g. `/projects/residential/example.webp`. */
+						image: z.string(),
+					}),
+				)
+				.default([]),
+		}),
+});
+
+export const collections = { locks, faq, partners };

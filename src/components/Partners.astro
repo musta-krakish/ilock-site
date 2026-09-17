@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
 import SectionHeading from './SectionHeading.astro';
 import { whatsappLink } from '../config';
 import ddl7300 from '../assets/images/locks/ddl-7300/image.png';
@@ -15,32 +16,8 @@ interface Props {
 const { lang = 'ru', standalone = false } = Astro.props;
 const t = ui[lang].partners;
 const images = [ddl7300, hotelLock, cabinetLock];
-const residentialProjects = [
-	{ slug: 'sati-club-house', name: 'Sati Club House', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'sati-park-house', name: 'Sati Park House', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'nova-city', name: 'Nova City', city: { ru: 'Актобе', kk: 'Ақтөбе', en: 'Aktobe' } },
-	{ slug: 'shugyla', name: 'Shugyla', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'four-seasons', name: 'Four Seasons', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'kingsland-residence', name: 'KingsLand Residence', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'daulettiq-qalashiq-bilim-1', name: 'Daulettiq Qalashiq Bilim 1', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'daulettiq-qalashiq-bilim-2', name: 'Daulettiq Qalashiq Bilim 2', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'stolichnyy-2', name: 'Столичный 2', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'ray-residence', name: 'Ray Residence', city: { ru: 'Усть-Каменогорск', kk: 'Өскемен', en: 'Ust-Kamenogorsk' } },
-	{ slug: 'abat', name: 'Abat', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'samal-park', name: 'Samal Park', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'maryam-residence', name: 'Maryam Residence', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'sandi-qala-1', name: 'Sandi Qala 1', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'sandi-qala-2', name: 'Sandi Qala 2', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'safia', name: 'Safia', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'cosmic-city-2', name: 'Cosmic City 2', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'alatau-park', name: 'Alatau Park', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'altyn-adam', name: 'Altyn Adam', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'gakku', name: 'Gakku', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'daur', name: 'Daur', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'parkside', name: 'Parkside', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'nexpo-vision', name: 'Nexpo Vision', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-	{ slug: 'dariya', name: 'Dariya', city: { ru: 'Астана', kk: 'Астана', en: 'Astana' } },
-];
+const partners = await getEntry('partners', 'page');
+const residentialProjects = partners?.data.projects ?? [];
 ---
 
 <section
@@ -145,7 +122,7 @@ const residentialProjects = [
 						<article class="group overflow-hidden rounded-2xl border border-line bg-secondary-color transition duration-300 hover:-translate-y-1 hover:border-accent-color/45">
 							<div class="aspect-[16/9] overflow-hidden bg-main-color">
 								<img
-									src={`/projects/residential/${project.slug}.webp`}
+									src={project.image}
 									alt={`${project.name}, ${project.city[lang]}`}
 									width="512"
 									height="284"

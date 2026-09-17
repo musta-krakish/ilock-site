@@ -1,4 +1,4 @@
-import { collection, config, fields, type FormFieldInputProps } from '@keystatic/core';
+import { collection, config, fields, singleton, type FormFieldInputProps } from '@keystatic/core';
 import { createElement } from 'react';
 
 const repository = 'musta-krakish/ilock-site';
@@ -391,6 +391,16 @@ const createFaqCollection = (
 		},
 	});
 
+const translatedTextFields = (label: string) =>
+	fields.object(
+		{
+			ru: requiredText('По-русски'),
+			kk: requiredText('Қазақша'),
+			en: requiredText('In English'),
+		},
+		{ label, layout: [4, 4, 4] },
+	);
+
 export default config({
 	storage: { kind: 'github', repo: repository },
 	locale: 'ru-RU',
@@ -398,6 +408,7 @@ export default config({
 		brand: { name: 'iLOCK · управление сайтом' },
 		navigation: {
 			Каталог: ['locks'],
+			Партнёры: ['partners'],
 			FAQ: ['faqRu', 'faqKk', 'faqEn'],
 		},
 	},
@@ -413,5 +424,47 @@ export default config({
 		faqRu: createFaqCollection('ru', 'FAQ — русский', 'Русский'),
 		faqKk: createFaqCollection('kk', 'FAQ — қазақша', 'Қазақша'),
 		faqEn: createFaqCollection('en', 'FAQ — English', 'English'),
+	},
+	singletons: {
+		partners: singleton({
+			label: 'Партнёры и документы',
+			path: 'src/content/partners/page',
+			format: 'yaml',
+			schema: {
+				certificates: fields.array(
+					fields.object(
+						{
+							image: fields.image({
+								label: 'Изображение документа',
+								description: 'PNG, JPG или WebP. Можно заменить текущий сертификат или письмо.',
+								directory: 'src/assets/images/company',
+								publicPath: '../../assets/images/company',
+								validation: { isRequired: true },
+							}),
+							title: translatedTextFields('Название документа'),
+						},
+						{ layout: [12, 12] },
+					),
+					{ label: 'Сертификаты и благодарности', itemLabel: (props) => props.fields.title.fields.ru.value || 'Новый документ' },
+				),
+				projects: fields.array(
+					fields.object(
+						{
+							name: requiredText('Название объекта'),
+							city: translatedTextFields('Город'),
+							image: fields.image({
+								label: 'Фото здания',
+								description: 'PNG, JPG или WebP. Для одинаковых карточек лучше использовать горизонтальное фото.',
+								directory: 'public/projects/residential',
+								publicPath: '/projects/residential',
+								validation: { isRequired: true },
+							}),
+						},
+						{ layout: [6, 6, 12] },
+					),
+					{ label: 'Объекты в портфолио', itemLabel: (props) => props.fields.name.value || 'Новый объект' },
+				),
+			},
+		}),
 	},
 });
