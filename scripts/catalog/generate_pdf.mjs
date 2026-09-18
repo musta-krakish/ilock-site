@@ -16,6 +16,7 @@ const brandOrder = ['ilock', 'philips', 'ezviz', 'smartlock', 'safes'];
 const brandNames = {
 	ilock: 'iLock',
 	philips: 'Philips',
+	ezviz: 'EZVIZ',
 	smartlock: 'SmartLock',
 	safes: 'Philips Safe',
 };
