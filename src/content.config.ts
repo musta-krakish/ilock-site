@@ -6,7 +6,7 @@ import { glob } from 'astro/loaders';
  * and rendered through the dictionaries in `src/i18n.ts`. Only prose — the short
  * description and the body copy — is written per language.
  */
-const brand = z.enum(['ilock', 'philips', 'ezviz', 'safes', 'tiger']);
+const brand = z.enum(['ilock', 'philips', 'ezviz', 'smartlock', 'safes', 'tiger']);
 
 const kind = z.enum(['lock', 'safe', 'accessory']);
 
@@ -199,4 +199,13 @@ const partners = defineCollection({
 		}),
 });
 
-export const collections = { locks, faq, partners };
+const home = defineCollection({
+	loader: glob({ pattern: 'promotions.yaml', base: './src/content/home' }),
+	schema: z.object({
+		/** `grid` is a three-column grid; `slider` is a horizontally scrollable carousel. */
+		promotionLayout: z.enum(['grid', 'slider']).default('grid'),
+		promotionLocks: z.array(z.string()).default([]),
+	}),
+});
+
+export const collections = { locks, faq, partners, home };

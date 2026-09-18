@@ -361,7 +361,7 @@ add("101p", title="101P", brand="ilock", price=17000, order=15,
     en=("The most affordable lock in the catalogue: a padlock with a PIN and IP67 protection.",
         "101P is a PIN-operated padlock and the most affordable item in the catalogue. Keys are not needed at all — the code is entered on the buttons. IP67 protection and a 4–6 month charge."))
 
-BRAND_NAME = {"ilock":"iLock","philips":"Philips"}
+BRAND_NAME = {"ilock":"iLock","philips":"Philips","smartlock":"SmartLock"}
 SEO = {
  "ru": lambda t,b: (f"{t} — купить умный замок {b} в Казахстане | iLOCK",),
  "kk": lambda t,b: (f"{t} — Қазақстанда {b} ақылды құлыпты сатып алу | iLOCK",),

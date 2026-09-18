@@ -23,13 +23,14 @@ export const defaultLang: Lang = 'ru';
 export const langList = Object.keys(languages) as Lang[];
 
 /** Brand groups in the order required by the brief: iLock first, then Philips, then the rest. */
-export const brandOrder = ['ilock', 'philips', 'ezviz', 'safes', 'tiger'] as const;
+export const brandOrder = ['ilock', 'philips', 'ezviz', 'smartlock', 'safes', 'tiger'] as const;
 export type Brand = (typeof brandOrder)[number];
 
 export const brandNames: Record<Brand, string> = {
 	ilock: 'iLock',
 	philips: 'Philips',
 	ezviz: 'EZVIZ',
+	smartlock: 'SmartLock',
 	safes: 'Philips Safe',
 	tiger: 'Tiger',
 };
@@ -424,6 +425,13 @@ export const ui = {
 				seoTitle: 'Умные замки EZVIZ — купить в Казахстане | iLOCK',
 				seoDescription:
 					'Умные замки EZVIZ в Казахстане: отпечаток пальца, пин-код, карта, механический ключ и подключение Zigbee 3.0.',
+			},
+			smartlock: {
+				h1: 'Умные замки SmartLock',
+				lead: 'Доступная линейка SmartLock: врезные замки, замки для стеклянных и узкопрофильных дверей, гостиничные карточные замки, замки для шкафчиков и навесные замки с отпечатком пальца.',
+				seoTitle: 'Умные замки SmartLock — купить в Казахстане | iLOCK',
+				seoDescription:
+					'Замки SmartLock в Казахстане: от 15 000 ₸. Биометрия, пин-код и карта, модели для стеклянных и узкопрофильных дверей, гостиниц, шкафчиков и навесные замки.',
 			},
 			safes: {
 				h1: 'Сейфы Philips',
@@ -902,6 +910,13 @@ export const ui = {
 				seoDescription:
 					'Қазақстандағы EZVIZ ақылды құлыптары: саусақ ізі, пин-код, карта, механикалық кілт және Zigbee 3.0 қосылымы.',
 			},
+			smartlock: {
+				h1: 'SmartLock ақылды құлыптары',
+				lead: 'Қолжетімді SmartLock желісі: кіріктірме құлыптар, шыны және тар профильді есіктерге арналған құлыптар, қонақүй карта-құлыптары, шкаф құлыптары және саусақ ізі бар аспалы құлыптар.',
+				seoTitle: 'SmartLock ақылды құлыптары — Қазақстанда сатып алу | iLOCK',
+				seoDescription:
+					'Қазақстанда SmartLock құлыптары: 15 000 ₸ бастап. Биометрия, пин-код және карта, шыны және тар профильді есіктерге, қонақүйлерге, шкафтарға және аспалы құлыптар.',
+			},
 			safes: {
 				h1: 'Philips сейфтері',
 				lead: 'Philips Smart Safe желісі: ықшам жиһаз сейфтері, кеңсе модельдері және биометриясы, пин-коды, авариялық сигналы және 2 жыл кепілдігі бар премиум Valis сериясы.',
@@ -1378,6 +1393,13 @@ export const ui = {
 				seoTitle: 'EZVIZ smart locks — buy in Kazakhstan | iLOCK',
 				seoDescription:
 					'EZVIZ smart locks in Kazakhstan: fingerprint, PIN code, card, mechanical key and Zigbee 3.0 connectivity.',
+			},
+			smartlock: {
+				h1: 'SmartLock smart locks',
+				lead: 'The affordable SmartLock range: mortise locks, locks for glass and narrow-profile doors, hotel card locks, locker locks and fingerprint padlocks.',
+				seoTitle: 'SmartLock smart locks — buy in Kazakhstan | iLOCK',
+				seoDescription:
+					'SmartLock locks in Kazakhstan from 15,000 ₸. Biometrics, PIN and card entry, models for glass and narrow-profile doors, hotels, lockers, plus padlocks.',
 			},
 			safes: {
 				h1: 'Philips safes',

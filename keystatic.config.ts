@@ -1,5 +1,7 @@
 import { collection, config, fields, singleton, type FormFieldInputProps } from '@keystatic/core';
 import { createElement } from 'react';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 const repository = 'musta-krakish/ilock-site';
 
@@ -8,6 +10,7 @@ const options = {
 		{ label: 'iLOCK', value: 'ilock' },
 		{ label: 'Philips', value: 'philips' },
 		{ label: 'EZVIZ', value: 'ezviz' },
+		{ label: 'SmartLock', value: 'smartlock' },
 		{ label: 'Сейфы Philips', value: 'safes' },
 		{ label: 'Tiger', value: 'tiger' },
 	],
@@ -111,6 +114,138 @@ const options = {
 
 const requiredText = (label: string, description?: string) =>
 	fields.text({ label, description, validation: { isRequired: true } });
+
+type PromotionLockOption = {
+	slug: string;
+	title: string;
+	brand: string;
+	price: number;
+	imageUrl?: string;
+};
+
+const brandLabels: Record<string, string> = {
+	ilock: 'iLOCK',
+	philips: 'Philips',
+	ezviz: 'EZVIZ',
+	smartlock: 'SmartLock',
+	safes: 'Philips Safe',
+	tiger: 'Tiger',
+};
+
+/** Read the real catalogue so the picker stays current when a product is added. */
+const promotionLockOptions: PromotionLockOption[] = readdirSync(join(process.cwd(), 'src/content/locks'))
+	.filter((file) => file.endsWith('.yaml'))
+	.flatMap((file) => {
+		const source = readFileSync(join(process.cwd(), 'src/content/locks', file), 'utf8');
+		const read = (key: string) => source.match(new RegExp(`^${key}:\\s*["']?([^\\n"']+)["']?\\s*$`, 'm'))?.[1]?.trim();
+		const title = read('title');
+		const brand = read('brand');
+		const price = Number(read('price'));
+		const image = read('image');
+		if (!title || !brand || !Number.isFinite(price)) return [];
+
+		return [{
+			slug: file.slice(0, -'.yaml'.length),
+			title,
+			brand: brandLabels[brand] ?? brand,
+			price,
+			// The original files are available in the repository and work as previews
+			// inside Keystatic before the site is rebuilt.
+			imageUrl: image?.startsWith('../../assets/')
+				? `https://raw.githubusercontent.com/${repository}/master/src/${image.slice('../..'.length + 1)}`
+				: undefined,
+		}];
+	})
+	.sort((a, b) => a.brand.localeCompare(b.brand) || a.title.localeCompare(b.title, 'ru'));
+
+const promotionLockPicker = () => {
+	const knownSlugs = new Set(promotionLockOptions.map((lock) => lock.slug));
+	const parse = (value: unknown): string[] => {
+		if (value === undefined) return [];
+		if (!Array.isArray(value) || !value.every((item) => typeof item === 'string' && knownSlugs.has(item))) {
+			throw new Error('Выберите модели из каталога.');
+		}
+		return value;
+	};
+
+	return {
+		kind: 'form' as const,
+		label: 'Замки в блоке',
+		Input({ value, onChange }: FormFieldInputProps<string[]>) {
+			const selected = new Set(value);
+			return createElement('div', { style: { display: 'grid', gap: '0.875rem' } }, [
+				createElement(
+					'p',
+					{ key: 'hint', style: { color: 'var(--color-neutral-emphasis, #a3a3a3)', fontSize: '0.875rem', lineHeight: 1.45, margin: 0 } },
+					'Нажмите на карточки нужных моделей. Выбранные будут показаны на главной в этом же порядке.',
+				),
+				createElement(
+					'div',
+					{ key: 'selected', style: { color: 'var(--color-neutral-emphasis, #a3a3a3)', fontSize: '0.8125rem' } },
+					`Выбрано: ${value.length}`,
+				),
+				createElement(
+					'div',
+					{
+						key: 'options',
+						style: {
+							display: 'grid',
+							gridTemplateColumns: 'repeat(auto-fill, minmax(155px, 1fr))',
+							gap: '0.75rem',
+						},
+					},
+					promotionLockOptions.map((lock) => {
+						const isSelected = selected.has(lock.slug);
+						return createElement(
+							'button',
+							{
+								key: lock.slug,
+								type: 'button',
+								'aria-pressed': isSelected,
+								onClick: () => onChange(isSelected ? value.filter((slug) => slug !== lock.slug) : [...value, lock.slug]),
+								style: {
+									background: isSelected ? 'rgba(229, 174, 29, 0.13)' : 'var(--color-canvas, #1c1c1c)',
+									border: `1px solid ${isSelected ? '#e5ae1d' : 'rgba(127, 127, 127, 0.35)'}`,
+									borderRadius: '12px',
+									color: 'inherit',
+									cursor: 'pointer',
+									overflow: 'hidden',
+									padding: 0,
+									textAlign: 'left',
+								},
+							},
+							[
+								lock.imageUrl
+									? createElement('img', {
+										key: 'image', src: lock.imageUrl, alt: '', loading: 'lazy',
+										style: { background: '#f5f5f5', display: 'block', height: '110px', objectFit: 'contain', width: '100%' },
+									})
+									: createElement('div', { key: 'image', style: { alignItems: 'center', background: '#f5f5f5', color: '#777', display: 'flex', height: '110px', justifyContent: 'center' } }, 'Нет фото'),
+								createElement('div', { key: 'copy', style: { display: 'grid', gap: '0.3rem', padding: '0.7rem' } }, [
+									createElement('span', { key: 'brand', style: { color: '#b9890f', fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' } }, lock.brand),
+									createElement('span', { key: 'title', style: { fontSize: '0.9375rem', fontWeight: 700, lineHeight: 1.2 } }, lock.title),
+									createElement('span', { key: 'price', style: { color: 'var(--color-neutral-emphasis, #a3a3a3)', fontSize: '0.75rem' } }, `${lock.price.toLocaleString('ru-RU')} ₸`),
+									createElement('span', { key: 'status', style: { color: isSelected ? '#b9890f' : 'var(--color-neutral-emphasis, #a3a3a3)', fontSize: '0.75rem', fontWeight: 600 } }, isSelected ? '✓ В блоке' : 'Добавить'),
+								]),
+							],
+						);
+					}),
+				),
+			]);
+		},
+		defaultValue(): string[] {
+			return [];
+		},
+		parse,
+		serialize(value: string[]) {
+			return { value };
+		},
+		validate(value: string[]) {
+			return value;
+		},
+		reader: { parse },
+	};
+};
 
 type CompactOption = { readonly label: string; readonly value: string };
 
@@ -407,6 +542,7 @@ export default config({
 	ui: {
 		brand: { name: 'iLOCK · управление сайтом' },
 		navigation: {
+			Главная: ['homePromotions'],
 			Каталог: ['locks'],
 			Партнёры: ['partners'],
 			FAQ: ['faqRu', 'faqKk', 'faqEn'],
@@ -426,6 +562,22 @@ export default config({
 		faqEn: createFaqCollection('en', 'FAQ — English', 'English'),
 	},
 	singletons: {
+		homePromotions: singleton({
+			label: 'Главная — акционные замки',
+			path: 'src/content/home/promotions',
+			format: 'yaml',
+			schema: {
+				promotionLayout: fields.select({
+					label: 'Вид блока',
+					options: [
+						{ label: 'Сетка — 3 карточки в ряд', value: 'grid' },
+						{ label: 'Слайдер — горизонтальная прокрутка', value: 'slider' },
+					],
+					defaultValue: 'grid',
+				}),
+				promotionLocks: promotionLockPicker(),
+			},
+		}),
 		partners: singleton({
 			label: 'Партнёры и документы',
 			path: 'src/content/partners/page',

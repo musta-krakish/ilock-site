@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import LockCard from './LockCard.astro';
 import SectionHeading from './SectionHeading.astro';
 import { site } from '../config';
 import { getLocalePath, localizeLock, sortLocks, type Lang, ui } from '../i18n';
-import { hasGiftInstallation, promotionCopy } from '../lib/promotions';
+import { promotionCopy } from '../lib/promotions';
 
 interface Props {
 	lang?: Lang;
@@ -16,10 +16,12 @@ const promo = promotionCopy[lang];
 const homePath = getLocalePath(lang);
 
 const all = sortLocks((await getCollection('locks')).map((lock) => localizeLock(lock, lang)));
-
-const promotionRank = (lock: (typeof all)[number]) =>
-	lock.slug === 'ezviz-l2s' ? 0 : lock.brand === 'ilock' ? 1 : 2;
-const picks = all.filter(hasGiftInstallation).sort((a, b) => promotionRank(a) - promotionRank(b) || a.order - b.order);
+const home = await getEntry('home', 'promotions');
+const promotionLayout = home?.data.promotionLayout ?? 'grid';
+const promotionLocks = home?.data.promotionLocks ?? [];
+const picks = promotionLocks
+	.map((slug) => all.find((lock) => lock.slug === slug))
+	.filter((lock): lock is (typeof all)[number] => lock !== undefined);
 const mobileAllText: Record<Lang, string> = {
 	ru: `Все ${all.length} моделей`,
 	kk: `Барлығы ${all.length} модель`,
@@ -77,9 +79,20 @@ const mobileAllText: Record<Lang, string> = {
 		</div>
 
 		<div
-			class="mobile-snap mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-3 sm:mt-12 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3"
+			class:list={[
+				'mt-10 gap-4 px-5 pb-3 sm:mt-12 sm:px-0 sm:pb-0',
+				promotionLayout === 'slider'
+					? 'mobile-snap featured-slider flex snap-x snap-mandatory overflow-x-auto'
+					: 'mobile-snap flex snap-x snap-mandatory overflow-x-auto sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3',
+			]}
 		>
-			{picks.map((lock, i) => <LockCard lock={lock} lang={lang} eager={i < 3} />)}
+			{
+				picks.map((lock, i) => (
+					<div class:list={[promotionLayout === 'slider' && 'w-[min(85vw,22rem)] shrink-0 sm:w-[20rem]']}>
+						<LockCard lock={lock} lang={lang} eager={i < 3} />
+					</div>
+				))
+			}
 		</div>
 
 		<a
