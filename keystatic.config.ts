@@ -1,7 +1,5 @@
 import { collection, config, fields, singleton, type FormFieldInputProps } from '@keystatic/core';
 import { createElement } from 'react';
-import { readdirSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
 
 const repository = 'musta-krakish/ilock-site';
 
@@ -123,40 +121,40 @@ type PromotionLockOption = {
 	imageUrl?: string;
 };
 
-const brandLabels: Record<string, string> = {
-	ilock: 'iLOCK',
-	philips: 'Philips',
-	ezviz: 'EZVIZ',
-	smartlock: 'SmartLock',
-	safes: 'Philips Safe',
-	tiger: 'Tiger',
-};
-
-/** Read the real catalogue so the picker stays current when a product is added. */
-const promotionLockOptions: PromotionLockOption[] = readdirSync(join(process.cwd(), 'src/content/locks'))
-	.filter((file) => file.endsWith('.yaml'))
-	.flatMap((file) => {
-		const source = readFileSync(join(process.cwd(), 'src/content/locks', file), 'utf8');
-		const read = (key: string) => source.match(new RegExp(`^${key}:\\s*["']?([^\\n"']+)["']?\\s*$`, 'm'))?.[1]?.trim();
-		const title = read('title');
-		const brand = read('brand');
-		const price = Number(read('price'));
-		const image = read('image');
-		if (!title || !brand || !Number.isFinite(price)) return [];
-
-		return [{
-			slug: file.slice(0, -'.yaml'.length),
-			title,
-			brand: brandLabels[brand] ?? brand,
-			price,
-			// The original files are available in the repository and work as previews
-			// inside Keystatic before the site is rebuilt.
-			imageUrl: image?.startsWith('../../assets/')
-				? `https://raw.githubusercontent.com/${repository}/master/src/${image.slice('../..'.length + 1)}`
-				: undefined,
-		}];
-	})
-	.sort((a, b) => a.brand.localeCompare(b.brand) || a.title.localeCompare(b.title, 'ru'));
+// Browser-safe product cards used by the Keystatic editor. Update this short
+// catalogue only when a new lock is added; it deliberately excludes safes and
+// accessories because this block is for promotional locks on the home page.
+const promotionLockOptions: PromotionLockOption[] = [
+	{ slug: 'ezviz-l2s', title: 'L2S', brand: 'EZVIZ', price: 75000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/ezviz-l2s/image.png' },
+	{ slug: 'g18', title: 'G18', brand: 'iLOCK', price: 85000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/g18/image.png' },
+	{ slug: 'il-8', title: 'iL-8', brand: 'iLOCK', price: 180000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/il-8/image.png' },
+	{ slug: 's90', title: 'S90', brand: 'iLOCK', price: 220000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/s90/image.png' },
+	{ slug: 'v81', title: 'v81', brand: 'iLOCK', price: 200000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/v81/image.png' },
+	{ slug: '303-vp', title: '303-VP', brand: 'Philips', price: 248000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/303-vp/image.png' },
+	{ slug: '702-fvp', title: '702 FVP', brand: 'Philips', price: 350000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/702-fvp/image.png' },
+	{ slug: '709-fvp', title: '709 FVP', brand: 'Philips', price: 452000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/709-fvp/image.png' },
+	{ slug: '902-mvp', title: '902 MVP', brand: 'Philips', price: 582000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/902-mvp/image.png' },
+	{ slug: 'alpha', title: 'Alpha', brand: 'Philips', price: 240000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/alpha/image.png' },
+	{ slug: 'alpha-vp', title: 'Alpha VP', brand: 'Philips', price: 348000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/alpha-vp/image.png' },
+	{ slug: 'ddl-603e', title: 'DDL 603E', brand: 'Philips', price: 142000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/ddl-603e/image.png' },
+	{ slug: 'ddl-608', title: 'DDL 608', brand: 'Philips', price: 128000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/ddl-608/image.png' },
+	{ slug: 'ddl-610', title: 'DDL 610', brand: 'Philips', price: 159000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/ddl-610/image.png' },
+	{ slug: 'ddl-7300', title: 'DDL 7300', brand: 'Philips', price: 221000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/ddl-7300/image.png' },
+	{ slug: '101p', title: '101P', brand: 'SmartLock', price: 17000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/101p/image.png' },
+	{ slug: '101t', title: '101T', brand: 'SmartLock', price: 28800, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/101t/image.png' },
+	{ slug: 'hotel', title: 'Гостиничный замок', brand: 'SmartLock', price: 50000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/hotel/image.png' },
+	{ slug: 'cabinet', title: 'Электронный замок для шкафа', brand: 'SmartLock', price: 15000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/cabinet/image.png' },
+	{ slug: 'd501', title: 'D501', brand: 'SmartLock', price: 30000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/d501/image.png' },
+	{ slug: 'g10s', title: 'G10S', brand: 'SmartLock', price: 60000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/g10s/image.png' },
+	{ slug: 'q28s', title: 'Q28S', brand: 'SmartLock', price: 120000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/q28s/image.png' },
+	{ slug: 's31b', title: 'S31B', brand: 'SmartLock', price: 90000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/s31b/image.png' },
+	{ slug: 's604l', title: 'S604L', brand: 'SmartLock', price: 50000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/s604l/image.png' },
+	{ slug: 's819', title: 'S819', brand: 'SmartLock', price: 70000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/s819/image.png' },
+	{ slug: 's819-2max', title: 'S819-2Max', brand: 'SmartLock', price: 90000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/s819-2max/image.png' },
+	{ slug: 's940-max', title: 'S940 Max', brand: 'SmartLock', price: 130000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/s940-max/image.png' },
+	{ slug: 's959-max', title: 'S959 Max', brand: 'SmartLock', price: 125000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/s959-max/image.png' },
+	{ slug: 'v6j', title: 'V6J', brand: 'SmartLock', price: 150000, imageUrl: 'https://raw.githubusercontent.com/musta-krakish/ilock-site/master/src/assets/images/locks/v6j/image.png' },
+];
 
 const promotionLockPicker = () => {
 	const knownSlugs = new Set(promotionLockOptions.map((lock) => lock.slug));
