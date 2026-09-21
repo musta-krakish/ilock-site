@@ -1,25 +1,25 @@
 certificates:
-  - image: ../../assets/images/company/certificates/0/image.jpg
+  - image: ../../assets/images/company/certificates/0/image.png
     title:
       ru: Благодарность Kappas Group.
       kk: Kappas Group алғыс хаты
       en: Kappas Group letter of appreciation
-  - image: ../../assets/images/company/certificates/1/image.jpg
+  - image: ../../assets/images/company/certificates/1/image.png
     title:
       ru: Знак качества «Выбор страны 2022»
       kk: «Ел таңдауы 2022» сапа белгісі
       en: Country Choice 2022 quality award
-  - image: ../../assets/images/company/certificates/2/image.jpg
+  - image: ../../assets/images/company/certificates/2/image.png
     title:
       ru: Благодарность «Мансур-Строй С»
       kk: «Мансур-Строй С» алғыс хаты
       en: Mansur-Stroy S letter of appreciation
-  - image: ../../assets/images/company/certificates/3/image.jpg
+  - image: ../../assets/images/company/certificates/3/image.png
     title:
       ru: Благодарность Kappas Group · Sai Park House
       kk: Kappas Group · Sai Park House алғыс хаты
       en: Kappas Group · Sai Park House letter of appreciation
-  - image: ../../assets/images/company/certificates/4/image.jpg
+  - image: ../../assets/images/company/certificates/4/image.png
     title:
       ru: Авторизационное письмо Philips
       kk: Philips авторизация хаты
