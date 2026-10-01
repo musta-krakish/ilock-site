@@ -1,16 +1,20 @@
-title: "Q28S"
-brand: "smartlock"
-price: 120000
-image: "../../assets/images/locks/q28s/image.png"
+title: Q28S
+brand: smartlock
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 135000
+image: ../../assets/images/locks/q28s/image.png
 order: 4
-material: "aluminum"
+featured: false
+material: aluminum
 access:
-  - "fingerprint"
-  - "pin"
-  - "face"
-  - "card"
-  - "key"
-  - "app"
+  - fingerprint
+  - pin
+  - face
+  - card
+  - key
+  - app
 limits:
   fingerprint: 100
   pin: 100
@@ -18,49 +22,64 @@ limits:
   card: 2
   key: 2
 features:
-  - "wifi"
-  - "doorbell"
-  - "tamper-alarm"
-  - "emergency-charge"
-  - "two-way-audio"
-  - "rechargeable"
-  - "video-peephole"
-  - "semi-auto"
+  - wifi
+  - doorbell
+  - tamper-alarm
+  - emergency-charge
+  - two-way-audio
+  - rechargeable
+  - video-peephole
+  - semi-auto
 temp:
   min: -20
   max: 60
-power: "li-4200"
-battery: "4-6"
-app: "Tuya Smart"
+power: li-4200
+battery: 4-6
+app: Tuya Smart
+compatibility: {}
+included: {}
 warranty: 1
+origin: {}
 interface:
-  - "ru"
-  - "kk"
+  - ru
+  - kk
 colors:
-  - "black"
+  - black
+variants: []
 ru:
-  description: "Распознавание лица и видеоглазок дешевле, чем у Philips, — в фактурном корпусе с изгибом."
-  seoTitle: "Q28S — купить умный замок iLock в Казахстане | iLOCK"
-  seoDescription: "Распознавание лица и видеоглазок дешевле, чем у Philips, — в фактурном корпусе с изгибом."
+  description: >-
+    Распознавание лица и видеоглазок дешевле, чем у Philips, — в фактурном
+    корпусе с изгибом.
+  seoTitle: Q28S — купить умный замок iLock в Казахстане | iLOCK
+  seoDescription: >-
+    Распознавание лица и видеоглазок дешевле, чем у Philips, — в фактурном
+    корпусе с изгибом.
   body: >-
-    Q28S даёт распознавание лица, видеоглазок и двустороннюю аудиосвязь заметно дешевле, чем
-    сопоставимые Philips. Заметный изогнутый корпус выделяет модель среди прямых панелей, а
-    аккумулятор 4200 мАч держит 4–6 месяцев.
-
+    Q28S даёт распознавание лица, видеоглазок и двустороннюю аудиосвязь заметно
+    дешевле, чем сопоставимые Philips. Заметный изогнутый корпус выделяет модель
+    среди прямых панелей, а аккумулятор 4200 мАч держит 4–6 месяцев.
 kk:
-  description: "Бет тану және бейнекөзше Philips-ке қарағанда арзан — иілген, ерекше корпуста."
-  seoTitle: "Q28S — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
-  seoDescription: "Бет тану және бейнекөзше Philips-ке қарағанда арзан — иілген, ерекше корпуста."
+  description: >-
+    Бет тану және бейнекөзше Philips-ке қарағанда арзан — иілген, ерекше
+    корпуста.
+  seoTitle: Q28S — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK
+  seoDescription: >-
+    Бет тану және бейнекөзше Philips-ке қарағанда арзан — иілген, ерекше
+    корпуста.
   body: >-
-    Q28S бет тануды, бейнекөзшені және екіжақты аудиобайланысты салыстырмалы Philips модельдеріне
-    қарағанда әлдеқайда арзан ұсынады. Ерекше иілген корпус модельді түзу панельдерден бөліп тұрады,
-    ал 4200 мАсағ аккумуляторы 4–6 айға жетеді.
-
+    Q28S бет тануды, бейнекөзшені және екіжақты аудиобайланысты салыстырмалы
+    Philips модельдеріне қарағанда әлдеқайда арзан ұсынады. Ерекше иілген корпус
+    модельді түзу панельдерден бөліп тұрады, ал 4200 мАсағ аккумуляторы 4–6 айға
+    жетеді.
 en:
-  description: "Face recognition and a video peephole for less than Philips — in a distinctive curved body."
-  seoTitle: "Q28S — buy an iLock smart lock in Kazakhstan | iLOCK"
-  seoDescription: "Face recognition and a video peephole for less than Philips — in a distinctive curved body."
+  description: >-
+    Face recognition and a video peephole for less than Philips — in a
+    distinctive curved body.
+  seoTitle: Q28S — buy an iLock smart lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    Face recognition and a video peephole for less than Philips — in a
+    distinctive curved body.
   body: >-
-    Q28S delivers face recognition, a video peephole and two-way audio for noticeably less than
-    comparable Philips models. The curved body sets it apart from flat panels, and the 4200 mAh
-    battery lasts 4–6 months.
+    Q28S delivers face recognition, a video peephole and two-way audio for
+    noticeably less than comparable Philips models. The curved body sets it
+    apart from flat panels, and the 4200 mAh battery lasts 4–6 months.
