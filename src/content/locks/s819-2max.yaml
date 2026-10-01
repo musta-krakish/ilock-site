@@ -1,61 +1,82 @@
-title: "S819-2Max"
-brand: "smartlock"
-price: 90000
-image: "../../assets/images/locks/s819-2max/image.png"
+title: S819-2Max
+brand: smartlock
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 115000
+image: ../../assets/images/locks/s819-2max/image.png
 order: 3
-material: "aluminum"
+featured: false
+material: aluminum
 access:
-  - "fingerprint"
-  - "pin"
-  - "card"
-  - "key"
-  - "app"
+  - fingerprint
+  - pin
+  - card
+  - key
+  - app
 limits:
   fingerprint: 100
   pin: 100
   card: 2
   key: 2
 features:
-  - "wifi"
-  - "video-peephole"
-  - "doorbell"
-  - "tamper-alarm"
-  - "emergency-charge"
+  - wifi
+  - video-peephole
+  - doorbell
+  - tamper-alarm
+  - emergency-charge
 temp:
   min: -20
   max: 60
-power: "aa4"
-battery: "10"
-app: "Tuya Smart"
+power: aa4
+battery: '10'
+app: Tuya Smart
+compatibility: {}
+included: {}
 warranty: 1
+origin: {}
 interface:
-  - "ru"
-  - "kk"
+  - ru
+  - kk
 colors:
-  - "black"
+  - black
+variants: []
 ru:
-  description: "Экран, видеоглазок и Wi-Fi — но всё ещё на батарейках AA с запасом на 10 месяцев."
-  seoTitle: "S819-2Max — купить умный замок iLock в Казахстане | iLOCK"
-  seoDescription: "Экран, видеоглазок и Wi-Fi — но всё ещё на батарейках AA с запасом на 10 месяцев."
+  description: >-
+    Экран, видеоглазок и Wi-Fi — но всё ещё на батарейках AA с запасом на 10
+    месяцев.
+  seoTitle: S819-2Max — купить умный замок iLock в Казахстане | iLOCK
+  seoDescription: >-
+    Экран, видеоглазок и Wi-Fi — но всё ещё на батарейках AA с запасом на 10
+    месяцев.
   body: >-
-    S819-2Max добавляет к обычному замку экран и видеоглазок: видно, кто за дверью, не открывая её.
-    При этом модель работает от батареек AA — около 10 месяцев без обслуживания, тогда как
-    большинство замков с экраном требуют подзарядки каждые 4–6 месяцев.
-
+    S819-2Max добавляет к обычному замку экран и видеоглазок: видно, кто за
+    дверью, не открывая её. При этом модель работает от батареек AA — около 10
+    месяцев без обслуживания, тогда как большинство замков с экраном требуют
+    подзарядки каждые 4–6 месяцев.
 kk:
-  description: "Экран, бейнекөзше және Wi-Fi — бірақ әлі де 10 айға жететін AA батареяларында."
-  seoTitle: "S819-2Max — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
-  seoDescription: "Экран, бейнекөзше және Wi-Fi — бірақ әлі де 10 айға жететін AA батареяларында."
+  description: >-
+    Экран, бейнекөзше және Wi-Fi — бірақ әлі де 10 айға жететін AA
+    батареяларында.
+  seoTitle: S819-2Max — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK
+  seoDescription: >-
+    Экран, бейнекөзше және Wi-Fi — бірақ әлі де 10 айға жететін AA
+    батареяларында.
   body: >-
-    S819-2Max кәдімгі құлыпқа экран мен бейнекөзше қосады: есікті ашпай-ақ, ар жағында кім тұрғанын
-    көресіз. Сонымен қатар модель AA батареяларынан жұмыс істейді — қызмет көрсетусіз шамамен 10 ай,
-    ал экраны бар құлыптардың көбі әр 4–6 айда зарядтауды талап етеді.
-
+    S819-2Max кәдімгі құлыпқа экран мен бейнекөзше қосады: есікті ашпай-ақ, ар
+    жағында кім тұрғанын көресіз. Сонымен қатар модель AA батареяларынан жұмыс
+    істейді — қызмет көрсетусіз шамамен 10 ай, ал экраны бар құлыптардың көбі әр
+    4–6 айда зарядтауды талап етеді.
 en:
-  description: "A screen, a video peephole and Wi-Fi — still running on AA batteries for about 10 months."
-  seoTitle: "S819-2Max — buy an iLock smart lock in Kazakhstan | iLOCK"
-  seoDescription: "A screen, a video peephole and Wi-Fi — still running on AA batteries for about 10 months."
+  description: >-
+    A screen, a video peephole and Wi-Fi — still running on AA batteries for
+    about 10 months.
+  seoTitle: S819-2Max — buy an iLock smart lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    A screen, a video peephole and Wi-Fi — still running on AA batteries for
+    about 10 months.
   body: >-
-    S819-2Max adds a screen and a video peephole to an ordinary lock, so you can see who is outside
-    without opening it. It still runs on AA batteries — roughly 10 months hands-off, where most
-    screen-equipped locks need recharging every 4–6 months.
+    S819-2Max adds a screen and a video peephole to an ordinary lock, so you can
+    see who is outside without opening it. It still runs on AA batteries —
+    roughly 10 months hands-off, where most screen-equipped locks need
+    recharging every 4–6 months.
