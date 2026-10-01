@@ -1,63 +1,82 @@
-title: "S31B"
-brand: "smartlock"
-price: 90000
-image: "../../assets/images/locks/s31b/image.png"
+title: S31B
+brand: smartlock
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 95000
+image: ../../assets/images/locks/s31b/image.png
 order: 8
-material: "steel"
+featured: false
+material: steel
 access:
-  - "fingerprint"
-  - "pin"
-  - "card"
-  - "key"
-  - "app"
+  - fingerprint
+  - pin
+  - card
+  - key
+  - app
 limits:
   fingerprint: 200
   pin: 150
   card: 2
   key: 2
 features:
-  - "slim-door"
-  - "waterproof"
-  - "bluetooth"
-  - "anti-pry"
+  - slim-door
+  - waterproof
+  - bluetooth
+  - anti-pry
 temp:
   min: -25
   max: 60
-power: "aa4"
-battery: "10"
-app: "Tuya Smart"
+power: aa4
+battery: '10'
+app: Tuya Smart
+compatibility: {}
+included: {}
 warranty: 1
+origin: {}
 interface:
-  - "ru"
-  - "kk"
+  - ru
+  - kk
 colors:
-  - "gold"
-  - "silver"
-  - "titanium"
-  - "black"
+  - gold
+  - silver
+  - titanium
+  - black
+variants: []
 ru:
-  description: "Нержавеющая сталь, до 200 отпечатков и четыре цвета — для узкопрофильных дверей."
-  seoTitle: "S31B — купить умный замок iLock в Казахстане | iLOCK"
-  seoDescription: "Нержавеющая сталь, до 200 отпечатков и четыре цвета — для узкопрофильных дверей."
+  description: >-
+    Нержавеющая сталь, до 200 отпечатков и четыре цвета — для узкопрофильных
+    дверей.
+  seoTitle: S31B — купить умный замок iLock в Казахстане | iLOCK
+  seoDescription: >-
+    Нержавеющая сталь, до 200 отпечатков и четыре цвета — для узкопрофильных
+    дверей.
   body: >-
-    S31B рассчитан на узкопрофильные двери и вмещает больше пользователей, чем любая другая модель
-    каталога: до 200 отпечатков и 150 пин-кодов. Корпус из нержавеющей стали доступен в золотом,
-    серебристом, титаново-сером и чёрном.
-
+    S31B рассчитан на узкопрофильные двери и вмещает больше пользователей, чем
+    любая другая модель каталога: до 200 отпечатков и 150 пин-кодов. Корпус из
+    нержавеющей стали доступен в золотом, серебристом, титаново-сером и чёрном.
 kk:
-  description: "Тот баспайтын болат, 200 саусақ ізіне дейін және төрт түс — тар профильді есіктерге."
-  seoTitle: "S31B — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
-  seoDescription: "Тот баспайтын болат, 200 саусақ ізіне дейін және төрт түс — тар профильді есіктерге."
+  description: >-
+    Тот баспайтын болат, 200 саусақ ізіне дейін және төрт түс — тар профильді
+    есіктерге.
+  seoTitle: S31B — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK
+  seoDescription: >-
+    Тот баспайтын болат, 200 саусақ ізіне дейін және төрт түс — тар профильді
+    есіктерге.
   body: >-
-    S31B тар профильді есіктерге есептелген және каталогтағы кез келген модельден көп пайдаланушыны
-    сыйдырады: 200 саусақ ізіне және 150 пин-кодқа дейін. Тот баспайтын болат корпус алтын, күміс,
-    титан-сұр және қара түсте қолжетімді.
-
+    S31B тар профильді есіктерге есептелген және каталогтағы кез келген
+    модельден көп пайдаланушыны сыйдырады: 200 саусақ ізіне және 150 пин-кодқа
+    дейін. Тот баспайтын болат корпус алтын, күміс, титан-сұр және қара түсте
+    қолжетімді.
 en:
-  description: "Stainless steel, up to 200 fingerprints and four colours — for narrow-profile doors."
-  seoTitle: "S31B — buy an iLock smart lock in Kazakhstan | iLOCK"
-  seoDescription: "Stainless steel, up to 200 fingerprints and four colours — for narrow-profile doors."
+  description: >-
+    Stainless steel, up to 200 fingerprints and four colours — for
+    narrow-profile doors.
+  seoTitle: S31B — buy an iLock smart lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    Stainless steel, up to 200 fingerprints and four colours — for
+    narrow-profile doors.
   body: >-
-    S31B is built for narrow-profile doors and holds more users than any other model in the
-    catalogue: up to 200 fingerprints and 150 PINs. The stainless-steel body comes in gold, silver,
-    titanium grey and black.
+    S31B is built for narrow-profile doors and holds more users than any other
+    model in the catalogue: up to 200 fingerprints and 150 PINs. The
+    stainless-steel body comes in gold, silver, titanium grey and black.
