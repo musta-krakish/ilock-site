@@ -4,6 +4,9 @@ kind: lock
 kazakhBrand: false
 comingSoon: false
 price: 155000
+installment:
+  kaspi: true
+  longTerm: false
 image: ../../assets/images/locks/v6j/image.png
 order: 7
 featured: true
@@ -45,6 +48,7 @@ interface:
   - kk
 colors:
   - black
+colorPrices: []
 variants: []
 ru:
   description: >-
