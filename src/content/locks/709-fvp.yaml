@@ -1,17 +1,23 @@
-title: "709 FVP"
-brand: "philips"
+title: 709 FVP
+brand: philips
+kind: lock
+kazakhBrand: false
+comingSoon: false
 price: 452000
-image: "../../assets/images/locks/709-fvp/image.png"
+installment:
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/709-fvp/image.png
 order: 9
 featured: true
-material: "aluminum"
+material: aluminum
 access:
-  - "fingerprint"
-  - "pin"
-  - "face"
-  - "card"
-  - "key"
-  - "app"
+  - fingerprint
+  - pin
+  - face
+  - card
+  - key
+  - app
 limits:
   fingerprint: 100
   pin: 20
@@ -19,49 +25,61 @@ limits:
   card: 2
   key: 2
 features:
-  - "wifi"
-  - "doorbell"
-  - "pir"
-  - "emergency-charge"
-  - "two-way-audio"
-  - "rechargeable"
-  - "video-peephole"
-  - "auto"
+  - wifi
+  - doorbell
+  - pir
+  - emergency-charge
+  - two-way-audio
+  - rechargeable
+  - video-peephole
+  - auto
 temp:
   min: -20
   max: 60
-power: "li-5000"
-battery: "4-6"
-app: "HomeAccess"
+power: li-5000
+battery: 4-6
+app: HomeAccess
+compatibility: {}
+included: {}
 warranty: 2
+origin: {}
 interface:
-  - "ru"
-  - "en"
+  - ru
+  - en
 colors:
-  - "charcoal"
-  - "bronze"
+  - charcoal
+  - bronze
+colorPrices: []
+variants: []
 ru:
-  description: "Face ID, PIR-датчик и видеоглазок в угольно-чёрном или медно-бронзовом корпусе."
-  seoTitle: "709 FVP — купить умный замок Philips в Казахстане | iLOCK"
-  seoDescription: "Face ID, PIR-датчик и видеоглазок в угольно-чёрном или медно-бронзовом корпусе."
+  description: >-
+    Face ID, PIR-датчик и видеоглазок в угольно-чёрном или медно-бронзовом
+    корпусе.
+  seoTitle: 709 FVP — купить умный замок Philips в Казахстане | iLOCK
+  seoDescription: >-
+    Face ID, PIR-датчик и видеоглазок в угольно-чёрном или медно-бронзовом
+    корпусе.
   body: >-
-    709 FVP — верхняя ступень линейки Philips до флагмана: распознавание лица, PIR-датчик
-    приближения и видеоглазок с двусторонней связью. Единственная модель, где к угольно-чёрному
-    добавлен медно-бронзовый корпус.
-
+    709 FVP — верхняя ступень линейки Philips до флагмана: распознавание лица,
+    PIR-датчик приближения и видеоглазок с двусторонней связью. Единственная
+    модель, где к угольно-чёрному добавлен медно-бронзовый корпус.
 kk:
-  description: "Face ID, PIR-датчик және бейнекөзше — көмір-қара немесе мыс-қола корпуста."
-  seoTitle: "709 FVP — Қазақстанда Philips ақылды құлыпты сатып алу | iLOCK"
-  seoDescription: "Face ID, PIR-датчик және бейнекөзше — көмір-қара немесе мыс-қола корпуста."
+  description: Face ID, PIR-датчик және бейнекөзше — көмір-қара немесе мыс-қола корпуста.
+  seoTitle: 709 FVP — Қазақстанда Philips ақылды құлыпты сатып алу | iLOCK
+  seoDescription: Face ID, PIR-датчик және бейнекөзше — көмір-қара немесе мыс-қола корпуста.
   body: >-
-    709 FVP — флагманға дейінгі Philips желісінің жоғарғы сатысы: бет тану, PIR жақындау датчигі
-    және екіжақты байланысы бар бейнекөзше. Көмір-қараға мыс-қола корпус қосылған жалғыз модель.
-
+    709 FVP — флагманға дейінгі Philips желісінің жоғарғы сатысы: бет тану, PIR
+    жақындау датчигі және екіжақты байланысы бар бейнекөзше. Көмір-қараға
+    мыс-қола корпус қосылған жалғыз модель.
 en:
-  description: "Face ID, a PIR sensor and a video peephole in charcoal black or copper bronze."
-  seoTitle: "709 FVP — buy a Philips smart lock in Kazakhstan | iLOCK"
-  seoDescription: "Face ID, a PIR sensor and a video peephole in charcoal black or copper bronze."
+  description: >-
+    Face ID, a PIR sensor and a video peephole in charcoal black or copper
+    bronze.
+  seoTitle: 709 FVP — buy a Philips smart lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    Face ID, a PIR sensor and a video peephole in charcoal black or copper
+    bronze.
   body: >-
-    709 FVP sits just below the flagship in the Philips range: face recognition, a PIR proximity
-    sensor and a video peephole with two-way audio. It is the only model that adds a copper-bronze
-    body to the charcoal black.
+    709 FVP sits just below the flagship in the Philips range: face recognition,
+    a PIR proximity sensor and a video peephole with two-way audio. It is the
+    only model that adds a copper-bronze body to the charcoal black.
