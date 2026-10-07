@@ -4,6 +4,9 @@ kind: lock
 kazakhBrand: true
 comingSoon: false
 price: 145000
+installment:
+  kaspi: true
+  longTerm: false
 image: ../../assets/images/locks/s940-max/image.png
 order: 6
 featured: false
@@ -45,6 +48,7 @@ interface:
   - kk
 colors:
   - black
+colorPrices: []
 variants: []
 ru:
   description: >-
