@@ -4,6 +4,9 @@ kind: accessory
 kazakhBrand: false
 comingSoon: false
 price: 28000
+installment:
+  kaspi: true
+  longTerm: false
 image: ../../assets/images/locks/wifi-gateway/image.png
 order: 1
 featured: false
@@ -23,6 +26,7 @@ origin: {}
 interface:
   - ru
 colors: []
+colorPrices: []
 variants: []
 ru:
   description: >-
