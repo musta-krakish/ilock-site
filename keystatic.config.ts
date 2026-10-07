@@ -470,6 +470,30 @@ const lockSchema = {
 	),
 	interface: compactMultiselect('Языки интерфейса', options.interface, { columns: 2, collapsed: true }),
 	colors: compactMultiselect('Цвета', options.color, { columns: 2, collapsed: true }),
+	colorPrices: fields.array(
+		fields.object(
+			{
+				color: fields.select({ label: 'Цвет', options: options.color, defaultValue: 'gold' }),
+				price: fields.integer({ label: 'Цена в этом цвете, ₸', validation: { isRequired: true, min: 0 } }),
+				image: fields.image({
+					label: 'Фото в этом цвете',
+					description: 'Необязательно. Если пусто — показывается основное фото.',
+					directory: 'src/assets/images/locks',
+					publicPath: '../../assets/images/locks',
+				}),
+			},
+			{ layout: [6, 6, 12] },
+		),
+		{
+			label: 'Цены по цветам',
+			description:
+				'Для цветов, которые стоят иначе, чем «Цена от». Цвет также должен быть отмечен в поле «Цвета». На странице товара появится выбор цвета.',
+			itemLabel: (props) => {
+				const color = options.color.find((c) => c.value === props.fields.color.value)?.label ?? 'Цвет';
+				return `${color} — ${(props.fields.price.value ?? 0).toLocaleString('ru-RU')} ₸`;
+			},
+		},
+	),
 	variants: fields.array(
 		fields.object(
 			{

@@ -44,7 +44,8 @@ export default defineConfig({
 		keystatic(),
 		sitemap({
 			// Russian is served from the root, so /ru/* is a duplicate of /* and must stay out.
-			filter: (page) => !/^https?:\/\/[^/]+\/ru(\/|$)/.test(page),
+			// /preview/* and /keystatic/* are editor-only service routes, not public pages.
+			filter: (page) => !/^https?:\/\/[^/]+\/(ru|preview|keystatic)(\/|$)/.test(page),
 			i18n: {
 				defaultLocale: 'ru',
 				locales: { ru: 'ru-KZ', kk: 'kk-KZ', en: 'en' },

@@ -45,6 +45,10 @@ interface:
 colors:
   - "obsidian"
   - "gold"
+colorPrices:
+  - color: "gold"
+    price: 850000
+    image: "../../assets/images/locks/902-mvp/colorPrices/0/image.png"
 ru:
   description: "Флагман Philips: три камеры, вены ладони, беспроводная подзарядка и изменение голоса по видеосвязи."
   seoTitle: "902 MVP — купить умный замок Philips в Казахстане | iLOCK"

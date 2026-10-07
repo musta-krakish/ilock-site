@@ -147,6 +147,16 @@ const locks = defineCollection({
 			origin: z.object({ ru: z.string().optional(), kk: z.string().optional(), en: z.string().optional() }).nullable().optional(),
 			interface: z.array(z.enum(['ru', 'kk', 'en', 'zh'])),
 			colors: z.array(color),
+			/** Colours sold above the base `price`, e.g. gold 902 MVP. Listed colours without an entry cost `price`. */
+			colorPrices: z
+				.array(
+					z.object({
+						color,
+						price: z.number(),
+						image: image().nullable().optional(),
+					}),
+				)
+				.default([]),
 			variants: z
 				.array(
 					z.object({
