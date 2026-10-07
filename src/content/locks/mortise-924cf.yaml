@@ -1,34 +1,66 @@
-title: "Mortise 924CF"
-brand: "philips"
-kind: "accessory"
+title: Mortise 924CF
+brand: philips
+kind: accessory
+kazakhBrand: false
+comingSoon: false
 price: 82800
-image: "../../assets/images/locks/mortise-924cf/image.png"
+installment:
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/mortise-924cf/image.png
 order: 9
-material: "steel"
+featured: false
+material: steel
 access: []
+limits: {}
 features: []
-temp: { min: 0, max: 0 }
-power: "aa4"
-battery: "—"
-warranty: 2
+temp:
+  min: 0
+  max: 0
+power: aa4
+battery: —
 compatibility:
-  ru: "Philips 709FVP, Alpha VP, 702FVP, 702-1H и 702-8H"
-  kk: "Philips 709FVP, Alpha VP, 702FVP, 702-1H және 702-8H"
-  en: "Philips 709FVP, Alpha VP, 702FVP, 702-1H and 702-8H"
+  ru: Philips 709FVP, Alpha VP, 702FVP, 702-1H и 702-8H
+  kk: Philips 709FVP, Alpha VP, 702FVP, 702-1H және 702-8H
+  en: Philips 709FVP, Alpha VP, 702FVP, 702-1H and 702-8H
+included: {}
+warranty: 2
+origin: {}
 interface: []
-colors: ["black"]
+colors:
+  - black
+colorPrices: []
+variants: []
 ru:
-  description: "Врезной механизм Philips Mortise 924CF для совместимых моделей 709FVP, Alpha VP и серии 702."
-  seoTitle: "Mortise 924CF для Philips — купить в Казахстане | iLOCK"
-  seoDescription: "Врезной механизм Philips Mortise 924CF для 709FVP, Alpha VP и серии 702. Гарантия 2 года."
-  body: "Сменный врезной механизм Philips Mortise 924CF для моделей 709FVP, Alpha VP, 702FVP, 702-1H и 702-8H."
+  description: >-
+    Врезной механизм Philips Mortise 924CF для совместимых моделей 709FVP, Alpha
+    VP и серии 702.
+  seoTitle: Mortise 924CF для Philips — купить в Казахстане | iLOCK
+  seoDescription: >-
+    Врезной механизм Philips Mortise 924CF для 709FVP, Alpha VP и серии 702.
+    Гарантия 2 года.
+  body: >-
+    Сменный врезной механизм Philips Mortise 924CF для моделей 709FVP, Alpha VP,
+    702FVP, 702-1H и 702-8H.
 kk:
-  description: "Үйлесімді 709FVP, Alpha VP және 702 сериясына арналған Philips Mortise 924CF кіріктірме механизмі."
-  seoTitle: "Philips үшін Mortise 924CF — Қазақстанда сатып алу | iLOCK"
-  seoDescription: "709FVP, Alpha VP және 702 сериясына арналған Philips Mortise 924CF кіріктірме механизмі. Кепілдік 2 жыл."
-  body: "709FVP, Alpha VP, 702FVP, 702-1H және 702-8H модельдеріне арналған Philips Mortise 924CF ауыстырмалы кіріктірме механизмі."
+  description: >-
+    Үйлесімді 709FVP, Alpha VP және 702 сериясына арналған Philips Mortise 924CF
+    кіріктірме механизмі.
+  seoTitle: Philips үшін Mortise 924CF — Қазақстанда сатып алу | iLOCK
+  seoDescription: >-
+    709FVP, Alpha VP және 702 сериясына арналған Philips Mortise 924CF
+    кіріктірме механизмі. Кепілдік 2 жыл.
+  body: >-
+    709FVP, Alpha VP, 702FVP, 702-1H және 702-8H модельдеріне арналған Philips
+    Mortise 924CF ауыстырмалы кіріктірме механизмі.
 en:
-  description: "A Philips Mortise 924CF mortise mechanism for compatible 709FVP, Alpha VP and 702-series models."
-  seoTitle: "Mortise 924CF for Philips — buy in Kazakhstan | iLOCK"
-  seoDescription: "Philips Mortise 924CF mortise mechanism for 709FVP, Alpha VP and the 702 series. Two-year warranty."
-  body: "A replacement Philips Mortise 924CF mortise mechanism for 709FVP, Alpha VP, 702FVP, 702-1H and 702-8H models."
+  description: >-
+    A Philips Mortise 924CF mortise mechanism for compatible 709FVP, Alpha VP
+    and 702-series models.
+  seoTitle: Mortise 924CF for Philips — buy in Kazakhstan | iLOCK
+  seoDescription: >-
+    Philips Mortise 924CF mortise mechanism for 709FVP, Alpha VP and the 702
+    series. Two-year warranty.
+  body: >-
+    A replacement Philips Mortise 924CF mortise mechanism for 709FVP, Alpha VP,
+    702FVP, 702-1H and 702-8H models.
