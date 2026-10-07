@@ -4,6 +4,9 @@ kind: accessory
 kazakhBrand: false
 comingSoon: false
 price: 700
+installment:
+  kaspi: true
+  longTerm: false
 image: ../../assets/images/locks/rfid-hotel-card/image.png
 order: 3
 featured: false
@@ -23,6 +26,7 @@ origin: {}
 interface: []
 colors:
   - white
+colorPrices: []
 variants: []
 ru:
   description: RFID-карта доступа для совместимых гостиничных замков iLock.
