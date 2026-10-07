@@ -4,6 +4,9 @@ kind: lock
 kazakhBrand: false
 comingSoon: false
 price: 135000
+installment:
+  kaspi: true
+  longTerm: false
 image: ../../assets/images/locks/q28s/image.png
 order: 4
 featured: false
@@ -45,6 +48,7 @@ interface:
   - kk
 colors:
   - black
+colorPrices: []
 variants: []
 ru:
   description: >-
