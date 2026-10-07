@@ -4,6 +4,9 @@ kind: lock
 kazakhBrand: true
 comingSoon: false
 price: 240000
+installment:
+  kaspi: true
+  longTerm: false
 image: ../../assets/images/locks/v81/image.png
 order: 3
 featured: true
@@ -44,6 +47,7 @@ interface:
   - kk
 colors:
   - black
+colorPrices: []
 variants: []
 ru:
   description: >-
