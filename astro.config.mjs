@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import markdoc from '@astrojs/markdoc';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
@@ -38,6 +38,14 @@ export default defineConfig({
 	// Keystatic and preview routes opt into on-demand rendering individually.
 	output: 'static',
 	adapter: node({ mode: 'standalone' }),
+	// amoCRM credentials for the lead form. Read from the server environment at
+	// runtime (never inlined into the build); optional so CI can build without them.
+	env: {
+		schema: {
+			TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
+			CRM_URL: envField.string({ context: 'server', access: 'secret', optional: true }),
+		},
+	},
 	integrations: [
 		react(),
 		markdoc(),
