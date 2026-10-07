@@ -1,62 +1,72 @@
-title: "DDL 7300"
-brand: "philips"
+title: DDL 7300
+brand: philips
+kind: lock
+kazakhBrand: false
+comingSoon: false
 price: 221000
-image: "../../assets/images/locks/ddl-7300/image.png"
+installment:
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/ddl-7300/image.png
 order: 4
-material: "aluminum"
+featured: false
+material: aluminum
 access:
-  - "fingerprint"
-  - "pin"
-  - "card"
-  - "key"
-  - "app"
+  - fingerprint
+  - pin
+  - card
+  - key
+  - app
 limits:
   fingerprint: 100
   pin: 10
   card: 2
   key: 2
 features:
-  - "bluetooth"
-  - "auto-lock"
-  - "double-check"
-  - "c-cylinder"
+  - bluetooth
+  - auto-lock
+  - double-check
+  - c-cylinder
 temp:
   min: -20
   max: 60
-power: "aa4"
-battery: "10"
-app: "PhilipsEasyKey"
+power: aa4
+battery: '10'
+app: PhilipsEasyKey
+compatibility: {}
+included: {}
 warranty: 2
+origin: {}
 interface:
-  - "ru"
-  - "en"
+  - ru
+  - en
 colors:
-  - "black"
-  - "copper"
-  - "gold"
+  - black
+  - copper
+  - gold
+colorPrices: []
+variants: []
 ru:
-  description: "Автоматическая блокировка и три цвета корпуса: чёрный, медный и золотой."
-  seoTitle: "DDL 7300 — купить умный замок Philips в Казахстане | iLOCK"
-  seoDescription: "Автоматическая блокировка и три цвета корпуса: чёрный, медный и золотой."
+  description: 'Автоматическая блокировка и три цвета корпуса: чёрный, медный и золотой.'
+  seoTitle: DDL 7300 — купить умный замок Philips в Казахстане | iLOCK
+  seoDescription: 'Автоматическая блокировка и три цвета корпуса: чёрный, медный и золотой.'
   body: >-
-    DDL 7300 закрывается сам — автоматическая блокировка срабатывает, как только дверь закрыта, и
-    забыть запереть квартиру уже не получится. Единственная модель в каталоге, доступная в трёх
-    цветах: чёрном, медном и золотом.
-
+    DDL 7300 закрывается сам — автоматическая блокировка срабатывает, как только
+    дверь закрыта, и забыть запереть квартиру уже не получится. Единственная
+    модель в каталоге, доступная в трёх цветах: чёрном, медном и золотом.
 kk:
-  description: "Автоматты бұғаттау және корпустың үш түсі: қара, мыс және алтын."
-  seoTitle: "DDL 7300 — Қазақстанда Philips ақылды құлыпты сатып алу | iLOCK"
-  seoDescription: "Автоматты бұғаттау және корпустың үш түсі: қара, мыс және алтын."
+  description: 'Автоматты бұғаттау және корпустың үш түсі: қара, мыс және алтын.'
+  seoTitle: DDL 7300 — Қазақстанда Philips ақылды құлыпты сатып алу | iLOCK
+  seoDescription: 'Автоматты бұғаттау және корпустың үш түсі: қара, мыс және алтын.'
   body: >-
-    DDL 7300 өзі жабылады — есік жабылған сәтте автоматты бұғаттау іске қосылады, енді пәтерді
-    құлыптауды ұмыту мүмкін емес. Каталогтағы үш түсте қолжетімді жалғыз модель: қара, мыс және
-    алтын.
-
+    DDL 7300 өзі жабылады — есік жабылған сәтте автоматты бұғаттау іске
+    қосылады, енді пәтерді құлыптауды ұмыту мүмкін емес. Каталогтағы үш түсте
+    қолжетімді жалғыз модель: қара, мыс және алтын.
 en:
-  description: "Automatic locking and three body colours: black, copper and gold."
-  seoTitle: "DDL 7300 — buy a Philips smart lock in Kazakhstan | iLOCK"
-  seoDescription: "Automatic locking and three body colours: black, copper and gold."
+  description: 'Automatic locking and three body colours: black, copper and gold.'
+  seoTitle: DDL 7300 — buy a Philips smart lock in Kazakhstan | iLOCK
+  seoDescription: 'Automatic locking and three body colours: black, copper and gold.'
   body: >-
-    DDL 7300 locks itself — auto-lock engages the moment the door closes, so forgetting to secure
-    the flat is no longer possible. It is the only model in the catalogue offered in three colours:
-    black, copper and gold.
+    DDL 7300 locks itself — auto-lock engages the moment the door closes, so
+    forgetting to secure the flat is no longer possible. It is the only model in
+    the catalogue offered in three colours: black, copper and gold.
