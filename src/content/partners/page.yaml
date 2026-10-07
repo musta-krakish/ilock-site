@@ -29,6 +29,31 @@ certificates:
       ru: Сертификат дистрибьютора EZVIZ · 2022
       kk: EZVIZ дистрибьюторының сертификаты · 2022
       en: EZVIZ distributor certificate · 2022
+  - image: ../../assets/images/company/certificates/6/image.png
+    title:
+      ru: Благодарность "Жансая Инвест"
+      kk: '"Жансая Инвест" алғыс хаты'
+      en: '"Zhansaya Invest” letter of appreciation'
+  - image: ../../assets/images/company/certificates/7/image.jpg
+    title:
+      ru: Благодарность "Жансая Инвест"
+      kk: '"Жансая Инвест" алғыс хаты'
+      en: '"Zhansaya Invest” letter of appreciation'
+  - image: ../../assets/images/company/certificates/8/image.png
+    title:
+      ru: Благодарность "Bastau Astana Stroy"
+      kk: '"Bastau Astana Stroy" алғыс хаты'
+      en: '"Bastau Astana Stroy" letter of appreciation'
+  - image: ../../assets/images/company/certificates/9/image.png
+    title:
+      ru: Благодарность "Athena Stroy"
+      kk: '"Athena Stroy" алғыс хаты'
+      en: '"Athena Stroy" letter of appreciation'
+  - image: ../../assets/images/company/certificates/10/image.jpg
+    title:
+      ru: Благодарность "Arya Story II"
+      kk: '"Arya Story II" алғыс хаты'
+      en: '"Arya Story II" letter of appreciation'
 projects:
   - name: Sati Club House
     city:
