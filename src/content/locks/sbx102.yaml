@@ -1,54 +1,84 @@
-title: "SBX102 (2CO)"
-brand: "safes"
-kind: "safe"
+title: SBX102 (2CO)
+brand: safes
+kind: safe
+kazakhBrand: false
+comingSoon: false
 price: 390000
-image: "../../assets/images/locks/sbx102/image.png"
+installment:
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/sbx102/image.png
 order: 6
-material: "low-carbon-steel"
+featured: false
+material: low-carbon-steel
 access:
-  - "fingerprint"
-  - "pin"
-  - "key"
+  - fingerprint
+  - pin
+  - key
 limits:
   fingerprint: 120
   pin: 100
   key: 2
 features:
-  - "hidden-compartment"
-  - "alarm"
-  - "storage-sections"
+  - hidden-compartment
+  - alarm
+  - storage-sections
 temp:
   min: 0
   max: 40
-power: "aa4"
-battery: "6-12"
+power: aa4
+battery: 6-12
+compatibility: {}
+included: {}
 warranty: 2
+origin: {}
 interface:
-  - "en"
-  - "zh"
+  - en
+  - zh
 colors:
-  - "white"
-  - "gray"
+  - white
+  - gray
+colorPrices: []
 variants:
-  - { name: "2CO", price: 390000, height: 24, width: 32, depth: 42, weight: 15.4 }
+  - name: 2CO
+    price: 390000
+    height: 24
+    width: 32
+    depth: 42
+    weight: 15.4
 ru:
-  description: "Компактный Philips SBX102 с выдвижным ящиком, скрытым отсеком и ценой 390 000 ₸."
-  seoTitle: "Philips SBX102 — купить компактный сейф в Казахстане | iLOCK"
-  seoDescription: "Philips SBX102 2CO: компактный сейф 24×32×42 см, 15,4 кг, отпечаток до 120, пин-код до 100."
+  description: >-
+    Компактный Philips SBX102 с выдвижным ящиком, скрытым отсеком и ценой 390
+    000 ₸.
+  seoTitle: Philips SBX102 — купить компактный сейф в Казахстане | iLOCK
+  seoDescription: >-
+    Philips SBX102 2CO: компактный сейф 24×32×42 см, 15,4 кг, отпечаток до 120,
+    пин-код до 100.
   body: >-
-    SBX102 — компактный сейф-ящик для документов, украшений и небольших ценностей. Внутри есть
-    скрытый отсек, а доступ поддерживает до 120 отпечатков, до 100 пин-кодов и два механических ключа.
+    SBX102 — компактный сейф-ящик для документов, украшений и небольших
+    ценностей. Внутри есть скрытый отсек, а доступ поддерживает до 120
+    отпечатков, до 100 пин-кодов и два механических ключа.
 kk:
-  description: "Philips SBX102 ықшам сейфі: тартпалы жәшік, жасырын бөлім және бағасы 390 000 ₸."
-  seoTitle: "Philips SBX102 — Қазақстанда ықшам сейф сатып алу | iLOCK"
-  seoDescription: "Philips SBX102 2CO: 24×32×42 см ықшам сейф, 15,4 кг, 120 саусақ ізіне дейін, 100 пин-кодқа дейін."
+  description: >-
+    Philips SBX102 ықшам сейфі: тартпалы жәшік, жасырын бөлім және бағасы 390
+    000 ₸.
+  seoTitle: Philips SBX102 — Қазақстанда ықшам сейф сатып алу | iLOCK
+  seoDescription: >-
+    Philips SBX102 2CO: 24×32×42 см ықшам сейф, 15,4 кг, 120 саусақ ізіне дейін,
+    100 пин-кодқа дейін.
   body: >-
-    SBX102 — құжаттар, әшекейлер және шағын құндылықтарға арналған ықшам жәшік-сейф. Ішінде жасырын
-    бөлім бар, ал кіру 120 саусақ ізіне, 100 пин-кодқа дейін және екі механикалық кілтті қолдайды.
+    SBX102 — құжаттар, әшекейлер және шағын құндылықтарға арналған ықшам
+    жәшік-сейф. Ішінде жасырын бөлім бар, ал кіру 120 саусақ ізіне, 100
+    пин-кодқа дейін және екі механикалық кілтті қолдайды.
 en:
-  description: "Compact Philips SBX102 with a pull-out drawer, hidden compartment and a 390,000 ₸ price."
-  seoTitle: "Philips SBX102 — buy a compact safe in Kazakhstan | iLOCK"
-  seoDescription: "Philips SBX102 2CO: compact 24×32×42 cm safe, 15.4 kg, up to 120 fingerprints and 100 PIN codes."
+  description: >-
+    Compact Philips SBX102 with a pull-out drawer, hidden compartment and a
+    390,000 ₸ price.
+  seoTitle: Philips SBX102 — buy a compact safe in Kazakhstan | iLOCK
+  seoDescription: >-
+    Philips SBX102 2CO: compact 24×32×42 cm safe, 15.4 kg, up to 120
+    fingerprints and 100 PIN codes.
   body: >-
-    SBX102 is a compact drawer safe for documents, jewellery and smaller valuables. It includes a
-    hidden compartment and supports up to 120 fingerprints, up to 100 PIN codes and two mechanical keys.
+    SBX102 is a compact drawer safe for documents, jewellery and smaller
+    valuables. It includes a hidden compartment and supports up to 120
+    fingerprints, up to 100 PIN codes and two mechanical keys.
