@@ -30,6 +30,22 @@ if ! command -v docker >/dev/null 2>&1; then
 	exit 1
 fi
 
+# amoCRM credentials for the lead form come from the GitHub Environment on every
+# deploy and are kept apart from the hand-maintained .env. A deploy without them
+# leaves the previous file in place.
+CRM_ENV="$PROJECT_DIR/.env.crm"
+if [ -n "${CRM_TOKEN:-}" ] && [ -n "${CRM_URL:-}" ]; then
+	(
+		umask 077
+		printf 'TOKEN=%s\nCRM_URL=%s\n' "$CRM_TOKEN" "$CRM_URL" > "$CRM_ENV.tmp"
+		mv -f -- "$CRM_ENV.tmp" "$CRM_ENV"
+	)
+	echo "amoCRM settings updated"
+elif [ ! -f "$CRM_ENV" ]; then
+	(umask 077 && : > "$CRM_ENV")
+	echo "amoCRM settings are not provided; the lead form will answer 503" >&2
+fi
+
 echo "Validating deployment configuration..."
 (
 	cd "$PROJECT_DIR"

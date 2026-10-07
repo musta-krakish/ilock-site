@@ -95,9 +95,21 @@ jobs:
 
       - name: Load image and restart service
         shell: bash
+        env:
+          # amoCRM credentials for the lead form. Prefer an Environment *secret*
+          # named TOKEN; a plain variable is still accepted as a fallback.
+          CRM_TOKEN: ${{ secrets.TOKEN || vars.TOKEN }}
+          CRM_URL: ${{ secrets.CRM_URL || vars.CRM_URL }}
         run: |
           set -euo pipefail
-          docker run --rm -i \
+          case "$CRM_TOKEN$CRM_URL" in
+            *"'"*|*$'\n'*) echo "TOKEN and CRM_URL must not contain quotes or newlines" >&2; exit 1 ;;
+          esac
+          # The values travel inside the script on stdin, never on a command line.
+          {
+            printf "CRM_TOKEN='%s'\nCRM_URL='%s'\n" "$CRM_TOKEN" "$CRM_URL"
+            cat scripts/deploy/load-image.sh
+          } | docker run --rm -i \
             -e SSHPASS="$DEPLOY_PASSWORD" \
             -e DEPLOY_HOST -e DEPLOY_PORT -e DEPLOY_USER -e DEPLOY_PATH -e ARCHIVE_NAME -e APP_IMAGE \
             alpine:3.21 sh -ec '
@@ -107,4 +119,4 @@ jobs:
                 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
                 "$DEPLOY_USER@$DEPLOY_HOST" \
                 "ARCHIVE_PATH='\''$DEPLOY_PATH/incoming/$ARCHIVE_NAME'\'' APP_IMAGE='\''$APP_IMAGE'\'' PROJECT_DIR='\''$DEPLOY_PATH'\'' sh -s"
-            ' < scripts/deploy/load-image.sh
+            '

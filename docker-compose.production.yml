@@ -4,6 +4,8 @@ services:
     image: ${APP_IMAGE:?APP_IMAGE is required}
     env_file:
       - .env
+      # Written by scripts/deploy/load-image.sh from the GitHub Environment (amoCRM).
+      - .env.crm
     environment:
       NODE_ENV: production
       HOST: 0.0.0.0
