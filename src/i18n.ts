@@ -335,7 +335,7 @@ export const ui = {
 			orderMsg: (t: string, kind = 'lock') =>
 				`Здравствуйте! Хочу заказать ${kind === 'safe' ? 'сейф' : kind === 'accessory' ? 'данный аксессуар' : 'данный замок'} ${t}.`,
 			kaspiWord: 'Рассрочка',
-			kaspiTerm: (m: string) => `${m} × 12 мес`,
+			kaspiTerm: (m: string, months = 12) => `${m} × ${months} мес`,
 			installment24: 'Рассрочка до 24 месяцев',
 			variants: 'Варианты',
 			variantModel: 'Модель',
@@ -822,7 +822,7 @@ export const ui = {
 			orderMsg: (t: string, kind = 'lock') =>
 				`Сәлеметсіз бе! Осы ${t} ${kind === 'safe' ? 'сейфіне' : kind === 'accessory' ? 'аксессуарына' : 'құлпына'} тапсырыс бергім келеді.`,
 			kaspiWord: 'Бөліп төлеу',
-			kaspiTerm: (m: string) => `${m} × 12 ай`,
+			kaspiTerm: (m: string, months = 12) => `${m} × ${months} ай`,
 			installment24: '24 айға дейін бөліп төлеу',
 			variants: 'Нұсқалар',
 			variantModel: 'Модель',
@@ -1306,7 +1306,7 @@ export const ui = {
 			orderMsg: (t: string, kind = 'lock') =>
 				`Hello! I'd like to order the ${t} ${kind === 'safe' ? 'safe' : kind === 'accessory' ? 'accessory' : 'lock'}.`,
 			kaspiWord: 'Instalment',
-			kaspiTerm: (m: string) => `${m} × 12 mo`,
+			kaspiTerm: (m: string, months = 12) => `${m} × ${months} mo`,
 			installment24: 'Up to 24-month instalments',
 			variants: 'Variants',
 			variantModel: 'Model',

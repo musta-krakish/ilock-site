@@ -124,6 +124,16 @@ const locks = defineCollection({
 			priceTo: z.number().nullable().optional(),
 			/** Previous price in KZT, displayed with a strikethrough during a promotion. */
 			oldPrice: z.number().nullable().optional(),
+			/** Kaspi monthly payment override (KZT) and term; empty `monthly` means price ÷ months. */
+			installment: z
+				.object({
+					monthly: z.number().nullable().optional(),
+					months: z.number().nullable().optional(),
+					kaspi: z.boolean().default(true),
+					/** The "up to 24 months" badge, shown on locks only. */
+					longTerm: z.boolean().default(true),
+				})
+				.default({ kaspi: true, longTerm: true }),
 			image: image(),
 			/** Ordering within a brand group; lower is shown first. */
 			order: z.number(),

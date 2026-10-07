@@ -104,7 +104,7 @@ const hasDearerColor = lock.colorPrices.some((p) => p.price > lock.price && lock
 					{formatPrice(lock.price, lock.priceTo)}
 				</p>
 				{
-					lock.kind === 'lock' && (
+					lock.kind === 'lock' && lock.installment.longTerm && (
 						<span class="mt-2 inline-flex items-center gap-1.5 rounded-full border border-accent-color/30 bg-accent-color/10 px-2.5 py-1 text-[10px] font-semibold text-accent-color">
 							<span aria-hidden="true">₸</span>
 							{t.product.installment24}

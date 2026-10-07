@@ -36,7 +36,12 @@ const related = [
 	...all.filter((l) => l.kind === lock.kind && l.brand !== lock.brand),
 ].slice(0, 3);
 
-const monthlyFor = (price: number) => Math.round(price / 12 / 100) * 100;
+const kaspiMonths = lock.installment.months || 12;
+// The editor's fixed payment belongs to the base price; other prices (dearer colours) fall back to price ÷ term.
+const monthlyFor = (price: number) =>
+	price === lock.price && lock.installment.monthly
+		? lock.installment.monthly
+		: Math.round(price / kaspiMonths / 100) * 100;
 
 const productName = t.product.h1(brandNames[lock.brand], lock.title, lock.kind);
 
@@ -62,7 +67,8 @@ const colorImages = hasColorPicker
 	: [lock.image];
 const orderHref = (colorName?: string) =>
 	whatsappLink(t.product.orderMsg(colorName ? `${lock.title} (${colorName})` : lock.title, lock.kind));
-const kaspiText = (price: number) => `${t.product.kaspiWord} · ${t.product.kaspiTerm(formatPrice(monthlyFor(price)))}`;
+const kaspiText = (price: number) =>
+	`${t.product.kaspiWord} · ${t.product.kaspiTerm(formatPrice(monthlyFor(price)), kaspiMonths)}`;
 
 const swatch: Record<(typeof lock.colors)[number], string> = {
 	black: '#111111',
@@ -313,17 +319,21 @@ const breadcrumbLd = {
 					)
 				}
 
-				<div class="mt-4 inline-flex items-center gap-2.5 rounded-xl bg-[#F14635] px-3.5 py-2">
-					<span class="rounded-md bg-white px-1.5 py-0.5 text-[13px] font-extrabold leading-none text-[#F14635]">
-						Kaspi
-					</span>
-					<span class="text-sm font-semibold text-white" data-color-kaspi>
-						{kaspiText(selected.price)}
-					</span>
-				</div>
+				{
+					lock.installment.kaspi && (
+						<div class="mt-4 inline-flex items-center gap-2.5 rounded-xl bg-[#F14635] px-3.5 py-2">
+							<span class="rounded-md bg-white px-1.5 py-0.5 text-[13px] font-extrabold leading-none text-[#F14635]">
+								Kaspi
+							</span>
+							<span class="text-sm font-semibold text-white" data-color-kaspi>
+								{kaspiText(selected.price)}
+							</span>
+						</div>
+					)
+				}
 
 				{
-					lock.kind === 'lock' && (
+					lock.kind === 'lock' && lock.installment.longTerm && (
 						<p class="mt-3 inline-flex items-center gap-2 rounded-xl border border-accent-color/35 bg-accent-color/10 px-3.5 py-2 text-sm font-semibold text-accent-color">
 							<span class="rounded-md bg-accent-color px-1.5 py-0.5 text-xs font-extrabold text-main-color">₸</span>
 							{t.product.installment24}

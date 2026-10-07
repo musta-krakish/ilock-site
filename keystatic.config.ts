@@ -395,6 +395,23 @@ const lockSchema = {
 	price: fields.integer({ label: 'Цена от, ₸', validation: { isRequired: true, min: 0 } }),
 	priceTo: fields.number({ label: 'Цена до, ₸', description: 'Оставьте пустым для одной цены.' }),
 	oldPrice: fields.number({ label: 'Старая цена, ₸', description: 'Будет зачёркнута на карточке во время акции.' }),
+	installment: fields.object(
+		{
+			monthly: fields.integer({
+				label: 'Платёж Kaspi в месяц, ₸',
+				description: 'Оставьте пустым — посчитается автоматически: цена ÷ срок.',
+				validation: { min: 0 },
+			}),
+			months: fields.integer({ label: 'Срок Kaspi, мес', defaultValue: 12, validation: { min: 1 } }),
+			kaspi: fields.checkbox({ label: 'Показывать рассрочку Kaspi', defaultValue: true }),
+			longTerm: fields.checkbox({ label: 'Показывать «Рассрочка до 24 месяцев»', defaultValue: true }),
+		},
+		{
+			label: 'Рассрочка',
+			description: 'Платёж в месяц относится к основной цене. Для цветов с другой ценой он считается автоматически.',
+			layout: [6, 6, 6, 6],
+		},
+	),
 	image: fields.image({
 		label: 'Фото товара',
 		description: 'PNG, JPG или WebP. После загрузки сразу появится миниатюра; файл сохранится в папке этой модели.',

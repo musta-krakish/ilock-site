@@ -2,6 +2,11 @@ title: "L2S"
 brand: "ezviz"
 price: 75000
 oldPrice: 105000
+installment:
+  monthly: 7190
+  months: 12
+  kaspi: true
+  longTerm: true
 image: "../../assets/images/locks/ezviz-l2s/image.png"
 order: 1
 material: "aluminum"
