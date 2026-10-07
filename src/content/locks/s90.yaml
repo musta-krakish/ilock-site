@@ -4,6 +4,9 @@ kind: lock
 kazakhBrand: true
 comingSoon: false
 price: 280000
+installment:
+  kaspi: true
+  longTerm: false
 image: ../../assets/images/locks/s90/image.png
 order: 2
 featured: true
@@ -43,6 +46,7 @@ interface:
   - ru
 colors:
   - black
+colorPrices: []
 variants: []
 ru:
   description: >-
