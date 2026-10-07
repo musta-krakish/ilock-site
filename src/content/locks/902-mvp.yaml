@@ -1,19 +1,24 @@
-title: "902 MVP"
-brand: "philips"
+title: 902 MVP
+brand: philips
+kind: lock
+kazakhBrand: false
 comingSoon: true
 price: 582000
-image: "../../assets/images/locks/902-mvp/image.png"
+installment:
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/902-mvp/image.png
 order: 10
 featured: true
-material: "zinc-glass"
+material: zinc-glass
 access:
-  - "fingerprint"
-  - "pin"
-  - "face"
-  - "palm"
-  - "card"
-  - "key"
-  - "app"
+  - fingerprint
+  - pin
+  - face
+  - palm
+  - card
+  - key
+  - app
 limits:
   fingerprint: 100
   pin: 60
@@ -22,56 +27,73 @@ limits:
   card: 2
   key: 2
 features:
-  - "wifi"
-  - "doorbell"
-  - "pir"
-  - "voice-change"
-  - "wireless-charge"
-  - "two-way-audio"
-  - "triple-camera"
-  - "rechargeable"
-  - "video-peephole"
-  - "auto"
+  - wifi
+  - doorbell
+  - pir
+  - voice-change
+  - wireless-charge
+  - two-way-audio
+  - triple-camera
+  - rechargeable
+  - video-peephole
+  - auto
 temp:
   min: -20
   max: 60
-power: "li-5000"
-battery: "3-6"
-app: "HomeAccess"
+power: li-5000
+battery: 3-6
+app: HomeAccess
+compatibility: {}
+included: {}
 warranty: 2
+origin: {}
 interface:
-  - "ru"
-  - "en"
+  - ru
+  - en
 colors:
-  - "obsidian"
-  - "gold"
+  - obsidian
+  - gold
 colorPrices:
-  - color: "gold"
+  - color: gold
     price: 850000
-    image: "../../assets/images/locks/902-mvp/colorPrices/0/image.png"
+    image: ../../assets/images/locks/902-mvp/colorPrices/0/image.png
+variants: []
 ru:
-  description: "Флагман Philips: три камеры, вены ладони, беспроводная подзарядка и изменение голоса по видеосвязи."
-  seoTitle: "902 MVP — купить умный замок Philips в Казахстане | iLOCK"
-  seoDescription: "Флагман Philips: три камеры, вены ладони, беспроводная подзарядка и изменение голоса по видеосвязи."
+  description: >-
+    Флагман Philips: три камеры, вены ладони, беспроводная подзарядка и
+    изменение голоса по видеосвязи.
+  seoTitle: 902 MVP — купить умный замок Philips в Казахстане | iLOCK
+  seoDescription: >-
+    Флагман Philips: три камеры, вены ладони, беспроводная подзарядка и
+    изменение голоса по видеосвязи.
   body: >-
-    902 MVP — самый оснащённый замок каталога. Три камеры закрывают подход к двери целиком, открытие
-    возможно по лицу и венам ладони, а во время видеозвонка голос можно изменить — полезно, когда
-    дома ребёнок. Корпус — цинковый сплав с закалённым стеклом.
-
+    902 MVP — самый оснащённый замок каталога. Три камеры закрывают подход к
+    двери целиком, открытие возможно по лицу и венам ладони, а во время
+    видеозвонка голос можно изменить — полезно, когда дома ребёнок. Корпус —
+    цинковый сплав с закалённым стеклом.
 kk:
-  description: "Philips флагманы: үш камера, алақан тамыры, сымсыз қуаттандыру және бейнебайланыста дауысты өзгерту."
-  seoTitle: "902 MVP — Қазақстанда Philips ақылды құлыпты сатып алу | iLOCK"
-  seoDescription: "Philips флагманы: үш камера, алақан тамыры, сымсыз қуаттандыру және бейнебайланыста дауысты өзгерту."
+  description: >-
+    Philips флагманы: үш камера, алақан тамыры, сымсыз қуаттандыру және
+    бейнебайланыста дауысты өзгерту.
+  seoTitle: 902 MVP — Қазақстанда Philips ақылды құлыпты сатып алу | iLOCK
+  seoDescription: >-
+    Philips флагманы: үш камера, алақан тамыры, сымсыз қуаттандыру және
+    бейнебайланыста дауысты өзгерту.
   body: >-
-    902 MVP — каталогтағы ең жабдықталған құлып. Үш камера есікке жақындауды толық қамтиды, ашу бет
-    және алақан тамыры арқылы мүмкін, ал бейнеқоңырау кезінде дауысты өзгертуге болады — үйде бала
-    болғанда пайдалы. Корпус — шыңдалған шынысы бар мырыш қорытпасы.
-
+    902 MVP — каталогтағы ең жабдықталған құлып. Үш камера есікке жақындауды
+    толық қамтиды, ашу бет және алақан тамыры арқылы мүмкін, ал бейнеқоңырау
+    кезінде дауысты өзгертуге болады — үйде бала болғанда пайдалы. Корпус —
+    шыңдалған шынысы бар мырыш қорытпасы.
 en:
-  description: "The Philips flagship: three cameras, palm-vein entry, wireless charging and voice changing on video calls."
-  seoTitle: "902 MVP — buy a Philips smart lock in Kazakhstan | iLOCK"
-  seoDescription: "The Philips flagship: three cameras, palm-vein entry, wireless charging and voice changing on video calls."
+  description: >-
+    The Philips flagship: three cameras, palm-vein entry, wireless charging and
+    voice changing on video calls.
+  seoTitle: 902 MVP — buy a Philips smart lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    The Philips flagship: three cameras, palm-vein entry, wireless charging and
+    voice changing on video calls.
   body: >-
-    902 MVP is the most equipped lock in the catalogue. Three cameras cover the whole approach to
-    the door, entry works by face and palm vein, and your voice can be altered during a video call —
-    useful when a child is home alone. The body is zinc alloy with tempered glass.
+    902 MVP is the most equipped lock in the catalogue. Three cameras cover the
+    whole approach to the door, entry works by face and palm vein, and your
+    voice can be altered during a video call — useful when a child is home
+    alone. The body is zinc alloy with tempered glass.
