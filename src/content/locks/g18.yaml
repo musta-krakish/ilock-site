@@ -9,7 +9,7 @@ installment:
   longTerm: false
 image: ../../assets/images/locks/g18/image.png
 order: 2
-featured: false
+featured: true
 material: aluminum-glass
 access:
   - fingerprint
