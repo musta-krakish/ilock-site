@@ -4,6 +4,9 @@ kind: lock
 kazakhBrand: false
 comingSoon: false
 price: 95000
+installment:
+  kaspi: true
+  longTerm: false
 image: ../../assets/images/locks/s31b/image.png
 order: 8
 featured: false
@@ -42,6 +45,7 @@ colors:
   - silver
   - titanium
   - black
+colorPrices: []
 variants: []
 ru:
   description: >-
