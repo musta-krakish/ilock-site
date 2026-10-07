@@ -1,38 +1,69 @@
-title: "Цилиндр для DDL 603E и DDL 610"
-brand: "philips"
-kind: "accessory"
+title: Цилиндр для DDL 603E и DDL 610
+brand: philips
+kind: accessory
+kazakhBrand: false
+comingSoon: false
 price: 55000
-image: "../../assets/images/locks/philips-cylinder-ddl/image.png"
+installment:
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/philips-cylinder-ddl/image.png
 order: 4
-material: "steel"
+featured: false
+material: steel
 access: []
+limits: {}
 features: []
-temp: { min: 0, max: 0 }
-power: "aa4"
-battery: "—"
-warranty: 2
+temp:
+  min: 0
+  max: 0
+power: aa4
+battery: —
 compatibility:
-  ru: "Philips DDL 603E и DDL 610"
-  kk: "Philips DDL 603E және DDL 610"
-  en: "Philips DDL 603E and DDL 610"
+  ru: Philips DDL 603E и DDL 610
+  kk: Philips DDL 603E және DDL 610
+  en: Philips DDL 603E and DDL 610
 included:
-  ru: "2 ключа"
-  kk: "2 кілт"
-  en: "2 keys"
+  ru: 2 ключа
+  kk: 2 кілт
+  en: 2 keys
+warranty: 2
+origin: {}
 interface: []
-colors: ["gold"]
+colors:
+  - gold
+colorPrices: []
+variants: []
 ru:
-  description: "Сменный цилиндр Philips для моделей DDL 603E и DDL 610; в комплекте два ключа."
-  seoTitle: "Цилиндр для Philips DDL 603E и DDL 610 — купить | iLOCK"
-  seoDescription: "Сменный цилиндр Philips для DDL 603E и DDL 610, два ключа в комплекте. Гарантия 2 года."
-  body: "Оригинальный сменный цилиндр для электронных замков Philips DDL 603E и DDL 610. В комплект входят два механических ключа."
+  description: >-
+    Сменный цилиндр Philips для моделей DDL 603E и DDL 610; в комплекте два
+    ключа.
+  seoTitle: Цилиндр для Philips DDL 603E и DDL 610 — купить | iLOCK
+  seoDescription: >-
+    Сменный цилиндр Philips для DDL 603E и DDL 610, два ключа в комплекте.
+    Гарантия 2 года.
+  body: >-
+    Оригинальный сменный цилиндр для электронных замков Philips DDL 603E и DDL
+    610. В комплект входят два механических ключа.
 kk:
-  description: "Philips DDL 603E және DDL 610 модельдеріне арналған ауыстырмалы цилиндр; жинақта екі кілт бар."
-  seoTitle: "Philips DDL 603E және DDL 610 цилиндрі — сатып алу | iLOCK"
-  seoDescription: "Philips DDL 603E және DDL 610 үшін ауыстырмалы цилиндр, жинақта екі кілт. Кепілдік 2 жыл."
-  body: "Philips DDL 603E және DDL 610 электрондық құлыптарына арналған түпнұсқа ауыстырмалы цилиндр. Жинаққа екі механикалық кілт кіреді."
+  description: >-
+    Philips DDL 603E және DDL 610 модельдеріне арналған ауыстырмалы цилиндр;
+    жинақта екі кілт бар.
+  seoTitle: Philips DDL 603E және DDL 610 цилиндрі — сатып алу | iLOCK
+  seoDescription: >-
+    Philips DDL 603E және DDL 610 үшін ауыстырмалы цилиндр, жинақта екі кілт.
+    Кепілдік 2 жыл.
+  body: >-
+    Philips DDL 603E және DDL 610 электрондық құлыптарына арналған түпнұсқа
+    ауыстырмалы цилиндр. Жинаққа екі механикалық кілт кіреді.
 en:
-  description: "A replacement Philips cylinder for DDL 603E and DDL 610 models; two keys included."
-  seoTitle: "Cylinder for Philips DDL 603E and DDL 610 — buy | iLOCK"
-  seoDescription: "Replacement Philips cylinder for DDL 603E and DDL 610, with two keys included. Two-year warranty."
-  body: "An original replacement cylinder for Philips DDL 603E and DDL 610 electronic locks. Two mechanical keys are included."
+  description: >-
+    A replacement Philips cylinder for DDL 603E and DDL 610 models; two keys
+    included.
+  seoTitle: Cylinder for Philips DDL 603E and DDL 610 — buy | iLOCK
+  seoDescription: >-
+    Replacement Philips cylinder for DDL 603E and DDL 610, with two keys
+    included. Two-year warranty.
+  body: >-
+    An original replacement cylinder for Philips DDL 603E and DDL 610 electronic
+    locks. Two mechanical keys are included.
