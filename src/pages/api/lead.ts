@@ -21,12 +21,12 @@ function isRateLimited(ip: string) {
 	return hits.length > MAX_PER_WINDOW;
 }
 
-/** Kazakhstan numbers: 8XXXXXXXXXX and XXXXXXXXXX become +7XXXXXXXXXX. */
+/** Kazakhstan numbers (the form masks +7): 8XXXXXXXXXX and XXXXXXXXXX become +7XXXXXXXXXX. */
 function normalisePhone(raw: string) {
 	let digits = raw.replace(/\D/g, '');
 	if (digits.length === 11 && digits.startsWith('8')) digits = `7${digits.slice(1)}`;
 	if (digits.length === 10) digits = `7${digits}`;
-	return digits.length >= 11 && digits.length <= 15 ? `+${digits}` : null;
+	return /^7\d{10}$/.test(digits) ? `+${digits}` : null;
 }
 
 const text = (value: unknown, max: number) => (typeof value === 'string' ? value.trim().slice(0, max) : '');

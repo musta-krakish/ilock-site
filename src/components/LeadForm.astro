@@ -142,6 +142,45 @@ const fieldClass =
 		}
 	}
 
+	/**
+	 * Kazakhstan phone mask: +7 (XXX) XXX-XX-XX. A leading 8/7 country code in pasted
+	 * or typed numbers is dropped; separators appear only once the next digit is typed,
+	 * so backspace never gets stuck on a bracket or dash.
+	 */
+	const PHONE_PREFIX = '+7 (';
+
+	function nationalDigits(value: string) {
+		const digits = value.replace(/\D/g, '');
+		// Kazakh operator codes never start with 8, so an 8 typed after "+7 (" is a habitual trunk prefix.
+		if (value.trim().startsWith('+7')) return digits.slice(1).replace(/^8/, '');
+		if (digits.length === 11 && /^[78]/.test(digits)) return digits.slice(1);
+		if (digits.startsWith('8')) return digits.slice(1);
+		return digits;
+	}
+
+	function formatPhone(national: string) {
+		const n = national.slice(0, 10);
+		let out = PHONE_PREFIX + n.slice(0, 3);
+		if (n.length > 3) out += `) ${n.slice(3, 6)}`;
+		if (n.length > 6) out += `-${n.slice(6, 8)}`;
+		if (n.length > 8) out += `-${n.slice(8, 10)}`;
+		return out;
+	}
+
+	function maskPhone(input: HTMLInputElement) {
+		const caret = input.selectionStart ?? input.value.length;
+		const atEnd = caret >= input.value.length;
+		// Keep the caret after the same number of national digits it was after.
+		const digitsBefore = nationalDigits(input.value.slice(0, caret)).length;
+		input.value = formatPhone(nationalDigits(input.value));
+		if (atEnd) return;
+		let pos = PHONE_PREFIX.length;
+		for (let seen = 0; pos < input.value.length && seen < digitsBefore; pos++) {
+			if (/\d/.test(input.value[pos])) seen++;
+		}
+		input.setSelectionRange(pos, pos);
+	}
+
 	const form = document.querySelector<HTMLFormElement>('[data-lead-form]');
 	const success = document.querySelector<HTMLElement>('[data-lead-success]');
 	const sendError = form?.querySelector<HTMLElement>('[data-lead-error]');
@@ -164,7 +203,7 @@ const fieldClass =
 
 			const checks = {
 				name: name.length > 0,
-				phone: phone.replace(/\D/g, '').length >= 10,
+				phone: nationalDigits(phone).length === 10,
 				city: city.length > 0,
 			};
 			for (const [field, ok] of Object.entries(checks)) showError(field, !ok);
@@ -202,6 +241,17 @@ const fieldClass =
 				button.textContent = form.dataset.submit ?? '';
 			}
 		});
+
+		const phoneInput = form.querySelector<HTMLInputElement>('[name="phone"]');
+		if (phoneInput) {
+			phoneInput.addEventListener('focus', () => {
+				if (!phoneInput.value) phoneInput.value = PHONE_PREFIX;
+			});
+			phoneInput.addEventListener('blur', () => {
+				if (!nationalDigits(phoneInput.value)) phoneInput.value = '';
+			});
+			phoneInput.addEventListener('input', () => maskPhone(phoneInput));
+		}
 
 		for (const field of ['name', 'phone', 'city']) {
 			const el = form.querySelector(`[name="${field}"]`);
