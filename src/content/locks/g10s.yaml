@@ -1,56 +1,68 @@
-title: "G10S"
-brand: "smartlock"
+title: G10S
+brand: smartlock
+kind: lock
+kazakhBrand: false
+comingSoon: false
 price: 60000
-image: "../../assets/images/locks/g10s/image.png"
+installment:
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/g10s/image.png
 order: 9
-material: "aluminum"
+featured: false
+material: aluminum
 access:
-  - "fingerprint"
-  - "pin"
-  - "card"
-  - "key"
-  - "app"
+  - fingerprint
+  - pin
+  - card
+  - key
+  - app
 limits:
   fingerprint: 50
   pin: 100
   card: 2
   key: 2
 features:
-  - "glass-door"
-  - "anti-pry"
+  - glass-door
+  - anti-pry
 temp:
   min: -20
   max: 65
-power: "aa4"
-battery: "10"
-app: "Tuya Smart"
+power: aa4
+battery: '10'
+app: Tuya Smart
+compatibility: {}
+included: {}
 warranty: 1
+origin: {}
 interface:
-  - "ru"
-  - "kk"
+  - ru
+  - kk
 colors:
-  - "black"
+  - black
+colorPrices: []
+variants: []
 ru:
-  description: "Для стеклянных дверей: офисы, салоны и шоурумы — без сверления полотна."
-  seoTitle: "G10S — купить умный замок iLock в Казахстане | iLOCK"
-  seoDescription: "Для стеклянных дверей: офисы, салоны и шоурумы — без сверления полотна."
+  description: 'Для стеклянных дверей: офисы, салоны и шоурумы — без сверления полотна.'
+  seoTitle: G10S — купить умный замок iLock в Казахстане | iLOCK
+  seoDescription: 'Для стеклянных дверей: офисы, салоны и шоурумы — без сверления полотна.'
   body: >-
-    G10S ставится на стеклянные двери — офис, салон, шоурум — и не требует сверлить полотно.
-    Отпечаток, пин-код, карта и приложение Tuya Smart, питание от батареек AA примерно на 10
-    месяцев.
-
+    G10S ставится на стеклянные двери — офис, салон, шоурум — и не требует
+    сверлить полотно. Отпечаток, пин-код, карта и приложение Tuya Smart, питание
+    от батареек AA примерно на 10 месяцев.
 kk:
-  description: "Шыны есіктерге: кеңселер, салондар және шоурумдар — есікті бұрғылаусыз."
-  seoTitle: "G10S — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK"
-  seoDescription: "Шыны есіктерге: кеңселер, салондар және шоурумдар — есікті бұрғылаусыз."
+  description: 'Шыны есіктерге: кеңселер, салондар және шоурумдар — есікті бұрғылаусыз.'
+  seoTitle: G10S — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK
+  seoDescription: 'Шыны есіктерге: кеңселер, салондар және шоурумдар — есікті бұрғылаусыз.'
   body: >-
-    G10S шыны есіктерге орнатылады — кеңсе, салон, шоурум — және есікті бұрғылауды қажет етпейді.
-    Саусақ ізі, пин-код, карта және Tuya Smart қосымшасы, AA батареяларынан шамамен 10 ай қуат.
-
+    G10S шыны есіктерге орнатылады — кеңсе, салон, шоурум — және есікті
+    бұрғылауды қажет етпейді. Саусақ ізі, пин-код, карта және Tuya Smart
+    қосымшасы, AA батареяларынан шамамен 10 ай қуат.
 en:
-  description: "For glass doors: offices, salons and showrooms — no drilling of the panel."
-  seoTitle: "G10S — buy an iLock smart lock in Kazakhstan | iLOCK"
-  seoDescription: "For glass doors: offices, salons and showrooms — no drilling of the panel."
+  description: 'For glass doors: offices, salons and showrooms — no drilling of the panel.'
+  seoTitle: G10S — buy an iLock smart lock in Kazakhstan | iLOCK
+  seoDescription: 'For glass doors: offices, salons and showrooms — no drilling of the panel.'
   body: >-
-    G10S mounts on glass doors — office, salon, showroom — without drilling the panel. Fingerprint,
-    PIN, card and the Tuya Smart app, powered by AA batteries for about 10 months.
+    G10S mounts on glass doors — office, salon, showroom — without drilling the
+    panel. Fingerprint, PIN, card and the Tuya Smart app, powered by AA
+    batteries for about 10 months.
