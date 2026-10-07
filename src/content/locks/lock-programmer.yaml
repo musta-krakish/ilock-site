@@ -1,30 +1,57 @@
-title: "Программатор замков"
-brand: "smartlock"
-kind: "accessory"
+title: Программатор замков
+brand: smartlock
+kind: accessory
+kazakhBrand: false
+comingSoon: false
 price: 100000
-image: "../../assets/images/locks/lock-programmer/image.png"
+installment:
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/lock-programmer/image.png
 order: 2
-material: "steel"
+featured: false
+material: steel
 access: []
+limits: {}
 features: []
-temp: { min: 0, max: 0 }
-power: "aa4"
-battery: "—"
+temp:
+  min: 0
+  max: 0
+power: aa4
+battery: —
+compatibility: {}
+included: {}
 warranty: 1
-interface: ["ru"]
+origin: {}
+interface:
+  - ru
 colors: []
+colorPrices: []
+variants: []
 ru:
-  description: "Программатор для настройки совместимых электронных замков iLock."
-  seoTitle: "Программатор замков iLock — купить в Казахстане | iLOCK"
-  seoDescription: "Программатор iLock для настройки совместимых электронных замков. Гарантия 1 год."
-  body: "Сервисный программатор для настройки и обслуживания совместимых электронных замков iLock."
+  description: Программатор для настройки совместимых электронных замков iLock.
+  seoTitle: Программатор замков iLock — купить в Казахстане | iLOCK
+  seoDescription: >-
+    Программатор iLock для настройки совместимых электронных замков. Гарантия 1
+    год.
+  body: >-
+    Сервисный программатор для настройки и обслуживания совместимых электронных
+    замков iLock.
 kk:
-  description: "Үйлесімді iLock электрондық құлыптарын баптауға арналған бағдарламалаушы."
-  seoTitle: "iLock құлып бағдарламалаушысы — Қазақстанда сатып алу | iLOCK"
-  seoDescription: "Үйлесімді электрондық құлыптарды баптауға арналған iLock бағдарламалаушысы. Кепілдік 1 жыл."
-  body: "Үйлесімді iLock электрондық құлыптарын баптауға және қызмет көрсетуге арналған сервистік бағдарламалаушы."
+  description: Үйлесімді iLock электрондық құлыптарын баптауға арналған бағдарламалаушы.
+  seoTitle: iLock құлып бағдарламалаушысы — Қазақстанда сатып алу | iLOCK
+  seoDescription: >-
+    Үйлесімді электрондық құлыптарды баптауға арналған iLock бағдарламалаушысы.
+    Кепілдік 1 жыл.
+  body: >-
+    Үйлесімді iLock электрондық құлыптарын баптауға және қызмет көрсетуге
+    арналған сервистік бағдарламалаушы.
 en:
-  description: "A programmer for configuring compatible iLock electronic locks."
-  seoTitle: "iLock lock programmer — buy in Kazakhstan | iLOCK"
-  seoDescription: "iLock programmer for configuring compatible electronic locks. One-year warranty."
-  body: "A service programmer for configuring and maintaining compatible iLock electronic locks."
+  description: A programmer for configuring compatible iLock electronic locks.
+  seoTitle: iLock lock programmer — buy in Kazakhstan | iLOCK
+  seoDescription: >-
+    iLock programmer for configuring compatible electronic locks. One-year
+    warranty.
+  body: >-
+    A service programmer for configuring and maintaining compatible iLock
+    electronic locks.
