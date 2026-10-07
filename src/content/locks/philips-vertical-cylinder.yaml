@@ -1,34 +1,60 @@
-title: "Цилиндр вертикальный"
-brand: "philips"
-kind: "accessory"
+title: Цилиндр вертикальный
+brand: philips
+kind: accessory
+kazakhBrand: false
+comingSoon: false
 price: 77000
-image: "../../assets/images/locks/philips-vertical-cylinder/image.png"
+installment:
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/philips-vertical-cylinder/image.png
 order: 5
-material: "steel"
+featured: false
+material: steel
 access: []
+limits: {}
 features: []
-temp: { min: 0, max: 0 }
-power: "aa4"
-battery: "—"
-warranty: 2
+temp:
+  min: 0
+  max: 0
+power: aa4
+battery: —
+compatibility: {}
 included:
-  ru: "2 ключа"
-  kk: "2 кілт"
-  en: "2 keys"
+  ru: 2 ключа
+  kk: 2 кілт
+  en: 2 keys
+warranty: 2
+origin: {}
 interface: []
-colors: ["gold"]
+colors:
+  - gold
+colorPrices: []
+variants: []
 ru:
-  description: "Вертикальный цилиндр Philips для замены механической части совместимого замка."
-  seoTitle: "Вертикальный цилиндр Philips — купить в Казахстане | iLOCK"
-  seoDescription: "Вертикальный цилиндр Philips, два ключа в комплекте. Гарантия 2 года."
-  body: "Вертикальный цилиндр Philips для сервисной замены в совместимом замке. В комплект входят два механических ключа."
+  description: >-
+    Вертикальный цилиндр Philips для замены механической части совместимого
+    замка.
+  seoTitle: Вертикальный цилиндр Philips — купить в Казахстане | iLOCK
+  seoDescription: Вертикальный цилиндр Philips, два ключа в комплекте. Гарантия 2 года.
+  body: >-
+    Вертикальный цилиндр Philips для сервисной замены в совместимом замке. В
+    комплект входят два механических ключа.
 kk:
-  description: "Үйлесімді құлыптың механикалық бөлігін ауыстыруға арналған Philips тік цилиндрі."
-  seoTitle: "Philips тік цилиндрі — Қазақстанда сатып алу | iLOCK"
-  seoDescription: "Philips тік цилиндрі, жинақта екі кілт бар. Кепілдік 2 жыл."
-  body: "Үйлесімді құлыпта сервистік ауыстыруға арналған Philips тік цилиндрі. Жинаққа екі механикалық кілт кіреді."
+  description: >-
+    Үйлесімді құлыптың механикалық бөлігін ауыстыруға арналған Philips тік
+    цилиндрі.
+  seoTitle: Philips тік цилиндрі — Қазақстанда сатып алу | iLOCK
+  seoDescription: Philips тік цилиндрі, жинақта екі кілт бар. Кепілдік 2 жыл.
+  body: >-
+    Үйлесімді құлыпта сервистік ауыстыруға арналған Philips тік цилиндрі.
+    Жинаққа екі механикалық кілт кіреді.
 en:
-  description: "A Philips vertical cylinder for replacing the mechanical part of a compatible lock."
-  seoTitle: "Philips vertical cylinder — buy in Kazakhstan | iLOCK"
-  seoDescription: "Philips vertical cylinder, with two keys included. Two-year warranty."
-  body: "A Philips vertical cylinder for service replacement in a compatible lock. Two mechanical keys are included."
+  description: >-
+    A Philips vertical cylinder for replacing the mechanical part of a
+    compatible lock.
+  seoTitle: Philips vertical cylinder — buy in Kazakhstan | iLOCK
+  seoDescription: Philips vertical cylinder, with two keys included. Two-year warranty.
+  body: >-
+    A Philips vertical cylinder for service replacement in a compatible lock.
+    Two mechanical keys are included.
