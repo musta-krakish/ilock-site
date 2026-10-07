@@ -4,6 +4,9 @@ kind: lock
 kazakhBrand: false
 comingSoon: false
 price: 350000
+installment:
+  kaspi: true
+  longTerm: false
 image: ../../assets/images/locks/alpha-vp/image.png
 order: 7
 featured: false
@@ -39,6 +42,7 @@ interface:
   - en
 colors:
   - black
+colorPrices: []
 variants: []
 ru:
   description: Режим «толкни-потяни» и PIR-датчик, который будит замок при приближении.
