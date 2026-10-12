@@ -5,6 +5,8 @@ kazakhBrand: false
 comingSoon: false
 price: 248000
 installment:
+  monthly: 23800
+  months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/303-vp/image.png
