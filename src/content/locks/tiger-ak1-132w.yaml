@@ -5,6 +5,7 @@ kazakhBrand: false
 comingSoon: false
 price: 420000
 installment:
+  monthly: 40250
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/tiger-ak1-132w/image.png
