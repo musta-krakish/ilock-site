@@ -5,6 +5,8 @@ kazakhBrand: false
 comingSoon: false
 price: 350000
 installment:
+  monthly: 33540
+  months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/alpha-vp/image.png
