@@ -5,6 +5,7 @@ kazakhBrand: false
 comingSoon: false
 price: 155000
 installment:
+  monthly: 15000
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/v6j/image.png
