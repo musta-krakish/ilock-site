@@ -5,7 +5,7 @@ kazakhBrand: false
 comingSoon: false
 price: 50000
 installment:
-  kaspi: true
+  kaspi: false
   longTerm: false
 image: ../../assets/images/locks/hotel/image.png
 order: 11
