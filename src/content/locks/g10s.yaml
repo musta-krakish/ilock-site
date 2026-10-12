@@ -5,7 +5,7 @@ kazakhBrand: false
 comingSoon: false
 price: 60000
 installment:
-  kaspi: true
+  kaspi: false
   longTerm: false
 image: ../../assets/images/locks/g10s/image.png
 order: 9
