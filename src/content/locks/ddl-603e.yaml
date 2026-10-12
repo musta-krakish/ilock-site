@@ -5,6 +5,8 @@ kazakhBrand: false
 comingSoon: false
 price: 142000
 installment:
+  monthly: 13610
+  months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/ddl-603e/image.png
