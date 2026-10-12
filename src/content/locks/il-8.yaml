@@ -5,6 +5,8 @@ kazakhBrand: true
 comingSoon: false
 price: 190000
 installment:
+  monthly: 18210
+  months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/il-8/image.png
