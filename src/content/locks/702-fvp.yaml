@@ -4,7 +4,10 @@ kind: lock
 kazakhBrand: false
 comingSoon: false
 price: 350000
+priceTo: 9
 installment:
+  monthly: 33540
+  months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/702-fvp/image.png
