@@ -5,6 +5,8 @@ kazakhBrand: false
 comingSoon: false
 price: 390000
 installment:
+  monthly: 37375
+  months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/sbx102/image.png
