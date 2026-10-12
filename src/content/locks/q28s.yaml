@@ -5,6 +5,8 @@ kazakhBrand: false
 comingSoon: false
 price: 135000
 installment:
+  monthly: 13000
+  months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/q28s/image.png
