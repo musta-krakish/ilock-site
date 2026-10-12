@@ -6,6 +6,7 @@ comingSoon: false
 price: 1190000
 priceTo: 2290000
 installment:
+  monthly: 115000
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/sbx701/image.png
