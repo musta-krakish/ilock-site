@@ -1,0 +1,15 @@
+---
+import ErrorPage from '../components/ErrorPage.astro';
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl } from '../i18n';
+
+// Rendered per request so /kk/… and /en/… misses get the page in their own language.
+export const prerender = false;
+
+const lang = getLangFromUrl(Astro.url);
+const title = { ru: 'Страница не найдена', kk: 'Бет табылмады', en: 'Page not found' }[lang];
+---
+
+<Layout lang={lang} title={title} noindex>
+	<ErrorPage code={404} lang={lang} />
+</Layout>

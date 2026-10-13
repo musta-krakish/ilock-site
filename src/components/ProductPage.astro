@@ -141,6 +141,36 @@ const siteUrl = Astro.site ?? Astro.url;
 const abs = (path: string) => new URL(canonicalPath(path), siteUrl).toString();
 const canonical = abs(Astro.url.pathname);
 
+// Store-wide terms for Google merchant listings: delivery across Kazakhstan is free,
+// and an unused item can be returned to a branch within 14 days at no cost.
+const offerTerms = {
+	priceCurrency: 'KZT',
+	availability: lock.comingSoon ? 'https://schema.org/PreOrder' : 'https://schema.org/InStock',
+	itemCondition: 'https://schema.org/NewCondition',
+	seller: { '@type': 'Organization', name: 'iLOCK' },
+	shippingDetails: {
+		'@type': 'OfferShippingDetails',
+		shippingRate: { '@type': 'MonetaryAmount', value: 0, currency: 'KZT' },
+		shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'KZ' },
+	},
+	hasMerchantReturnPolicy: {
+		'@type': 'MerchantReturnPolicy',
+		applicableCountry: 'KZ',
+		returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+		merchantReturnDays: 14,
+		returnMethod: 'https://schema.org/ReturnInStore',
+		returnFees: 'https://schema.org/FreeReturn',
+	},
+};
+
+// Merchant listings accept Offer, not AggregateOffer, so a colour with its own price
+// becomes its own Offer.
+const offerPrices: [number, string | null][] = hasColorPicker
+	? colorOptions
+			.filter((o, i) => colorOptions.findIndex((other) => other.price === o.price) === i)
+			.map((o) => [o.price, o.name])
+	: [[lock.price, null]];
+
 const productLd = {
 	'@context': 'https://schema.org',
 	'@type': 'Product',
@@ -148,25 +178,14 @@ const productLd = {
 	description: lock.seoDescription,
 	image: new URL(lock.image.src, siteUrl).toString(),
 	sku: lock.slug,
-	category: isAccessory ? t.catalog.accessories : t.catalog.title,
 	brand: { '@type': 'Brand', name: brandNames[lock.brand] },
-	offers: {
-		...(hasColorPicker && new Set(colorOptions.map((o) => o.price)).size > 1
-			? {
-					'@type': 'AggregateOffer',
-					lowPrice: Math.min(...colorOptions.map((o) => o.price)),
-					highPrice: Math.max(...colorOptions.map((o) => o.price)),
-					offerCount: colorOptions.length,
-				}
-			: { '@type': 'Offer', price: lock.price }),
+	offers: offerPrices.map(([price, colorName]) => ({
+		'@type': 'Offer',
+		...(offerPrices.length > 1 && colorName ? { name: `${lock.title} — ${colorName}` } : {}),
+		price,
 		url: canonical,
-		priceCurrency: 'KZT',
-		availability: lock.comingSoon
-			? 'https://schema.org/PreOrder'
-			: 'https://schema.org/InStock',
-		itemCondition: 'https://schema.org/NewCondition',
-		seller: { '@type': 'Organization', name: 'iLOCK' },
-	},
+		...offerTerms,
+	})),
 	additionalProperty: additionalProperties,
 };
 

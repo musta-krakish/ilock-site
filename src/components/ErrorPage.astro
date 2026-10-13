@@ -1,0 +1,82 @@
+---
+import { site, whatsappLink } from '../config';
+import { getLocalePath, type Lang, ui } from '../i18n';
+
+interface Props {
+	code: 404 | 500;
+	lang?: Lang;
+}
+
+const { code, lang = 'ru' } = Astro.props;
+const t = ui[lang];
+const homePath = getLocalePath(lang);
+
+const copy: Record<Lang, Record<404 | 500, { title: string; text: string }> & { home: string }> = {
+	ru: {
+		404: {
+			title: 'Страница не найдена',
+			text: 'Возможно, ссылка устарела или в адресе опечатка. Загляните в каталог или напишите нам — подскажем.',
+		},
+		500: {
+			title: 'Что-то пошло не так',
+			text: 'На сервере произошла ошибка. Обновите страницу через минуту или напишите нам в WhatsApp.',
+		},
+		home: 'На главную',
+	},
+	kk: {
+		404: {
+			title: 'Бет табылмады',
+			text: 'Сілтеме ескірген немесе мекенжайда қате болуы мүмкін. Каталогты қараңыз немесе бізге жазыңыз — көмектесеміз.',
+		},
+		500: {
+			title: 'Бірдеңе дұрыс болмады',
+			text: 'Серверде қате орын алды. Бір минуттан кейін бетті жаңартыңыз немесе бізге WhatsApp-қа жазыңыз.',
+		},
+		home: 'Басты бетке',
+	},
+	en: {
+		404: {
+			title: 'Page not found',
+			text: 'The link may be outdated or the address mistyped. Browse the catalogue or message us — we will help.',
+		},
+		500: {
+			title: 'Something went wrong',
+			text: 'The server ran into an error. Refresh the page in a minute or message us on WhatsApp.',
+		},
+		home: 'Home page',
+	},
+};
+
+const c = copy[lang];
+---
+
+<section class="flex min-h-[75vh] items-center bg-main-color px-5 pb-16 pt-32 sm:px-8 lg:px-12">
+	<div class="mx-auto max-w-2xl text-center">
+		<p class="text-7xl font-bold tracking-tight text-accent-color sm:text-8xl">{code}</p>
+		<h1 class="mt-6 text-3xl font-semibold tracking-tight sm:text-4xl">{c[code].title}</h1>
+		<p class="mt-4 text-base leading-7 text-white/60 sm:text-lg">{c[code].text}</p>
+
+		<div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+			<a
+				href={homePath}
+				class="inline-flex h-14 items-center justify-center rounded-full bg-accent-color px-8 font-semibold text-main-color transition hover:bg-accent-soft"
+			>
+				{c.home}
+			</a>
+			<a
+				href={`${homePath}catalog/`}
+				class="inline-flex h-14 items-center justify-center rounded-full border border-line px-8 font-semibold text-white transition hover:border-accent-color/60"
+			>
+				{t.nav.catalog}
+			</a>
+			<a
+				href={whatsappLink(t.contact.whatsappHello)}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex h-14 items-center justify-center rounded-full border border-[#25D366]/50 px-8 font-semibold text-[#25D366] transition hover:bg-[#25D366]/10"
+			>
+				WhatsApp · {site.phones[0].label}
+			</a>
+		</div>
+	</div>
+</section>

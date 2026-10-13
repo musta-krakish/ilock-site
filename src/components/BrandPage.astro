@@ -43,24 +43,12 @@ const itemListLd = {
 	'@type': 'ItemList',
 	name: copy.h1,
 	numberOfItems: locks.length,
+	// Summary list: each entry only points to the product page, which carries the full
+	// Product markup. Repeating Product here (without image) made Google flag every item.
 	itemListElement: locks.map((lock, i) => ({
 		'@type': 'ListItem',
 		position: i + 1,
-		item: {
-			'@type': 'Product',
-			name: `${brandNames[brand]} ${lock.title}`,
-			description: lock.description,
-			brand: { '@type': 'Brand', name: brandNames[brand] },
-			url: abs(`${homePath}catalog/${lock.slug}/`),
-			offers: {
-				'@type': 'Offer',
-				price: lock.price,
-				priceCurrency: 'KZT',
-				availability: lock.comingSoon
-					? 'https://schema.org/PreOrder'
-					: 'https://schema.org/InStock',
-			},
-		},
+		url: abs(`${homePath}catalog/${lock.slug}/`),
 	})),
 };
 

@@ -1,0 +1,13 @@
+---
+import ErrorPage from '../components/ErrorPage.astro';
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl } from '../i18n';
+
+// Astro logs the error with its stack; the visitor gets a friendly page instead.
+const lang = getLangFromUrl(Astro.url);
+const title = { ru: 'Ошибка сервера', kk: 'Сервер қатесі', en: 'Server error' }[lang];
+---
+
+<Layout lang={lang} title={title} noindex>
+	<ErrorPage code={500} lang={lang} />
+</Layout>
