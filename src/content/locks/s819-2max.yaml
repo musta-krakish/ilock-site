@@ -3,9 +3,9 @@ brand: smartlock
 kind: lock
 kazakhBrand: false
 comingSoon: false
-price: 115000
+price: 135000
 installment:
-  monthly: 11020
+  monthly: 12940
   months: 12
   kaspi: true
   longTerm: false
