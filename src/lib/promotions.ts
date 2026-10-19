@@ -1,14 +1,11 @@
 import type { Lang } from '../i18n';
 
-type PromotionCandidate = { brand: string; slug: string; kind?: string };
+type PromotionCandidate = { kind?: string; giftInstallation?: boolean };
 
-/** iLOCK's own models plus the two models included in the current campaign. */
+/** Set per product in Keystatic («Установка в подарок»). */
 export function hasGiftInstallation(lock: PromotionCandidate) {
-	// Gateways, programmers and cards are iLOCK accessories, but installation
-	// is relevant only to locks themselves.
-	if (lock.kind === 'accessory') return false;
-
-	return lock.brand === 'ilock' || lock.slug === 'ezviz-l2s' || lock.slug === 's940-max';
+	// Installation applies to locks and safes, never to accessories.
+	return lock.kind !== 'accessory' && Boolean(lock.giftInstallation);
 }
 
 export const promotionCopy: Record<

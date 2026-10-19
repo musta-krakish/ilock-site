@@ -424,6 +424,11 @@ const lockSchema = {
 		validation: { isRequired: true, min: 0 },
 	}),
 	featured: fields.checkbox({ label: 'Показывать как популярный', defaultValue: false }),
+	giftInstallation: fields.checkbox({
+		label: 'Установка в подарок',
+		description: 'Показывает плашку «Установка в подарок» на карточке и странице товара. Для аксессуаров не отображается.',
+		defaultValue: false,
+	}),
 	material: fields.select({ label: 'Материал', options: options.material, defaultValue: 'aluminum' }),
 	access: compactMultiselect('Способы открытия', options.access, {
 		description: 'Выберите доступные способы разблокировки.',

@@ -138,6 +138,8 @@ const locks = defineCollection({
 			/** Ordering within a brand group; lower is shown first. */
 			order: z.number(),
 			featured: z.boolean().default(false),
+			/** Shows the «Установка в подарок» badge on the card and product page. */
+			giftInstallation: z.boolean().default(false),
 			material,
 			access: z.array(access),
 			/** Enrolment limits, e.g. `{ fingerprint: 100, pin: 20 }`. */
