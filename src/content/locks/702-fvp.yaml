@@ -4,7 +4,7 @@ kind: lock
 kazakhBrand: false
 comingSoon: false
 price: 350000
-priceTo: 9
+priceTo: .nan
 installment:
   monthly: 33540
   months: 12
@@ -13,6 +13,7 @@ installment:
 image: ../../assets/images/locks/702-fvp/image.png
 order: 8
 featured: true
+giftInstallation: false
 material: aluminum
 access:
   - fingerprint
