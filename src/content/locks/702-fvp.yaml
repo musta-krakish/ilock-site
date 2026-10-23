@@ -4,7 +4,6 @@ kind: lock
 kazakhBrand: false
 comingSoon: false
 price: 350000
-priceTo: .nan
 installment:
   monthly: 33540
   months: 12

@@ -94,6 +94,15 @@ const color = z.enum([
 	'white',
 ]);
 
+/**
+ * Keystatic can save a half-typed number as `.nan`. Treat it like an empty field
+ * instead of failing the whole build over one product.
+ */
+const optionalPrice = z.preprocess(
+	(value) => (typeof value === 'number' && !Number.isFinite(value) ? null : value),
+	z.number().nullable().optional(),
+);
+
 const prose = z.object({
 	description: z.string(),
 	body: z.string(),
@@ -121,9 +130,9 @@ const locks = defineCollection({
 			comingSoon: z.boolean().default(false),
 			/** Price in KZT. `priceTo` marks a range (the cabinet lock is sold 15–25k). */
 			price: z.number(),
-			priceTo: z.number().nullable().optional(),
+			priceTo: optionalPrice,
 			/** Previous price in KZT, displayed with a strikethrough during a promotion. */
-			oldPrice: z.number().nullable().optional(),
+			oldPrice: optionalPrice,
 			/** Kaspi monthly payment override (KZT) and term; empty `monthly` means price ÷ months. */
 			installment: z
 				.object({
@@ -184,6 +193,17 @@ const locks = defineCollection({
 			ru: prose,
 			kk: prose,
 			en: prose,
+		})
+		// A typo such as «Цена до: 9» would render "350 000–9 ₸". Drop values that
+		// cannot be right and say so in the build log rather than publishing them.
+		.transform((lock) => {
+			const sane = (field: 'priceTo' | 'oldPrice') => {
+				const value = lock[field];
+				if (value == null || value > lock.price) return value;
+				console.warn(`[locks] ${lock.title}: ignoring ${field}=${value}, it must be above price=${lock.price}`);
+				return null;
+			};
+			return { ...lock, priceTo: sane('priceTo'), oldPrice: sane('oldPrice') };
 		}),
 });
 

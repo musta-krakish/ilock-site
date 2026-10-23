@@ -125,8 +125,12 @@ const productFiles = fs
 const products = productFiles
 	.map((file) => {
 		const data = parseFrontmatter(file);
+		// Same rule as src/content.config.ts: `.nan` or a value not above price is ignored.
+		const above = (value) => (Number.isFinite(value) && value > data.price ? value : null);
 		return {
 			...data,
+			priceTo: above(data.priceTo),
+			oldPrice: above(data.oldPrice),
 			slug: path.basename(file, '.yaml'),
 			imagePath: resolveImage(file, data.image),
 			description: data.ru?.description ?? '',

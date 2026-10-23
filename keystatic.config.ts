@@ -393,8 +393,16 @@ const lockSchema = {
 	kazakhBrand: fields.checkbox({ label: 'Казахстанский бренд', defaultValue: false }),
 	comingSoon: fields.checkbox({ label: 'Скоро в продаже', defaultValue: false }),
 	price: fields.integer({ label: 'Цена от, ₸', validation: { isRequired: true, min: 0 } }),
-	priceTo: fields.number({ label: 'Цена до, ₸', description: 'Оставьте пустым для одной цены.' }),
-	oldPrice: fields.number({ label: 'Старая цена, ₸', description: 'Будет зачёркнута на карточке во время акции.' }),
+	priceTo: fields.integer({
+		label: 'Цена до, ₸',
+		description: 'Только для диапазона цен (больше «Цены от»). Оставьте пустым для одной цены.',
+		validation: { min: 0 },
+	}),
+	oldPrice: fields.integer({
+		label: 'Старая цена, ₸',
+		description: 'Будет зачёркнута на карточке во время акции. Должна быть больше «Цены от».',
+		validation: { min: 0 },
+	}),
 	installment: fields.object(
 		{
 			monthly: fields.integer({
