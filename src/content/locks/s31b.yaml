@@ -12,6 +12,7 @@ installment:
 image: ../../assets/images/locks/s31b/image.png
 order: 8
 featured: false
+giftInstallation: false
 material: steel
 access:
   - fingerprint
@@ -34,7 +35,7 @@ temp:
   max: 60
 power: aa4
 battery: '10'
-app: Tuya Smart
+app: TTLock
 compatibility: {}
 included: {}
 warranty: 1
