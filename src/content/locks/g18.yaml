@@ -37,7 +37,7 @@ battery: '10'
 app: TTLock
 compatibility: {}
 included: {}
-warranty: 1
+warranty: 2
 origin: {}
 interface:
   - ru
