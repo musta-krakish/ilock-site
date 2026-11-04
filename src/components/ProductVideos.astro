@@ -1,0 +1,79 @@
+---
+import { type Lang, ui } from '../i18n';
+import { parseYouTubeUrl } from '../lib/youtube';
+
+interface Props {
+	urls: string[];
+	title: string;
+	lang?: Lang;
+}
+
+const { urls, title, lang = 'ru' } = Astro.props;
+const t = ui[lang];
+
+const videos = urls.flatMap((url) => {
+	const video = parseYouTubeUrl(url);
+	// A bad link must not break the build; it is skipped and reported in the build log.
+	if (!video) console.warn(`[videos] ${title}: not a YouTube video link, skipped: ${url}`);
+	return video ? [video] : [];
+});
+---
+
+{
+	videos.length > 0 && (
+		<div class="mt-14 lg:mt-20">
+			<h2 class="text-2xl font-bold sm:text-3xl">{t.product.videos}</h2>
+			<div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+				{videos.map((video) => (
+					<div
+						class:list={[
+							'relative overflow-hidden rounded-2xl border border-line bg-secondary-color',
+							video.vertical ? 'aspect-[9/16]' : 'col-span-2 aspect-video',
+						]}
+					>
+						{/* Click-to-play: YouTube's player (~1 MB of scripts) loads only when asked for. */}
+						<button
+							type="button"
+							data-youtube-id={video.id}
+							data-youtube-title={title}
+							aria-label={`${t.product.playVideo}: ${title}`}
+							class="group absolute inset-0 h-full w-full"
+						>
+							<img
+								src={`https://i.ytimg.com/vi/${video.id}/${video.vertical ? 'oar2' : 'hqdefault'}.jpg`}
+								onerror={`this.onerror=null;this.src='https://i.ytimg.com/vi/${video.id}/hqdefault.jpg'`}
+								alt=""
+								loading="lazy"
+								decoding="async"
+								class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+							/>
+							<span class="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" aria-hidden="true" />
+							<span
+								class="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent-color text-main-color shadow-lg transition group-hover:scale-110"
+								aria-hidden="true"
+							>
+								<svg viewBox="0 0 24 24" class="ml-1 h-7 w-7 fill-current">
+									<path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.24-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14z" />
+								</svg>
+							</span>
+						</button>
+					</div>
+				))}
+			</div>
+		</div>
+	)
+}
+
+<script>
+	for (const button of document.querySelectorAll<HTMLButtonElement>('[data-youtube-id]')) {
+		button.addEventListener('click', () => {
+			const iframe = document.createElement('iframe');
+			iframe.src = `https://www.youtube-nocookie.com/embed/${button.dataset.youtubeId}?autoplay=1&rel=0&playsinline=1`;
+			iframe.title = button.dataset.youtubeTitle ?? 'YouTube';
+			iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+			iframe.allowFullscreen = true;
+			iframe.className = 'absolute inset-0 h-full w-full';
+			button.replaceWith(iframe);
+		});
+	}
+</script>

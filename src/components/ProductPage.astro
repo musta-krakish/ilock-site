@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import LockCard from './LockCard.astro';
+import ProductVideos from './ProductVideos.astro';
 import { formatPrice, whatsappLink } from '../config';
 import {
 	brandNames,
@@ -422,6 +423,8 @@ const breadcrumbLd = {
 				}
 			</div>
 		</div>
+
+		<ProductVideos urls={lock.videos} title={productName} lang={lang} />
 
 		{
 			lock.variants.length > 0 && (

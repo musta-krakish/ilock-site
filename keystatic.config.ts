@@ -83,6 +83,7 @@ const options = {
 	],
 	power: [
 		{ label: '4 батарейки AA', value: 'aa4' },
+		{ label: '8 батареек AA', value: 'aa8' },
 		{ label: 'Литиевый аккумулятор 4200 мАч', value: 'li-4200' },
 		{ label: 'Литий-полимерный аккумулятор 5000 мАч', value: 'li-5000' },
 		{ label: 'Литий-ионный аккумулятор', value: 'li-ion' },
@@ -524,6 +525,11 @@ const lockSchema = {
 			},
 		},
 	),
+	videos: fields.array(fields.url({ label: 'Ссылка на YouTube' }), {
+		label: 'Видео с YouTube',
+		description: 'Ссылки вида youtube.com/shorts/…, youtube.com/watch?v=… или youtu.be/…. Видео появятся на странице товара.',
+		itemLabel: (props) => props.value || 'Новое видео',
+	}),
 	variants: fields.array(
 		fields.object(
 			{

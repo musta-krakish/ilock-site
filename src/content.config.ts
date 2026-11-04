@@ -77,7 +77,7 @@ const feature = z.enum([
 	'sound-prompts',
 ]);
 
-const power = z.enum(['aa4', 'li-4200', 'li-5000', 'li-ion', 'li']);
+const power = z.enum(['aa4', 'aa8', 'li-4200', 'li-5000', 'li-ion', 'li']);
 
 const color = z.enum([
 	'black',
@@ -178,6 +178,8 @@ const locks = defineCollection({
 					}),
 				)
 				.default([]),
+			/** YouTube links (shorts, watch, youtu.be); shown as click-to-play videos on the product page. */
+			videos: z.array(z.string()).default([]),
 			variants: z
 				.array(
 					z.object({
