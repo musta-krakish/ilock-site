@@ -5,10 +5,10 @@ kazakhBrand: true
 comingSoon: false
 price: 115000
 installment:
-  monthly: 11020
-  months: 12
+  monthly: 5510
+  months: 24
   kaspi: true
-  longTerm: false
+  longTerm: true
 image: ../../assets/images/locks/g18/image.png
 order: 2
 featured: true
