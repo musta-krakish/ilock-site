@@ -12,6 +12,7 @@ installment:
 image: ../../assets/images/locks/s90/image.png
 order: 2
 featured: true
+giftInstallation: false
 material: aluminum
 access:
   - fingerprint
@@ -53,7 +54,7 @@ variants: []
 ru:
   description: >-
     Двусторонняя камера и большой экран: видно и того, кто у двери, и того, кто
-    подошёл изнутри.
+    подошёл изнутри. Встроенный датчик движения и звуковая сигнализация.
   seoTitle: S90 — купить умный замок iLock в Казахстане | iLOCK
   seoDescription: >-
     Двусторонняя камера и большой экран: видно и того, кто у двери, и того, кто
@@ -62,11 +63,14 @@ ru:
     S90 — старшая модель iLock с двусторонней камерой: она снимает и снаружи, и
     со стороны квартиры. Face ID открывает дверь за доли секунды, а экран на
     внешней панели и двусторонняя аудиосвязь превращают замок в полноценный
-    видеодомофон.
+    видеодомофон. Встроенный датчик движения и звуковая сигнализация
+    обеспечивают дополнительную защиту вашего дома. При обнаружении движения
+    замок активирует тревожное оповещение, а уведомление о тревоге поступает
+    прямо в приложение на вашем смартфоне. 
 kk:
   description: >-
     Екіжақты камера және үлкен экран: есік алдындағы адам да, іштен келген адам
-    да көрінеді.
+    да көрінеді. Қозғалыс датчигі және дыбыстық дабыл.
   seoTitle: S90 — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK
   seoDescription: >-
     Екіжақты камера және үлкен экран: есік алдындағы адам да, іштен келген адам
@@ -75,11 +79,14 @@ kk:
     S90 — екіжақты камерасы бар iLock-тың жоғарғы моделі: ол сырттан да, пәтер
     жағынан да түсіреді. Face ID есікті секундтың үлесінде ашады, ал сыртқы
     панельдегі экран мен екіжақты аудиобайланыс құлыпты толыққанды
-    бейнедомофонға айналдырады.
+    бейнедомофонға айналдырады. Кіріктірілген қозғалыс датчигі мен дыбыстық
+    дабыл үйіңіздің қауіпсіздігін қосымша қамтамасыз етеді. Қозғалыс анықталған
+    кезде құлып дабылды іске қосады, ал дабыл туралы хабарлама смартфоныңыздағы
+    қосымшаға тікелей жіберіледі.
 en:
   description: >-
     A dual camera and a large screen: you see who is at the door and who
-    approached from inside.
+    approached from inside. Built-in Motion Sensor and Audible Alarm:
   seoTitle: S90 — buy an iLock smart lock in Kazakhstan | iLOCK
   seoDescription: >-
     A dual camera and a large screen: you see who is at the door and who
@@ -88,4 +95,7 @@ en:
     S90 is the senior iLock model with a dual camera that films both outside and
     from the apartment side. Face ID opens the door in a fraction of a second,
     while the screen on the outer panel and two-way audio turn the lock into a
-    full video intercom.
+    full video intercom. The built-in motion sensor and audible alarm provide an
+    additional layer of security for your home. When motion is detected, the
+    lock triggers an alarm, and a notification is sent directly to the app on
+    your smartphone.

@@ -5,13 +5,14 @@ kazakhBrand: true
 comingSoon: false
 price: 145000
 installment:
-  monthly: 13900
-  months: 12
+  monthly: 7000
+  months: 24
   kaspi: true
-  longTerm: false
+  longTerm: true
 image: ../../assets/images/locks/s940-max/image.png
 order: 6
 featured: false
+giftInstallation: false
 material: aluminum
 access:
   - fingerprint
