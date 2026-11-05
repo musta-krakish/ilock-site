@@ -52,6 +52,8 @@ interface:
 colors:
   - black
 colorPrices: []
+videos:
+  - https://www.youtube.com/shorts/nk123Jpsjxg
 variants: []
 ru:
   description: >-
