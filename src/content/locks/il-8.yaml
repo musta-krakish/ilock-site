@@ -50,6 +50,8 @@ interface:
 colors:
   - black
 colorPrices: []
+videos:
+  - https://www.youtube.com/shorts/4G9q7Mq3glA
 variants: []
 ru:
   description: >-
