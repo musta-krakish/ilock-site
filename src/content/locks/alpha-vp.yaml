@@ -12,6 +12,7 @@ installment:
 image: ../../assets/images/locks/alpha-vp/image.png
 order: 7
 featured: false
+giftInstallation: false
 material: aluminum
 access:
   - fingerprint
@@ -45,6 +46,8 @@ interface:
 colors:
   - black
 colorPrices: []
+videos:
+  - https://www.youtube.com/shorts/SpymFyAZzgE
 variants: []
 ru:
   description: Режим «толкни-потяни» и PIR-датчик, который будит замок при приближении.
