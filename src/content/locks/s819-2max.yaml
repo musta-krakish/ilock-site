@@ -34,7 +34,7 @@ features:
 temp:
   min: -20
   max: 60
-power: aa4
+power: aa8
 battery: '10'
 app: Tuya Smart
 compatibility: {}
@@ -47,6 +47,7 @@ interface:
 colors:
   - black
 colorPrices: []
+videos: []
 variants: []
 ru:
   description: >-
