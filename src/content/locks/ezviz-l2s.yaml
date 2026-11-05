@@ -13,6 +13,7 @@ installment:
 image: ../../assets/images/locks/ezviz-l2s/image.png
 order: 1
 featured: true
+giftInstallation: false
 material: aluminum
 access:
   - fingerprint
@@ -46,6 +47,8 @@ interface: []
 colors:
   - black
 colorPrices: []
+videos:
+  - https://www.youtube.com/shorts/YoF70qpnIFY
 variants: []
 ru:
   description: >-
