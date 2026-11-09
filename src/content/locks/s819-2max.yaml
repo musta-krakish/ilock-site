@@ -5,10 +5,10 @@ kazakhBrand: false
 comingSoon: false
 price: 135000
 installment:
-  monthly: 6229
-  months: 24
+  monthly: 13000
+  months: 12
   kaspi: true
-  longTerm: true
+  longTerm: false
 image: ../../assets/images/locks/s819-2max/image.png
 order: 3
 featured: false
