@@ -11,6 +11,7 @@ installment:
 image: ../../assets/images/locks/v81/image.png
 order: 3
 featured: true
+giftInstallation: false
 material: aluminum
 access:
   - face
@@ -49,48 +50,89 @@ interface:
 colors:
   - black
 colorPrices: []
+videos: []
 variants: []
 ru:
   description: >-
-    iLock v81 с Face ID, венами ладони, видеокамерой с дисплеем и автоматическим
-    механизмом.
+    iLock V81 — умный замок с Face ID, распознаванием вен ладони и датчиком
+    движения для удобного и безопасного доступа в ваш дом.
   seoTitle: v81 — купить умный замок iLock в Казахстане | iLOCK
   seoDescription: >-
-    iLock v81: Face ID, вены ладони, отпечаток, NFC-карта, пин-код, видеокамера
-    с дисплеем и Wi-Fi.
+    iLock V81 — умный замок с Face ID, распознаванием вен ладони и датчиком
+    движения для удобного и безопасного доступа в ваш дом.
   body: >-
-    v81 — автоматический замок iLock для дверей толщиной 40–120 мм. Панель
-    410×65 мм открывается по Face ID, венам ладони, отпечатку, NFC-карте,
-    пин-коду, механическому ключу и через телефон. Встроенная камера с дисплеем,
-    датчик движения, датчик закрытия двери, ночной часовой и Wi-Fi помогают
-    контролировать вход, а резервное питание Type-C выручает при разряженном
-    аккумуляторе.
+    iLock V81 — умный замок с Face ID, распознаванием вен ладони и датчиком
+    движения для удобного и безопасного доступа в ваш дом.
+
+
+    Модель поддерживает несколько способов открытия: по лицу, венам ладони,
+    отпечатку пальца, PIN-коду, карте или брелоку и механическому ключу.
+
+
+    Встроенный видеоглазок позволяет видеть, кто находится перед дверью, а
+    двусторонняя аудиосвязь — разговаривать с посетителями.
+
+
+    Благодаря Wi-Fi подключению вы можете управлять замком через приложение Tuya
+    Smart. Датчик движения PIR помогает обнаруживать движение перед дверью.
+
+
+    Замок оснащён аккумулятором ёмкостью 4200 мАч, которого хватает до 4–6
+    месяцев работы без подзарядки. Также предусмотрен полностью автоматический
+    механизм запирания.
 kk:
   description: >-
-    iLock v81: Face ID, алақан тамыры, дисплейі бар бейнекамера және автоматты
-    механизм.
+    iLock V81 — Face ID, алақан тамырларын тану және қозғалыс датчигі бар,
+    үйіңізге қауіпсіз әрі ыңғайлы қол жеткізуді қамтамасыз ететін ақылды құлып.
   seoTitle: v81 — Қазақстанда iLock ақылды құлыпты сатып алу | iLOCK
   seoDescription: >-
-    iLock v81: Face ID, алақан тамыры, саусақ ізі, NFC карта, пин-код, дисплейі
-    бар бейнекамера және Wi-Fi.
+    iLock V81 — Face ID, алақан тамырларын тану және қозғалыс датчигі бар,
+    үйіңізге қауіпсіз әрі ыңғайлы қол жеткізуді қамтамасыз ететін ақылды құлып.
   body: >-
-    v81 — қалыңдығы 40–120 мм есіктерге арналған автоматты iLock құлпы. 410×65
-    мм панель Face ID, алақан тамыры, саусақ ізі, NFC карта, пин-код,
-    механикалық кілт және телефон арқылы ашылады. Дисплейі бар кірістірілген
-    камера, қозғалыс датчигі, есіктің жабылу датчигі, түнгі қарауыл және Wi-Fi
-    кіреберісті бақылауға көмектеседі, ал Type-C резервтік қуаты аккумулятор
-    отырып қалғанда құлыпты қосуға мүмкіндік береді.
+    iLock V81 — Face ID, алақан тамырларын тану және қозғалыс датчигі бар,
+    үйіңізге қауіпсіз әрі ыңғайлы қол жеткізуді қамтамасыз ететін ақылды құлып.
+
+
+    Модель есікті ашудың бірнеше әдісін қолдайды: бет-әлпетті тану, алақан
+    тамырларын тану, саусақ ізі, PIN-код, карта немесе брелок және механикалық
+    кілт арқылы.
+
+
+    Кіріктірілген бейнекөзше есіктің алдында кім тұрғанын көруге мүмкіндік
+    береді, ал екіжақты аудиобайланыс арқылы келушілермен сөйлесе аласыз.
+
+
+    Wi-Fi қосылымының арқасында құлыпты Tuya Smart қосымшасы арқылы басқаруға
+    болады. PIR қозғалыс датчигі есіктің алдындағы қозғалысты анықтайды.
+
+
+    4200 мАч сыйымдылығы бар аккумулятор 4–6 айға дейін қуаттаусыз жұмыс
+    істейді. Сондай-ақ толық автоматты құлыптау механизмі қарастырылған.
 en:
   description: >-
-    iLock v81 with Face ID, palm-vein access, a video camera with display and an
-    automatic mechanism.
+    iLock V81 is a smart lock featuring Face ID, palm vein recognition and a
+    motion sensor for convenient and secure access to your home.
   seoTitle: v81 — buy an iLock smart lock in Kazakhstan | iLOCK
   seoDescription: >-
-    iLock v81: Face ID, palm vein, fingerprint, NFC card, PIN code, video camera
-    with display and Wi-Fi.
+    iLock V81 is a smart lock featuring Face ID, palm vein recognition and a
+    motion sensor for convenient and secure access to your home.
   body: >-
-    v81 is an automatic iLock for doors 40–120 mm thick. The 410×65 mm panel
-    opens by Face ID, palm vein, fingerprint, NFC card, PIN code, mechanical key
-    and phone. A built-in camera with display, motion sensor, door closing
-    sensor, night watch mode and Wi-Fi help monitor the entrance, while Type-C
-    emergency power gets the lock running if the battery is flat.
+    iLock V81 is a smart lock featuring Face ID, palm vein recognition and a
+    motion sensor for convenient and secure access to your home.
+
+
+    The model supports multiple unlocking methods: facial recognition, palm vein
+    recognition, fingerprint, PIN code, card or key fob, and mechanical key.
+
+
+    The built-in video door viewer lets you see who is standing outside your
+    door, while two-way audio communication allows you to speak with visitors.
+
+
+    With Wi-Fi connectivity, you can control the lock through the Tuya Smart
+    app. The PIR motion sensor detects movement in front of your door.
+
+
+    The 4200 mAh rechargeable battery provides up to 4–6 months of operation
+    without recharging. The lock also features a fully automatic locking
+    mechanism.
