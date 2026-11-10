@@ -82,15 +82,20 @@ kk:
     EZVIZ L2S CS-L2S-11FCP-A0 ақылды құлпы: саусақ ізі, карта, пин-код,
     механикалық кілт, Zigbee 3.0 және AA батареясымен 12 айға дейін жұмыс.
   body: >-
-    EZVIZ L2S — үйге, пәтерге, кабинетке, кеңсеге немесе дүкенге арналған
-    биометриялық қолжетімділікті электромеханикалық құлып. Саусақ ізімен,
-    жанаспайтын картамен, парольмен немесе механикалық кілтпен ашылады. Жадына
-    50 саусақ ізін, 50 картаны және 50 парольді қосуға болады. Құлып Zigbee 3.0
-    арқылы қосылады және EZVIZ қолданбасымен жұмыс істейді. Жартылай өткізгіш
-    саусақ ізі сенсоры тұтқаға орнатылған. Алюминий қорытпасынан жасалған корпус
-    40–110 мм есіктерге арналған; панель өлшемі — 307 × 74 × 32 мм. Төрт AA
-    батареясы күніне 10 рет ашқанда 12 айға дейін жетеді, ал MicroUSB
-    пауэрбанктан авариялық қуат беруге мүмкіндік береді.
+    EZVIZ L2S — саусақ ізі арқылы ашылатын және мобильді қосымша арқылы
+    басқарылатын ақылды құлып.
+
+
+    Модель есікті ашудың бес әдісін қолдайды: саусақ ізі, PIN-код, карта немесе
+    брелок, EZVIZ мобильді қосымшасы және механикалық кілт арқылы.
+
+
+    Құлып Wi-Fi қосылымымен, бұзу әрекеті кезіндегі дабыл жүйесімен және батарея
+    зарядының төмендігі туралы хабарламамен жабдықталған. Төрт AA батареясымен
+    жұмыс істейді және 10 айға дейін қуаттаусыз қызмет етеді.
+
+
+    Сондай-ақ апаттық қуаттау функциясы қарастырылған.
 en:
   description: >-
     EZVIZ L2S with fingerprint, card, PIN and key access for a house, apartment
@@ -100,11 +105,16 @@ en:
     EZVIZ L2S CS-L2S-11FCP-A0 smart lock: fingerprint, card, PIN, mechanical
     key, Zigbee 3.0 and up to 12 months on AA batteries.
   body: >-
-    EZVIZ L2S is an electromechanical lock with biometric access control for a
-    house, apartment, study, office or shop. It unlocks with a fingerprint,
-    proximity card, password or mechanical key. Memory holds up to 50
-    fingerprints, 50 cards and 50 passwords. The lock connects over Zigbee 3.0
-    and works with the EZVIZ app. Its semiconductor fingerprint sensor is built
-    into the handle. The aluminium-alloy body fits 40–110 mm doors; the panel
-    measures 307 × 74 × 32 mm. Four AA batteries last up to 12 months at 10
-    openings a day, while MicroUSB allows emergency power from a power bank.
+    EZVIZ L2S is a smart lock with fingerprint access and mobile app control.
+
+
+    The model supports five unlocking methods: fingerprint, PIN code, card or
+    key fob, the EZVIZ mobile app, and a mechanical key.
+
+
+    The lock features Wi-Fi connectivity, a break-in alarm and a low battery
+    notification. It operates on four AA batteries, providing up to 10 months of
+    battery life.
+
+
+    An emergency charging function is also available.
