@@ -1,5 +1,5 @@
 title: S940 Max
-brand: ilock
+brand: smartlock
 kind: lock
 kazakhBrand: true
 comingSoon: false
@@ -13,6 +13,7 @@ image: ../../assets/images/locks/s940-max/image.png
 order: 6
 featured: false
 giftInstallation: false
+construction: unknown
 material: aluminum
 access:
   - fingerprint
@@ -54,6 +55,7 @@ colors:
 colorPrices: []
 videos:
   - https://www.youtube.com/shorts/nk123Jpsjxg
+reviews: []
 variants: []
 ru:
   description: >-
