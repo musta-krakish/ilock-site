@@ -338,10 +338,11 @@ const breadcrumbLd = {
 					<div class="mt-3 grid gap-3">
 						{
 							catalogTagGroups.map((group) => (
-								<div class="sm:flex sm:items-start sm:gap-3">
+								<div class="min-w-0 sm:flex sm:items-start sm:gap-3">
 									<p class="tag-group-label">{group.label[lang]}</p>
-									{/* One swipeable row per group on phones; wrapping rows from sm. */}
-									<div class="mobile-snap -mx-4 mt-1.5 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:mt-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+									{/* One swipeable row per group on phones; wrapping rows from sm. `min-w-0` keeps the
+									    grid track from growing to the row's full width, which made phones zoom the page out. */}
+									<div class="mobile-snap -mx-4 mt-1.5 flex min-w-0 gap-2 overflow-x-auto px-4 sm:mx-0 sm:mt-0 sm:flex-1 sm:flex-wrap sm:overflow-visible sm:px-0">
 										{group.tags.map((tag) => (
 											<button
 												type="button"
