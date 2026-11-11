@@ -1,0 +1,72 @@
+---
+import { type Lang, type LocalizedLock, ui } from '../i18n';
+
+interface Props {
+	reviews: LocalizedLock['reviews'];
+	lang?: Lang;
+}
+
+const { reviews, lang = 'ru' } = Astro.props;
+const t = ui[lang];
+
+// Newest first; undated reviews keep the order they were entered in, after the dated ones.
+const sorted = [...reviews].sort((a, b) => (b.date?.getTime() ?? 0) - (a.date?.getTime() ?? 0));
+const average = reviews.reduce((sum, r) => sum + r.rating, 0) / (reviews.length || 1);
+const averageText = average.toLocaleString(lang === 'en' ? 'en-US' : 'ru-RU', {
+	minimumFractionDigits: 1,
+	maximumFractionDigits: 1,
+});
+const dateFormat = new Intl.DateTimeFormat(lang === 'kk' ? 'kk-KZ' : lang === 'en' ? 'en-GB' : 'ru-RU', {
+	day: 'numeric',
+	month: 'long',
+	year: 'numeric',
+});
+---
+
+{
+	reviews.length > 0 && (
+		<div class="mt-16 sm:mt-24" id="reviews">
+			<div class="flex flex-wrap items-end justify-between gap-4">
+				<h2 class="text-2xl font-bold sm:text-3xl">{t.product.reviews}</h2>
+				<p class="flex items-center gap-2 text-sm text-white/55">
+					{/* Five dim stars with a gold layer cut to the average, so 4.5 shows four and a half. */}
+					<span class="relative inline-block text-lg leading-none tracking-wider" aria-hidden="true">
+						<span class="text-white/20">★★★★★</span>
+						<span
+							class="absolute inset-y-0 left-0 overflow-hidden whitespace-nowrap text-accent-color"
+							style={`width: ${(average / 5) * 100}%`}
+						>
+							★★★★★
+						</span>
+					</span>
+					<span class="font-semibold text-white">{t.product.ratingOutOf(averageText)}</span>
+					<span>· {t.product.reviewsCount(reviews.length)}</span>
+				</p>
+			</div>
+
+			<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{sorted.map((review) => (
+					<li class="flex flex-col rounded-2xl border border-line bg-secondary-color p-6">
+						<p class="text-base tracking-wider text-accent-color">
+							<span class="sr-only">{t.product.ratingOutOf(String(review.rating))}</span>
+							<span aria-hidden="true">
+								{'★'.repeat(review.rating)}
+								<span class="text-white/20">{'★'.repeat(5 - review.rating)}</span>
+							</span>
+						</p>
+						<p class="mt-4 flex-1 whitespace-pre-line text-sm leading-6 text-white/75">{review.text}</p>
+						<p class="mt-5 border-t border-line pt-4 text-sm">
+							<span class="font-semibold text-white">{review.name}</span>
+							{review.city && <span class="text-white/45"> · {review.city}</span>}
+							{review.date && (
+								<time class="mt-0.5 block text-xs text-white/35" datetime={review.date.toISOString().slice(0, 10)}>
+									{dateFormat.format(review.date)}
+								</time>
+							)}
+						</p>
+					</li>
+				))}
+			</ul>
+		</div>
+	)
+}

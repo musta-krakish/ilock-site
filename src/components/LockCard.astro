@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { formatPrice } from '../config';
 import { brandNames, getLocalePath, type Lang, type LocalizedLock, ui } from '../i18n';
+import { lockTagValues } from '../lib/catalog-tags';
 import { lockFilterValues } from '../lib/lock-filters';
 import { hasGiftInstallation, promotionCopy } from '../lib/promotions';
 
@@ -30,6 +31,7 @@ const hasDearerColor = lock.colorPrices.some((p) => p.price > lock.price && lock
 	data-brand={lock.brand}
 	data-kind={lock.kind}
 	data-filter-values={cardFilterValues.join(' ')}
+	data-tag-values={lockTagValues(lock).join(' ')}
 	data-price={lock.price}
 	data-title={lock.title.toLowerCase()}
 	data-search-name={`${brandNames[lock.brand]} ${lock.title}`.toLowerCase()}

@@ -31,3 +31,12 @@ export function parseYouTubeUrl(url: string): YouTubeVideo | null {
 					: '';
 	return ID.test(id) ? { id, vertical: first === 'shorts' } : null;
 }
+
+/** Parses a product's video links; a bad link is skipped and reported in the build log. */
+export function parseVideoList(urls: string[], title: string): YouTubeVideo[] {
+	return urls.flatMap((url) => {
+		const video = parseYouTubeUrl(url);
+		if (!video) console.warn(`[videos] ${title}: not a YouTube video link, skipped: ${url}`);
+		return video ? [video] : [];
+	});
+}

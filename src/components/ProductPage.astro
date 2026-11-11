@@ -2,7 +2,9 @@
 import { Image } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import LockCard from './LockCard.astro';
+import ProductReviews from './ProductReviews.astro';
 import ProductVideos from './ProductVideos.astro';
+import VideoFacade from './VideoFacade.astro';
 import { formatPrice, whatsappLink } from '../config';
 import {
 	brandNames,
@@ -14,6 +16,7 @@ import {
 	ui,
 } from '../i18n';
 import { hasGiftInstallation, promotionCopy } from '../lib/promotions';
+import { parseVideoList } from '../lib/youtube';
 
 interface Props {
 	lock: CollectionEntry<'locks'>;
@@ -45,6 +48,7 @@ const monthlyFor = (price: number) =>
 		: Math.round(price / kaspiMonths / 100) * 100;
 
 const productName = t.product.h1(brandNames[lock.brand], lock.title, lock.kind);
+const videos = parseVideoList(lock.videos, productName);
 
 // A colour without a `colorPrices` entry costs the base price and shows the base photo.
 // The promotional old price belongs to the base price, so it is hidden for dearer colours.
@@ -188,6 +192,25 @@ const productLd = {
 		...offerTerms,
 	})),
 	additionalProperty: additionalProperties,
+	// Reviews are visible on the page, so Google may show the average as stars in results.
+	...(lock.reviews.length > 0
+		? {
+				aggregateRating: {
+					'@type': 'AggregateRating',
+					ratingValue: Number((lock.reviews.reduce((sum, r) => sum + r.rating, 0) / lock.reviews.length).toFixed(1)),
+					reviewCount: lock.reviews.length,
+					bestRating: 5,
+					worstRating: 1,
+				},
+				review: lock.reviews.map((r) => ({
+					'@type': 'Review',
+					author: { '@type': 'Person', name: r.name },
+					reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+					reviewBody: r.text,
+					...(r.date ? { datePublished: r.date.toISOString().slice(0, 10) } : {}),
+				})),
+			}
+		: {}),
 };
 
 const breadcrumbLd = {
@@ -224,48 +247,96 @@ const breadcrumbLd = {
 		</nav>
 
 		<div class="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-12">
-			<div class="relative overflow-hidden rounded-3xl border border-line bg-linear-to-b from-[#d2d2d2] to-[#bdbdbd]">
-				{
-					colorImages.map((image) => {
-						const isSelected = image.src === selected.image.src;
-						return (
-							<Image
-								src={image}
-								alt={t.product.imgAlt(brandNames[lock.brand], lock.title, lock.kind)}
-								width={900}
-								class:list={['aspect-square w-full object-contain p-8 sm:p-12', !isSelected && 'hidden']}
-								loading={isSelected ? 'eager' : 'lazy'}
-								fetchpriority={isSelected ? 'high' : undefined}
-								data-color-image={image.src}
-							/>
-						);
-					})
-				}
+			{/* On phones the photo and the product videos form a swipeable gallery with arrows;
+			    from lg the gallery is just the photo and videos get their own section below. */}
+			<div class="relative min-w-0">
+				<div
+					data-gallery
+					class="mobile-snap flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain lg:block lg:overflow-visible"
+				>
+					<div class="relative w-full shrink-0 snap-center overflow-hidden rounded-3xl border border-line bg-linear-to-b from-[#d2d2d2] to-[#bdbdbd]">
+						{
+							colorImages.map((image) => {
+								const isSelected = image.src === selected.image.src;
+								return (
+									<Image
+										src={image}
+										alt={t.product.imgAlt(brandNames[lock.brand], lock.title, lock.kind)}
+										width={900}
+										class:list={['aspect-square w-full object-contain p-8 sm:p-12', !isSelected && 'hidden']}
+										loading={isSelected ? 'eager' : 'lazy'}
+										fetchpriority={isSelected ? 'high' : undefined}
+										data-color-image={image.src}
+									/>
+								);
+							})
+						}
 
-				<div class="absolute left-4 top-4 flex flex-col items-start gap-2">
+						<div class="absolute left-4 top-4 flex flex-col items-start gap-2">
+							{
+								hasInstallationGift && (
+									<span class="inline-flex items-center gap-1.5 rounded-full border border-amber-100/60 bg-linear-to-r from-fuchsia-600 via-violet-600 to-amber-500 px-3 py-1 text-[11px] font-bold tracking-wide text-white shadow-[0_0_28px_rgba(217,70,239,0.8)]">
+										<span aria-hidden="true">✦</span>
+										{promo.giftInstallation}
+									</span>
+								)
+							}
+							{
+								lock.featured && !lock.comingSoon && (
+									<span class="rounded-full bg-accent-color px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-main-color">
+										{t.catalog.featured}
+									</span>
+								)
+							}
+							{
+								lock.kazakhBrand && (
+									<span class="rounded-full border border-white/20 bg-main-color/80 px-3 py-1 text-[11px] font-medium text-white/75">
+										{t.catalog.kazakhBrand}
+									</span>
+								)
+							}
+						</div>
+					</div>
+
 					{
-						hasInstallationGift && (
-							<span class="inline-flex items-center gap-1.5 rounded-full border border-amber-100/60 bg-linear-to-r from-fuchsia-600 via-violet-600 to-amber-500 px-3 py-1 text-[11px] font-bold tracking-wide text-white shadow-[0_0_28px_rgba(217,70,239,0.8)]">
-								<span aria-hidden="true">✦</span>
-								{promo.giftInstallation}
-							</span>
-						)
-					}
-					{
-						lock.featured && !lock.comingSoon && (
-							<span class="rounded-full bg-accent-color px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-main-color">
-								{t.catalog.featured}
-							</span>
-						)
-					}
-					{
-						lock.kazakhBrand && (
-							<span class="rounded-full border border-white/20 bg-main-color/80 px-3 py-1 text-[11px] font-medium text-white/75">
-								{t.catalog.kazakhBrand}
-							</span>
-						)
+						videos.map((video) => (
+							<div class="relative aspect-square w-full shrink-0 snap-center overflow-hidden rounded-3xl border border-line bg-black lg:hidden">
+								<div class="relative mx-auto h-full" style={`aspect-ratio: ${video.vertical ? '9 / 16' : '16 / 9'}; max-width: 100%;`}>
+									<VideoFacade video={video} title={productName} label={t.product.playVideo} />
+								</div>
+							</div>
+						))
 					}
 				</div>
+
+				{
+					videos.length > 0 && (
+						<>
+							<button
+								type="button"
+								data-gallery-prev
+								hidden
+								aria-label={t.product.galleryPrev}
+								class="gallery-arrow left-3 lg:hidden"
+							>
+								←
+							</button>
+							<button
+								type="button"
+								data-gallery-next
+								aria-label={t.product.galleryNext}
+								class="gallery-arrow right-3 lg:hidden"
+							>
+								→
+							</button>
+							<div class="mt-3 flex justify-center gap-1.5 lg:hidden" aria-hidden="true">
+								{[0, ...videos].map((_, i) => (
+									<span data-gallery-dot={i} class:list={['h-1.5 rounded-full transition-all', i === 0 ? 'w-5 bg-accent-color' : 'w-1.5 bg-white/25']} />
+								))}
+							</div>
+						</>
+					)
+				}
 			</div>
 
 			<div>
@@ -424,7 +495,7 @@ const breadcrumbLd = {
 			</div>
 		</div>
 
-		<ProductVideos urls={lock.videos} title={productName} lang={lang} />
+		<ProductVideos videos={videos} title={productName} lang={lang} />
 
 		{
 			lock.variants.length > 0 && (
@@ -492,6 +563,8 @@ const breadcrumbLd = {
 			</div>
 		</div>
 
+		<ProductReviews reviews={lock.reviews} lang={lang} />
+
 		{
 			related.length > 0 && (
 				<div class="mt-16 sm:mt-24">
@@ -544,6 +617,76 @@ const breadcrumbLd = {
 			for (const img of document.querySelectorAll<HTMLImageElement>('[data-color-image]')) {
 				img.classList.toggle('hidden', img.dataset.colorImage !== d.image);
 			}
+			// Bring the photo back into view so the colour change is visible on phones.
+			gallery?.scrollTo({ left: 0, behavior: 'smooth' });
 		});
 	}
+
+	// Phone gallery: photo first, then videos; arrows and dots follow the swipe position.
+	const gallery = document.querySelector<HTMLElement>('[data-gallery]');
+	const prevArrow = document.querySelector<HTMLButtonElement>('[data-gallery-prev]');
+	const nextArrow = document.querySelector<HTMLButtonElement>('[data-gallery-next]');
+	const dots = [...document.querySelectorAll<HTMLElement>('[data-gallery-dot]')];
+
+	if (gallery && nextArrow) {
+		const slides = [...gallery.children] as HTMLElement[];
+		const current = () => {
+			const left = gallery.scrollLeft;
+			return slides.reduce(
+				(best, slide, i) =>
+					Math.abs(slide.offsetLeft - left) < Math.abs(slides[best].offsetLeft - left) ? i : best,
+				0,
+			);
+		};
+		const go = (index: number) => {
+			const slide = slides[Math.max(0, Math.min(slides.length - 1, index))];
+			gallery.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });
+		};
+		const update = () => {
+			const index = current();
+			if (prevArrow) prevArrow.hidden = index === 0;
+			nextArrow.hidden = index === slides.length - 1;
+			dots.forEach((dot, i) => {
+				dot.classList.toggle('w-5', i === index);
+				dot.classList.toggle('bg-accent-color', i === index);
+				dot.classList.toggle('w-1.5', i !== index);
+				dot.classList.toggle('bg-white/25', i !== index);
+			});
+		};
+		prevArrow?.addEventListener('click', () => go(current() - 1));
+		nextArrow.addEventListener('click', () => go(current() + 1));
+		gallery.addEventListener('scroll', update, { passive: true });
+		update();
+	}
 </script>
+
+<style>
+	.gallery-arrow {
+		position: absolute;
+		top: calc(50% - 0.6rem);
+		z-index: 10;
+		display: flex;
+		height: 2.75rem;
+		width: 2.75rem;
+		transform: translateY(-50%);
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		border: 1px solid rgba(255, 255, 255, 0.25);
+		background: rgba(13, 13, 13, 0.72);
+		font-size: 1.25rem;
+		color: #fff;
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		transition: background 0.2s;
+	}
+
+	.gallery-arrow:hover {
+		background: var(--color-accent-color);
+		color: var(--color-main-color);
+	}
+
+	.gallery-arrow[hidden] {
+		display: none;
+	}
+</style>

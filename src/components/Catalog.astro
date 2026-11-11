@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import LockCard from './LockCard.astro';
+import { catalogTagCopy, catalogTagGroups } from '../lib/catalog-tags';
 import { lockFilterValues } from '../lib/lock-filters';
 import {
 	brandNames,
@@ -21,6 +22,7 @@ const { lang = 'ru' } = Astro.props;
 const t = ui[lang];
 const f = t.catalogFilters;
 const homePath = getLocalePath(lang);
+const tagCopy = catalogTagCopy[lang];
 
 const locks = sortLocks((await getCollection('locks')).map((lock) => localizeLock(lock, lang)));
 
@@ -326,6 +328,39 @@ const breadcrumbLd = {
 					</label>
 				</div>
 
+				<section data-tags aria-label={tagCopy.title} class="mt-5 rounded-2xl border border-line bg-secondary-color/60 p-4 sm:p-5">
+					<div class="flex items-center justify-between gap-3">
+						<h2 class="text-sm font-semibold text-white">{tagCopy.title}</h2>
+						<button type="button" data-tags-reset hidden class="tag-reset">
+							{tagCopy.reset} <span aria-hidden="true">✕</span>
+						</button>
+					</div>
+					<div class="mt-3 grid gap-3">
+						{
+							catalogTagGroups.map((group) => (
+								<div class="sm:flex sm:items-start sm:gap-3">
+									<p class="tag-group-label">{group.label[lang]}</p>
+									{/* One swipeable row per group on phones; wrapping rows from sm. */}
+									<div class="mobile-snap -mx-4 mt-1.5 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:mt-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+										{group.tags.map((tag) => (
+											<button
+												type="button"
+												class="catalog-tag"
+												aria-pressed="false"
+												data-tag={tag.id}
+												data-tag-group={group.id}
+												data-tag-match={group.match}
+											>
+												{tag.label[lang]}
+											</button>
+										))}
+									</div>
+								</div>
+							))
+						}
+					</div>
+				</section>
+
 				<div data-chips class="mt-4 hidden flex-wrap items-center gap-2"></div>
 
 				<template data-chip-template
@@ -393,6 +428,9 @@ const breadcrumbLd = {
 	const foundLabel = document.querySelector<HTMLElement>('[data-found]');
 	const filterCount = document.querySelector<HTMLElement>('[data-filter-count]');
 	const empty = document.querySelector<HTMLElement>('[data-empty]');
+	const tagBar = document.querySelector<HTMLElement>('[data-tags]');
+	const tagButtons = document.querySelectorAll<HTMLButtonElement>('[data-tag]');
+	const tagsReset = document.querySelector<HTMLButtonElement>('[data-tags-reset]');
 
 	const items = Array.from(document.querySelectorAll<HTMLElement>('[data-lock-grid] .lock-card')).map(
 		(el, index) => ({
@@ -404,6 +442,7 @@ const breadcrumbLd = {
 			title: el.dataset.title ?? '',
 			search: el.dataset.searchName ?? '',
 			values: new Set((el.dataset.filterValues ?? '').split(' ').filter(Boolean)),
+			tags: new Set((el.dataset.tagValues ?? '').split(' ').filter(Boolean)),
 		}),
 	);
 
@@ -415,6 +454,21 @@ const breadcrumbLd = {
 		min: null as number | null,
 		max: null as number | null,
 		sort: 'default',
+		tags: new Set<string>(),
+	};
+
+	/** Selected tags by group: budget and design match any selected tag, features need all of them. */
+	const tagGroups = () => {
+		const map = new Map<string, { match: string; tags: string[] }>();
+		if (state.kind !== 'lock') return map;
+		tagButtons.forEach((button) => {
+			const { tag = '', tagGroup = '', tagMatch = 'all' } = button.dataset;
+			if (!state.tags.has(tag)) return;
+			const entry = map.get(tagGroup) ?? { match: tagMatch, tags: [] };
+			entry.tags.push(tag);
+			map.set(tagGroup, entry);
+		});
+		return map;
 	};
 
 	const desktop = window.matchMedia('(min-width: 1024px)');
@@ -436,7 +490,7 @@ const breadcrumbLd = {
 	};
 
 	type Item = (typeof items)[number];
-	type Skip = { brand?: boolean; group?: string };
+	type Skip = { brand?: boolean; group?: string; tagGroup?: string };
 
 	const matches = (item: Item, active: Map<string, string[]>, skip: Skip = {}) => {
 		if (item.kind !== state.kind) return false;
@@ -447,6 +501,11 @@ const breadcrumbLd = {
 		for (const [group, values] of active) {
 			if (group === skip.group) continue;
 			if (!values.some((value) => item.values.has(value))) return false;
+		}
+		for (const [group, { match, tags }] of tagGroups()) {
+			if (group === skip.tagGroup) continue;
+			const ok = match === 'any' ? tags.some((tag) => item.tags.has(tag)) : tags.every((tag) => item.tags.has(tag));
+			if (!ok) return false;
 		}
 		return true;
 	};
@@ -504,6 +563,18 @@ const breadcrumbLd = {
 		});
 
 		if (specGroups) specGroups.hidden = state.kind !== 'lock';
+		if (tagBar) tagBar.hidden = state.kind !== 'lock';
+
+		tagButtons.forEach((button) => {
+			const { tag = '', tagGroup = '', tagMatch } = button.dataset;
+			const pressed = state.tags.has(tag);
+			button.setAttribute('aria-pressed', String(pressed));
+			// Dim a tag that would leave nothing to show; it stays clickable.
+			const skip = tagMatch === 'any' ? { tagGroup } : {};
+			const count = items.filter((item) => matches(item, active, skip) && item.tags.has(tag)).length;
+			button.classList.toggle('is-muted', count === 0 && !pressed);
+		});
+		if (tagsReset) tagsReset.hidden = state.tags.size === 0;
 
 		const bounds = cfg.priceBounds?.[state.kind];
 		if (priceMin) priceMin.placeholder = bounds ? numberFormat.format(bounds.min) : '';
@@ -565,7 +636,7 @@ const breadcrumbLd = {
 			filterCount.hidden = chipList.length === 0;
 		}
 		resetButtons.forEach((button) => {
-			button.disabled = chipList.length === 0;
+			button.disabled = chipList.length === 0 && state.tags.size === 0;
 		});
 
 		if (foundLabel) foundLabel.textContent = `${cfg.found}: ${plural(shown)}`;
@@ -594,8 +665,23 @@ const breadcrumbLd = {
 		state.query = '';
 		state.min = null;
 		state.max = null;
+		state.tags.clear();
 		render();
 	};
+
+	tagButtons.forEach((button) =>
+		button.addEventListener('click', () => {
+			const tag = button.dataset.tag ?? '';
+			if (state.tags.has(tag)) state.tags.delete(tag);
+			else state.tags.add(tag);
+			render();
+		}),
+	);
+
+	tagsReset?.addEventListener('click', () => {
+		state.tags.clear();
+		render();
+	});
 
 	kindButtons.forEach((button) =>
 		button.addEventListener('click', () => {
@@ -902,6 +988,79 @@ const breadcrumbLd = {
 
 	.filter-check.is-muted {
 		opacity: 0.38;
+	}
+
+	.tag-group-label {
+		flex-shrink: 0;
+		padding-top: 0.45rem;
+		font-size: 0.6875rem;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: color-mix(in srgb, var(--color-accent-color) 75%, transparent);
+	}
+
+	@media (min-width: 640px) {
+		.tag-group-label {
+			width: 7.5rem;
+		}
+	}
+
+	.catalog-tag {
+		flex-shrink: 0;
+		min-height: 2.25rem;
+		padding: 0 0.875rem;
+		border: 1px solid var(--color-line);
+		border-radius: 9999px;
+		background: var(--color-main-color);
+		font-size: 0.8125rem;
+		white-space: nowrap;
+		color: rgba(255, 255, 255, 0.75);
+		transition:
+			background 0.2s,
+			border-color 0.2s,
+			color 0.2s,
+			opacity 0.2s;
+	}
+
+	.catalog-tag:hover {
+		border-color: color-mix(in srgb, var(--color-accent-color) 55%, transparent);
+		color: #fff;
+	}
+
+	.catalog-tag[aria-pressed='true'] {
+		border-color: var(--color-accent-color);
+		background: var(--color-accent-color);
+		font-weight: 600;
+		color: var(--color-main-color);
+	}
+
+	.catalog-tag.is-muted {
+		opacity: 0.4;
+	}
+
+	.tag-reset {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		border-radius: 9999px;
+		padding: 0.25rem 0.625rem;
+		font-size: 0.8125rem;
+		font-weight: 500;
+		color: rgba(255, 255, 255, 0.55);
+		transition:
+			background 0.2s,
+			color 0.2s;
+	}
+
+	.tag-reset:hover {
+		background: color-mix(in srgb, var(--color-accent-color) 10%, transparent);
+		color: var(--color-accent-color);
+	}
+
+	.tag-reset[hidden],
+	[data-tags][hidden] {
+		display: none;
 	}
 
 	[data-filter-reset]:disabled {

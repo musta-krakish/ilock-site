@@ -438,6 +438,16 @@ const lockSchema = {
 		description: 'Показывает плашку «Установка в подарок» на карточке и странице товара. Для аксессуаров не отображается.',
 		defaultValue: false,
 	}),
+	construction: fields.select({
+		label: 'Конструкция',
+		description: 'Для тегов каталога «С ручкой» / «Без ручки».',
+		options: [
+			{ label: 'Не указано', value: 'unknown' },
+			{ label: 'С ручкой', value: 'lever' },
+			{ label: 'Без ручки', value: 'none' },
+		],
+		defaultValue: 'unknown',
+	}),
 	material: fields.select({ label: 'Материал', options: options.material, defaultValue: 'aluminum' }),
 	access: compactMultiselect('Способы открытия', options.access, {
 		description: 'Выберите доступные способы разблокировки.',
@@ -530,6 +540,34 @@ const lockSchema = {
 		description: 'Ссылки вида youtube.com/shorts/…, youtube.com/watch?v=… или youtu.be/…. Видео появятся на странице товара.',
 		itemLabel: (props) => props.value || 'Новое видео',
 	}),
+	reviews: fields.array(
+		fields.object(
+			{
+				name: requiredText('Имя'),
+				city: fields.text({ label: 'Город' }),
+				rating: fields.select({
+					label: 'Оценка',
+					options: [
+						{ label: '★★★★★ 5', value: '5' },
+						{ label: '★★★★ 4', value: '4' },
+						{ label: '★★★ 3', value: '3' },
+						{ label: '★★ 2', value: '2' },
+						{ label: '★ 1', value: '1' },
+					],
+					defaultValue: '5',
+				}),
+				date: fields.date({ label: 'Дата', defaultValue: { kind: 'today' } }),
+				text: fields.text({ label: 'Текст отзыва', multiline: true, validation: { isRequired: true } }),
+			},
+			{ layout: [6, 6, 6, 6, 12] },
+		),
+		{
+			label: 'Отзывы',
+			description: 'Отзывы покупателей об этой модели. Показываются на странице товара как есть, на всех языках.',
+			itemLabel: (props) =>
+				`${props.fields.name.value || 'Новый отзыв'} — ${'★'.repeat(Number(props.fields.rating.value) || 0)}`,
+		},
+	),
 	variants: fields.array(
 		fields.object(
 			{

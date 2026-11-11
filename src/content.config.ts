@@ -150,6 +150,8 @@ const locks = defineCollection({
 			/** Shows the «Установка в подарок» badge on the card and product page. */
 			giftInstallation: z.boolean().default(false),
 			material,
+			/** Lever handle or not; drives the «С ручкой / Без ручки» catalogue tags. */
+			construction: z.enum(['unknown', 'lever', 'none']).default('unknown'),
 			access: z.array(access),
 			/** Enrolment limits, e.g. `{ fingerprint: 100, pin: 20 }`. */
 			limits: z.record(z.string(), z.number()).default({}),
@@ -180,6 +182,18 @@ const locks = defineCollection({
 				.default([]),
 			/** YouTube links (shorts, watch, youtu.be); shown as click-to-play videos on the product page. */
 			videos: z.array(z.string()).default([]),
+			/** Customer reviews, entered in Keystatic and shown as written on every language version. */
+			reviews: z
+				.array(
+					z.object({
+						name: z.string(),
+						city: z.string().nullable().optional(),
+						rating: z.coerce.number().int().min(1).max(5),
+						date: z.coerce.date().nullable().optional(),
+						text: z.string(),
+					}),
+				)
+				.default([]),
 			variants: z
 				.array(
 					z.object({
