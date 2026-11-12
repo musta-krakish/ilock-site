@@ -3,9 +3,9 @@ brand: smartlock
 kind: lock
 kazakhBrand: false
 comingSoon: false
-price: 115000
+price: 150000
 installment:
-  monthly: 11020
+  monthly: 12500
   months: 12
   kaspi: true
   longTerm: false
@@ -13,6 +13,7 @@ image: ../../assets/images/locks/s819-2max/image.png
 order: 3
 featured: false
 giftInstallation: false
+construction: unknown
 material: aluminum
 access:
   - fingerprint
@@ -49,6 +50,7 @@ colors:
 colorPrices: []
 videos:
   - https://www.youtube.com/shorts/iNVdbO2ZAXk
+reviews: []
 variants: []
 ru:
   description: >-
