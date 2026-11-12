@@ -8,7 +8,7 @@ installment:
   monthly: 38000
   months: 12
   kaspi: true
-  longTerm: true
+  longTerm: false
 image: ../../assets/images/locks/philips-720-fvp/image.png
 order: 7
 featured: false
