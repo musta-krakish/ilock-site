@@ -3,9 +3,9 @@ brand: philips
 kind: lock
 kazakhBrand: false
 comingSoon: false
-price: 350000
+price: 348000
 installment:
-  monthly: 33540
+  monthly: 34200
   months: 12
   kaspi: true
   longTerm: false
@@ -13,6 +13,7 @@ image: ../../assets/images/locks/alpha-vp/image.png
 order: 7
 featured: false
 giftInstallation: false
+construction: unknown
 material: aluminum
 access:
   - fingerprint
@@ -48,6 +49,7 @@ colors:
 colorPrices: []
 videos:
   - https://www.youtube.com/shorts/SpymFyAZzgE
+reviews: []
 variants: []
 ru:
   description: Режим «толкни-потяни» и PIR-датчик, который будит замок при приближении.
