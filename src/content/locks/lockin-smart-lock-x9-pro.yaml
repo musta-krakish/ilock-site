@@ -1,4 +1,4 @@
-title: Lockin Smart Lock X9 Pro
+title: Lockin X9 Pro
 brand: smartlock
 kind: lock
 kazakhBrand: false
@@ -9,7 +9,7 @@ installment:
   months: 12
   kaspi: true
   longTerm: false
-image: ../../assets/images/locks/lockin-smart-lock-x9-pro/image.webp
+image: ../../assets/images/locks/lockin-smart-lock-x9-pro/image.png
 order: 6
 featured: false
 giftInstallation: false
