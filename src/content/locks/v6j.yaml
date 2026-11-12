@@ -12,7 +12,7 @@ image: ../../assets/images/locks/v6j/image.png
 order: 7
 featured: true
 giftInstallation: false
-construction: unknown
+construction: none
 material: aluminum
 access:
   - fingerprint
