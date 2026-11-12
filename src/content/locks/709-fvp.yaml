@@ -12,6 +12,8 @@ installment:
 image: ../../assets/images/locks/709-fvp/image.png
 order: 9
 featured: true
+giftInstallation: false
+construction: none
 material: aluminum
 access:
   - fingerprint
@@ -52,6 +54,8 @@ colors:
   - charcoal
   - bronze
 colorPrices: []
+videos: []
+reviews: []
 variants: []
 ru:
   description: >-
