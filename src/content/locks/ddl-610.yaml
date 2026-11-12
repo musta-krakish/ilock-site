@@ -13,7 +13,7 @@ image: ../../assets/images/locks/ddl-610/image.png
 order: 3
 featured: false
 giftInstallation: false
-construction: unknown
+construction: lever
 material: aluminum
 access:
   - fingerprint
