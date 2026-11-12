@@ -2,7 +2,7 @@ title: 902 MVP
 brand: philips
 kind: lock
 kazakhBrand: false
-comingSoon: true
+comingSoon: false
 price: 582000
 installment:
   monthly: 57200
