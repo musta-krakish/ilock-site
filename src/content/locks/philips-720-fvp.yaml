@@ -1,0 +1,200 @@
+title: Philips 720FVP
+brand: philips
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 382000
+installment:
+  monthly: 38000
+  months: 12
+  kaspi: true
+  longTerm: true
+image: ../../assets/images/locks/philips-720-fvp/image.png
+order: 7
+featured: false
+giftInstallation: false
+construction: none
+material: aluminum
+access:
+  - fingerprint
+  - face
+  - pin
+  - app
+  - master-card
+  - key
+limits:
+  fingerprint: 100
+  pin: 20
+  face: 50
+  card: 100
+features:
+  - two-way-audio
+  - wifi
+  - doorbell
+  - video-peephole
+  - realtime
+  - voice-change
+  - motion
+  - auto-lock
+  - auto
+  - push-pull
+  - rechargeable
+  - emergency-charge
+  - low-battery
+  - tamper-alarm
+  - c-cylinder
+  - double-check
+temp:
+  min: 20
+  max: 60
+power: li-5000
+battery: 4-6
+app: Home Access
+compatibility: {}
+included: {}
+warranty: 2
+origin: {}
+interface: []
+colors:
+  - black
+colorPrices: []
+videos: []
+reviews: []
+variants: []
+ru:
+  description: >-
+    Philips DDL720-FVP — флагманский замок для тех, кто хочет открывать дверь
+    без ключей и знать, что происходит у неё в каждый момент.
+  seoTitle: ' Philips DDL720-FVP — купить умный замок Philips в Казахстане | iLOCK'
+  seoDescription: >-
+    Philips DDL720-FVP — флагманский замок для тех, кто хочет открывать дверь
+    без ключей и знать, что происходит у неё в каждый момент.
+  body: >-
+    Ваше лицо — ваш ключ. Когда вы подходите ближе чем на метр, радар включает
+    распознавание лица. Две камеры считывают лицо в 3D, поэтому фото, видео или
+    макияж замок не обманут. Дверь открывается, даже когда руки заняты.
+
+
+    Видно, кто за дверью, днём и ночью. Широкоугольная камера и четыре
+    ИК-подсветки сами переключаются в ночной режим, когда темнеет. Внутри стоит
+    экран 4": достаточно коснуться его, чтобы увидеть, кто за дверью. Пожилым
+    родственникам и детям так удобнее, чем смотреть в обычный глазок.
+
+
+    Разговор с гостем из любой точки. Гость нажимает звонок, вам приходит
+    уведомление, и вы видите его и разговариваете с ним через приложение Home
+    Access. Чтобы не выдать себя незнакомцу, можно включить изменение голоса.
+    При каждом звонке замок сам сохраняет фото или видео.
+
+
+    Охрана, которая не спит. Если кто-то задерживается у двери, радар это
+    замечает и присылает уведомление на телефон. Время, через которое
+    срабатывает уведомление, настраивается: 10, 20, 30 или 60 секунд. Ещё замок
+    предупреждает о попытке вскрытия, о неисправности защёлки, о блокировке
+    системы и о низком заряде.
+
+
+    Сам закрывается. Механизм с мотором запирает дверь в течение 10 секунд после
+    того, как вы её закрыли. Ручка работает в режиме push-pull (толкни/потяни).
+
+
+    Надёжно в любой ситуации. Цилиндр класса C, скрытый PIN-код, двойная
+    проверка и режим охраны. Если электроника откажет, изнутри дверь открывается
+    одним поворотом ручки. Если сядет аккумулятор, замок можно запитать от
+    обычного пауэрбанка.
+kk:
+  description: >-
+    Philips DDL720-FVP — есікті кілтсіз ашқысы келетін және есігінің алдында не
+    болып жатқанын кез келген уақытта бақылағысы келетіндерге арналған
+    флагмандық ақылды құлып.
+  seoTitle: Philips DDL720-FVP — Қазақстанда Philips ақылды құлпын сатып алу | iLOCK
+  seoDescription: >-
+    Philips DDL720-FVP — есікті кілтсіз ашқысы келетін және есігінің алдында не
+    болып жатқанын кез келген уақытта бақылағысы келетіндерге арналған
+    флагмандық ақылды құлып.
+  body: >-
+    Сіздің жүзіңіз — сіздің кілтіңіз. Есікке 1 метрден жақындағанда, радар бетті
+    тану жүйесін іске қосады. Екі камера бетті 3D форматында сканерлейді,
+    сондықтан құлыпты фотосуретпен, бейнемен немесе макияжбен алдау мүмкін емес.
+    Қолыңыз бос болмаса да, есік автоматты түрде ашылады.
+
+
+    Күндіз де, түнде де есіктің сыртында кім тұрғанын көріңіз. Кең бұрышты
+    камера мен төрт инфрақызыл жарық көзі қараңғы түскенде түнгі режимге
+    автоматты түрде ауысады. Құлыптың ішкі жағында 4 дюймдік экран бар: оны
+    түрту арқылы есіктің сыртында кім тұрғанын көре аласыз. Бұл әсіресе балалар
+    мен егде жастағы адамдар үшін кәдімгі есік көзінен әлдеқайда ыңғайлы.
+
+
+    Қонақпен кез келген жерден сөйлесіңіз. Қонақ қоңырау түймесін басқанда,
+    телефоныңызға хабарлама келеді. Home Access қолданбасы арқылы қонақты көріп,
+    онымен сөйлесе аласыз. Бейтаныс адамға дауысыңызды танытпау үшін дауысты
+    өзгерту функциясын қосуға болады. Әр қоңырау кезінде құлып фото немесе
+    бейнежазбаны автоматты түрде сақтайды.
+
+
+    Үздіксіз қауіпсіздік бақылауы. Егер біреу есіктің алдында ұзақ кідірсе,
+    радар мұны анықтап, телефоныңызға хабарлама жібереді. Хабарламаның іске
+    қосылу уақытын 10, 20, 30 немесе 60 секундқа реттеуге болады. Сонымен қатар,
+    құлып бұзу әрекеті, ілмектің ақауы, жүйенің бұғатталуы және аккумулятор
+    зарядының төмендеуі туралы ескертеді.
+
+
+    Есік автоматты түрде құлыпталады. Есік жабылғаннан кейін моторлы механизм
+    оны 10 секунд ішінде автоматты түрде құлыптайды. Тұтқасы Push-Pull (итеріп
+    ашу/тартып ашу) жүйесімен жұмыс істейді.
+
+
+    Кез келген жағдайда сенімді қорғаныс. Құлыпта C класындағы цилиндр, жасырын
+    PIN-код, қосарланған тексеру және күзет режимі бар. Электроника істен шыққан
+    жағдайда, есікті ішкі жағынан тұтқаны бір рет бұру арқылы ашуға болады. Ал
+    аккумулятор заряды таусылса, құлыпты кәдімгі пауэрбанк арқылы қуаттандыруға
+    болады.
+en:
+  description: >-
+    Philips DDL720-FVP is a flagship smart lock designed for those who want
+    keyless access and complete awareness of what is happening outside their
+    door at all times.
+  seoTitle: Philips DDL720-FVP — Buy Philips Smart Lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    Philips DDL720-FVP is a flagship smart lock designed for those who want
+    keyless access and complete awareness of what is happening outside their
+    door at all times.
+  body: >-
+    Your face is your key. When you approach within one meter of the door, the
+    radar activates facial recognition. Two cameras scan your face in 3D, making
+    it resistant to spoofing with photos, videos, or makeup. The door unlocks
+    automatically, even when your hands are full.
+
+
+    See who is at your door, day or night. The wide-angle camera and four
+    infrared lights automatically switch to night vision when it gets dark. A
+    built-in 4-inch indoor screen lets you see who is outside with just a touch.
+    This is especially convenient for children and elderly family members who
+    may find it easier than using a traditional peephole.
+
+
+    Talk to visitors from anywhere. When a visitor presses the doorbell, you
+    receive a notification on your phone. You can see and talk to them through
+    the Home Access app. To protect your identity, you can activate the
+    voice-changing feature. The lock automatically saves a photo or video every
+    time someone rings the doorbell.
+
+
+    24/7 security monitoring. If someone stays near your door for an extended
+    period, the radar detects their presence and sends an alert to your phone.
+    You can customize the alert delay to 10, 20, 30, or 60 seconds. The lock
+    also sends notifications about attempted break-ins, latch malfunctions,
+    system lockouts, and low battery levels.
+
+
+    Automatic locking. The motorized mechanism automatically locks the door
+    within 10 seconds after it closes. The handle features a Push-Pull mechanism
+    for convenient opening and closing.
+
+
+    Reliable protection in any situation. The lock features a Class C cylinder,
+    a hidden PIN code, dual verification, and a security mode. If the electronic
+    system fails, the door can still be opened from the inside with a single
+    turn of the handle. If the battery runs out, you can power the lock using a
+    standard power bank.
