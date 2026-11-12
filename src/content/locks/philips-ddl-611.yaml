@@ -1,0 +1,134 @@
+title: Philips DDL611
+brand: philips
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 195000
+installment:
+  monthly: 19200
+  months: 12
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/philips-ddl-611/image.png
+order: 8
+featured: false
+giftInstallation: false
+construction: lever
+material: aluminum
+access:
+  - fingerprint
+  - pin
+  - card
+  - key
+limits: {}
+features:
+  - slim-door
+temp:
+  min: 20
+  max: 60
+power: aa4
+battery: 4-6
+compatibility: {}
+included: {}
+warranty: 2
+origin: {}
+interface: []
+colors:
+  - black
+colorPrices: []
+videos: []
+reviews: []
+variants: []
+ru:
+  description: >-
+    Узкий замок с ручкой-рычагом для алюминиевых дверей, главная фишка — сканер
+    отпечатка с двух сторон.
+  seoTitle: Philips DDL611 — купить умный замок Philips в Казахстане | iLOCK
+  seoDescription: >-
+    Узкий умный замок для алюминиевых, раздвижных дверей и калиток. Сканер
+    отпечатка стоит и снаружи, и изнутри, так что открыть дверь могут только
+    свои, с любой стороны.
+  body: >-
+    Philips DDL611 — умный замок для дверей, на которые обычный смарт-замок
+    просто не встанет.
+
+
+    Встаёт на узкие двери. Корпус шириной всего 32 мм подходит для алюминиевых
+    дверей, дверей с терморазрывом, раздвижных дверей и уличных калиток.
+    Подходит и для дома, и для офиса.
+
+
+    Отпечаток с двух сторон. Сканеры стоят на обеих панелях, поэтому без вашего
+    отпечатка дверь не открыть ни снаружи, ни изнутри. Даже если злоумышленник
+    просунет руку через калитку или разобьёт стекло рядом с дверью, он не сможет
+    открыть её изнутри. Отпечаток достаточно записать один раз: он работает на
+    обеих сторонах.
+
+
+    Временные коды для гостей. Можно создать одноразовый код, код на
+    определённые дни недели (например, для уборки по вторникам) или код с
+    ограниченным сроком действия. Ключи раздавать не нужно.
+
+
+    Всё под контролем в приложении. Через шлюз замок подключается к приложению
+    Home Access. Там видна история открытий, приходят уведомления от звонка и
+    мгновенные оповещения о подозрительной активности.
+kk:
+  description: >-
+    Philips DDL611 — ақылды құлыптар орнатуға келмейтін тар профильді есіктерге
+    арналған ақылды құлып.
+  seoTitle: Philips DDL611 — Қазақстанда Philips ақылды құлпын сатып алу | iLOCK
+  seoDescription: >-
+    Philips DDL611 — ақылды құлыптар орнатуға келмейтін тар профильді есіктерге
+    арналған ақылды құлып.
+  body: >-
+    Тар есіктерге арналған. Ені небәрі 32 мм болатын корпусы алюминий есіктерге,
+    термоүзілісі бар есіктерге, жылжымалы есіктерге және сыртқы қақпаларға
+    орнатуға жарайды. Үйге де, кеңсеге де қолайлы.
+
+
+    Екі жағынан саусақ ізімен ашу. Құлыптың екі панелінде де саусақ ізін
+    сканерлеу жүйесі бар. Сондықтан есікті сыртынан да, ішінен де тек тіркелген
+    саусақ ізімен ашуға болады. Тіпті біреу қақпа арқылы қолын созса немесе есік
+    жанындағы әйнекті сындырса да, құлыпты ішкі жағынан аша алмайды. Саусақ ізін
+    бір рет тіркеу жеткілікті — ол екі жағынан да жұмыс істейді.
+
+
+    Қонақтарға арналған уақытша кодтар. Бір реттік кодты, аптаның белгілі
+    күндеріне арналған кодты (мысалы, әр сейсенбіде келетін тазалық
+    қызметкеріне) немесе белгілі бір мерзімге жарамды кодты жасауға болады. Кілт
+    берудің қажеті жоқ.
+
+
+    Барлығы қосымшада бақылауда. Шлюз арқылы құлыпты Home Access қолданбасына
+    қосуға болады. Қолданбада есіктің ашылу тарихын көруге, қоңырау туралы
+    хабарламалар мен күдікті әрекеттер туралы жедел ескертулер алуға болады.
+en:
+  description: >-
+    Philips DDL611 is a smart lock designed for narrow-profile doors where
+    standard smart locks simply won't fit.
+  seoTitle: Philips DDL611 — Buy Philips Smart Lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    Philips DDL611 is a smart lock designed for narrow-profile doors where
+    standard smart locks simply won't fit.
+  body: >-
+    Designed for narrow doors. With a body just 32 mm wide, it is suitable for
+    aluminium doors, thermally broken doors, sliding doors and outdoor gates.
+    Ideal for both homes and offices.
+
+
+    Fingerprint access from both sides. Fingerprint scanners are built into both
+    panels, so the door can only be unlocked with an authorized fingerprint from
+    either side. Even if someone reaches through a gate or breaks the glass next
+    to the door, they won't be able to unlock it from the inside. Register your
+    fingerprint just once — it works on both sides.
+
+
+    Temporary access codes for guests. Create one-time codes, codes for specific
+    days of the week (for example, for a cleaner who visits every Tuesday), or
+    codes with a limited validity period. No need to hand out physical keys.
+
+
+    Full control through the app. Connect the lock to the Home Access app via a
+    gateway. You can view the access history, receive doorbell notifications and
+    get instant alerts about suspicious activity.
