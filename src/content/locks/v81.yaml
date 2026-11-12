@@ -3,7 +3,7 @@ brand: ilock
 kind: lock
 kazakhBrand: true
 comingSoon: false
-price: 240000
+price: 220000
 installment:
   monthly: 23000
   kaspi: true
@@ -12,6 +12,7 @@ image: ../../assets/images/locks/v81/image.png
 order: 3
 featured: true
 giftInstallation: false
+construction: unknown
 material: aluminum
 access:
   - face
@@ -51,6 +52,7 @@ colors:
   - black
 colorPrices: []
 videos: []
+reviews: []
 variants: []
 ru:
   description: >-
