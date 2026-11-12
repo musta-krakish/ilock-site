@@ -3,15 +3,17 @@ brand: smartlock
 kind: lock
 kazakhBrand: false
 comingSoon: false
-price: 135000
+price: 195000
 installment:
-  monthly: 13000
+  monthly: 16250
   months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/q28s/image.png
 order: 4
 featured: false
+giftInstallation: false
+construction: unknown
 material: aluminum
 access:
   - fingerprint
@@ -51,6 +53,8 @@ interface:
 colors:
   - black
 colorPrices: []
+videos: []
+reviews: []
 variants: []
 ru:
   description: >-
