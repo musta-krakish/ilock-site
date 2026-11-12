@@ -3,9 +3,9 @@ brand: ilock
 kind: lock
 kazakhBrand: true
 comingSoon: false
-price: 280000
+price: 260000
 installment:
-  monthly: 26840
+  monthly: 21700
   months: 12
   kaspi: true
   longTerm: false
@@ -13,6 +13,7 @@ image: ../../assets/images/locks/s90/image.png
 order: 2
 featured: true
 giftInstallation: false
+construction: unknown
 material: aluminum
 access:
   - fingerprint
@@ -51,6 +52,7 @@ colors:
   - black
 colorPrices: []
 videos: []
+reviews: []
 variants: []
 ru:
   description: >-
