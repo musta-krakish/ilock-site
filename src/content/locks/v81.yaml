@@ -12,7 +12,7 @@ image: ../../assets/images/locks/v81/image.png
 order: 3
 featured: true
 giftInstallation: false
-construction: unknown
+construction: none
 material: aluminum
 access:
   - face
