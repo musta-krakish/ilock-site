@@ -13,7 +13,7 @@ image: ../../assets/images/locks/303-vp/image.png
 order: 6
 featured: false
 giftInstallation: false
-construction: unknown
+construction: none
 material: aluminum
 access:
   - fingerprint
