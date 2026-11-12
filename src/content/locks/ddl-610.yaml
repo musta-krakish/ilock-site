@@ -5,13 +5,15 @@ kazakhBrand: false
 comingSoon: false
 price: 159000
 installment:
-  monthly: 15240
+  monthly: 15840
   months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/ddl-610/image.png
 order: 3
 featured: false
+giftInstallation: false
+construction: unknown
 material: aluminum
 access:
   - fingerprint
@@ -46,6 +48,8 @@ interface:
 colors:
   - black
 colorPrices: []
+videos: []
+reviews: []
 variants: []
 ru:
   description: >-
