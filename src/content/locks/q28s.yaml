@@ -13,7 +13,7 @@ image: ../../assets/images/locks/q28s/image.png
 order: 4
 featured: false
 giftInstallation: false
-construction: unknown
+construction: none
 material: aluminum
 access:
   - fingerprint
