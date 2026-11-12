@@ -1,0 +1,172 @@
+title: M20
+brand: smartlock
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 190000
+installment:
+  monthly: 15400
+  months: 12
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/m20/image.png
+order: 5
+featured: false
+giftInstallation: false
+construction: none
+material: aluminum
+access:
+  - face
+  - key
+  - card
+  - pin
+  - fingerprint
+  - palm
+  - app
+limits: {}
+features:
+  - wifi
+  - video-peephole
+  - realtime
+  - doorbell
+  - two-way-audio
+  - rechargeable
+  - low-battery
+  - sound-prompts
+temp:
+  min: 20
+  max: 60
+power: li-5000
+battery: 4-6
+app: Tuya Smart
+compatibility: {}
+included: {}
+warranty: 1
+origin: {}
+interface: []
+colors:
+  - black
+colorPrices: []
+videos: []
+reviews: []
+variants: []
+ru:
+  description: >-
+    M20 - умный замок с распознаванием вен ладони и лица: дверь открывается без
+    ключа и без касания. Видеоглазок показывает, кто стоит у двери, а открыть
+    можно прямо из приложения, даже если вас нет дома.
+  seoTitle: M20 Tuya-SmartLock  — купить умный замок в Казахстане | iLOCK
+  seoDescription: >-
+    Умный замок с распознаванием вен ладони и лица: дверь открывается без ключа
+    и без касания. Видеоглазок показывает, кто стоит у двери, а открыть можно
+    прямо из приложения, даже если вас нет дома.
+  body: >-
+    SmartLock M20 — умный замок для квартиры или частного дома, у которого семь
+    способов открытия.
+
+    Вены ладони. Это одна из самых надёжных биометрий: рисунок вен находится
+    внутри ладони, его нельзя подделать или скопировать, как отпечаток пальца.
+    Работает даже с мокрыми, грязными или повреждёнными пальцами.
+
+    Распознавание лица. Подходите к двери, и замок открывается без касаний.
+    Удобно, когда в руках пакеты или ребёнок.
+
+    Открытие по видео. Камера замка показывает в приложении Tuya Smart, кто
+    стоит у двери, и открыть можно прямо со смартфона, где бы вы ни находились.
+
+    Временные пароли. Для гостей, курьера, няни или клининга можно создать
+    временный PIN-код, и после окончания срока он перестанет действовать. Ключи
+    раздавать не нужно.
+
+    Резервные способы: отпечаток пальца, PIN-код и механический ключ на случай,
+    если что-то пошло не так.
+
+    Замок подключается к Wi-Fi и управляется через приложение Tuya Smart:
+    история открытий, управление пользователями и уведомления на телефон.
+
+    Способы открытия: вены ладони · лицо · отпечаток пальца · PIN-код ·
+    временный PIN-код · механический ключ · приложение
+kk:
+  description: 'M20 — алақан тамырлары мен бет-әлпетті тану функциясы бар ақылды құлып. '
+  seoTitle: M20 Tuya-SmartLock — Қазақстанда ақылды құлыпты сатып алу | iLOCK
+  seoDescription: >-
+    M20 — алақан тамырлары мен бет-әлпетті тану функциясы бар ақылды құлып.
+    Есікті кілтсіз және жанасусыз ашуға мүмкіндік береді. Кіріктірілген
+    бейнекамера есігіңіздің алдында кім тұрғанын көрсетеді, ал есікті үйде
+    болмасаңыз да, смартфондағы қосымша арқылы аша аласыз.
+  body: >-
+    SmartLock M20 — пәтерге немесе жеке үйге арналған, есікті ашудың 7 әдісін
+    қолдайтын ақылды құлып.
+
+
+    Алақан тамырларын тану. Бұл — биометриялық сәйкестендірудің ең сенімді
+    әдістерінің бірі. Алақан тамырларының суреті тері астында орналасқандықтан,
+    оны саусақ ізі сияқты қолдан жасау немесе көшіру мүмкін емес. Саусақтарыңыз
+    дымқыл, кір немесе зақымдалған болса да, құлыпты ашуға болады.
+
+
+    Бет-әлпетті тану. Есікке жақындаған кезде құлып жанасусыз автоматты түрде
+    ашылады. Қолыңызда сөмкелер немесе балаңыз болғанда өте ыңғайлы.
+
+
+    Бейне арқылы ашу. Құлыптың камерасы есігіңіздің алдында кім тұрғанын Tuya
+    Smart қосымшасы арқылы көрсетеді. Сіз қай жерде болсаңыз да, есікті смартфон
+    арқылы аша аласыз.
+
+
+    Уақытша құпиясөздер. Қонақтарға, курьерге, бала күтушіге немесе тазалық
+    қызметкерлеріне уақытша PIN-код орнатуға болады. Белгіленген мерзім
+    аяқталған соң, код автоматты түрде жарамсыз болады. Кілт берудің қажеті жоқ.
+
+
+    Қосымша ашу тәсілдері: саусақ ізі, PIN-код және күтпеген жағдайларға
+    арналған механикалық кілт.
+
+
+    Құлып Wi-Fi желісіне қосылып, Tuya Smart қосымшасы арқылы басқарылады.
+    Қосымшада есіктің ашылу тарихын көруге, пайдаланушыларды басқаруға және
+    телефонға хабарламалар алуға болады.
+
+
+    Ашу тәсілдері: алақан тамырлары · бет-әлпетті тану · саусақ ізі · PIN-код ·
+    уақытша PIN-код · механикалық кілт · мобильді қосымша.
+en:
+  description: M20 — a smart lock with palm vein and facial recognition.
+  seoTitle: M20 Tuya-SmartLock — Buy a Smart Lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    M20 — a smart lock with palm vein and facial recognition. Unlock your door
+    without keys or physical contact. The built-in video doorbell lets you see
+    who is standing at your door, and you can unlock it directly from your
+    smartphone app, even when you're away from home.
+  body: >-
+
+    SmartLock M20 is a smart lock designed for apartments and private houses,
+    offering seven unlocking methods.
+
+    Palm Vein Recognition. One of the most secure biometric authentication
+    methods. The vein pattern is located beneath the skin, making it extremely
+    difficult to forge or duplicate, unlike fingerprints. It also provides
+    convenient access even when your fingers are wet, dirty, or damaged.
+
+    Facial Recognition. Simply approach the door, and the lock unlocks
+    automatically without any physical contact. Especially convenient when
+    carrying shopping bags or holding a child.
+
+    Remote Video Unlocking. The built-in camera shows you who is at your door
+    through the Tuya Smart app. You can unlock the door directly from your
+    smartphone, wherever you are.
+
+    Temporary Passwords. Create temporary PIN codes for guests, delivery
+    couriers, babysitters, or cleaning staff. Once the assigned validity period
+    expires, the code automatically becomes inactive. No need to hand out
+    physical keys.
+
+    Additional unlocking methods: fingerprint recognition, PIN code, and a
+    mechanical key for emergencies.
+
+    The lock connects to Wi-Fi and is controlled through the Tuya Smart app. You
+    can view access history, manage users, and receive notifications directly on
+    your smartphone.
+
+    Unlocking methods: palm vein recognition · facial recognition · fingerprint
+    · PIN code · temporary PIN code · mechanical key · mobile app.
