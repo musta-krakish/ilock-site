@@ -13,7 +13,7 @@ image: ../../assets/images/locks/902-mvp/image.png
 order: 10
 featured: true
 giftInstallation: false
-construction: unknown
+construction: none
 material: zinc-glass
 access:
   - fingerprint
