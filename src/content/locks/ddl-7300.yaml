@@ -3,15 +3,17 @@ brand: philips
 kind: lock
 kazakhBrand: false
 comingSoon: false
-price: 221000
+price: 220000
 installment:
-  monthly: 21200
+  monthly: 21500
   months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/ddl-7300/image.png
 order: 4
 featured: false
+giftInstallation: false
+construction: unknown
 material: aluminum
 access:
   - fingerprint
@@ -47,6 +49,8 @@ colors:
   - copper
   - gold
 colorPrices: []
+videos: []
+reviews: []
 variants: []
 ru:
   description: 'Автоматическая блокировка и три цвета корпуса: чёрный, медный и золотой.'
