@@ -3,9 +3,9 @@ brand: ilock
 kind: lock
 kazakhBrand: true
 comingSoon: false
-price: 115000
+price: 120000
 installment:
-  monthly: 11020
+  monthly: 10000
   months: 12
   kaspi: true
   longTerm: false
@@ -13,6 +13,7 @@ image: ../../assets/images/locks/g18/image.png
 order: 2
 featured: true
 giftInstallation: false
+construction: unknown
 material: aluminum-glass
 access:
   - fingerprint
@@ -47,6 +48,7 @@ colors:
 colorPrices: []
 videos:
   - https://www.youtube.com/shorts/FRshBLyCbYw
+reviews: []
 variants: []
 ru:
   description: >-
