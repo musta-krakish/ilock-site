@@ -13,7 +13,7 @@ image: ../../assets/images/locks/g18/image.png
 order: 2
 featured: true
 giftInstallation: false
-construction: unknown
+construction: lever
 material: aluminum-glass
 access:
   - fingerprint
