@@ -1,0 +1,163 @@
+title: Philips Alpha
+brand: philips
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 240000
+priceTo: 240000
+installment:
+  monthly: 24000
+  months: 12
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/philips-alpha/image.png
+order: 8
+featured: false
+giftInstallation: false
+construction: none
+material: aluminum
+access:
+  - fingerprint
+  - pin
+  - card
+  - app
+  - key
+limits:
+  fingerprint: 100
+  pin: 10
+  card: 2
+  key: 2
+features:
+  - double-check
+  - c-cylinder
+  - auto
+  - waterproof
+  - push-pull
+temp:
+  min: 20
+  max: 60
+power: aa4
+battery: '10'
+app: Philips EasyKey
+compatibility: {}
+included: {}
+warranty: 2
+origin: {}
+interface: []
+colors:
+  - black
+colorPrices: []
+videos: []
+reviews: []
+variants: []
+ru:
+  description: >-
+    Полностью автоматический замок Philips с ручкой «толкни/потяни»: дверь
+    запирается сама, а открывается отпечатком пальца, кодом, картой или со
+    смартфона. Работает до 10 месяцев на обычных батарейках АА.
+  seoTitle: ' Philips Alpha — купить умный замок Philips в Казахстане | iLOCK'
+  seoDescription: >-
+    Philips Alpha — надёжный умный замок для квартиры или дома от бренда с
+    официальной гарантией 2 года.
+  body: >+
+    Philips Alpha — надёжный умный замок для квартиры или дома от бренда с
+    официальной гарантией 2 года.
+
+
+    Сам закрывается. Механизм полностью автоматический: закрыли дверь, и она
+    заперта. Не нужно поворачивать ручку или проверять, закрыли ли вы замок.
+
+
+    Открытие одним движением. Сканер отпечатка встроен прямо в ручку: берёте её,
+    и дверь открывается. Ручка работает по принципу «толкни/потяни».
+
+
+    Двойная проверка. Можно включить режим, при котором для входа нужны два
+    способа сразу, например отпечаток и код. Это максимальная защита для тех,
+    кто хранит дома ценные вещи.
+
+
+    Цилиндр класса C — самый высокий класс защиты от вскрытия отмычкой.
+
+
+    Влагостойкий корпус из алюминиевого сплава работает при температуре от −20
+    °C до +60 °C.
+
+
+    Долго работает без замены батареек. Четырёх батареек АА хватает до 10
+    месяцев.
+
+kk:
+  description: >-
+    Philips Alpha — «итеріп/тартып» ашылатын тұтқасы бар толық автоматты ақылды
+    құлып. Есік өздігінен құлыпталады, ал саусақ ізі, PIN-код, карта немесе
+    смартфон арқылы ашылады. Кәдімгі AA батареяларымен 10 айға дейін жұмыс
+    істейді.
+  seoTitle: Philips Alpha — Қазақстанда Philips ақылды құлпын сатып алу | iLOCK
+  seoDescription: >-
+    Philips Alpha — үй мен пәтерге арналған, ресми 2 жылдық кепілдігі бар
+    сенімді ақылды құлып.
+  body: >-
+    Өзі автоматты түрде құлыпталады. Есікті жапқаннан кейін құлып автоматты
+    түрде іске қосылады. Тұтқаны бұрудың немесе есіктің құлыпталғанын қайта
+    тексерудің қажеті жоқ.
+
+
+    Бір қозғалыспен ашылады. Саусақ ізін сканерлеу құрылғысы тұтқаның ішіне
+    орнатылған. Тұтқаны ұстаған кезде есік ашылады. Тұтқа «итеріп/тартып» ашу
+    принципімен жұмыс істейді.
+
+
+    Қосарлы тексеру. Қажет болған жағдайда есікті ашу үшін бірден екі әдісті
+    қолдануды қосуға болады. Мысалы, саусақ ізі мен PIN-код. Бұл үйінде бағалы
+    заттарды сақтайтын адамдар үшін қосымша қауіпсіздік деңгейін қамтамасыз
+    етеді.
+
+
+    C класындағы цилиндр — арнайы құралдармен ашуға қарсы қорғаныстың ең жоғары
+    деңгейі.
+
+
+    Алюминий қорытпасынан жасалған ылғалға төзімді корпусы −20 °C-тан +60 °C-қа
+    дейінгі температурада жұмыс істейді.
+
+
+    Батареяны жиі ауыстырудың қажеті жоқ. Төрт AA батареясы 10 айға дейін жұмыс
+    істеуге жетеді.
+en:
+  description: >-
+    Philips Alpha is a fully automatic smart lock with a push/pull handle. The
+    door locks automatically and can be unlocked using a fingerprint, PIN code,
+    card, or smartphone. It operates for up to 10 months on standard AA
+    batteries.
+  seoTitle: Philips Alpha — Buy Philips Smart Locks in Kazakhstan | iLOCK
+  seoDescription: >
+    Philips Alpha is a reliable smart lock for apartments and houses, backed by
+    an official 2-year warranty.
+  body: >-
+    Philips Alpha is a reliable smart lock for apartments and houses, backed by
+    an official 2-year warranty.
+
+
+    Automatic locking. The lock engages automatically when the door closes.
+    There is no need to turn the handle or check whether the door is locked.
+
+
+    One-touch access. The fingerprint scanner is built directly into the handle.
+    Simply grab the handle, and the door unlocks. The handle features a
+    push/pull mechanism.
+
+
+    Dual verification. You can enable a mode that requires two authentication
+    methods to unlock the door, such as a fingerprint and a PIN code. This
+    provides an extra level of security for those who keep valuables at home.
+
+
+    Class C cylinder — the highest level of protection against picking attacks.
+
+
+    The moisture-resistant aluminum alloy body operates in temperatures ranging
+    from −20 °C to +60 °C.
+
+
+    Long battery life. Four AA batteries provide up to 10 months of operation.
