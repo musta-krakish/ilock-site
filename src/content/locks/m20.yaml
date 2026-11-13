@@ -5,7 +5,7 @@ kazakhBrand: false
 comingSoon: false
 price: 190000
 installment:
-  monthly: 15400
+  monthly: 15900
   months: 12
   kaspi: true
   longTerm: false
