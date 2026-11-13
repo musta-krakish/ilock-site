@@ -1,0 +1,196 @@
+title: Philips 902 MVP
+brand: philips
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 850000
+installment:
+  monthly: 84000
+  months: 12
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/philips-902-mvp/image.png
+order: 9
+featured: false
+giftInstallation: false
+construction: none
+material: zinc-glass
+access:
+  - fingerprint
+  - pin
+  - face
+  - key
+  - card
+  - app
+  - palm
+limits:
+  fingerprint: 100
+  pin: 60
+  face: 50
+  palm: 50
+  card: 2
+  key: 2
+features: []
+temp:
+  min: 20
+  max: 60
+power: li-5000
+battery: 4-6
+app: Philips HomeAccess
+compatibility: {}
+included: {}
+warranty: 2
+origin: {}
+interface: []
+colors:
+  - gold
+colorPrices: []
+videos: []
+reviews: []
+variants: []
+ru:
+  description: >-
+    Премиальный умный замок Philips с семью способами разблокировки, включая
+    Face ID и распознавание вен ладони. Три камеры, видеоглазок, PIR-датчик,
+    Wi-Fi и управление через приложение HomeAccess. Аккумулятор 5000 мАч с
+    беспроводной подзарядкой.
+  seoTitle: ' Philips 902 MVP — купить умный замок Philips в Казахстане | iLOCK'
+  seoDescription: >-
+    Умный дверной замок Philips 902 MVP с трёхсторонней камерой, Face ID и
+    распознаванием вен, золотой
+  body: >-
+    Philips 902 MVP — флагманский умный замок в золотом корпусе из цинкового
+    сплава и закалённого стекла, который сочетает премиальный дизайн с
+    максимальным уровнем защиты. Дверь открывается семью способами: по
+    распознаванию лица Face ID, по венам ладони, отпечатку пальца, PIN-коду,
+    карте-брелоку, через приложение или механическим ключом. Распознавание вен —
+    одна из самых надёжных биометрических технологий: рисунок сосудов невозможно
+    подделать или скопировать. Трёхсторонняя камера и видеоглазок показывают
+    всё, что происходит у двери, а PIR-датчик замечает движение и заранее
+    предупреждает о том, что у двери кто-то есть. Встроенный дверной звонок и
+    двусторонняя аудиосвязь позволяют поговорить с гостем прямо из приложения, а
+    функция изменения голоса при видеосвязи защищает вашу приватность, когда вы
+    разговориваете с незнакомцами. Через приложение HomeAccess по Wi-Fi можно
+    управлять замком из любой точки мира. Замок полностью автоматический:
+    запирается и отпирается без лишних действий. В памяти помещаются до 100
+    отпечатков, 60 PIN-кодов, 50 лиц и 50 рисунков вен ладони. Литий-полимерный
+    аккумулятор на 5000 мАч работает без подзарядки от 3 до 6 месяцев и
+    поддерживает беспроводную зарядку. Замок работает при температуре от −20 до
+    +60 °C, интерфейс на русском и английском языках, гарантия 2 года. Philips
+    902 MVP подойдёт тем, кто хочет максимальную безопасность без компромиссов в
+    стиле.
+kk:
+  description: >-
+    Face ID және алақан тамырларын тану функциясын қоса алғанда, құлыпты ашудың
+    жеті тәсілі бар премиум санаттағы Philips ақылды құлпы. Үш камерамен,
+    бейнекөзшемен, PIR-қозғалыс датчигімен, Wi-Fi және HomeAccess қолданбасы
+    арқылы басқару мүмкіндігімен жабдықталған. Сыйымдылығы 5000 мА·сағ
+    аккумулятор және сымсыз қуаттау функциясы бар.
+  seoTitle: Philips 902 MVP — Қазақстанда Philips ақылды құлпын сатып алу | iLOCK
+  seoDescription: >-
+    Үш жақты камерасы, Face ID және алақан тамырларын тану функциясы бар алтын
+    түсті Philips 902 MVP ақылды есік құлпы
+  body: >-
+    Philips 902 MVP — мырыш қорытпасынан және шыңдалған шыныдан жасалған алтын
+    түсті корпустағы флагмандық ақылды құлып. Премиум дизайн мен жоғары
+    деңгейдегі қауіпсіздікті үйлестіреді.
+
+
+    Есікті ашудың 7 тәсілі бар: Face ID арқылы бет-әлпетті тану, алақан
+    тамырларын тану, саусақ ізі, PIN-код, карта-брелок, мобильді қолданба немесе
+    механикалық кілт.
+
+
+    Алақан тамырларын тану — ең сенімді биометриялық технологиялардың бірі. Қан
+    тамырларының суретін қолдан жасау немесе көшіру мүмкін емес.
+
+
+    Үш жақты камера мен бейнекөзше есік алдындағы жағдайды толық бақылауға
+    мүмкіндік береді, ал PIR-қозғалыс датчигі қозғалысты анықтап, есік алдында
+    біреудің бар екенін алдын ала хабарлайды.
+
+
+    Кіріктірілген есік қоңырауы мен екіжақты аудиобайланыс арқылы қонақпен
+    тікелей қолданба арқылы сөйлесуге болады. Бейнеқоңырау кезінде дауысты
+    өзгерту функциясы бейтаныс адамдармен сөйлескенде жеке өміріңіздің
+    құпиялылығын сақтауға көмектеседі.
+
+
+    Wi-Fi арқылы HomeAccess қолданбасын пайдаланып, құлыпты әлемнің кез келген
+    нүктесінен басқаруға болады.
+
+
+    Құлып толығымен автоматты түрде жұмыс істейді: қосымша әрекеттерді қажет
+    етпей, есікті өзі құлыптап, ашады.
+
+
+    Жадына 100 саусақ ізі, 60 PIN-код, 50 бет-әлпет және 50 алақан тамырының
+    үлгісін сақтауға болады.
+
+
+    5000 мА·сағ литий-полимерлі аккумуляторы бір қуаттаумен 3–6 ай жұмыс істейді
+    және сымсыз қуаттауды қолдайды.
+
+    - Жұмыс температурасы: −20-дан +60 °C-қа дейін
+
+    - Интерфейс тілдері: орыс және ағылшын тілдері
+
+    - Кепілдік: 2 жыл
+
+    Philips 902 MVP — стиль мен қауіпсіздіктен ымыраға келгісі келмейтіндерге
+    арналған ақылды құлып.
+en:
+  description: >-
+    A premium Philips smart lock featuring seven unlocking methods, including
+    Face ID and palm vein recognition. Equipped with three cameras, a video door
+    viewer, a PIR motion sensor, Wi-Fi connectivity, and HomeAccess app control.
+    Powered by a 5000 mAh battery with wireless charging support.
+  seoTitle: Philips 902 MVP — Buy Philips Smart Lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    Philips 902 MVP is a flagship smart lock featuring a premium gold finish,
+    crafted from zinc alloy and tempered glass. It combines sophisticated design
+    with an advanced level of security.
+  body: >-
+    The door can be unlocked in 7 ways: Face ID facial recognition, palm vein
+    recognition, fingerprint, PIN code, RFID key card, mobile app, or mechanical
+    key.
+
+
+    Palm vein recognition is one of the most reliable biometric technologies.
+    The unique pattern of blood vessels is extremely difficult to forge or
+    duplicate.
+
+
+    The triple-camera system and video door viewer provide comprehensive
+    monitoring of your entrance, while the PIR motion sensor detects movement
+    and alerts you when someone is near your door.
+
+
+    The built-in doorbell and two-way audio communication allow you to speak
+    with visitors directly through the app. The voice-changing feature during
+    video calls helps protect your privacy when communicating with strangers.
+
+
+    With Wi-Fi connectivity and the HomeAccess app, you can control your lock
+    from anywhere in the world.
+
+
+    The lock operates fully automatically, locking and unlocking your door
+    without unnecessary effort.
+
+
+    Its memory can store up to 100 fingerprints, 60 PIN codes, 50 facial
+    profiles, and 50 palm vein profiles.
+
+
+    The 5000 mAh lithium-polymer battery provides 3–6 months of operation on a
+    single charge and supports wireless charging.
+
+    - Operating temperature: −20°C to +60°C
+
+    - Interface languages: Russian and English
+
+    - Warranty: 2 years
+
+    Philips 902 MVP is designed for those who want maximum security without
+    compromising on style.
