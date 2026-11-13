@@ -48,8 +48,7 @@ interface:
 colors:
   - black
 colorPrices: []
-videos:
-  - https://www.youtube.com/shorts/iNVdbO2ZAXk
+videos: []
 reviews: []
 variants: []
 ru:
