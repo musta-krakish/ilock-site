@@ -1,0 +1,230 @@
+title: 'Philips DDL720-FVP '
+brand: philips
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 382000
+installment:
+  monthly: 38000
+  months: 12
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/philips-ddl-720-fvp/image.png
+order: 4
+featured: false
+giftInstallation: false
+construction: none
+material: zinc
+access:
+  - fingerprint
+  - pin
+  - face
+  - card
+  - key
+limits:
+  fingerprint: 100
+  pin: 20
+  face: 20
+  palm: 50
+features:
+  - wifi
+  - doorbell
+  - video-peephole
+  - two-way-audio
+  - realtime
+  - auto-lock
+  - rechargeable
+  - tamper-alarm
+  - alarm
+  - mute
+  - sound-prompts
+  - auto
+  - push-pull
+temp:
+  min: 20
+  max: 60
+power: li-5000
+battery: 4-6
+compatibility: {}
+included: {}
+warranty: 2
+origin: {}
+interface: []
+colors:
+  - black
+colorPrices: []
+videos: []
+reviews: []
+variants: []
+ru:
+  description: >-
+    Умный замок, который узнаёт вас в лицо. Дверь открывается пятью способами:
+    по 3D-лицу, отпечатку пальца, PIN-коду, RFID-брелоку или ключу. Есть
+    широкоугольная камера с ночным видением, видеозвонок и управление со
+    смартфона из любой точки мира.
+  seoTitle: Philips 720 FVP — купить умный замок Philips в Казахстане | iLOCK
+  seoDescription: >-
+    Умный дверной замок Philips DDL720-FVP с 3D-распознаванием лица и
+    видеоглазком
+  body: >-
+    Philips DDL720-FVP — замок, который знает вас в лицо, охраняет дом и делает
+    безопасность простой и понятной.
+
+
+    5 способов открыть дверь
+
+
+    3D-распознавание лица: открывается за секунду, руки свободны
+
+    Отпечаток пальца
+
+    Персональный PIN-код
+
+    RFID-брелок
+
+    Механический ключ на случай непредвиденных ситуаций
+
+
+    Умный контроль
+
+
+    Широкоугольная камера с ночным видением
+
+    Видеозвонок и двусторонняя связь с гостем у двери
+
+    Push-уведомления на смартфон
+
+
+    Управление из любой точки мира
+
+
+    История входов: кто и когда заходил
+
+    Временные гостевые коды для родственников, няни или клининга
+
+    Добавление и удаление пользователей
+
+    Оповещения о тревожных событиях
+
+
+    Безопасность и комфорт
+
+
+    Автоблокировка: дверь запирается сама, как только её закрыли
+
+    Режим охраны: сигнализация срабатывает при попытке открыть замок изнутри
+
+    Режим конфиденциальности: никто не откроет дверь снаружи, пока вы дома
+
+    Голосовые подсказки на русском языке и беззвучный режим
+kk:
+  description: >-
+    Сізді жүзіңізден танитын ақылды құлып. Есікті ашудың бес тәсілі бар:
+    3D-бет-әлпетті тану, саусақ ізі, PIN-код, RFID-брелок немесе механикалық
+    кілт. Түнгі көру функциясы бар кең бұрышты камера, бейнеқоңырау және әлемнің
+    кез келген нүктесінен смартфон арқылы басқару мүмкіндігі қарастырылған.
+  seoTitle: Philips 720 FVP — Қазақстанда Philips ақылды құлпын сатып алу | iLOCK
+  seoDescription: >-
+    Philips DDL720-FVP — сізді жүзіңізден танитын, үйіңізді қорғайтын және
+    қауіпсіздікті қарапайым әрі ыңғайлы ететін ақылды құлып.
+  body: >-
+    Philips DDL720-FVP — сізді жүзіңізден танитын, үйіңізді қорғайтын және
+    қауіпсіздікті қарапайым әрі ыңғайлы ететін ақылды құлып.
+
+
+    Есікті ашудың 5 тәсілі
+
+    - 3D-бет-әлпетті тану: есік бір секундта ашылады, қолыңыз бос болады
+
+    - Саусақ ізі
+
+    - Жеке PIN-код
+
+    - RFID-брелок
+
+    - Күтпеген жағдайларға арналған механикалық кілт
+
+    Ақылды бақылау
+
+    - Түнгі көру функциясы бар кең бұрышты камера
+
+    - Бейнеқоңырау және есік алдындағы қонақпен екіжақты байланыс
+
+    - Смартфонға Push-хабарландырулар
+
+    Әлемнің кез келген нүктесінен басқару
+
+    - Кіру тарихы: кім және қай уақытта кіргенін көру
+
+    - Туыстарға, бала күтушіге немесе тазалық қызметкеріне арналған уақытша
+    қонақ кодтары
+
+    - Пайдаланушыларды қосу және жою
+
+    - Қауіпті жағдайлар туралы хабарландырулар
+
+    Қауіпсіздік пен жайлылық
+
+    - Автоматты құлыптау: есік жабылған бойда автоматты түрде құлыпталады
+
+    - Күзет режимі: құлыпты ішінен ашуға әрекет жасалғанда дабыл іске қосылады
+
+    - Құпиялылық режимі: үйде болған кезде есікті сырттан ашу мүмкін болмайды
+
+    - Орыс тіліндегі дауыстық нұсқаулар және дыбыссыз режим
+en:
+  description: >-
+    A smart lock that recognizes your face. Unlock your door in five ways: 3D
+    face recognition, fingerprint, PIN code, RFID key fob, or mechanical key.
+    Features a wide-angle camera with night vision, video calling, and
+    smartphone control from anywhere in the world.
+  seoTitle: Philips 720 FVP — Buy Philips Smart Lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    Philips DDL720-FVP is a smart lock that recognizes your face, protects your
+    home, and makes security simple and convenient.
+  body: >-
+    Philips DDL720-FVP is a smart lock that recognizes your face, protects your
+    home, and makes security simple and convenient.
+
+
+    5 Ways to Unlock Your Door
+
+    - 3D Face Recognition: unlocks in one second, keeping your hands free
+
+    - Fingerprint
+
+    - Personal PIN code
+
+    - RFID key fob
+
+    - Mechanical key for emergencies
+
+    Smart Monitoring
+
+    - Wide-angle camera with night vision
+
+    - Video calling and two-way communication with visitors at your door
+
+    - Push notifications to your smartphone
+
+    Control from Anywhere in the World
+
+    - Access history: see who entered and when
+
+    - Temporary guest codes for family members, babysitters, or cleaning staff
+
+    - Add and remove users
+
+    - Alerts for security-related events
+
+    Security and Convenience
+
+    - Automatic locking: the door locks automatically as soon as it closes
+
+    - Security mode: an alarm is triggered if someone attempts to unlock the
+    door from the inside
+
+    - Privacy mode: prevents the door from being unlocked from outside while you
+    are at home
+
+    - Russian voice guidance and silent mode
