@@ -3,9 +3,9 @@ brand: ilock
 kind: lock
 kazakhBrand: false
 comingSoon: false
-price: 190000
+price: 210000
 installment:
-  monthly: 15900
+  monthly: 17500
   months: 12
   kaspi: true
   longTerm: false
