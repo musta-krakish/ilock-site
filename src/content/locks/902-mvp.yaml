@@ -36,11 +36,15 @@ features:
   - pir
   - voice-change
   - wireless-charge
-  - two-way-audio
-  - triple-camera
   - rechargeable
   - video-peephole
   - auto
+  - auto-lock
+  - bluetooth
+  - double-handle-lock
+  - dual-camera
+  - double-check
+  - hidden-compartment
 temp:
   min: -20
   max: 60
@@ -57,10 +61,8 @@ interface:
 colors:
   - obsidian
   - gold
-colorPrices:
-  - color: gold
-    price: 850000
-    image: ../../assets/images/locks/902-mvp/colorPrices/0/image.png
+tags: []
+colorPrices: []
 videos: []
 reviews: []
 variants: []
