@@ -1,0 +1,26 @@
+name: Свободный проход
+kk: Еркін өту
+en: Free Passage
+order: 0
+group: function
+info:
+  ru:
+    items: >-
+      Функция «Свободный проход» позволяет временно отключить автоматическую
+      блокировку двери. Замок остаётся открытым, и вы можете свободно входить и
+      выходить без повторного использования отпечатка пальца, пароля или карты.
+      Удобно для дома, офиса и помещений с частым потоком людей.
+    footer: Свободный доступ без необходимости повторной разблокировки двери.
+  kk:
+    items: >-
+      «Еркін өту» функциясы есіктің автоматты түрде құлыпталуын уақытша өшіруге
+      мүмкіндік береді. Есік құлыпталмайды, сондықтан саусақ ізін, құпиясөзді
+      немесе картаны қайта қолданбай-ақ еркін кіріп-шығуға болады.
+    footer: Есікті қайта ашуды қажет етпейтін еркін өту мүмкіндігі.
+  en:
+    items: >-
+      The Free Passage function temporarily disables automatic door locking. The
+      door remains unlocked, allowing you to enter and exit freely without
+      repeatedly using your fingerprint, password, or access card. Ideal for
+      homes, offices, and high-traffic areas.
+    footer: Convenient access without repeatedly unlocking the door.
