@@ -47,6 +47,8 @@ interface:
   - kk
 colors:
   - black
+tags:
+  - turnkey
 colorPrices: []
 videos: []
 reviews: []
