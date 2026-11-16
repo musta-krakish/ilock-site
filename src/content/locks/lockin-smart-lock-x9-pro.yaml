@@ -32,7 +32,7 @@ features:
   - emergency-charge
   - anti-pry
 temp:
-  min: 20
+  min: -20
   max: 60
 power: li-5000
 battery: 4-6
