@@ -52,6 +52,8 @@ interface:
   - kk
 colors:
   - black
+tags:
+  - turnkey
 colorPrices: []
 videos:
   - https://www.youtube.com/shorts/nk123Jpsjxg
