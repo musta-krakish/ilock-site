@@ -13,6 +13,7 @@ image: ../../assets/images/locks/702-fvp/image.png
 order: 8
 featured: true
 giftInstallation: false
+construction: none
 material: aluminum
 access:
   - fingerprint
@@ -52,6 +53,8 @@ interface:
 colors:
   - charcoal
 colorPrices: []
+videos: []
+reviews: []
 variants: []
 ru:
   description: Распознавание лица до 50 человек, видеоглазок.

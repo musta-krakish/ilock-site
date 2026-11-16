@@ -1,11 +1,11 @@
 title: S940 Max
-brand: ilock
+brand: smartlock
 kind: lock
-kazakhBrand: true
+kazakhBrand: false
 comingSoon: false
-price: 145000
+price: 195000
 installment:
-  monthly: 13900
+  monthly: 16250
   months: 12
   kaspi: true
   longTerm: false
@@ -13,6 +13,7 @@ image: ../../assets/images/locks/s940-max/image.png
 order: 6
 featured: false
 giftInstallation: false
+construction: none
 material: aluminum
 access:
   - fingerprint
@@ -54,6 +55,7 @@ colors:
 colorPrices: []
 videos:
   - https://www.youtube.com/shorts/nk123Jpsjxg
+reviews: []
 variants: []
 ru:
   description: >-
