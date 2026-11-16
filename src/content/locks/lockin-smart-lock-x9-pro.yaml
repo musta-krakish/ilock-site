@@ -44,7 +44,8 @@ origin: {}
 interface: []
 colors:
   - black
-tags: []
+tags:
+  - turnkey
 colorPrices: []
 videos: []
 reviews: []
