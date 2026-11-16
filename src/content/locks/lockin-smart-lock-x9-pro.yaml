@@ -23,7 +23,6 @@ access:
   - key
 limits: {}
 features:
-  - wifi
   - bluetooth
   - doorbell
   - video-peephole
