@@ -4,26 +4,10 @@ import { createElement } from 'react';
 const repository = 'musta-krakish/ilock-site';
 
 const options = {
-	brand: [
-		{ label: 'iLOCK', value: 'ilock' },
-		{ label: 'Philips', value: 'philips' },
-		{ label: 'EZVIZ', value: 'ezviz' },
-		{ label: 'SmartLock', value: 'smartlock' },
-		{ label: 'Сейфы Philips', value: 'safes' },
-		{ label: 'Tiger', value: 'tiger' },
-	],
 	kind: [
 		{ label: 'Умный замок', value: 'lock' },
 		{ label: 'Сейф', value: 'safe' },
 		{ label: 'Прочее / аксессуар', value: 'accessory' },
-	],
-	material: [
-		{ label: 'Алюминиевый сплав', value: 'aluminum' },
-		{ label: 'Алюминиевый сплав + стекло', value: 'aluminum-glass' },
-		{ label: 'Цинковый сплав', value: 'zinc' },
-		{ label: 'Цинковый сплав + стекло', value: 'zinc-glass' },
-		{ label: 'Нержавеющая сталь', value: 'steel' },
-		{ label: 'Низкоуглеродистый сплав', value: 'low-carbon-steel' },
 	],
 	access: [
 		{ label: 'Отпечаток пальца', value: 'fingerprint' },
@@ -35,79 +19,6 @@ const options = {
 		{ label: 'Приложение', value: 'app' },
 		{ label: 'Мастер-карта', value: 'master-card' },
 		{ label: 'Распознавание вен на руке', value: 'vein' },
-	],
-	feature: [
-		{ label: 'Wi-Fi', value: 'wifi' },
-		{ label: 'Bluetooth', value: 'bluetooth' },
-		{ label: 'Дверной звонок', value: 'doorbell' },
-		{ label: 'Видеоглазок', value: 'video-peephole' },
-		{ label: 'Двусторонняя аудиосвязь', value: 'two-way-audio' },
-		{ label: 'Двусторонняя камера', value: 'dual-camera' },
-		{ label: 'Трёхсторонняя камера', value: 'triple-camera' },
-		{ label: 'Изменение голоса', value: 'voice-change' },
-		{ label: 'Озвучка RU/KZ', value: 'voice-ru-kk' },
-		{ label: 'Мониторинг в реальном времени', value: 'realtime' },
-		{ label: 'PIR-датчик', value: 'pir' },
-		{ label: 'Датчик движения', value: 'motion' },
-		{ label: 'Датчик закрытия двери', value: 'door-sensor' },
-		{ label: 'Ночной часовой', value: 'night-watch' },
-		{ label: 'Полностью автоматический', value: 'auto' },
-		{ label: 'Полуавтоматический', value: 'semi-auto' },
-		{ label: 'Автоблокировка', value: 'auto-lock' },
-		{ label: 'Режим толкни/потяни', value: 'push-pull' },
-		{ label: 'Перезаряжаемый аккумулятор', value: 'rechargeable' },
-		{ label: 'Беспроводная зарядка', value: 'wireless-charge' },
-		{ label: 'Аварийная зарядка', value: 'emergency-charge' },
-		{ label: 'Низкий заряд', value: 'low-battery' },
-		{ label: 'Сигнализация о вскрытии', value: 'tamper-alarm' },
-		{ label: 'Двойная проверка', value: 'double-check' },
-		{ label: 'Двойная проверка (сейф)', value: 'dual-check' },
-		{ label: 'Цилиндр C-класса', value: 'c-cylinder' },
-		{ label: 'Отключение звука', value: 'mute' },
-		{ label: 'Защита от взлома', value: 'anti-pry' },
-		{ label: 'Защита IP67', value: 'ip67' },
-		{ label: 'Влагостойкость', value: 'waterproof' },
-		{ label: 'Для узкопрофильных дверей', value: 'slim-door' },
-		{ label: 'Для стеклянных дверей', value: 'glass-door' },
-		{ label: 'Общее ПО для замков', value: 'software' },
-		{ label: 'Программатор в комплекте', value: 'programmer' },
-		{ label: 'Цельный корпус', value: 'solid-body' },
-		{ label: 'Аварийный сигнал', value: 'alarm' },
-		{ label: 'Отдельные секции хранения', value: 'storage-sections' },
-		{ label: 'Скрытый отсек', value: 'hidden-compartment' },
-		{ label: 'Крепление к стене', value: 'wall-mount' },
-		{ label: 'Zigbee 3.0', value: 'zigbee' },
-		{ label: 'Аварийное питание MicroUSB', value: 'micro-usb' },
-		{ label: 'Блокировка двойным поднятием ручки', value: 'double-handle-lock' },
-		{ label: 'Звуковое сопровождение событий', value: 'sound-prompts' },
-	],
-	power: [
-		{ label: '4 батарейки AA', value: 'aa4' },
-		{ label: '8 батареек AA', value: 'aa8' },
-		{ label: 'Литиевый аккумулятор 4200 мАч', value: 'li-4200' },
-		{ label: 'Литий-полимерный аккумулятор 5000 мАч', value: 'li-5000' },
-		{ label: 'Литий-ионный аккумулятор', value: 'li-ion' },
-		{ label: 'Литиевый аккумулятор', value: 'li' },
-	],
-	interface: [
-		{ label: 'Русский', value: 'ru' },
-		{ label: 'Казахский', value: 'kk' },
-		{ label: 'Английский', value: 'en' },
-		{ label: 'Китайский', value: 'zh' },
-	],
-	color: [
-		{ label: 'Чёрный', value: 'black' },
-		{ label: 'Чёрный матовый', value: 'matte-black' },
-		{ label: 'Угольно-чёрный', value: 'charcoal' },
-		{ label: 'Чёрный обсидиан', value: 'obsidian' },
-		{ label: 'Золотой', value: 'gold' },
-		{ label: 'Серебристый', value: 'silver' },
-		{ label: 'Медный', value: 'copper' },
-		{ label: 'Медно-бронзовый', value: 'bronze' },
-		{ label: 'Титаново-серый', value: 'titanium' },
-		{ label: 'Кофейный', value: 'coffee' },
-		{ label: 'Серый', value: 'gray' },
-		{ label: 'Белый', value: 'white' },
 	],
 } as const;
 
@@ -389,7 +300,12 @@ const lockSchema = {
 		name: { label: 'Название модели', validation: { isRequired: true } },
 		slug: { label: 'URL / имя файла' },
 	}),
-	brand: fields.select({ label: 'Бренд', options: options.brand, defaultValue: 'ilock' }),
+	brand: fields.relationship({
+		label: 'Бренд',
+		description: 'Новый бренд добавляется в «Справочники → Бренды».',
+		collection: 'brands',
+		validation: { isRequired: true },
+	}),
 	kind: fields.select({ label: 'Тип товара', options: options.kind, defaultValue: 'lock' }),
 	kazakhBrand: fields.checkbox({ label: 'Казахстанский бренд', defaultValue: false }),
 	comingSoon: fields.checkbox({ label: 'Скоро в продаже', defaultValue: false }),
@@ -448,7 +364,7 @@ const lockSchema = {
 		],
 		defaultValue: 'unknown',
 	}),
-	material: fields.select({ label: 'Материал', options: options.material, defaultValue: 'aluminum' }),
+	material: fields.relationship({ label: 'Материал', collection: 'materials', validation: { isRequired: true } }),
 	access: compactMultiselect('Способы открытия', options.access, {
 		description: 'Выберите доступные способы разблокировки.',
 	}),
@@ -470,10 +386,7 @@ const lockSchema = {
 			layout: [4, 4, 4, 4, 4, 4, 4, 4, 4],
 		},
 	),
-	features: compactMultiselect('Функции', options.feature, {
-		description: 'Список можно раскрыть при необходимости.',
-		collapsed: true,
-	}),
+	features: fields.multiRelationship({ label: 'Функции', collection: 'features' }),
 	temp: fields.object(
 		{
 			min: fields.integer({ label: 'Минимум, °C', validation: { isRequired: true } }),
@@ -481,7 +394,12 @@ const lockSchema = {
 		},
 		{ label: 'Рабочая температура', layout: [6, 6] },
 	),
-	power: fields.select({ label: 'Питание', options: options.power, defaultValue: 'aa4' }),
+	power: fields.relationship({
+		label: 'Питание',
+		description: 'Новый вариант добавляется в «Справочники → Питание».',
+		collection: 'power',
+		validation: { isRequired: true },
+	}),
 	battery: requiredText('Срок работы, месяцев', 'Например: 4-6 или 10.'),
 	app: fields.text({ label: 'Приложение' }),
 	compatibility: fields.object(
@@ -509,12 +427,17 @@ const lockSchema = {
 		},
 		{ label: 'Страна происхождения', description: 'Необязательное поле.', layout: [4, 4, 4] },
 	),
-	interface: compactMultiselect('Языки интерфейса', options.interface, { columns: 2, collapsed: true }),
-	colors: compactMultiselect('Цвета', options.color, { columns: 2, collapsed: true }),
+	interface: fields.multiRelationship({ label: 'Языки интерфейса', collection: 'interfaces' }),
+	colors: fields.multiRelationship({ label: 'Цвета', collection: 'colors' }),
+	tags: fields.multiRelationship({
+		label: 'Теги каталога',
+		description: 'Ручные теги для быстрого подбора, например «Под ключ». Список — в «Справочники → Теги каталога».',
+		collection: 'catalogTags',
+	}),
 	colorPrices: fields.array(
 		fields.object(
 			{
-				color: fields.select({ label: 'Цвет', options: options.color, defaultValue: 'gold' }),
+				color: fields.relationship({ label: 'Цвет', collection: 'colors', validation: { isRequired: true } }),
 				price: fields.integer({ label: 'Цена в этом цвете, ₸', validation: { isRequired: true, min: 0 } }),
 				image: fields.image({
 					label: 'Фото в этом цвете',
@@ -530,7 +453,7 @@ const lockSchema = {
 			description:
 				'Для цветов, которые стоят иначе, чем «Цена от». Цвет также должен быть отмечен в поле «Цвета». На странице товара появится выбор цвета.',
 			itemLabel: (props) => {
-				const color = options.color.find((c) => c.value === props.fields.color.value)?.label ?? 'Цвет';
+				const color = props.fields.color.value ?? 'Цвет';
 				return `${color} — ${(props.fields.price.value ?? 0).toLocaleString('ru-RU')} ₸`;
 			},
 		},
@@ -590,6 +513,50 @@ const lockSchema = {
 	en: translatedCopy('English'),
 };
 
+
+/**
+ * Dictionaries: lists a lock picks from (brands, power, colours…). Adding an entry here makes
+ * it available in the lock form; the file name is the key stored in the lock.
+ */
+const dictionaryFields = {
+	name: fields.slug({
+		name: { label: 'Название (по-русски)', validation: { isRequired: true } },
+		slug: { label: 'Код', description: 'Латиницей, без пробелов. После сохранения не меняйте — по нему товары ссылаются на запись.' },
+	}),
+	kk: fields.text({ label: 'Қазақша', description: 'Пусто — будет показано русское название.' }),
+	en: fields.text({ label: 'English', description: 'Пусто — будет показано русское название.' }),
+	order: fields.integer({ label: 'Порядок', description: 'Меньше — выше в списках.', defaultValue: 100 }),
+};
+
+const dictionaryCollection = (label: string, dir: string, extra: Record<string, any> = {}) =>
+	collection({
+		label,
+		path: `src/content/dictionaries/${dir}/*`,
+		slugField: 'name',
+		columns: ['order'],
+		schema: { ...dictionaryFields, ...extra },
+	});
+
+const brandCopy = (label: string) =>
+	fields.object(
+		{
+			h1: requiredText('Заголовок страницы бренда'),
+			lead: fields.text({ label: 'Описание под заголовком', multiline: true, validation: { isRequired: true } }),
+			seoTitle: requiredText('SEO title'),
+			seoDescription: fields.text({ label: 'SEO description', multiline: true, validation: { isRequired: true } }),
+		},
+		{ label },
+	);
+
+const tagInfoFields = (label: string) =>
+	fields.object(
+		{
+			items: fields.text({ label: 'Пункты списка', description: 'Каждый пункт с новой строки.', multiline: true }),
+			footer: fields.text({ label: 'Итоговая строка внизу окна' }),
+		},
+		{ label },
+	);
+
 const createFaqCollection = (
 	lang: 'ru' | 'kk' | 'en',
 	label: string,
@@ -639,7 +606,8 @@ export default config({
 		brand: { name: 'iLOCK · управление сайтом' },
 		navigation: {
 			Главная: ['homePromotions'],
-			Каталог: ['locks'],
+			Каталог: ['locks', 'catalogSettings'],
+			Справочники: ['brands', 'power', 'colors', 'materials', 'features', 'interfaces', 'catalogTags'],
 			Партнёры: ['partners'],
 			FAQ: ['faqRu', 'faqKk', 'faqEn'],
 		},
@@ -653,11 +621,95 @@ export default config({
 			previewUrl: '/preview/product?branch={branch}&slug={slug}',
 			schema: lockSchema,
 		}),
+		brands: collection({
+			label: 'Бренды',
+			path: 'src/content/dictionaries/brands/*',
+			slugField: 'name',
+			columns: ['order'],
+			schema: {
+				name: fields.slug({
+					name: { label: 'Название бренда', validation: { isRequired: true } },
+					slug: { label: 'Код и адрес страницы', description: 'Латиницей: страница будет /catalog/<код>/. После сохранения не меняйте.' },
+				}),
+				order: fields.integer({ label: 'Порядок', description: 'Меньше — выше в каталоге и меню.', defaultValue: 100 }),
+				ru: brandCopy('Страница бренда — русский'),
+				kk: brandCopy('Страница бренда — қазақша'),
+				en: brandCopy('Страница бренда — English'),
+			},
+		}),
+		power: dictionaryCollection('Питание', 'power'),
+		colors: dictionaryCollection('Цвета', 'colors', {
+			swatch: fields.text({
+				label: 'Цвет кружка',
+				description: 'CSS-цвет для кнопки выбора цвета, например #111111 или linear-gradient(135deg, #f3d27a, #b8862b).',
+				defaultValue: '#888888',
+			}),
+			filterGroup: fields.select({
+				label: 'Группа в фильтре каталога',
+				options: [
+					{ label: 'Серый', value: 'gray' },
+					{ label: 'Чёрный', value: 'black' },
+					{ label: 'Бронза', value: 'bronze' },
+					{ label: 'Золотой', value: 'gold' },
+					{ label: 'Не показывать в фильтре', value: 'none' },
+				],
+				defaultValue: 'none',
+			}),
+		}),
+		materials: dictionaryCollection('Материалы', 'materials'),
+		features: dictionaryCollection('Функции', 'features'),
+		interfaces: dictionaryCollection('Языки интерфейса', 'interfaces'),
+		catalogTags: dictionaryCollection('Теги каталога', 'tags', {
+			group: fields.select({
+				label: 'Группа тегов',
+				options: [
+					{ label: 'Выгода', value: 'offer' },
+					{ label: 'Функции', value: 'function' },
+					{ label: 'Конструкция', value: 'construction' },
+				],
+				defaultValue: 'offer',
+			}),
+			info: fields.object(
+				{
+					ru: tagInfoFields('Русский'),
+					kk: tagInfoFields('Қазақша'),
+					en: tagInfoFields('English'),
+				},
+				{
+					label: 'Окно «i» с описанием',
+					description: 'Необязательно. Если заполнены пункты на русском, рядом с тегом появится кнопка «i». Пустые kk/en — покажется русский текст.',
+				},
+			),
+		}),
 		faqRu: createFaqCollection('ru', 'FAQ — русский', 'Русский'),
 		faqKk: createFaqCollection('kk', 'FAQ — қазақша', 'Қазақша'),
 		faqEn: createFaqCollection('en', 'FAQ — English', 'English'),
 	},
 	singletons: {
+		catalogSettings: singleton({
+			label: 'Каталог — бюджеты в быстром подборе',
+			path: 'src/content/settings/catalog',
+			format: 'yaml',
+			schema: {
+				budgets: fields.array(
+					fields.object(
+						{
+							ru: requiredText('Название (по-русски)'),
+							kk: requiredText('Қазақша'),
+							en: requiredText('English'),
+							min: fields.integer({ label: 'Цена от, ₸', description: 'Пусто — без нижней границы.' }),
+							max: fields.integer({ label: 'Цена до, ₸', description: 'Пусто — без верхней границы. Границы включительно.' }),
+						},
+						{ layout: [4, 4, 4, 6, 6] },
+					),
+					{
+						label: 'Теги бюджета',
+						description: 'Диапазоны могут пересекаться: замок попадает во все, куда подходит его цена.',
+						itemLabel: (props) => props.fields.ru.value || 'Новый диапазон',
+					},
+				),
+			},
+		}),
 		homePromotions: singleton({
 			label: 'Главная — акционные замки',
 			path: 'src/content/home/promotions',

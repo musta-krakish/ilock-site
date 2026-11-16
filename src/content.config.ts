@@ -2,22 +2,17 @@ import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 /**
- * Specs are stored as language-neutral keys (e.g. `aluminum`, `fingerprint`, `wifi`)
- * and rendered through the dictionaries in `src/i18n.ts`. Only prose — the short
- * description and the body copy — is written per language.
+ * Specs are stored as language-neutral keys (e.g. `aluminum`, `wifi`, `philips`). Brands,
+ * materials, features, power, interface languages and colours are dictionaries editable in
+ * Keystatic (`src/content/dictionaries/*`), so a lock stores the key and the site looks the
+ * label up there. Access methods stay in code: the limits form and the tags depend on them.
  */
-const brand = z.enum(['ilock', 'philips', 'ezviz', 'smartlock', 'safes', 'tiger']);
+const key = z.string();
+const brand = key;
 
 const kind = z.enum(['lock', 'safe', 'accessory']);
 
-const material = z.enum([
-	'aluminum',
-	'aluminum-glass',
-	'zinc',
-	'zinc-glass',
-	'steel',
-	'low-carbon-steel',
-]);
+const material = key;
 
 const access = z.enum([
 	'fingerprint',
@@ -31,68 +26,11 @@ const access = z.enum([
 	'vein',
 ]);
 
-const feature = z.enum([
-	'wifi',
-	'bluetooth',
-	'doorbell',
-	'video-peephole',
-	'two-way-audio',
-	'dual-camera',
-	'triple-camera',
-	'voice-change',
-	'voice-ru-kk',
-	'realtime',
-	'pir',
-	'motion',
-	'door-sensor',
-	'night-watch',
-	'auto',
-	'semi-auto',
-	'auto-lock',
-	'push-pull',
-	'rechargeable',
-	'wireless-charge',
-	'emergency-charge',
-	'low-battery',
-	'tamper-alarm',
-	'double-check',
-	'c-cylinder',
-	'mute',
-	'anti-pry',
-	'ip67',
-	'waterproof',
-	'slim-door',
-	'glass-door',
-	'software',
-	'programmer',
-	'solid-body',
-	'alarm',
-	'storage-sections',
-	'hidden-compartment',
-	'dual-check',
-	'wall-mount',
-	'zigbee',
-	'micro-usb',
-	'double-handle-lock',
-	'sound-prompts',
-]);
+const feature = key;
 
-const power = z.enum(['aa4', 'aa8', 'li-4200', 'li-5000', 'li-ion', 'li']);
+const power = key;
 
-const color = z.enum([
-	'black',
-	'matte-black',
-	'charcoal',
-	'obsidian',
-	'gold',
-	'silver',
-	'copper',
-	'bronze',
-	'titanium',
-	'coffee',
-	'gray',
-	'white',
-]);
+const color = key;
 
 /**
  * Keystatic can save a half-typed number as `.nan`. Treat it like an empty field
@@ -168,7 +106,7 @@ const locks = defineCollection({
 			included: z.object({ ru: z.string().optional(), kk: z.string().optional(), en: z.string().optional() }).nullable().optional(),
 			warranty: z.number(),
 			origin: z.object({ ru: z.string().optional(), kk: z.string().optional(), en: z.string().optional() }).nullable().optional(),
-			interface: z.array(z.enum(['ru', 'kk', 'en', 'zh'])),
+			interface: z.array(key),
 			colors: z.array(color),
 			/** Colours sold above the base `price`, e.g. gold 902 MVP. Listed colours without an entry cost `price`. */
 			colorPrices: z
@@ -181,6 +119,8 @@ const locks = defineCollection({
 				)
 				.default([]),
 			/** YouTube links (shorts, watch, youtu.be); shown as click-to-play videos on the product page. */
+			/** Manual catalogue tags (`src/content/dictionaries/tags`), e.g. «Под ключ». */
+			tags: z.array(key).default([]),
 			videos: z.array(z.string()).default([]),
 			/** Customer reviews, entered in Keystatic and shown as written on every language version. */
 			reviews: z
@@ -221,6 +161,79 @@ const locks = defineCollection({
 			};
 			return { ...lock, priceTo: sane('priceTo'), oldPrice: sane('oldPrice') };
 		}),
+});
+
+const dictionaryLoader = (dir: string) => glob({ pattern: '*.yaml', base: `./src/content/dictionaries/${dir}` });
+
+/** Fields every dictionary entry has. */
+const dictionaryEntry = {
+	/** Russian label; also the title of the entry in Keystatic. */
+	name: z.string(),
+	kk: z.string().nullable().optional(),
+	en: z.string().nullable().optional(),
+	order: z.number().default(100),
+};
+
+const dictionary = (dir: string) =>
+	defineCollection({ loader: dictionaryLoader(dir), schema: z.object(dictionaryEntry) });
+
+const brandCopy = z.object({
+	h1: z.string(),
+	lead: z.string(),
+	seoTitle: z.string(),
+	seoDescription: z.string(),
+});
+
+const brands = defineCollection({
+	loader: glob({ pattern: '*.yaml', base: './src/content/dictionaries/brands' }),
+	schema: z.object({
+		name: z.string(),
+		order: z.number().default(100),
+		ru: brandCopy,
+		kk: brandCopy,
+		en: brandCopy,
+	}),
+});
+
+const tagInfo = z.object({ items: z.string().nullable().optional(), footer: z.string().nullable().optional() });
+
+/** Hand-assigned catalogue tags; one with `info` shows an «i» button opening a popup. */
+const catalogTags = defineCollection({
+	loader: dictionaryLoader('tags'),
+	schema: z.object({
+		...dictionaryEntry,
+		group: z.enum(['function', 'construction', 'offer']).default('offer'),
+		info: z.object({ ru: tagInfo, kk: tagInfo, en: tagInfo }).partial().nullable().optional(),
+	}),
+});
+
+const colors = defineCollection({
+	loader: dictionaryLoader('colors'),
+	schema: z.object({
+		...dictionaryEntry,
+		/** CSS background for the colour dot, e.g. `#111111` or a gradient. */
+		swatch: z.string().nullable().optional(),
+		/** Which catalogue colour filter this colour belongs to. */
+		filterGroup: z.enum(['gray', 'black', 'bronze', 'gold', 'none']).default('none'),
+	}),
+});
+
+const catalogSettings = defineCollection({
+	loader: glob({ pattern: 'catalog.yaml', base: './src/content/settings' }),
+	schema: z.object({
+		/** Budget tags; a lock matches every range its price falls into, so ranges may overlap. */
+		budgets: z
+			.array(
+				z.object({
+					ru: z.string(),
+					kk: z.string(),
+					en: z.string(),
+					min: z.number().nullable().optional(),
+					max: z.number().nullable().optional(),
+				}),
+			)
+			.default([]),
+	}),
 });
 
 const faq = defineCollection({
@@ -266,4 +279,17 @@ const home = defineCollection({
 	}),
 });
 
-export const collections = { locks, faq, partners, home };
+export const collections = {
+	locks,
+	faq,
+	partners,
+	home,
+	brands,
+	materials: dictionary('materials'),
+	features: dictionary('features'),
+	power: dictionary('power'),
+	interfaces: dictionary('interfaces'),
+	colors,
+	catalogTags,
+	catalogSettings,
+};

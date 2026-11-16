@@ -4,6 +4,7 @@ import LockCard from './LockCard.astro';
 import SectionHeading from './SectionHeading.astro';
 import { site } from '../config';
 import { getLocalePath, localizeLock, sortLocks, type Lang, ui } from '../i18n';
+import { getDictionaries } from '../lib/dictionaries';
 import { promotionCopy } from '../lib/promotions';
 
 interface Props {
@@ -15,7 +16,10 @@ const t = ui[lang];
 const promo = promotionCopy[lang];
 const homePath = getLocalePath(lang);
 
-const all = sortLocks((await getCollection('locks')).map((lock) => localizeLock(lock, lang)));
+const all = sortLocks(
+	(await getCollection('locks')).map((lock) => localizeLock(lock, lang)),
+	(await getDictionaries()).brandOrder,
+);
 const home = await getEntry('home', 'promotions');
 const promotionLayout = home?.data.promotionLayout ?? 'grid';
 const promotionLocks = home?.data.promotionLocks ?? [];

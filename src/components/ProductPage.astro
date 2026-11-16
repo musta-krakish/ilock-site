@@ -7,7 +7,6 @@ import ProductVideos from './ProductVideos.astro';
 import VideoFacade from './VideoFacade.astro';
 import { formatPrice, whatsappLink } from '../config';
 import {
-	brandNames,
 	canonicalPath,
 	getLocalePath,
 	localizeLock,
@@ -15,6 +14,7 @@ import {
 	type Lang,
 	ui,
 } from '../i18n';
+import { getDictionaries } from '../lib/dictionaries';
 import { hasGiftInstallation, promotionCopy } from '../lib/promotions';
 import { parseVideoList } from '../lib/youtube';
 
@@ -28,11 +28,16 @@ const t = ui[lang];
 const lock = localizeLock(entry, lang);
 const homePath = getLocalePath(lang);
 const S = t.specs;
+const dict = await getDictionaries();
+const brandName = dict.brandName(lock.brand);
 const isAccessory = lock.kind === 'accessory';
 const hasInstallationGift = hasGiftInstallation(lock);
 const promo = promotionCopy[lang];
 
-const all = sortLocks((await getCollection('locks')).map((l) => localizeLock(l, lang))).filter(
+const all = sortLocks(
+	(await getCollection('locks')).map((l) => localizeLock(l, lang)),
+	dict.brandOrder,
+).filter(
 	(l) => l.slug !== lock.slug,
 );
 const related = [
@@ -47,7 +52,7 @@ const monthlyFor = (price: number) =>
 		? lock.installment.monthly
 		: Math.round(price / kaspiMonths / 100) * 100;
 
-const productName = t.product.h1(brandNames[lock.brand], lock.title, lock.kind);
+const productName = t.product.h1(brandName, lock.title, lock.kind);
 const videos = parseVideoList(lock.videos, productName);
 
 // A colour without a `colorPrices` entry costs the base price and shows the base photo.
@@ -57,7 +62,7 @@ const colorOptions = lock.colors.map((color) => {
 	const price = custom?.price ?? lock.price;
 	return {
 		color,
-		name: S.color[color],
+		name: dict.label('colors', color, lang),
 		price,
 		oldPrice: price === lock.price ? lock.oldPrice : null,
 		image: custom?.image ?? lock.image,
@@ -75,21 +80,6 @@ const orderHref = (colorName?: string) =>
 const kaspiText = (price: number) =>
 	`${t.product.kaspiWord} · ${t.product.kaspiTerm(formatPrice(monthlyFor(price)), kaspiMonths)}`;
 
-const swatch: Record<(typeof lock.colors)[number], string> = {
-	black: '#111111',
-	'matte-black': '#262626',
-	charcoal: '#36454f',
-	obsidian: '#1b1b22',
-	gold: 'linear-gradient(135deg, #f3d27a, #b8862b)',
-	silver: 'linear-gradient(135deg, #f1f1f1, #a7a7a7)',
-	copper: '#b87333',
-	bronze: '#9c6b3f',
-	titanium: '#7d7f7d',
-	coffee: '#5b3a29',
-	gray: '#8a8a8a',
-	white: '#f5f5f5',
-};
-
 const accessValue = lock.access
 	.map((a) => {
 		const limit = lock.limits?.[a];
@@ -98,36 +88,36 @@ const accessValue = lock.access
 	.join(' · ');
 
 const lockRows = [
-	{ label: t.product.rows.material, value: S.material[lock.material] },
+	{ label: t.product.rows.material, value: dict.label('materials', lock.material, lang) },
 	{ label: t.product.rows.access, value: accessValue },
 	{ label: t.product.rows.temp, value: `${lock.temp.min} °C … +${lock.temp.max} °C` },
-	{ label: t.product.rows.power, value: S.power[lock.power] },
+	{ label: t.product.rows.power, value: dict.label('power', lock.power, lang) },
 	{ label: t.product.rows.battery, value: t.product.months(lock.battery) },
 	...(lock.app ? [{ label: t.product.rows.app, value: lock.app }] : []),
 	{
 		label: t.product.rows.brand,
-		value: `${brandNames[lock.brand]} / ${t.product.years(lock.warranty)}`,
+		value: `${brandName} / ${t.product.years(lock.warranty)}`,
 	},
 	...(lock.origin?.[lang] ? [{ label: t.product.rows.origin, value: lock.origin[lang] }] : []),
 	...(lock.interface.length > 0
-		? [{ label: t.product.rows.iface, value: lock.interface.map((i) => S.iface[i]).join(', ') }]
+		? [{ label: t.product.rows.iface, value: lock.interface.map((i) => dict.label('interfaces', i, lang)).join(', ') }]
 		: []),
-	{ label: t.product.rows.colors, value: lock.colors.map((c) => S.color[c]).join(', ') },
+	{ label: t.product.rows.colors, value: lock.colors.map((c) => dict.label('colors', c, lang)).join(', ') },
 ];
 
 const accessoryRows = [
 	{
 		label: t.product.rows.brand,
-		value: `${brandNames[lock.brand]} / ${t.product.years(lock.warranty)}`,
+		value: `${brandName} / ${t.product.years(lock.warranty)}`,
 	},
 	...(lock.compatibility?.[lang] ? [{ label: t.product.rows.compatibility, value: lock.compatibility[lang] }] : []),
 	...(lock.included?.[lang] ? [{ label: t.product.rows.included, value: lock.included[lang] }] : []),
 	...(lock.interface.length > 0
-		? [{ label: t.product.rows.iface, value: lock.interface.map((i) => S.iface[i]).join(', ') }]
+		? [{ label: t.product.rows.iface, value: lock.interface.map((i) => dict.label('interfaces', i, lang)).join(', ') }]
 		: []),
 	...(lock.features.includes('rechargeable')
 		? [
-				{ label: t.product.rows.power, value: S.power[lock.power] },
+				{ label: t.product.rows.power, value: dict.label('power', lock.power, lang) },
 				{ label: t.product.rows.battery, value: t.product.months(lock.battery) },
 			]
 		: []),
@@ -137,7 +127,7 @@ const rows = isAccessory ? accessoryRows : lockRows;
 const additionalProperties = isAccessory
 	? accessoryRows.map((row) => ({ '@type': 'PropertyValue', name: row.label, value: row.value }))
 	: [
-		{ '@type': 'PropertyValue', name: t.product.rows.material, value: S.material[lock.material] },
+		{ '@type': 'PropertyValue', name: t.product.rows.material, value: dict.label('materials', lock.material, lang) },
 		{ '@type': 'PropertyValue', name: t.product.rows.access, value: accessValue },
 		{ '@type': 'PropertyValue', name: t.product.rows.battery, value: t.product.months(lock.battery) },
 	];
@@ -183,7 +173,7 @@ const productLd = {
 	description: lock.seoDescription,
 	image: new URL(lock.image.src, siteUrl).toString(),
 	sku: lock.slug,
-	brand: { '@type': 'Brand', name: brandNames[lock.brand] },
+	brand: { '@type': 'Brand', name: brandName },
 	offers: offerPrices.map(([price, colorName]) => ({
 		'@type': 'Offer',
 		...(offerPrices.length > 1 && colorName ? { name: `${lock.title} — ${colorName}` } : {}),
@@ -222,7 +212,7 @@ const breadcrumbLd = {
 		{
 			'@type': 'ListItem',
 			position: 3,
-			name: brandNames[lock.brand],
+			name: brandName,
 			item: abs(`${homePath}catalog/${lock.brand}/`),
 		},
 		{ '@type': 'ListItem', position: 4, name: lock.title, item: canonical },
@@ -240,7 +230,7 @@ const breadcrumbLd = {
 			</a>
 			<span aria-hidden="true">/</span>
 			<a href={`${homePath}catalog/${lock.brand}/`} class="transition hover:text-accent-color">
-				{brandNames[lock.brand]}
+				{brandName}
 			</a>
 			<span aria-hidden="true">/</span>
 			<span class="text-white/70">{lock.title}</span>
@@ -261,7 +251,7 @@ const breadcrumbLd = {
 								return (
 									<Image
 										src={image}
-										alt={t.product.imgAlt(brandNames[lock.brand], lock.title, lock.kind)}
+										alt={t.product.imgAlt(brandName, lock.title, lock.kind)}
 										width={900}
 										class:list={['aspect-square w-full object-contain p-8 sm:p-12', !isSelected && 'hidden']}
 										loading={isSelected ? 'eager' : 'lazy'}
@@ -342,7 +332,7 @@ const breadcrumbLd = {
 			<div>
 				<p class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent-color">
 					<span class="h-px w-8 bg-accent-color"></span>
-					{brandNames[lock.brand]}
+					{brandName}
 				</p>
 
 				<h1 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
@@ -373,7 +363,7 @@ const breadcrumbLd = {
 									>
 										<span
 											class="h-7 w-7 shrink-0 rounded-full border border-white/25"
-											style={`background: ${swatch[option.color]}`}
+											style={`background: ${dict.colorSwatch(option.color)}`}
 											aria-hidden="true"
 										/>
 										{option.name}
@@ -485,7 +475,7 @@ const breadcrumbLd = {
 										>
 											<path d="m4 12.5 5 5L20 6.5" />
 										</svg>
-										{S.feature[f]}
+										{dict.label('features', f, lang)}
 									</li>
 								))}
 							</ul>

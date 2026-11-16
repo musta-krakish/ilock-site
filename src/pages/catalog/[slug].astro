@@ -1,42 +1,46 @@
 ---
-import { getCollection } from 'astro:content';
+import BrandPage from '../../components/BrandPage.astro';
 import LeadForm from '../../components/LeadForm.astro';
 import ProductPage from '../../components/ProductPage.astro';
 import { formatPrice } from '../../config';
 import { buildMetaDescription, defaultLang, localizeLock, ui } from '../../i18n';
+import { catalogRoutes, type CatalogRoute } from '../../lib/catalog-routes';
+import { getDictionaries } from '../../lib/dictionaries';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
-	const locks = await getCollection('locks');
-
-	return locks.map((lock) => ({
-		params: { slug: lock.id },
-		props: { lock },
-	}));
+	return (await catalogRoutes()).map((route) => ({ params: { slug: route.slug }, props: route }));
 }
 
-const { lock } = Astro.props;
+const { lock, brand } = Astro.props as CatalogRoute;
 const lang = defaultLang;
-const localizedLock = localizeLock(lock, lang);
 const t = ui[lang];
+const brandCopy = brand ? (await getDictionaries()).brand(brand)![lang] : undefined;
+const localizedLock = lock ? localizeLock(lock, lang) : undefined;
 
 // Per-model copy runs well under the ~160 characters Google shows, so the selling
 // points fill the rest of the snippet instead of leaving it short.
-const description = buildMetaDescription(
-	localizedLock.seoDescription,
-	t.product.metaParts(
-		formatPrice(localizedLock.price, localizedLock.priceTo),
-		t.product.years(localizedLock.warranty),
-	),
-);
+const description = localizedLock
+	? buildMetaDescription(
+			localizedLock.seoDescription,
+			t.product.metaParts(
+				formatPrice(localizedLock.price, localizedLock.priceTo),
+				t.product.years(localizedLock.warranty),
+			),
+		)
+	: brandCopy!.seoDescription;
 ---
 
-<Layout
-	lang={lang}
-	title={localizedLock.seoTitle}
-	description={description}
-	image={localizedLock.image.src}
->
-	<ProductPage lock={lock} lang={lang} />
-	<LeadForm lang={lang} preselect={localizedLock.slug} />
-</Layout>
+{
+	localizedLock ? (
+		<Layout lang={lang} title={localizedLock.seoTitle} description={description} image={localizedLock.image.src}>
+			<ProductPage lock={lock!} lang={lang} />
+			<LeadForm lang={lang} preselect={localizedLock.slug} />
+		</Layout>
+	) : (
+		<Layout lang={lang} title={brandCopy!.seoTitle} description={description}>
+			<BrandPage brand={brand!} lang={lang} />
+			<LeadForm lang={lang} />
+		</Layout>
+	)
+}

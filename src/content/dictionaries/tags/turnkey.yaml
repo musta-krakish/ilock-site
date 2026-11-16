@@ -1,0 +1,30 @@
+name: Под ключ
+kk: Кілтке дейін
+en: Turnkey
+order: 0
+group: offer
+info:
+  ru:
+    items: |-
+      Умный замок
+      Профессиональная установка
+      Настройка замка
+      Необходимые расходные материалы
+      Гарантия 2 года на замки Philips и iLock, 1 год — на SmartLock
+    footer: Вы получаете полностью установленный и готовый к использованию замок.
+  kk:
+    items: |-
+      Ақылды құлып
+      Кәсіби орнату
+      Құлыпты баптау
+      Қажетті шығын материалдары
+      Philips және iLock құлыптарына 2 жыл, SmartLock-қа 1 жыл кепілдік
+    footer: Сіз толық орнатылған және пайдалануға дайын құлып аласыз.
+  en:
+    items: |-
+      Smart lock
+      Professional installation
+      Lock setup
+      All required consumables
+      2-year warranty on Philips and iLock locks, 1 year on SmartLock
+    footer: You get a fully installed lock, ready to use.

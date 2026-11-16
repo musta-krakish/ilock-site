@@ -1,7 +1,9 @@
 ---
 import logo from '../assets/ilock-logo-gradient.png';
 import { site, whatsappLink } from '../config';
-import { brandNames, brandOrder, getLocalePath, type Lang, ui } from '../i18n';
+import { getCollection } from 'astro:content';
+import { getLocalePath, type Lang, ui } from '../i18n';
+import { getDictionaries } from '../lib/dictionaries';
 
 interface Props {
 	lang?: Lang;
@@ -11,6 +13,9 @@ const { lang = 'ru' } = Astro.props;
 const t = ui[lang];
 const homePath = getLocalePath(lang);
 const year = new Date().getFullYear();
+// Brands without products have no page yet, so they are not linked.
+const locks = await getCollection('locks');
+const brands = (await getDictionaries()).brands.filter((b) => locks.some((lock) => lock.data.brand === b.id));
 const privacyLabel: Record<Lang, string> = {
 	ru: 'Политика конфиденциальности',
 	kk: 'Құпиялылық саясаты',
@@ -49,9 +54,9 @@ const privacyLabel: Record<Lang, string> = {
 					{t.footer.brands}
 				</span>
 				{
-					brandOrder.map((brand) => (
-						<a class="transition hover:text-accent-color" href={`${homePath}catalog/${brand}/`}>
-							{brandNames[brand]}
+					brands.map((brand) => (
+						<a class="transition hover:text-accent-color" href={`${homePath}catalog/${brand.id}/`}>
+							{brand.name}
 						</a>
 					))
 				}

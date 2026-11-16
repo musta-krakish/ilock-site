@@ -12,24 +12,18 @@ const contentDir = path.join(root, 'src/content/locks');
 const outFile = path.join(root, 'public/catalog.pdf');
 const imageCacheDir = path.join(root, '.astro/pdf-catalog-images');
 
-const brandOrder = ['ilock', 'philips', 'ezviz', 'smartlock', 'safes'];
-const brandNames = {
-	ilock: 'iLock',
-	philips: 'Philips',
-	ezviz: 'EZVIZ',
-	smartlock: 'SmartLock',
-	safes: 'Philips Safe',
-};
+// Brands come from the Keystatic dictionary, so a brand added there is in the PDF too.
+const brandsDir = path.join(root, 'src/content/dictionaries/brands');
+const brands = fs
+	.readdirSync(brandsDir)
+	.filter((name) => name.endsWith('.yaml'))
+	.map((name) => ({ id: path.basename(name, '.yaml'), ...YAML.parse(fs.readFileSync(path.join(brandsDir, name), 'utf8')) }))
+	.sort((a, b) => (a.order ?? 100) - (b.order ?? 100) || a.name.localeCompare(b.name));
+const brandOrder = brands.map((brand) => brand.id);
+const brandNames = Object.fromEntries(brands.map((brand) => [brand.id, brand.name]));
 
+/** Access methods stay in code (see src/content.config.ts); other labels come from dictionaries. */
 const specs = {
-	material: {
-		aluminum: 'Алюминиевый сплав',
-		'aluminum-glass': 'Алюминиевый сплав + закалённое стекло',
-		zinc: 'Цинковый сплав',
-		'zinc-glass': 'Цинковый сплав + закалённое стекло',
-		steel: 'Нержавеющая сталь',
-		'low-carbon-steel': 'Низкоуглеродистый сплав',
-	},
 	access: {
 		fingerprint: 'Отпечаток пальца',
 		pin: 'Пин-код',
@@ -41,69 +35,6 @@ const specs = {
 		'master-card': 'Мастер-карта',
 		vein: 'Распознавание вен на руке',
 	},
-	feature: {
-		wifi: 'Wi-Fi подключение',
-		bluetooth: 'Bluetooth подключение',
-		doorbell: 'Дверной звонок',
-		'video-peephole': 'Видеоглазок',
-		'two-way-audio': 'Двусторонняя аудиосвязь',
-		'dual-camera': 'Двусторонняя камера',
-		'triple-camera': 'Трёхсторонняя камера',
-		'voice-change': 'Изменение голоса по видеосвязи',
-		'voice-ru-kk': 'Озвучка на русском и казахском',
-		realtime: 'Мониторинг в реальном времени',
-		pir: 'PIR-датчик приближения',
-		motion: 'Датчик движения',
-		'door-sensor': 'Датчик закрытия двери',
-		'night-watch': 'Ночной часовой',
-		auto: 'Полностью автоматический',
-		'semi-auto': 'Полуавтоматический',
-		'auto-lock': 'Автоматическая блокировка',
-		'push-pull': 'Режим толкни/потяни',
-		rechargeable: 'Перезаряжаемый аккумулятор',
-		'wireless-charge': 'Беспроводная подзарядка',
-		'emergency-charge': 'Аварийная зарядка',
-		'low-battery': 'Уведомление о низком заряде',
-		'tamper-alarm': 'Сигнализация о вскрытии',
-		'double-check': 'Режим двойной проверки',
-		'c-cylinder': 'Цилиндр С-класса',
-		mute: 'Отключение звука',
-		'anti-pry': 'Защита от взлома и демонтажа',
-		ip67: 'Защита от пыли и воды IP67',
-		waterproof: 'Влагостойкость',
-		'slim-door': 'Для узкопрофильных дверей',
-		'glass-door': 'Для стеклянных дверей',
-		software: 'Общая программа для замков',
-		programmer: 'Программатор в комплекте',
-		'solid-body': 'Цельный корпус',
-		alarm: 'Аварийный сигнал',
-		'storage-sections': 'Отдельные секции для хранения',
-		'hidden-compartment': 'Скрытый отсек',
-		'dual-check': 'Режим двойной проверки',
-	},
-	power: {
-		aa4: 'Батарейки AA (х4)',
-		aa8: 'Батарейки AA (х8)',
-		'li-4200': 'Литиевый аккумулятор 4200 мАч',
-		'li-5000': 'Литий-полимерный аккумулятор 5000 мАч',
-		'li-ion': 'Литий-ионный аккумулятор',
-		li: 'Литиевый аккумулятор',
-	},
-	color: {
-		black: 'чёрный',
-		'matte-black': 'чёрный матовый',
-		charcoal: 'угольно-чёрный',
-		obsidian: 'чёрный обсидиан',
-		gold: 'золотой',
-		silver: 'серебристый',
-		copper: 'медный',
-		bronze: 'медно-бронзовый',
-		titanium: 'титаново-серый',
-		coffee: 'кофейный',
-		gray: 'серый',
-		white: 'белый',
-	},
-	iface: { ru: 'русский', kk: 'казахский', en: 'английский', zh: 'китайский' },
 };
 
 const formatPrice = (value, to) => {

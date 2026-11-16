@@ -2,10 +2,9 @@
 import { getCollection } from 'astro:content';
 import LockCard from './LockCard.astro';
 import { catalogTagCopy, catalogTagGroups } from '../lib/catalog-tags';
+import { getDictionaries } from '../lib/dictionaries';
 import { lockFilterValues } from '../lib/lock-filters';
 import {
-	brandNames,
-	brandOrder,
 	canonicalPath,
 	getLocalePath,
 	localizeLock,
@@ -24,9 +23,16 @@ const f = t.catalogFilters;
 const homePath = getLocalePath(lang);
 const tagCopy = catalogTagCopy[lang];
 
-const locks = sortLocks((await getCollection('locks')).map((lock) => localizeLock(lock, lang)));
+const dict = await getDictionaries();
+const brandNames = Object.fromEntries(dict.brands.map((b) => [b.id, b.name]));
+const tagGroups = catalogTagGroups(dict);
+const infoTags = tagGroups.flatMap((group) => group.tags).filter((tag) => tag.info);
+const locks = sortLocks(
+	(await getCollection('locks')).map((lock) => localizeLock(lock, lang)),
+	dict.brandOrder,
+);
 
-const groups = brandOrder
+const groups = dict.brandOrder
 	.map((brand) => {
 		const brandLocks = locks.filter((lock) => lock.brand === brand);
 		return {
@@ -58,7 +64,7 @@ const optionCounts: Record<string, number> = {};
 locks
 	.filter((lock) => lock.kind === 'lock')
 	.forEach((lock) => {
-		lockFilterValues(lock).forEach((value) => {
+		lockFilterValues(lock, dict).forEach((value) => {
 			optionCounts[value] = (optionCounts[value] ?? 0) + 1;
 		});
 	});
@@ -129,7 +135,7 @@ const breadcrumbLd = {
 						data-brand-kinds={group.kinds.join(' ')}
 						class="text-white/60 underline decoration-line underline-offset-4 transition hover:text-accent-color hover:decoration-accent-color"
 					>
-						{t.brandPage[group.brand].h1}
+						{dict.brand(group.brand)![lang].h1}
 					</a>
 				))
 			}
@@ -337,23 +343,36 @@ const breadcrumbLd = {
 					</div>
 					<div class="mt-3 grid gap-3">
 						{
-							catalogTagGroups.map((group) => (
+							tagGroups.map((group) => (
 								<div class="min-w-0 sm:flex sm:items-start sm:gap-3">
 									<p class="tag-group-label">{group.label[lang]}</p>
 									{/* One swipeable row per group on phones; wrapping rows from sm. `min-w-0` keeps the
 									    grid track from growing to the row's full width, which made phones zoom the page out. */}
 									<div class="mobile-snap -mx-4 mt-1.5 flex min-w-0 gap-2 overflow-x-auto px-4 sm:mx-0 sm:mt-0 sm:flex-1 sm:flex-wrap sm:overflow-visible sm:px-0">
 										{group.tags.map((tag) => (
-											<button
-												type="button"
-												class="catalog-tag"
-												aria-pressed="false"
-												data-tag={tag.id}
-												data-tag-group={group.id}
-												data-tag-match={group.match}
-											>
-												{tag.label[lang]}
-											</button>
+											<span class="inline-flex shrink-0 items-center gap-1">
+												<button
+													type="button"
+													class="catalog-tag"
+													aria-pressed="false"
+													data-tag={tag.id}
+													data-tag-group={group.id}
+													data-tag-match={group.match}
+												>
+													{tag.label[lang]}
+												</button>
+												{tag.info && (
+													<button
+														type="button"
+														class="tag-info-button"
+														data-tag-info={tag.id}
+														aria-haspopup="dialog"
+														aria-label={`${tagCopy.info}: ${tag.label[lang]}`}
+													>
+														i
+													</button>
+												)}
+											</span>
 										))}
 									</div>
 								</div>
@@ -361,6 +380,41 @@ const breadcrumbLd = {
 						}
 					</div>
 				</section>
+
+				{
+					infoTags.map((tag) => (
+						<dialog data-tag-dialog={tag.id} class="tag-dialog" aria-labelledby={`tag-dialog-${tag.id}`}>
+							<div class="flex items-start justify-between gap-4">
+								<h3 id={`tag-dialog-${tag.id}`} class="text-xl font-semibold text-white">
+									{tag.label[lang]}
+								</h3>
+								<button
+									type="button"
+									data-tag-dialog-close
+									aria-label={tagCopy.close}
+									class="-mr-2 -mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-lg text-white/55 transition hover:bg-white/5 hover:text-white"
+								>
+									✕
+								</button>
+							</div>
+							<ul class="mt-5 grid gap-3">
+								{tag.info![lang].items.map((item) => (
+									<li class="flex items-start gap-3 text-sm leading-6 text-white/80">
+										<svg viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-accent-color" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+											<path d="m4 12.5 5 5L20 6.5" />
+										</svg>
+										{item}
+									</li>
+								))}
+							</ul>
+							{tag.info![lang].footer && (
+								<p class="mt-6 rounded-xl border border-accent-color/30 bg-accent-color/10 px-4 py-3 text-sm font-semibold leading-6 text-accent-color">
+									{tag.info![lang].footer}
+								</p>
+							)}
+						</dialog>
+					))
+				}
 
 				<div data-chips class="mt-4 hidden flex-wrap items-center gap-2"></div>
 
@@ -678,6 +732,18 @@ const breadcrumbLd = {
 			render();
 		}),
 	);
+
+	// «i» next to a tag opens its description; Esc, ✕ or a click on the backdrop closes it.
+	document.querySelectorAll<HTMLButtonElement>('[data-tag-info]').forEach((button) =>
+		button.addEventListener('click', () => {
+			document.querySelector<HTMLDialogElement>(`[data-tag-dialog="${button.dataset.tagInfo}"]`)?.showModal();
+		}),
+	);
+	document.querySelectorAll<HTMLDialogElement>('[data-tag-dialog]').forEach((dialog) => {
+		dialog.addEventListener('click', (event) => {
+			if (event.target === dialog || (event.target as HTMLElement).closest('[data-tag-dialog-close]')) dialog.close();
+		});
+	});
 
 	tagsReset?.addEventListener('click', () => {
 		state.tags.clear();
@@ -1038,6 +1104,41 @@ const breadcrumbLd = {
 
 	.catalog-tag.is-muted {
 		opacity: 0.4;
+	}
+
+	.tag-info-button {
+		display: inline-flex;
+		height: 1.5rem;
+		width: 1.5rem;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid color-mix(in srgb, var(--color-accent-color) 55%, transparent);
+		border-radius: 9999px;
+		font-family: Georgia, serif;
+		font-size: 0.8125rem;
+		font-style: italic;
+		font-weight: 700;
+		color: var(--color-accent-color);
+		transition: background 0.2s;
+	}
+
+	.tag-info-button:hover {
+		background: color-mix(in srgb, var(--color-accent-color) 15%, transparent);
+	}
+
+	.tag-dialog {
+		width: min(28rem, calc(100vw - 2rem));
+		margin: auto;
+		padding: 1.5rem;
+		border: 1px solid var(--color-line);
+		border-radius: 1.25rem;
+		background: var(--color-secondary-color);
+		color: #fff;
+	}
+
+	.tag-dialog::backdrop {
+		background: rgba(0, 0, 0, 0.72);
 	}
 
 	.tag-reset {

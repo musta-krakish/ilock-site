@@ -1,8 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import { formatPrice } from '../config';
-import { brandNames, getLocalePath, type Lang, type LocalizedLock, ui } from '../i18n';
+import { getLocalePath, type Lang, type LocalizedLock, ui } from '../i18n';
 import { lockTagValues } from '../lib/catalog-tags';
+import { getDictionaries } from '../lib/dictionaries';
 import { lockFilterValues } from '../lib/lock-filters';
 import { hasGiftInstallation, promotionCopy } from '../lib/promotions';
 
@@ -16,13 +17,15 @@ const { lock, lang = 'ru', eager = false } = Astro.props;
 const t = ui[lang];
 const homePath = getLocalePath(lang);
 const promo = promotionCopy[lang];
+const dict = await getDictionaries();
+const brandName = dict.brandName(lock.brand);
 const hasInstallationGift = hasGiftInstallation(lock);
 
 const highlight = (['face', 'palm', 'fingerprint', 'pin', 'card', 'app', 'key'] as const)
 	.filter((a) => lock.access.includes(a))
 	.slice(0, 3);
 
-const cardFilterValues = lockFilterValues(lock);
+const cardFilterValues = lockFilterValues(lock, dict);
 const hasDearerColor = lock.colorPrices.some((p) => p.price > lock.price && lock.colors.includes(p.color));
 ---
 
@@ -31,16 +34,16 @@ const hasDearerColor = lock.colorPrices.some((p) => p.price > lock.price && lock
 	data-brand={lock.brand}
 	data-kind={lock.kind}
 	data-filter-values={cardFilterValues.join(' ')}
-	data-tag-values={lockTagValues(lock).join(' ')}
+	data-tag-values={lockTagValues(lock, dict).join(' ')}
 	data-price={lock.price}
 	data-title={lock.title.toLowerCase()}
-	data-search-name={`${brandNames[lock.brand]} ${lock.title}`.toLowerCase()}
+	data-search-name={`${brandName} ${lock.title}`.toLowerCase()}
 	class="lock-card group flex min-w-[82vw] snap-start flex-col overflow-hidden rounded-[1.65rem] border border-line bg-secondary-color shadow-[0_28px_70px_-46px_rgba(0,0,0,0.95)] panel-hover sm:min-w-0 sm:rounded-2xl"
 >
 	<div class="relative aspect-[0.92] overflow-hidden bg-linear-to-b from-[#d2d2d2] to-[#bdbdbd] sm:aspect-square">
 		<Image
 			src={lock.image}
-			alt={t.product.imgAlt(brandNames[lock.brand], lock.title, lock.kind)}
+			alt={t.product.imgAlt(brandName, lock.title, lock.kind)}
 			width={640}
 			class="h-full w-full object-contain p-7 transition-transform duration-500 group-hover:scale-[1.06] sm:p-8"
 			loading={eager ? 'eager' : 'lazy'}
@@ -75,10 +78,10 @@ const hasDearerColor = lock.colorPrices.some((p) => p.price > lock.price && lock
 	<div class="flex flex-1 flex-col p-5 sm:p-6">
 		<div class="flex items-center justify-between gap-3">
 			<span class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-color">
-				{brandNames[lock.brand]}
+				{brandName}
 			</span>
 			<span class="text-xs text-white/40">
-				{lock.kind === 'accessory' ? t.catalog.accessory : t.specs.material[lock.material]}
+				{lock.kind === 'accessory' ? t.catalog.accessory : dict.label('materials', lock.material, lang)}
 			</span>
 		</div>
 

@@ -234,6 +234,7 @@ const fieldClass =
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				form.hidden = true;
 				if (success) success.hidden = false;
+				window.fbq?.('track', 'Lead');
 			} catch {
 				if (sendError) sendError.hidden = false;
 			} finally {

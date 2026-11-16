@@ -22,19 +22,6 @@ export const hreflangCodes: Record<Lang, string> = {
 export const defaultLang: Lang = 'ru';
 export const langList = Object.keys(languages) as Lang[];
 
-/** Brand groups in the order required by the brief: iLock first, then Philips, then the rest. */
-export const brandOrder = ['ilock', 'philips', 'ezviz', 'smartlock', 'safes', 'tiger'] as const;
-export type Brand = (typeof brandOrder)[number];
-
-export const brandNames: Record<Brand, string> = {
-	ilock: 'iLock',
-	philips: 'Philips',
-	ezviz: 'EZVIZ',
-	smartlock: 'SmartLock',
-	safes: 'Philips Safe',
-	tiger: 'Tiger',
-};
-
 export const ui = {
 	ru: {
 		nav: { catalog: 'Каталог', about: 'О нас', partners: 'Партнёрам', contact: 'Контакты', faq: 'Частые вопросы', installDelivery: 'Установка и доставка', order: 'Оставить заявку' },
@@ -420,61 +407,11 @@ export const ui = {
 			models: (n: number) => `${n} ${n % 10 === 1 && n % 100 !== 11 ? 'модель' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'модели' : 'моделей'}`,
 			priceRange: 'Цены',
 			allBrands: 'Все товары',
-			ilock: {
-				h1: 'Умные замки iLock',
-					lead: 'Линейка iLock: замки с распознаванием лица и вен ладони, видеоглазком, решения для стеклянных и узкопрофильных дверей, гостиниц, шкафчиков и навесные замки.',
-				seoTitle: 'Умные замки iLock — купить в Казахстане | iLOCK',
-				seoDescription:
-						'Умные замки iLock в Казахстане: Face ID, отпечаток пальца, пин-код, видеоглазок, модели для дома, офиса, гостиниц, шкафчиков и стеклянных дверей.',
-			},
-			philips: {
-				h1: 'Умные замки Philips',
-				lead: 'Мы — официальный представитель Philips Smart Lock в Казахстане: прямые поставки, оригинальная гарантия производителя 2 года и бесплатное обслуживание. От базового DDL 608 до флагмана 902 MVP с тремя камерами.',
-				seoTitle: 'Умные замки Philips — официальный представитель в Казахстане | iLOCK',
-				seoDescription:
-					'Умные замки Philips в Казахстане от официального представителя: DDL 603E, DDL 610, DDL 7300, Alpha, 702 FVP, 709 FVP, 902 MVP. Оригинальная гарантия 2 года, рассрочка от Kaspi.',
-			},
-			ezviz: {
-				h1: 'Умные замки EZVIZ',
-				lead: 'Умные замки EZVIZ для дома, квартиры и офиса: биометрический доступ, карты, пин-коды и управление через экосистему EZVIZ.',
-				seoTitle: 'Умные замки EZVIZ — купить в Казахстане | iLOCK',
-				seoDescription:
-					'Умные замки EZVIZ в Казахстане: отпечаток пальца, пин-код, карта, механический ключ и подключение Zigbee 3.0.',
-			},
-			smartlock: {
-				h1: 'Умные замки SmartLock',
-				lead: 'Доступная линейка SmartLock: врезные замки, замки для стеклянных и узкопрофильных дверей, гостиничные карточные замки, замки для шкафчиков и навесные замки с отпечатком пальца.',
-				seoTitle: 'Умные замки SmartLock — купить в Казахстане | iLOCK',
-				seoDescription:
-					'Замки SmartLock в Казахстане: от 15 000 ₸. Биометрия, пин-код и карта, модели для стеклянных и узкопрофильных дверей, гостиниц, шкафчиков и навесные замки.',
-			},
-			safes: {
-				h1: 'Сейфы Philips',
-				lead: 'Линейка Philips Smart Safe: компактные мебельные сейфы, офисные модели и премиальные Valis с биометрией, пин-кодом, аварийным сигналом и гарантией 2 года.',
-				seoTitle: 'Сейфы Philips — купить в Казахстане | iLOCK',
-				seoDescription:
-					'Сейфы Philips Smart Safe в Казахстане: SBX102, SBX202, SBX601, SBX602, SBX701, SBX702 и SBX703 Valis. Биометрия, пин-код, гарантия 2 года, рассрочка Kaspi.',
-			},
-			tiger: {
-				h1: 'Сейфы Tiger',
-				lead: 'Оружейные сейфы Tiger для хранения с обязательным креплением к стене, электронным доступом и прочным стальным корпусом.',
-				seoTitle: 'Оружейные сейфы Tiger — купить в Казахстане | iLOCK',
-				seoDescription:
-					'Оружейный сейф Tiger AK1 132W в Казахстане: 132×54×39 см, обязательное крепление к стене, цена 420 000 ₸.',
-			},
 		},
 		homeTitle: 'iLOCK — умные замки Philips и iLock в Казахстане',
 		homeDescription:
 			'Официальный представитель Philips Smart Lock в Казахстане. Умные замки iLock и Philips с Face ID, отпечатком и Wi-Fi. Гарантия до 2 лет, рассрочка от Kaspi, 2 филиала.',
 		specs: {
-			material: {
-				aluminum: 'Алюминиевый сплав',
-				'aluminum-glass': 'Алюминиевый сплав + закалённое стекло',
-				zinc: 'Цинковый сплав',
-				'zinc-glass': 'Цинковый сплав + закалённое стекло',
-				steel: 'Нержавеющая сталь',
-				'low-carbon-steel': 'Низкоуглеродистый сплав',
-			},
 			access: {
 				fingerprint: 'Отпечаток пальца',
 				pin: 'Пин-код',
@@ -486,74 +423,6 @@ export const ui = {
 				'master-card': 'Мастер-карта',
 				vein: 'Распознавание вен на руке',
 			},
-			feature: {
-				wifi: 'Wi-Fi подключение',
-				bluetooth: 'Bluetooth подключение',
-				doorbell: 'Дверной звонок',
-				'video-peephole': 'Видеоглазок',
-				'two-way-audio': 'Двусторонняя аудиосвязь',
-				'dual-camera': 'Двусторонняя камера',
-				'triple-camera': 'Трёхсторонняя камера',
-				'voice-change': 'Изменение голоса по видеосвязи',
-				'voice-ru-kk': 'Озвучка на русском и казахском',
-				realtime: 'Мониторинг в реальном времени',
-				pir: 'PIR-датчик приближения',
-				motion: 'Датчик движения',
-				'door-sensor': 'Датчик закрытия двери',
-				'night-watch': 'Ночной часовой',
-				auto: 'Полностью автоматический',
-				'semi-auto': 'Полуавтоматический',
-				'auto-lock': 'Автоматическая блокировка',
-				'push-pull': 'Режим толкни/потяни',
-				rechargeable: 'Перезаряжаемый аккумулятор',
-				'wireless-charge': 'Беспроводная подзарядка',
-				'emergency-charge': 'Аварийная зарядка',
-				'low-battery': 'Уведомление о низком заряде',
-				'tamper-alarm': 'Сигнализация о вскрытии',
-				'double-check': 'Режим двойной проверки',
-				'c-cylinder': 'Цилиндр С-класса',
-				mute: 'Отключение звука',
-				'anti-pry': 'Защита от взлома и демонтажа',
-				ip67: 'Защита от пыли и воды IP67',
-				waterproof: 'Влагостойкость',
-				'slim-door': 'Для узкопрофильных дверей',
-				'glass-door': 'Для стеклянных дверей',
-				software: 'Общая программа для замков',
-				programmer: 'Программатор в комплекте',
-				'solid-body': 'Цельный корпус',
-				alarm: 'Аварийный сигнал',
-				'storage-sections': 'Отдельные секции для хранения',
-				'hidden-compartment': 'Скрытый отсек',
-				'dual-check': 'Режим двойной проверки',
-				'wall-mount': 'Обязательное крепление к стене',
-				zigbee: 'Подключение Zigbee 3.0',
-				'micro-usb': 'Аварийное питание MicroUSB',
-				'double-handle-lock': 'Блокировка двойным поднятием ручки',
-				'sound-prompts': 'Звуковое сопровождение событий',
-			},
-			power: {
-				aa4: 'Батарейки AA (х4)',
-				aa8: 'Батарейки AA (х8)',
-				'li-4200': 'Литиевый аккумулятор 4200 мАч',
-				'li-5000': 'Литий-полимерный аккумулятор 5000 мАч',
-				'li-ion': 'Литий-ионный аккумулятор',
-				li: 'Литиевый аккумулятор',
-			},
-			color: {
-				black: 'чёрный',
-				'matte-black': 'чёрный матовый',
-				charcoal: 'угольно-чёрный',
-				obsidian: 'чёрный обсидиан',
-				gold: 'золотой',
-				silver: 'серебристый',
-				copper: 'медный',
-				bronze: 'медно-бронзовый',
-				titanium: 'титаново-серый',
-				coffee: 'кофейный',
-				gray: 'серый',
-				white: 'белый',
-			},
-			iface: { ru: 'русский', kk: 'казахский', en: 'английский', zh: 'китайский' },
 		},
 	},
 
@@ -919,61 +788,11 @@ export const ui = {
 			models: (n: number) => `${n} модель`,
 			priceRange: 'Бағалар',
 			allBrands: 'Барлық тауарлар',
-			ilock: {
-				h1: 'iLock ақылды құлыптары',
-					lead: 'iLock желісі: бет пен алақан тамырын тану, бейнекөзше, шыны және тар профильді есіктерге, қонақүйлерге, шкафтарға және аспалы құлыптарға арналған шешімдер.',
-				seoTitle: 'iLock ақылды құлыптары — Қазақстанда сатып алу | iLOCK',
-				seoDescription:
-						'Қазақстандағы iLock ақылды құлыптары: Face ID, саусақ ізі, пин-код, бейнекөзше, үйге, кеңсеге, қонақүйге, шкафқа және шыны есікке арналған модельдер.',
-			},
-			philips: {
-				h1: 'Philips ақылды құлыптары',
-				lead: 'Біз — Қазақстандағы Philips Smart Lock ресми өкілі: тікелей жеткізу, өндірушінің 2 жылдық түпнұсқа кепілдігі және тегін қызмет көрсету. Базалық DDL 608-ден үш камералы 902 MVP флагманына дейін.',
-				seoTitle: 'Philips ақылды құлыптары — Қазақстандағы ресми өкіл | iLOCK',
-				seoDescription:
-					'Қазақстанда ресми өкілден Philips ақылды құлыптары: DDL 603E, DDL 610, DDL 7300, Alpha, 702 FVP, 709 FVP, 902 MVP. Түпнұсқа 2 жылдық кепілдік, Kaspi бөліп төлеу.',
-			},
-			ezviz: {
-				h1: 'EZVIZ ақылды құлыптары',
-				lead: 'Үйге, пәтерге және кеңсеге арналған EZVIZ ақылды құлыптары: биометриялық қолжетімділік, карталар, пин-кодтар және EZVIZ экожүйесі арқылы басқару.',
-				seoTitle: 'EZVIZ ақылды құлыптары — Қазақстанда сатып алу | iLOCK',
-				seoDescription:
-					'Қазақстандағы EZVIZ ақылды құлыптары: саусақ ізі, пин-код, карта, механикалық кілт және Zigbee 3.0 қосылымы.',
-			},
-			smartlock: {
-				h1: 'SmartLock ақылды құлыптары',
-				lead: 'Қолжетімді SmartLock желісі: кіріктірме құлыптар, шыны және тар профильді есіктерге арналған құлыптар, қонақүй карта-құлыптары, шкаф құлыптары және саусақ ізі бар аспалы құлыптар.',
-				seoTitle: 'SmartLock ақылды құлыптары — Қазақстанда сатып алу | iLOCK',
-				seoDescription:
-					'Қазақстанда SmartLock құлыптары: 15 000 ₸ бастап. Биометрия, пин-код және карта, шыны және тар профильді есіктерге, қонақүйлерге, шкафтарға және аспалы құлыптар.',
-			},
-			safes: {
-				h1: 'Philips сейфтері',
-				lead: 'Philips Smart Safe желісі: ықшам жиһаз сейфтері, кеңсе модельдері және биометриясы, пин-коды, авариялық сигналы және 2 жыл кепілдігі бар премиум Valis сериясы.',
-				seoTitle: 'Philips сейфтері — Қазақстанда сатып алу | iLOCK',
-				seoDescription:
-					'Қазақстандағы Philips Smart Safe сейфтері: SBX102, SBX202, SBX601, SBX602, SBX701, SBX702 және SBX703 Valis. Биометрия, пин-код, 2 жыл кепілдік, Kaspi бөліп төлеу.',
-			},
-			tiger: {
-				h1: 'Tiger сейфтері',
-				lead: 'Tiger қару-жарақ сейфтері қабырғаға міндетті бекітумен, электрондық қолжетімділікпен және берік болат корпуспен жасалған.',
-				seoTitle: 'Tiger қару-жарақ сейфтері — Қазақстанда сатып алу | iLOCK',
-				seoDescription:
-					'Tiger AK1 132W қару-жарақ сейфі Қазақстанда: 132×54×39 см, қабырғаға міндетті бекіту, бағасы 420 000 ₸.',
-			},
 		},
 		homeTitle: 'iLOCK — Қазақстандағы Philips және iLock ақылды құлыптары',
 		homeDescription:
 			'Қазақстандағы Philips Smart Lock ресми өкілі. Face ID, саусақ ізі және Wi-Fi бар iLock және Philips ақылды құлыптары. 2 жылға дейін кепілдік, Kaspi бөліп төлеу, 2 филиал.',
 		specs: {
-			material: {
-				aluminum: 'Алюминий қорытпасы',
-				'aluminum-glass': 'Алюминий қорытпасы + шыңдалған шыны',
-				zinc: 'Мырыш қорытпасы',
-				'zinc-glass': 'Мырыш қорытпасы + шыңдалған шыны',
-				steel: 'Тот баспайтын болат',
-				'low-carbon-steel': 'Төмен көміртекті қорытпа',
-			},
 			access: {
 				fingerprint: 'Саусақ ізі',
 				pin: 'Пин-код',
@@ -985,74 +804,6 @@ export const ui = {
 				'master-card': 'Мастер-карта',
 				vein: 'Қол тамырын тану',
 			},
-			feature: {
-				wifi: 'Wi-Fi қосылымы',
-				bluetooth: 'Bluetooth қосылымы',
-				doorbell: 'Есік қоңырауы',
-				'video-peephole': 'Бейнекөзше',
-				'two-way-audio': 'Екіжақты аудиобайланыс',
-				'dual-camera': 'Екіжақты камера',
-				'triple-camera': 'Үшжақты камера',
-				'voice-change': 'Бейнебайланыста дауысты өзгерту',
-				'voice-ru-kk': 'Орыс және қазақ тіліндегі дыбыстау',
-				realtime: 'Нақты уақыттағы мониторинг',
-				pir: 'PIR жақындау датчигі',
-				motion: 'Қозғалыс датчигі',
-				'door-sensor': 'Есіктің жабылу датчигі',
-				'night-watch': 'Түнгі қарауыл',
-				auto: 'Толық автоматты',
-				'semi-auto': 'Жартылай автоматты',
-				'auto-lock': 'Автоматты бұғаттау',
-				'push-pull': 'Итер/тарт режимі',
-				rechargeable: 'Қайта зарядталатын аккумулятор',
-				'wireless-charge': 'Сымсыз қуаттандыру',
-				'emergency-charge': 'Авариялық зарядтау',
-				'low-battery': 'Заряд төмендегені туралы хабарлама',
-				'tamper-alarm': 'Бұзу дабылы',
-				'double-check': 'Қос тексеру режимі',
-				'c-cylinder': 'С-класты цилиндр',
-				mute: 'Дыбысты өшіру',
-				'anti-pry': 'Бұзу мен бөлшектеуден қорғау',
-				ip67: 'IP67 шаң мен судан қорғау',
-				waterproof: 'Ылғалға төзімділік',
-				'slim-door': 'Тар профильді есіктерге',
-				'glass-door': 'Шыны есіктерге',
-				software: 'Құлыптарға ортақ бағдарлама',
-				programmer: 'Жинақта бағдарламалағыш',
-				'solid-body': 'Тұтас корпус',
-				alarm: 'Авариялық сигнал',
-				'storage-sections': 'Бөлек сақтау секциялары',
-				'hidden-compartment': 'Жасырын бөлім',
-				'dual-check': 'Қос тексеру режимі',
-				'wall-mount': 'Қабырғаға міндетті бекіту',
-				zigbee: 'Zigbee 3.0 қосылымы',
-				'micro-usb': 'MicroUSB авариялық қуаттандыруы',
-				'double-handle-lock': 'Тұтқаны екі рет көтеру арқылы бұғаттау',
-				'sound-prompts': 'Оқиғаларды дыбыстық хабарлау',
-			},
-			power: {
-				aa4: 'AA батареялары (х4)',
-				aa8: 'AA батареялары (х8)',
-				'li-4200': 'Литий аккумуляторы 4200 мАсағ',
-				'li-5000': 'Литий-полимер аккумуляторы 5000 мАсағ',
-				'li-ion': 'Литий-ион аккумуляторы',
-				li: 'Литий аккумуляторы',
-			},
-			color: {
-				black: 'қара',
-				'matte-black': 'қара мат',
-				charcoal: 'көмір-қара',
-				obsidian: 'қара обсидиан',
-				gold: 'алтын',
-				silver: 'күміс',
-				copper: 'мыс',
-				bronze: 'мыс-қола',
-				titanium: 'титан-сұр',
-				coffee: 'кофе',
-				gray: 'сұр',
-				white: 'ақ',
-			},
-			iface: { ru: 'орысша', kk: 'қазақша', en: 'ағылшынша', zh: 'қытайша' },
 		},
 	},
 
@@ -1418,61 +1169,11 @@ export const ui = {
 			models: (n: number) => `${n} ${n === 1 ? 'model' : 'models'}`,
 			priceRange: 'Prices',
 			allBrands: 'All products',
-			ilock: {
-				h1: 'iLock smart locks',
-					lead: 'The iLock range includes face and palm-vein recognition, video peepholes, plus solutions for glass and narrow-profile doors, hotels, lockers and padlocks.',
-				seoTitle: 'iLock smart locks — buy in Kazakhstan | iLOCK',
-				seoDescription:
-					'iLock smart locks in Kazakhstan: Face ID, fingerprint, PIN access, video peepholes, and models for homes, offices, hotels, lockers and glass doors.',
-			},
-			philips: {
-				h1: 'Philips smart locks',
-				lead: 'We are the official Philips Smart Lock representative in Kazakhstan: direct supply, the original two-year manufacturer warranty and free servicing. From the entry-level DDL 608 to the three-camera 902 MVP flagship.',
-				seoTitle: 'Philips smart locks — official representative in Kazakhstan | iLOCK',
-				seoDescription:
-					'Philips smart locks in Kazakhstan from the official representative: DDL 603E, DDL 610, DDL 7300, Alpha, 702 FVP, 709 FVP, 902 MVP. Original two-year warranty, Kaspi instalments.',
-			},
-			ezviz: {
-				h1: 'EZVIZ smart locks',
-				lead: 'EZVIZ smart locks for homes, apartments and offices: biometric access, cards, PIN codes and management through the EZVIZ ecosystem.',
-				seoTitle: 'EZVIZ smart locks — buy in Kazakhstan | iLOCK',
-				seoDescription:
-					'EZVIZ smart locks in Kazakhstan: fingerprint, PIN code, card, mechanical key and Zigbee 3.0 connectivity.',
-			},
-			smartlock: {
-				h1: 'SmartLock smart locks',
-				lead: 'The affordable SmartLock range: mortise locks, locks for glass and narrow-profile doors, hotel card locks, locker locks and fingerprint padlocks.',
-				seoTitle: 'SmartLock smart locks — buy in Kazakhstan | iLOCK',
-				seoDescription:
-					'SmartLock locks in Kazakhstan from 15,000 ₸. Biometrics, PIN and card entry, models for glass and narrow-profile doors, hotels, lockers, plus padlocks.',
-			},
-			safes: {
-				h1: 'Philips safes',
-				lead: 'The Philips Smart Safe range: compact drawer safes, office models and premium Valis safes with biometrics, PIN entry, emergency alarm and a two-year warranty.',
-				seoTitle: 'Philips safes — buy in Kazakhstan | iLOCK',
-				seoDescription:
-					'Philips Smart Safe in Kazakhstan: SBX102, SBX202, SBX601, SBX602, SBX701, SBX702 and SBX703 Valis. Biometrics, PIN entry, 2-year warranty, Kaspi instalments.',
-			},
-			tiger: {
-				h1: 'Tiger safes',
-				lead: 'Tiger gun safes for firearm storage with mandatory wall mounting, electronic access and a sturdy steel body.',
-				seoTitle: 'Tiger gun safes — buy in Kazakhstan | iLOCK',
-				seoDescription:
-					'Tiger AK1 132W gun safe in Kazakhstan: 132×54×39 cm, mandatory wall mounting, price 420,000 ₸.',
-			},
 		},
 		homeTitle: 'iLOCK — Philips and iLock smart locks in Kazakhstan',
 		homeDescription:
 			'Official Philips Smart Lock representative in Kazakhstan. iLock and Philips smart locks with Face ID, fingerprint and Wi-Fi. Up to 2 years warranty, Kaspi instalments, 2 branches.',
 		specs: {
-			material: {
-				aluminum: 'Aluminium alloy',
-				'aluminum-glass': 'Aluminium alloy + tempered glass',
-				zinc: 'Zinc alloy',
-				'zinc-glass': 'Zinc alloy + tempered glass',
-				steel: 'Stainless steel',
-				'low-carbon-steel': 'Low-carbon alloy',
-			},
 			access: {
 				fingerprint: 'Fingerprint',
 				pin: 'PIN code',
@@ -1484,74 +1185,6 @@ export const ui = {
 				'master-card': 'Master card',
 				vein: 'Hand-vein recognition',
 			},
-			feature: {
-				wifi: 'Wi-Fi connection',
-				bluetooth: 'Bluetooth connection',
-				doorbell: 'Doorbell',
-				'video-peephole': 'Video peephole',
-				'two-way-audio': 'Two-way audio',
-				'dual-camera': 'Dual camera',
-				'triple-camera': 'Triple camera',
-				'voice-change': 'Voice changer on video calls',
-				'voice-ru-kk': 'Russian and Kazakh voice prompts',
-				realtime: 'Real-time monitoring',
-				pir: 'PIR proximity sensor',
-				motion: 'Motion sensor',
-				'door-sensor': 'Door closing sensor',
-				'night-watch': 'Night watch mode',
-				auto: 'Fully automatic',
-				'semi-auto': 'Semi-automatic',
-				'auto-lock': 'Automatic locking',
-				'push-pull': 'Push/pull action',
-				rechargeable: 'Rechargeable battery',
-				'wireless-charge': 'Wireless charging',
-				'emergency-charge': 'Emergency charging',
-				'low-battery': 'Low battery alert',
-				'tamper-alarm': 'Tamper alarm',
-				'double-check': 'Dual verification mode',
-				'c-cylinder': 'C-class cylinder',
-				mute: 'Mute mode',
-				'anti-pry': 'Anti-pry and anti-removal',
-				ip67: 'IP67 dust and water protection',
-				waterproof: 'Moisture resistant',
-				'slim-door': 'For narrow-profile doors',
-				'glass-door': 'For glass doors',
-				software: 'Shared lock software',
-				programmer: 'Programmer included',
-				'solid-body': 'Solid body',
-				alarm: 'Emergency alarm',
-				'storage-sections': 'Separate storage sections',
-				'hidden-compartment': 'Hidden compartment',
-				'dual-check': 'Dual verification mode',
-				'wall-mount': 'Mandatory wall mounting',
-				zigbee: 'Zigbee 3.0 connection',
-				'micro-usb': 'MicroUSB emergency power',
-				'double-handle-lock': 'Locking by lifting the handle twice',
-				'sound-prompts': 'Audible event prompts',
-			},
-			power: {
-				aa4: 'AA batteries (x4)',
-				aa8: 'AA batteries (x8)',
-				'li-4200': 'Lithium battery 4200 mAh',
-				'li-5000': 'Li-polymer battery 5000 mAh',
-				'li-ion': 'Li-ion battery',
-				li: 'Lithium battery',
-			},
-			color: {
-				black: 'black',
-				'matte-black': 'matte black',
-				charcoal: 'charcoal black',
-				obsidian: 'obsidian black',
-				gold: 'gold',
-				silver: 'silver',
-				copper: 'copper',
-				bronze: 'copper bronze',
-				titanium: 'titanium grey',
-				coffee: 'coffee',
-				gray: 'grey',
-				white: 'white',
-			},
-			iface: { ru: 'Russian', kk: 'Kazakh', en: 'English', zh: 'Chinese' },
 		},
 	},
 } as const;
@@ -1616,7 +1249,10 @@ export function buildMetaDescription(base: string, parts: string[], limit = 158)
 }
 
 /** Sorts by brand priority (iLock, Philips, then the rest), then by the per-brand order. */
-export function sortLocks<T extends { brand: Brand; order: number; kind?: string }>(locks: T[]) {
+export function sortLocks<T extends { brand: string; order: number; kind?: string }>(
+	locks: T[],
+	brandOrder: readonly string[],
+) {
 	return [...locks].sort(
 		(a, b) =>
 			(a.kind === 'accessory' && b.kind === 'accessory'

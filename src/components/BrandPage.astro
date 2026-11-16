@@ -2,10 +2,8 @@
 import { getCollection } from 'astro:content';
 import LockCard from './LockCard.astro';
 import { formatPrice } from '../config';
+import { getDictionaries } from '../lib/dictionaries';
 import {
-	type Brand,
-	brandNames,
-	brandOrder,
 	canonicalPath,
 	getLocalePath,
 	type Lang,
@@ -15,24 +13,26 @@ import {
 } from '../i18n';
 
 interface Props {
-	brand: Brand;
+	brand: string;
 	lang?: Lang;
 }
 
 const { brand, lang = 'ru' } = Astro.props;
 const t = ui[lang];
-const copy = t.brandPage[brand];
+const dict = await getDictionaries();
+const copy = dict.brand(brand)![lang];
+const brandName = dict.brandName(brand);
 const homePath = getLocalePath(lang);
 
-const locks = sortLocks(
-	(await getCollection('locks')).map((lock) => localizeLock(lock, lang)),
-).filter((lock) => lock.brand === brand);
+const allLocks = (await getCollection('locks')).map((lock) => localizeLock(lock, lang));
+const locks = sortLocks(allLocks, dict.brandOrder).filter((lock) => lock.brand === brand);
 
 const prices = locks.map((lock) => lock.price);
 const cheapest = Math.min(...prices);
 const dearest = Math.max(...prices);
 
-const others = brandOrder.filter((b) => b !== brand);
+// Only brands with products get a page, so only those are linked.
+const others = dict.brands.filter((b) => b.id !== brand && allLocks.some((lock) => lock.brand === b.id));
 
 const siteUrl = Astro.site ?? Astro.url;
 const abs = (path: string) => new URL(canonicalPath(path), siteUrl).toString();
@@ -63,7 +63,7 @@ const breadcrumbLd = {
 			name: t.nav.catalog,
 			item: abs(`${homePath}catalog/`),
 		},
-		{ '@type': 'ListItem', position: 3, name: brandNames[brand], item: canonical },
+		{ '@type': 'ListItem', position: 3, name: brandName, item: canonical },
 	],
 };
 ---
@@ -75,7 +75,7 @@ const breadcrumbLd = {
 			<span aria-hidden="true">/</span>
 			<a href={`${homePath}catalog/`} class="transition hover:text-accent-color">{t.nav.catalog}</a>
 			<span aria-hidden="true">/</span>
-			<span class="text-white/70">{brandNames[brand]}</span>
+			<span class="text-white/70">{brandName}</span>
 		</nav>
 
 		<div class="mt-8 max-w-3xl">
@@ -120,10 +120,10 @@ const breadcrumbLd = {
 			{
 				others.map((other) => (
 					<a
-						href={`${homePath}catalog/${other}/`}
+						href={`${homePath}catalog/${other.id}/`}
 						class="rounded-full border border-line px-5 py-2.5 text-sm text-white/70 transition hover:border-accent-color/50 hover:text-white"
 					>
-						{t.brandPage[other].h1}
+						{other[lang].h1}
 					</a>
 				))
 			}

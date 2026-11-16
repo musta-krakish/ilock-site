@@ -7,7 +7,8 @@ import {
 	resolveRepositoryPath,
 } from '../../lib/github-preview';
 import Layout from '../../layouts/Layout.astro';
-import { brandNames, type Brand, ui } from '../../i18n';
+import { ui } from '../../i18n';
+import { getDictionaries } from '../../lib/dictionaries';
 
 export const prerender = false;
 
@@ -49,7 +50,8 @@ const text = (value: unknown, fallback = '') => (typeof value === 'string' ? val
 const number = (value: unknown) => (typeof value === 'number' && Number.isFinite(value) ? value : 0);
 const title = text(lock?.title, 'Товар');
 const brand = text(lock?.brand);
-const brandLabel = brand in brandNames ? brandNames[brand as Brand] : brand || 'iLOCK';
+const dict = await getDictionaries();
+const brandLabel = brand ? dict.brandName(brand) : 'iLOCK';
 const kind = lock?.kind === 'safe' ? 'Сейф' : 'Умный замок';
 const description = text(lock?.ru?.description, 'Описание появится после заполнения поля «Русский».');
 const body = text(lock?.ru?.body);
@@ -66,10 +68,9 @@ const access = Array.isArray(lock?.access) ? lock.access.filter((item): item is 
 const features = Array.isArray(lock?.features) ? lock.features.filter((item): item is string => typeof item === 'string') : [];
 const russianSpecs = ui.ru.specs as unknown as {
 	access: Record<string, string>;
-	feature: Record<string, string>;
 };
 const accessLabels = access.map((item) => russianSpecs.access[item] ?? item);
-const featureLabels = features.map((item) => russianSpecs.feature[item] ?? item);
+const featureLabels = features.map((item) => dict.label('features', item, 'ru'));
 ---
 
 <Layout lang="ru" title={`Предпросмотр · ${title}`} description={description} image={imageUrl ?? undefined} noindex>

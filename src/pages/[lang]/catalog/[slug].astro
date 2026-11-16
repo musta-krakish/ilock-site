@@ -1,41 +1,46 @@
 ---
-import { getCollection } from 'astro:content';
+import BrandPage from '../../../components/BrandPage.astro';
 import LeadForm from '../../../components/LeadForm.astro';
 import ProductPage from '../../../components/ProductPage.astro';
 import Layout from '../../../layouts/Layout.astro';
 import { formatPrice } from '../../../config';
 import { buildMetaDescription, langList, localizeLock, type Lang, ui } from '../../../i18n';
+import { catalogRoutes, type CatalogRoute } from '../../../lib/catalog-routes';
+import { getDictionaries } from '../../../lib/dictionaries';
 
 export async function getStaticPaths() {
-	const locks = await getCollection('locks');
-
+	const routes = await catalogRoutes();
 	return langList.flatMap((lang) =>
-		locks.map((lock) => ({
-			params: { lang, slug: lock.id },
-			props: { lang, lock },
-		})),
+		routes.map((route) => ({ params: { lang, slug: route.slug }, props: { ...route, lang } })),
 	);
 }
 
-const { lang, lock } = Astro.props as { lang: Lang; lock: any };
-const localizedLock = localizeLock(lock, lang);
+const { lang, lock, brand } = Astro.props as CatalogRoute & { lang: Lang };
 const t = ui[lang];
+const brandCopy = brand ? (await getDictionaries()).brand(brand)![lang] : undefined;
+const localizedLock = lock ? localizeLock(lock, lang) : undefined;
 
-const description = buildMetaDescription(
-	localizedLock.seoDescription,
-	t.product.metaParts(
-		formatPrice(localizedLock.price, localizedLock.priceTo),
-		t.product.years(localizedLock.warranty),
-	),
-);
+const description = localizedLock
+	? buildMetaDescription(
+			localizedLock.seoDescription,
+			t.product.metaParts(
+				formatPrice(localizedLock.price, localizedLock.priceTo),
+				t.product.years(localizedLock.warranty),
+			),
+		)
+	: brandCopy!.seoDescription;
 ---
 
-<Layout
-	lang={lang}
-	title={localizedLock.seoTitle}
-	description={description}
-	image={localizedLock.image.src}
->
-	<ProductPage lock={lock} lang={lang} />
-	<LeadForm lang={lang} preselect={localizedLock.slug} />
-</Layout>
+{
+	localizedLock ? (
+		<Layout lang={lang} title={localizedLock.seoTitle} description={description} image={localizedLock.image.src}>
+			<ProductPage lock={lock!} lang={lang} />
+			<LeadForm lang={lang} preselect={localizedLock.slug} />
+		</Layout>
+	) : (
+		<Layout lang={lang} title={brandCopy!.seoTitle} description={description}>
+			<BrandPage brand={brand!} lang={lang} />
+			<LeadForm lang={lang} />
+		</Layout>
+	)
+}
