@@ -1,7 +1,7 @@
 name: Свободный проход
 kk: Еркін өту
 en: Free Passage
-order: 2
+order: 0
 group: function
 info:
   ru:
