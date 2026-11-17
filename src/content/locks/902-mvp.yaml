@@ -20,9 +20,9 @@ access:
   - pin
   - face
   - palm
-  - card
   - key
   - app
+  - card
 limits:
   fingerprint: 100
   pin: 60
@@ -67,41 +67,64 @@ videos: []
 reviews: []
 variants: []
 ru:
-  description: >-
-    Флагман Philips: три камеры, вены ладони, беспроводная подзарядка и
-    изменение голоса по видеосвязи.
+  description: >
+    Philips 902 MVP — флагманский умный дверной замок с распознаванием лица и
+    вен ладони, тремя камерами и возможностью удалённого управления через
+    Wi-Fi. 
   seoTitle: 902 MVP — купить умный замок Philips в Казахстане | iLOCK
-  seoDescription: >-
-    Флагман Philips: три камеры, вены ладони, беспроводная подзарядка и
-    изменение голоса по видеосвязи.
+  seoDescription: >
+    Philips 902 MVP — флагманский умный дверной замок с распознаванием лица и
+    вен ладони, тремя камерами и возможностью удалённого управления через
+    Wi-Fi. 
   body: >-
-    902 MVP — самый оснащённый замок каталога. Три камеры закрывают подход к
-    двери целиком, открытие возможно по лицу и венам ладони, а во время
-    видеозвонка голос можно изменить — полезно, когда дома ребёнок. Корпус —
-    цинковый сплав с закалённым стеклом.
+    Philips 902 MVP — премиальный умный дверной замок, который объединяет
+    передовые технологии распознавания и многоуровневую защиту дома.
+    Предусмотрено 7 способов открытия: отпечаток пальца, PIN-код, распознавание
+    лица, распознавание вен ладони, карта доступа, мобильное приложение и
+    механический ключ. Замок оснащён системой из трёх камер, которая позволяет
+    контролировать пространство возле входной двери, а также видеоглазком и
+    функцией двусторонней аудиосвязи. Благодаря Wi-Fi и приложению HomeAccess вы
+    можете наблюдать за происходящим у двери, общаться с посетителями и получать
+    уведомления удалённо. Дополнительно предусмотрены датчик движения, изменение
+    голоса во время видеозвонка, автоматическое запирание и беспроводная
+    магнитная зарядка. Philips 902 MVP — сочетание инновационных технологий,
+    комфорта и высокого уровня безопасности.
 kk:
   description: >-
-    Philips флагманы: үш камера, алақан тамыры, сымсыз қуаттандыру және
-    бейнебайланыста дауысты өзгерту.
+    Philips 902 MVP — бет-әлпетті және алақан тамырларын тану функциялары, үш
+    камерасы және Wi-Fi арқылы қашықтан басқару мүмкіндігі бар флагмандық ақылды
+    есік құлпы.
   seoTitle: 902 MVP — Қазақстанда Philips ақылды құлыпты сатып алу | iLOCK
   seoDescription: >-
     Philips флагманы: үш камера, алақан тамыры, сымсыз қуаттандыру және
     бейнебайланыста дауысты өзгерту.
   body: >-
-    902 MVP — каталогтағы ең жабдықталған құлып. Үш камера есікке жақындауды
-    толық қамтиды, ашу бет және алақан тамыры арқылы мүмкін, ал бейнеқоңырау
-    кезінде дауысты өзгертуге болады — үйде бала болғанда пайдалы. Корпус —
-    шыңдалған шынысы бар мырыш қорытпасы.
+    Philips 902 MVP — үй қауіпсіздігін қамтамасыз ететін озық тану
+    технологиялары мен көп деңгейлі қорғанысты біріктіретін премиум санаттағы
+    ақылды есік құлпы. Құлыпты ашудың 7 тәсілі бар: саусақ ізі, PIN-код, бетті
+    тану, алақан тамырларын тану, кіру картасы, мобильді қосымша және
+    механикалық кілт. Құлып есік алдындағы кеңістікті бақылауға арналған үш
+    камерамен және екіжақты аудиобайланыс функциясымен жабдықталған. Wi-Fi және
+    HomeAccess қосымшасының көмегімен есік алдындағы жағдайды бақылауға,
+    келушілермен сөйлесуге және қашықтан хабарламалар алуға болады. Сонымен
+    қатар, қозғалыс датчигі, бейнеқоңырау кезіндегі дауысты өзгерту, автоматты
+    құлыптау және сымсыз магниттік зарядтау функциялары қарастырылған.
 en:
   description: >-
-    The Philips flagship: three cameras, palm-vein entry, wireless charging and
-    voice changing on video calls.
+    Philips 902 MVP is a flagship smart door lock featuring facial and palm vein
+    recognition, a triple-camera system, and remote control via Wi-Fi.
   seoTitle: 902 MVP — buy a Philips smart lock in Kazakhstan | iLOCK
   seoDescription: >-
-    The Philips flagship: three cameras, palm-vein entry, wireless charging and
-    voice changing on video calls.
+    Philips 902 MVP is a flagship smart door lock featuring facial and palm vein
+    recognition, a triple-camera system, and remote control via Wi-Fi.
   body: >-
-    902 MVP is the most equipped lock in the catalogue. Three cameras cover the
-    whole approach to the door, entry works by face and palm vein, and your
-    voice can be altered during a video call — useful when a child is home
-    alone. The body is zinc alloy with tempered glass.
+    Philips 902 MVP is a premium smart door lock that combines advanced
+    recognition technologies with multi-layer home security. It offers 7
+    unlocking methods: fingerprint recognition, PIN code, facial recognition,
+    palm vein recognition, access card, mobile app, and mechanical key. The lock
+    features a three-camera system for monitoring the entrance area, along with
+    a video doorbell and two-way audio communication. With Wi-Fi connectivity
+    and the HomeAccess app, you can monitor your entrance, communicate with
+    visitors, and receive remote notifications. Additional features include a
+    motion sensor, voice changing during video calls, automatic locking, and
+    wireless magnetic charging.
