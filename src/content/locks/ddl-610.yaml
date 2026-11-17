@@ -47,6 +47,7 @@ interface:
   - en
 colors:
   - black
+tags: []
 colorPrices: []
 videos: []
 reviews: []
@@ -60,9 +61,19 @@ ru:
     Защита от взлома и демонтажа плюс Bluetooth-управление через приложение
     HomeAccess.
   body: >-
-    DDL 610 добавляет к надёжной механике Philips защиту от взлома и демонтажа:
-    снять замок с двери незаметно не выйдет. Управление и выдача кодов — через
-    Bluetooth в приложении HomeAccess.
+    Philips DDL610 — современный умный дверной замок, который сочетает удобство
+    использования, функциональность и надёжную защиту вашего дома. Предусмотрено
+    6 способов открытия: отпечаток пальца, PIN-код, карта доступа, временный
+    пароль, мобильное приложение и механический ключ. Замок оснащён быстрым
+    сканером отпечатков пальцев, поддерживает создание временных паролей для
+    гостей, скрытый PIN-код, автоматическое запирание двери, голосовые подсказки
+    и бесшумный режим. Также предусмотрена сигнализация при попытках взлома и
+    защита от открытия через дверной глазок. Удалённое управление доступно через
+    приложение Philips Home Access при подключении специального шлюза Gateway.
+    Сам замок соединяется со шлюзом по Bluetooth, а шлюз подключается к Wi-Fi. 
+
+    Philips DDL610 — удобное решение для тех, кто ценит комфорт, современные
+    технологии и безопасность своего дома.
 kk:
   description: >-
     Бұзу мен бөлшектеуден қорғау және HomeAccess қосымшасы арқылы Bluetooth
@@ -72,9 +83,19 @@ kk:
     Бұзу мен бөлшектеуден қорғау және HomeAccess қосымшасы арқылы Bluetooth
     басқару.
   body: >-
-    DDL 610 сенімді Philips механикасына бұзу мен бөлшектеуден қорғауды қосады:
-    құлыпты есіктен байқатпай шешу мүмкін емес. Басқару және код беру —
-    HomeAccess қосымшасындағы Bluetooth арқылы.
+    Philips DDL610 — үйіңіздің қауіпсіздігін қамтамасыз ететін, заманауи
+    технологиялар мен пайдалануға ыңғайлылықты үйлестіретін ақылды есік құлпы.
+    Құлыпты ашудың 6 тәсілі қарастырылған: саусақ ізі, PIN-код, кіру картасы,
+    уақытша құпиясөз, мобильді қосымша және механикалық кілт. Құлып саусақ ізін
+    жылдам тану жүйесімен жабдықталған. Қонақтарға арналған уақытша құпиясөз
+    жасау, жасырын PIN-код енгізу, есікті автоматты түрде құлыптау, дауыстық
+    нұсқаулар және дыбыссыз режим функцияларын қолдайды. Сонымен қатар, бұзу
+    әрекеттері кезінде дабыл беру және есік көзшесі арқылы ашылудан қорғау
+    функциялары бар. Қашықтан басқару Philips Home Access қосымшасы арқылы
+    арнайы Gateway шлюзін қосқан жағдайда қолжетімді. Құлып шлюзге Bluetooth
+    арқылы қосылады, ал шлюз Wi-Fi желісіне қосылады. Philips DDL610 —
+    жайлылықты, заманауи технологияларды және үй қауіпсіздігін бағалайтын жандар
+    үшін тамаша шешім.
 en:
   description: >-
     Anti-pry and anti-removal protection plus Bluetooth control through the
@@ -84,6 +105,15 @@ en:
     Anti-pry and anti-removal protection plus Bluetooth control through the
     HomeAccess app.
   body: >-
-    DDL 610 adds tamper and removal protection to the dependable Philips
-    mechanics — the lock cannot be quietly taken off the door. Control and code
-    sharing run over Bluetooth in the HomeAccess app.
+    Philips DDL610 is a modern smart door lock that combines convenience,
+    advanced functionality, and reliable home security. It offers 6 unlocking
+    methods: fingerprint recognition, PIN code, access card, temporary password,
+    mobile application, and mechanical key. The lock features a fast fingerprint
+    scanner and supports temporary passwords for guests, a hidden PIN code,
+    automatic door locking, voice guidance, and silent mode. It also includes an
+    alarm system for attempted break-ins and protection against unlocking
+    through the door peephole. Remote control is available via the Philips Home
+    Access app when a special Gateway is connected. The lock connects to the
+    Gateway via Bluetooth, while the Gateway connects to the Wi-Fi network.
+    Philips DDL610 is an excellent solution for those who value comfort, modern
+    technology, and home security.
