@@ -32,6 +32,7 @@ features:
   - c-cylinder
   - mute
   - anti-pry
+  - podklyuchenie-cherez-shlyuz-gateway
 temp:
   min: -20
   max: 60
