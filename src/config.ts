@@ -21,6 +21,8 @@ export const site = {
 	whatsapp: '77773000558',
 	/** Meta (Facebook) Pixel; empty string turns tracking off. */
 	metaPixelId: '3481321535381165',
+	/** Google Tag Manager container; empty string turns it off. */
+	gtmId: 'GTM-MTP6ZRVD',
 	/** Merchant storefront on Kaspi — linked from the header and the catalog teaser. */
 	kaspiUrl:
 		'https://kaspi.kz/shop/m/Asilver/products?text=&q=%3AlistingType%3AmerchantListing%3Acategory%3AConstruction%20and%20repair%3AallMerchants%3AAsilver&sort=relevance&filteredByCategory=false&sc=',

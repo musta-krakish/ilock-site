@@ -13,7 +13,6 @@ interface Props {
 
 const { lang = 'ru' } = Astro.props;
 const t = ui[lang];
-const promo = promotionCopy[lang];
 const homePath = getLocalePath(lang);
 
 const all = sortLocks(
@@ -22,6 +21,14 @@ const all = sortLocks(
 );
 const home = await getEntry('home', 'promotions');
 const promotionLayout = home?.data.promotionLayout ?? 'grid';
+// Admin text wins field by field; an empty field keeps the built-in copy.
+const edited = home?.data.heading?.[lang];
+const promo = {
+	eyebrow: edited?.eyebrow || promotionCopy[lang].eyebrow,
+	title: edited?.title || promotionCopy[lang].title,
+	accent: edited?.accent || promotionCopy[lang].accent,
+	text: edited?.text || promotionCopy[lang].text,
+};
 const promotionLocks = home?.data.promotionLocks ?? [];
 const picks = promotionLocks
 	.map((slug) => all.find((lock) => lock.slug === slug))

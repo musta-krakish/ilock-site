@@ -1,3 +1,19 @@
+heading:
+  ru:
+    eyebrow: Акция
+    title: Все
+    accent: включено
+    text: Выберите умный замок по акции — профессиональная установка в подарок.
+  kk:
+    eyebrow: Акция
+    title: Бәрі
+    accent: қамтылған
+    text: Акциядағы ақылды құлыпты таңдаңыз — кәсіби орнату сыйлыққа.
+  en:
+    eyebrow: Offer
+    title: All
+    accent: inclusive
+    text: Choose a smart lock on offer and get professional installation included.
 promotionLayout: grid
 promotionLocks:
   - ezviz-l2s

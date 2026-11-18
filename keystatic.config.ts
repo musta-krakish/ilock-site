@@ -295,6 +295,49 @@ const translatedCopy = (label: string) =>
 const usageLimit = (label: string) =>
 	fields.integer({ label, validation: { min: 0 } });
 
+const reviewFields = () =>
+	fields.object(
+		{
+			name: requiredText('Имя'),
+			city: fields.text({ label: 'Город' }),
+			rating: fields.select({
+				label: 'Оценка',
+				options: [
+					{ label: '★★★★★ 5', value: '5' },
+					{ label: '★★★★ 4', value: '4' },
+					{ label: '★★★ 3', value: '3' },
+					{ label: '★★ 2', value: '2' },
+					{ label: '★ 1', value: '1' },
+				],
+				defaultValue: '5',
+			}),
+			date: fields.date({ label: 'Дата', defaultValue: { kind: 'today' } }),
+			text: fields.text({ label: 'Текст отзыва', multiline: true, validation: { isRequired: true } }),
+		},
+		{ layout: [6, 6, 6, 6, 12] },
+	);
+
+const reviewItemLabel = (props: { fields: { name: { value: string }; rating: { value: string } } }) =>
+	`${props.fields.name.value || 'Новый отзыв'} — ${'★'.repeat(Number(props.fields.rating.value) || 0)}`;
+
+const headingLanguage = (lang: string) =>
+	fields.object(
+		{
+			eyebrow: fields.text({ label: 'Надпись над заголовком' }),
+			title: fields.text({ label: 'Заголовок' }),
+			accent: fields.text({ label: 'Золотая часть заголовка', description: 'Идёт сразу после заголовка, выделена золотым.' }),
+			text: fields.text({ label: 'Описание', multiline: true }),
+		},
+		{ label: lang, layout: [6, 6, 6, 12] },
+	);
+
+/** Section heading per language; an empty field keeps the site's built-in text. */
+const sectionHeadingFields = (label: string) =>
+	fields.object(
+		{ ru: headingLanguage('По-русски'), kk: headingLanguage('Қазақша'), en: headingLanguage('In English') },
+		{ label, description: 'Пустое поле — останется текст по умолчанию.' },
+	);
+
 const lockSchema = {
 	title: fields.slug({
 		name: { label: 'Название модели', validation: { isRequired: true } },
@@ -463,34 +506,11 @@ const lockSchema = {
 		description: 'Ссылки вида youtube.com/shorts/…, youtube.com/watch?v=… или youtu.be/…. Видео появятся на странице товара.',
 		itemLabel: (props) => props.value || 'Новое видео',
 	}),
-	reviews: fields.array(
-		fields.object(
-			{
-				name: requiredText('Имя'),
-				city: fields.text({ label: 'Город' }),
-				rating: fields.select({
-					label: 'Оценка',
-					options: [
-						{ label: '★★★★★ 5', value: '5' },
-						{ label: '★★★★ 4', value: '4' },
-						{ label: '★★★ 3', value: '3' },
-						{ label: '★★ 2', value: '2' },
-						{ label: '★ 1', value: '1' },
-					],
-					defaultValue: '5',
-				}),
-				date: fields.date({ label: 'Дата', defaultValue: { kind: 'today' } }),
-				text: fields.text({ label: 'Текст отзыва', multiline: true, validation: { isRequired: true } }),
-			},
-			{ layout: [6, 6, 6, 6, 12] },
-		),
-		{
-			label: 'Отзывы',
-			description: 'Отзывы покупателей об этой модели. Показываются на странице товара как есть, на всех языках.',
-			itemLabel: (props) =>
-				`${props.fields.name.value || 'Новый отзыв'} — ${'★'.repeat(Number(props.fields.rating.value) || 0)}`,
-		},
-	),
+	reviews: fields.array(reviewFields(), {
+		label: 'Отзывы',
+		description: 'Отзывы покупателей об этой модели. Показываются на странице товара как есть, на всех языках.',
+		itemLabel: reviewItemLabel,
+	}),
 	variants: fields.array(
 		fields.object(
 			{
@@ -605,7 +625,7 @@ export default config({
 	ui: {
 		brand: { name: 'iLOCK · управление сайтом' },
 		navigation: {
-			Главная: ['homePromotions'],
+			Главная: ['homePromotions', 'homeReviews'],
 			Каталог: ['locks', 'catalogSettings'],
 			Справочники: ['brands', 'power', 'colors', 'materials', 'features', 'interfaces', 'catalogTags'],
 			Партнёры: ['partners'],
@@ -715,6 +735,7 @@ export default config({
 			path: 'src/content/home/promotions',
 			format: 'yaml',
 			schema: {
+				heading: sectionHeadingFields('Заголовок и описание блока'),
 				promotionLayout: fields.select({
 					label: 'Вид блока',
 					options: [
@@ -724,6 +745,19 @@ export default config({
 					defaultValue: 'grid',
 				}),
 				promotionLocks: promotionLockPicker(),
+			},
+		}),
+		homeReviews: singleton({
+			label: 'Главная — отзывы клиентов',
+			path: 'src/content/home/reviews',
+			format: 'yaml',
+			schema: {
+				heading: sectionHeadingFields('Заголовок и описание блока'),
+				reviews: fields.array(reviewFields(), {
+					label: 'Отзывы',
+					description: 'Общие отзывы о магазине и установке. Блок появляется на главной, когда есть хотя бы один отзыв.',
+					itemLabel: reviewItemLabel,
+				}),
 			},
 		}),
 		partners: singleton({

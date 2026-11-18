@@ -1,0 +1,17 @@
+heading:
+  ru:
+    eyebrow: Отзывы
+    title: Что говорят
+    accent: клиенты
+    text: ''
+  kk:
+    eyebrow: Пікірлер
+    title: Клиенттер
+    accent: не дейді
+    text: ''
+  en:
+    eyebrow: Reviews
+    title: What our
+    accent: customers say
+    text: ''
+reviews: []

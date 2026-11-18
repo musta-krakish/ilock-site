@@ -235,6 +235,7 @@ const fieldClass =
 				form.hidden = true;
 				if (success) success.hidden = false;
 				window.fbq?.('track', 'Lead');
+				window.dataLayer?.push({ event: 'generate_lead', form: 'lead' });
 			} catch {
 				if (sendError) sendError.hidden = false;
 			} finally {

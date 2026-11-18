@@ -270,9 +270,35 @@ const partners = defineCollection({
 		}),
 });
 
+const sectionHeading = z.object({
+	eyebrow: z.string().default(''),
+	title: z.string().default(''),
+	accent: z.string().default(''),
+	text: z.string().default(''),
+});
+
+const review = z.object({
+	name: z.string(),
+	city: z.string().nullable().optional(),
+	rating: z.coerce.number().int().min(1).max(5),
+	date: z.coerce.date().nullable().optional(),
+	text: z.string(),
+});
+
+/** Store-wide customer reviews shown on the home page (product reviews live on each lock). */
+const siteReviews = defineCollection({
+	loader: glob({ pattern: 'reviews.yaml', base: './src/content/home' }),
+	schema: z.object({
+		heading: z.object({ ru: sectionHeading, kk: sectionHeading, en: sectionHeading }).optional(),
+		reviews: z.array(review).default([]),
+	}),
+});
+
 const home = defineCollection({
 	loader: glob({ pattern: 'promotions.yaml', base: './src/content/home' }),
 	schema: z.object({
+		/** Heading and description above the promotional locks, per language; empty fields fall back to the defaults. */
+		heading: z.object({ ru: sectionHeading, kk: sectionHeading, en: sectionHeading }).optional(),
 		/** `grid` is a three-column grid; `slider` is a horizontally scrollable carousel. */
 		promotionLayout: z.enum(['grid', 'slider']).default('grid'),
 		promotionLocks: z.array(z.string()).default([]),
@@ -284,6 +310,7 @@ export const collections = {
 	faq,
 	partners,
 	home,
+	siteReviews,
 	brands,
 	materials: dictionary('materials'),
 	features: dictionary('features'),

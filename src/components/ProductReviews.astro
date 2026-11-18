@@ -4,9 +4,11 @@ import { type Lang, type LocalizedLock, ui } from '../i18n';
 interface Props {
 	reviews: LocalizedLock['reviews'];
 	lang?: Lang;
+	/** Wrapper spacing; the home page passes its own. A `heading` slot replaces the plain «Отзывы» title. */
+	class?: string;
 }
 
-const { reviews, lang = 'ru' } = Astro.props;
+const { reviews, lang = 'ru', class: className = 'mt-16 sm:mt-24' } = Astro.props;
 const t = ui[lang];
 
 // Newest first; undated reviews keep the order they were entered in, after the dated ones.
@@ -25,9 +27,11 @@ const dateFormat = new Intl.DateTimeFormat(lang === 'kk' ? 'kk-KZ' : lang === 'e
 
 {
 	reviews.length > 0 && (
-		<div class="mt-16 sm:mt-24" id="reviews">
+		<div class={className} id="reviews">
 			<div class="flex flex-wrap items-end justify-between gap-4">
-				<h2 class="text-2xl font-bold sm:text-3xl">{t.product.reviews}</h2>
+				<slot name="heading">
+					<h2 class="text-2xl font-bold sm:text-3xl">{t.product.reviews}</h2>
+				</slot>
 				<p class="flex items-center gap-2 text-sm text-white/55">
 					{/* Five dim stars with a gold layer cut to the average, so 4.5 shows four and a half. */}
 					<span class="relative inline-block text-lg leading-none tracking-wider" aria-hidden="true">

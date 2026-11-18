@@ -15,22 +15,22 @@ export const promotionCopy: Record<
 	ru: {
 		giftInstallation: 'Установка в подарок',
 		eyebrow: 'Акция',
-		title: 'Акционные',
-		accent: 'замки',
+		title: 'Все',
+		accent: 'включено',
 		text: 'Выберите умный замок по акции — профессиональная установка в подарок.',
 	},
 	kk: {
 		giftInstallation: 'Орнату сыйлыққа',
 		eyebrow: 'Акция',
-		title: 'Акциядағы',
-		accent: 'құлыптар',
+		title: 'Бәрі',
+		accent: 'қамтылған',
 		text: 'Акциядағы ақылды құлыпты таңдаңыз — кәсіби орнату сыйлыққа.',
 	},
 	en: {
 		giftInstallation: 'Installation included',
 		eyebrow: 'Offer',
-		title: 'Special offer',
-		accent: 'locks',
+		title: 'All',
+		accent: 'inclusive',
 		text: 'Choose a smart lock on offer and get professional installation included.',
 	},
 };

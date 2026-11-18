@@ -1,0 +1,46 @@
+---
+import { getEntry } from 'astro:content';
+import ProductReviews from './ProductReviews.astro';
+import SectionHeading from './SectionHeading.astro';
+import type { Lang } from '../i18n';
+
+interface Props {
+	lang?: Lang;
+}
+
+const { lang = 'ru' } = Astro.props;
+
+const fallback: Record<Lang, { eyebrow: string; title: string; accent: string }> = {
+	ru: { eyebrow: 'Отзывы', title: 'Что говорят', accent: 'клиенты' },
+	kk: { eyebrow: 'Пікірлер', title: 'Клиенттер', accent: 'не дейді' },
+	en: { eyebrow: 'Reviews', title: 'What our', accent: 'customers say' },
+};
+
+const entry = await getEntry('siteReviews', 'reviews');
+const reviews = entry?.data.reviews ?? [];
+const edited = entry?.data.heading?.[lang];
+const heading = {
+	eyebrow: edited?.eyebrow || fallback[lang].eyebrow,
+	title: edited?.title || fallback[lang].title,
+	accent: edited?.accent || fallback[lang].accent,
+	text: edited?.text || undefined,
+};
+---
+
+{
+	reviews.length > 0 && (
+		<section id="customer-reviews" class="bg-main-color px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
+			<div class="reveal mx-auto max-w-7xl">
+				<ProductReviews reviews={reviews} lang={lang} class="">
+					<SectionHeading
+						slot="heading"
+						eyebrow={heading.eyebrow}
+						title={heading.title}
+						accent={heading.accent}
+						text={heading.text}
+					/>
+				</ProductReviews>
+			</div>
+		</section>
+	)
+}
