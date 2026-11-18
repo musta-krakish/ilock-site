@@ -1,27 +1,39 @@
 heading:
   ru:
-    eyebrow: Акция
-    title: Все
-    accent: включено
-    text: Выберите умный замок по акции — профессиональная установка в подарок.
+    eyebrow: Умные замки под ключ
+    accent: Все включено
+    text: >+
+      Умные замки по акции — всё включено! При покупке замков, участвующих в
+      акции, в стоимость входят доставка до вашего адреса, профессиональная
+      установка нашими мастерами, все необходимые расходные материалы (торцевая
+      и лицевая планки), а также гарантия на замок. Предложение действует только
+      на модели, отмеченные специальным значком «Акция».
+
   kk:
-    eyebrow: Акция
-    title: Бәрі
-    accent: қамтылған
-    text: Акциядағы ақылды құлыпты таңдаңыз — кәсіби орнату сыйлыққа.
+    eyebrow: Барлығы бағаға кіреді
+    accent: Барлығы бағаға кіреді
+    text: >-
+      Акцияға қатысатын ақылды құлыптарды сатып алған кезде, бағаға
+      мекенжайыңызға дейін жеткізу, кәсіби мамандарымыздың орнатуы, барлық
+      қажетті шығын материалдары (шеткі және маңдайша планкалары), сондай-ақ
+      құлыпқа берілетін кепілдік кіреді. Ұсыныс тек арнайы «Акция» белгісімен
+      белгіленген модельдерге қолданылады.
   en:
-    eyebrow: Offer
-    title: All
-    accent: inclusive
-    text: Choose a smart lock on offer and get professional installation included.
+    eyebrow: Smart Locks — Turnkey Solution
+    accent: All-Inclusive
+    text: >-
+      When purchasing smart locks included in the promotion, the price covers
+      delivery to your address, professional installation by our technicians,
+      all necessary installation materials (edge and face plates), and a
+      warranty for the lock. This offer is valid only for models marked with the
+      special “Promotion” badge.
 promotionLayout: grid
 promotionLocks:
-  - ezviz-l2s
-  - il-8
+  - v6j
+  - q28s
   - s819-2max
   - s940-max
+  - g18
+  - il-8
+  - ezviz-l2s
   - s90
-  - alpha-vp
-  - 902-mvp
-  - v6j
-  - v81
