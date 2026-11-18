@@ -36,7 +36,6 @@ features:
   - rechargeable
   - video-peephole
   - semi-auto
-  - slim-door
 temp:
   min: -20
   max: 60
