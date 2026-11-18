@@ -328,7 +328,7 @@ const headingLanguage = (lang: string) =>
 			accent: fields.text({ label: 'Золотая часть заголовка', description: 'Идёт сразу после заголовка, выделена золотым.' }),
 			text: fields.text({ label: 'Описание', multiline: true }),
 		},
-		{ label: lang, layout: [6, 6, 6, 12] },
+		{ label: lang, layout: [4, 4, 4, 12] },
 	);
 
 /** Section heading per language; an empty field keeps the site's built-in text. */
