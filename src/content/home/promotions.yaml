@@ -28,14 +28,13 @@ heading:
       “All-Inclusive” badge.
 promotionLayout: grid
 promotionLocks:
-  - v6j
-  - q28s
-  - s819-2max
-  - s940-max
-  - v81
-  - 702-fvp
-  - il-8
+  - ezviz-l2s
   - g18
+  - il-8
+  - v81
   - alpha-vp
   - ddl-7300
-  - ezviz-l2s
+  - s819-2max
+  - s940-max
+  - v6j
+  - q28s
