@@ -1,5 +1,5 @@
-title: Lockin X9 Pro
-brand: smartlock
+title: X9 Pro
+brand: lockin
 kind: lock
 kazakhBrand: false
 comingSoon: false
@@ -32,7 +32,7 @@ features:
   - emergency-charge
   - anti-pry
 temp:
-  min: 20
+  min: -20
   max: 60
 power: li-5000
 battery: 4-6
@@ -44,6 +44,8 @@ origin: {}
 interface: []
 colors:
   - black
+tags:
+  - turnkey
 colorPrices: []
 videos: []
 reviews: []

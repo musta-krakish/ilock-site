@@ -17,11 +17,11 @@ heading:
 promotionLayout: grid
 promotionLocks:
   - ezviz-l2s
-  - s90
-  - v81
-  - s940-max
-  - alpha-vp
-  - g18
   - il-8
   - s819-2max
-  - ddl-610
+  - s940-max
+  - s90
+  - alpha-vp
+  - 902-mvp
+  - v6j
+  - v81

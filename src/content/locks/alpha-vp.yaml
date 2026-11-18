@@ -11,7 +11,7 @@ installment:
   longTerm: false
 image: ../../assets/images/locks/alpha-vp/image.png
 order: 7
-featured: false
+featured: true
 giftInstallation: false
 construction: none
 material: aluminum
@@ -46,33 +46,60 @@ interface:
   - en
 colors:
   - black
+tags: []
 colorPrices: []
 videos:
   - https://www.youtube.com/shorts/SpymFyAZzgE
 reviews: []
 variants: []
 ru:
-  description: Режим «толкни-потяни» и PIR-датчик, который будит замок при приближении.
+  description: >-
+    Philips Alpha VP — умный дверной замок со встроенной камерой 144°,
+    4-дюймовым экраном и Wi-Fi. Позволяет видеть посетителей, общаться с ними
+    через смартфон и контролировать входную дверь даже находясь вне дома.
   seoTitle: Alpha VP — купить умный замок Philips в Казахстане | iLOCK
   seoDescription: Режим «толкни-потяни» и PIR-датчик, который будит замок при приближении.
   body: >-
-    Alpha VP открывается движением «толкни-потяни» — без поворота ручки.
-    PIR-датчик замечает человека у двери и заранее выводит замок из сна, поэтому
-    отпечаток считывается мгновенно. Аккумулятор 5000 мАч рассчитан на 4–6
-    месяцев.
+    Philips Alpha VP — современный умный дверной замок, который объединяет
+    функции видеодомофона и системы безопасности. Оснащён широкоугольной камерой
+    144°, 4-дюймовым IPS-дисплеем и поддерживает подключение к Wi-Fi. Позволяет
+    видеть посетителей, общаться с ними через мобильное приложение и получать
+    уведомления о движении возле двери, даже находясь вне дома. Благодаря
+    PIR-датчику, ночному видению и автоматической записи видео вы всегда можете
+    контролировать происходящее у входа. Также предусмотрены автоматическое
+    запирание двери и временные PIN-коды для гостей.
 kk:
-  description: «Итер-тарт» режимі және жақындағанда құлыпты оятатын PIR-датчигі.
+  description: >-
+    Philips Alpha VP — 144° камерасы, 4 дюймдік IPS дисплейі және Wi-Fi
+    байланысы бар ақылды есік құлпы. Есік алдындағы келушілерді көруге, олармен
+    телефон арқылы сөйлесуге және үйде болмасаңыз да, есік алдындағы жағдайды
+    бақылауға мүмкіндік береді.
   seoTitle: Alpha VP — Қазақстанда Philips ақылды құлыпты сатып алу | iLOCK
   seoDescription: «Итер-тарт» режимі және жақындағанда құлыпты оятатын PIR-датчигі.
   body: >-
-    Alpha VP «итер-тарт» қозғалысымен ашылады — тұтқаны бұрамай-ақ. PIR-датчигі
-    есік алдындағы адамды байқап, құлыпты алдын ала ұйқыдан шығарады, сондықтан
-    саусақ ізі бірден оқылады. 5000 мАсағ аккумуляторы 4–6 айға есептелген.
+    Philips Alpha VP — бейне домофон мен қауіпсіздік жүйесінің мүмкіндіктерін
+    біріктіретін заманауи ақылды есік құлпы. 144° кең бұрышты камерамен, 4
+    дюймдік IPS дисплеймен жабдықталған және Wi-Fi желісіне қосылуды қолдайды.
+    Есік алдындағы келушілерді көруге, олармен мобильді қосымша арқылы сөйлесуге
+    және үйде болмасаңыз да, есік алдындағы қозғалыс туралы хабарламалар алуға
+    мүмкіндік береді. PIR қозғалыс датчигі, түнгі көру режимі және бейнені
+    автоматты түрде жазу функциялары есік алдындағы жағдайды бақылауға
+    көмектеседі. Сонымен қатар, автоматты құлыптау және қонақтарға арналған
+    уақытша PIN-кодтар қарастырылған.
 en:
-  description: A push-pull action and a PIR sensor that wakes the lock as you approach.
+  description: >-
+    Philips Alpha VP is a smart door lock featuring a 144° camera, a 4-inch IPS
+    display, and Wi-Fi connectivity. It allows you to see visitors, talk to them
+    through your smartphone, and monitor your entrance even when you are away
+    from home.
   seoTitle: Alpha VP — buy a Philips smart lock in Kazakhstan | iLOCK
   seoDescription: A push-pull action and a PIR sensor that wakes the lock as you approach.
   body: >-
-    Alpha VP opens with a push-pull motion — no handle to turn. The PIR sensor
-    spots someone at the door and wakes the lock in advance, so the fingerprint
-    reads instantly. The 5000 mAh battery is rated for 4–6 months.
+    Philips Alpha VP is a modern smart door lock that combines video intercom
+    and security features. It is equipped with a 144° wide-angle camera, a
+    4-inch IPS display, and Wi-Fi connectivity. It allows you to see visitors,
+    communicate with them through a mobile app, and receive motion alerts even
+    when you are away from home. The PIR motion sensor, night vision, and
+    automatic video recording help you monitor activity at your entrance.
+    Additional features include automatic door locking and temporary PIN codes
+    for guests.

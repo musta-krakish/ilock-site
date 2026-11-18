@@ -11,7 +11,7 @@ installment:
   longTerm: false
 image: ../../assets/images/locks/s819-2max/image.png
 order: 3
-featured: false
+featured: true
 giftInstallation: false
 construction: lever
 material: aluminum
@@ -47,6 +47,8 @@ interface:
   - kk
 colors:
   - black
+tags:
+  - turnkey
 colorPrices: []
 videos: []
 reviews: []

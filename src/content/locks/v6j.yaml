@@ -36,6 +36,7 @@ features:
   - rechargeable
   - video-peephole
   - semi-auto
+  - slim-door
 temp:
   min: -20
   max: 60
@@ -51,6 +52,8 @@ interface:
   - kk
 colors:
   - black
+tags:
+  - turnkey
 colorPrices: []
 videos: []
 reviews: []

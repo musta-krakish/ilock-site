@@ -1,11 +1,11 @@
 title: M20
 brand: ilock
 kind: lock
-kazakhBrand: false
+kazakhBrand: true
 comingSoon: false
-price: 210000
+price: 190000
 installment:
-  monthly: 17500
+  monthly: 15900
   months: 12
   kaspi: true
   longTerm: false
@@ -33,7 +33,7 @@ features:
   - low-battery
   - sound-prompts
 temp:
-  min: 20
+  min: -20
   max: 60
 power: li-5000
 battery: 4-6
@@ -45,6 +45,8 @@ origin: {}
 interface: []
 colors:
   - black
+tags:
+  - turnkey
 colorPrices: []
 videos: []
 reviews: []
