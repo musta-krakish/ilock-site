@@ -12,20 +12,20 @@ heading:
     eyebrow: Барлығы бағаға кіреді
     accent: Барлығы бағаға кіреді
     text: >-
-      Акцияға қатысатын ақылды құлыптарды сатып алған кезде, бағаға
-      мекенжайыңызға дейін жеткізу, кәсіби мамандарымыздың орнатуы, барлық
-      қажетті шығын материалдары (шеткі және маңдайша планкалары), сондай-ақ
-      құлыпқа берілетін кепілдік кіреді. Ұсыныс тек арнайы «Акция» белгісімен
-      белгіленген модельдерге қолданылады.
+      «Барлығы қамтылған» белгісі бар құлыптарды сатып алған кезде бағаға
+      мекенжайыңызға дейін жеткізу, кәсіби шеберлеріміздің орнатуы, барлық
+      қажетті қосымша материалдар және құлыпқа берілетін кепілдік кіреді. Ұсыныс
+      тек арнайы «Барлығы қамтылған» белгісімен белгіленген модельдерге
+      қолданылады.
   en:
     eyebrow: Smart Locks — Turnkey Solution
     accent: All-Inclusive
     text: >-
-      When purchasing smart locks included in the promotion, the price covers
-      delivery to your address, professional installation by our technicians,
-      all necessary installation materials (edge and face plates), and a
-      warranty for the lock. This offer is valid only for models marked with the
-      special “Promotion” badge.
+      When purchasing smart locks marked with the “All-Inclusive” label, the
+      price includes delivery to your address, professional installation by our
+      technicians, all necessary installation materials, and a warranty for the
+      lock. This offer is valid only for models marked with the special
+      “All-Inclusive” badge.
 promotionLayout: grid
 promotionLocks:
   - v6j
