@@ -11,7 +11,7 @@ installment:
   longTerm: false
 image: ../../assets/images/locks/ddl-7300/image.png
 order: 4
-featured: false
+featured: true
 giftInstallation: false
 construction: lever
 material: aluminum
