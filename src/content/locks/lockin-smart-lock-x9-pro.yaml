@@ -31,6 +31,7 @@ features:
   - rechargeable
   - emergency-charge
   - anti-pry
+  - razblokirovka-umnogo-zamka-po-nfc
 temp:
   min: -20
   max: 60
