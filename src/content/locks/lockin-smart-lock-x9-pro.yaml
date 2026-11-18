@@ -11,7 +11,7 @@ installment:
   longTerm: false
 image: ../../assets/images/locks/lockin-smart-lock-x9-pro/image.png
 order: 6
-featured: false
+featured: true
 giftInstallation: false
 construction: lever
 material: aluminum
@@ -31,6 +31,7 @@ features:
   - rechargeable
   - emergency-charge
   - anti-pry
+  - razblokirovka-umnogo-zamka-po-nfc
 temp:
   min: -20
   max: 60
@@ -53,11 +54,13 @@ variants: []
 ru:
   description: >-
     Lockin X9 Pro — умный замок из экосистемы Xiaomi с видеоглазком, экраном и
-    видеосвязью.
+    видеосвязью. Умный замок может работать как от обычных батареек, так и от
+    перезаряжаемого аккумулятора.
   seoTitle: Lockin X9 PRO — купить умный замок в Казахстане | iLOCK
   seoDescription: >-
     Lockin X9 Pro — умный замок из экосистемы Xiaomi с видеоглазком, экраном и
-    видеосвязью.
+    видеосвязью. Умный замок может работать как от обычных батареек, так и от
+    перезаряжаемого аккумулятора.
   body: >+
     Умный замок Lockin X9 Pro предоставляет высокий уровень безопасности и
     удобства для вашего дома. Он поддерживает множество современных методов
@@ -69,7 +72,7 @@ ru:
     независимой внутренней блокировки для дополнительной защиты. Двойная система
     питания гарантирует длительное время автономной работы. Благодаря
     встроенному модулю Wi-Fi, пользователи могут удаленно контролировать замок
-    через приложение Mi Home
+    через приложение Mi Home.
 
 
 kk:
