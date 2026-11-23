@@ -1,0 +1,131 @@
+title: Philips SBX500
+brand: safes
+kind: safe
+kazakhBrand: false
+comingSoon: false
+price: 1290000
+priceTo: 2490000
+installment:
+  months: 12
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/philips-sbx-500/image.png
+order: 1
+featured: true
+giftInstallation: false
+construction: unknown
+material: steel
+access:
+  - fingerprint
+  - pin
+  - app
+limits:
+  fingerprint: 30
+  pin: 10
+features:
+  - wifi
+  - alarm
+temp:
+  min: 0
+  max: 100
+power: aa4
+battery: 6-12
+compatibility: {}
+included: {}
+warranty: 1
+origin: {}
+interface: []
+colors: []
+tags: []
+colorPrices: []
+videos: []
+reviews: []
+variants: []
+ru:
+  description: >-
+    Огнестойкий умный сейф Philips SBX500 с биометрическим замком, PIN-кодом и
+    механическим ключом. Премиальный дизайн в цвете «черный орех».
+  seoTitle: Philips SBX500— купить большой сейф в Казахстане | iLOCK
+  seoDescription: >-
+    Огнестойкий сейф Philips Smart SBX500 с биометрическим сканером отпечатков
+    пальцев, PIN-кодом и защитой от огня.
+  body: >-
+    Огнестойкий умный сейф Philips Smart SBX500 сочетает высокий уровень
+    безопасности, надежную защиту от огня и современный интерьерный дизайн.
+    Корпус выполнен из сверхпрочной легированной стали с отделкой из закаленного
+    стекла, дерева и алюминиевого сплава в элегантном цвете «черный орех».
+    Запатентованный огнестойкий материал Philips обеспечивает защиту содержимого
+    от воздействия огня в течение 1 часа по стандарту UL72-1. Для удобного и
+    безопасного доступа предусмотрена биометрическая система с высокоточным
+    полупроводниковым сканером отпечатков пальцев, поддерживающим хранение до 30
+    отпечатков, а также PIN-код с возможностью настройки до 10 групп и
+    механический ключ. Функция скрытого ввода пароля защищает код от посторонних
+    взглядов, а пароль-заполнитель повышает уровень конфиденциальности. Сейф
+    оснащен интеллектуальной системой автоматической блокировки при закрытии,
+    оповещениями об открытой двери, низком заряде батареи и попытках
+    несанкционированного доступа, а также стандартным и улучшенным режимами
+    безопасности. Питание осуществляется от четырех батареек AA со сроком службы
+    6–12 месяцев. При разрядке батарей предусмотрено аварийное питание через
+    внешний интерфейс Type-C, при этом сохраненные отпечатки пальцев и PIN-коды
+    остаются в памяти устройства. Philips SBX500 — это сочетание огнестойкости,
+    интеллектуальных технологий защиты и изысканного дизайна для современного
+    дома или офиса.
+kk:
+  description: >-
+    Philips SBX500 биометриялық құлпы, PIN-коды және механикалық кілті бар отқа
+    төзімді ақылды сейф. «Қара жаңғақ» түсіндегі премиум дизайн.
+  seoTitle: Philips SBX500 — Қазақстанда үлкен сейф сатып алу | iLOCK
+  seoDescription: >-
+    Philips Smart SBX500 саусақ ізін танитын биометриялық сканері, PIN-коды және
+    өрттен 1 сағатқа дейін қорғанысы бар отқа төзімді сейф.
+  body: >-
+    Philips Smart SBX500 ақылды отқа төзімді сейфі жоғары қауіпсіздікті, өрттен
+    сенімді қорғанысты және заманауи интерьерлік дизайнды үйлестіреді. Корпусы
+    аса берік легирленген болаттан жасалған, шыңдалған шыны, ағаш және алюминий
+    қорытпасынан жасалған сәндік элементтермен безендірілген. «Қара жаңғақ» түсі
+    сейфке ерекше әрі талғампаз көрініс береді. Philips компаниясының
+    патенттелген отқа төзімді материалы UL72-1 стандарты бойынша ішіндегі
+    заттарды 1 сағатқа дейін өрт әсерінен қорғайды. Ыңғайлы әрі қауіпсіз
+    қолжетімділік үшін 30 саусақ ізіне дейін сақтай алатын жоғары дәлдіктегі
+    жартылай өткізгіш биометриялық сканер, 10 топқа дейін PIN-код орнату
+    мүмкіндігі және механикалық кілт қарастырылған. Құпиясөзді жасырын енгізу
+    функциясы кодты бөгде адамдардың көруінен қорғайды, ал қосымша цифрлар
+    енгізу мүмкіндігі құпиялылық деңгейін арттырады. Сейф есігі жабылған кезде
+    автоматты түрде бұғатталады. Сонымен қатар есіктің ашық қалуы, батарея
+    зарядының төмендеуі және рұқсатсыз кіру әрекеттері туралы ескерту жүйесі,
+    сондай-ақ стандартты және жетілдірілген қауіпсіздік режимдері бар. Құрылғы
+    төрт AA батареясымен жұмыс істейді, батареялардың қызмет ету мерзімі 6–12
+    айды құрайды. Батарея заряды таусылған жағдайда Type-C сыртқы интерфейсі
+    арқылы апаттық қуат беруге болады. Бұл ретте сақталған саусақ іздері мен
+    PIN-кодтар құрылғы жадында сақталады. Philips SBX500 — заманауи үй мен
+    кеңсеге арналған өрттен қорғау, ақылды қауіпсіздік технологиялары және
+    талғампаз дизайн үйлесімі.
+en:
+  description: >-
+    Philips SBX500 smart fireproof safe with biometric lock, PIN code and
+    mechanical key. Premium black walnut finish.
+  seoTitle: Philips SBX500 — Buy a Large Safe in Kazakhstan | iLOCK
+  seoDescription: >-
+    Philips Smart SBX500 fireproof safe with a biometric fingerprint scanner,
+    PIN code access and up to 1 hour of fire protection.
+  body: >-
+    The Philips Smart SBX500 fireproof smart safe combines advanced security,
+    reliable fire protection and modern interior design. Its body is made of
+    high-strength alloy steel and features tempered glass, wood and aluminum
+    alloy finishes in an elegant black walnut color. Philips' patented
+    fire-resistant material protects the contents from fire for up to 1 hour in
+    accordance with the UL72-1 standard. For convenient and secure access, the
+    safe features a high-precision semiconductor fingerprint scanner that stores
+    up to 30 fingerprints, PIN code access with up to 10 user groups, and a
+    mechanical key. The hidden PIN entry function protects your code from prying
+    eyes, while the decoy password feature provides an additional layer of
+    privacy. The safe is equipped with an intelligent automatic locking system
+    that activates when the door is closed. Additional security features include
+    alerts for an open door, low battery and unauthorized access attempts, as
+    well as standard and enhanced security modes. The device operates on four AA
+    batteries with an estimated battery life of 6–12 months. In case of battery
+    depletion, emergency power can be supplied through the external Type-C
+    interface, while registered fingerprints and PIN codes remain stored in the
+    device's memory. The Philips SBX500 is an ideal combination of fire
+    protection, smart security technology and sophisticated design for modern
+    homes and offices.
