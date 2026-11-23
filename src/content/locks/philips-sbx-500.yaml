@@ -25,11 +25,13 @@ limits:
 features:
   - wifi
   - alarm
+  - double-check
 temp:
   min: 0
   max: 100
 power: aa4
 battery: 6-12
+app: TuyaSmart
 compatibility: {}
 included: {}
 warranty: 1
