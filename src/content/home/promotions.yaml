@@ -29,11 +29,8 @@ heading:
 promotionLayout: grid
 promotionLocks:
   - ezviz-l2s
-  - g18
-  - il-8
-  - v81
-  - alpha-vp
-  - ddl-7300
-  - s819-2max
-  - s940-max
   - v6j
+  - il-8
+  - s819-2max
+  - alpha-vp
+  - ddl-610
