@@ -39,7 +39,8 @@ included: {}
 warranty: 1
 origin: {}
 interface: []
-colors: []
+colors:
+  - black
 tags: []
 colorPrices: []
 videos: []
