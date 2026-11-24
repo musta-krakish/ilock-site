@@ -1,0 +1,112 @@
+title: H7-PRO
+brand: smartlock
+kind: lock
+kazakhBrand: false
+comingSoon: false
+price: 235000
+installment:
+  monthly: 20900
+  months: 12
+  kaspi: true
+  longTerm: false
+image: ../../assets/images/locks/h7-pro/image.png
+order: 7
+featured: false
+giftInstallation: false
+construction: lever
+material: aluminum
+access:
+  - fingerprint
+  - face
+  - pin
+  - card
+  - app
+  - key
+limits: {}
+features:
+  - bluetooth
+  - podklyuchenie-cherez-shlyuz-gateway
+  - rechargeable
+  - low-battery
+temp:
+  min: -10
+  max: 55
+power: li-4200
+battery: 4-6
+app: TTLock
+compatibility: {}
+included: {}
+warranty: 1
+origin: {}
+interface: []
+colors: []
+tags: []
+colorPrices: []
+videos: []
+reviews: []
+variants: []
+ru:
+  description: >-
+    Умный замок H7-PRO с распознаванием лица, встроенной камерой и внутренним
+    дисплеем. Поддерживает открытие по отпечатку пальца, PIN-коду, RFID-карте,
+    механическому ключу и через мобильное приложение.
+  seoTitle: H7-PRO — купить умный замок Philips в Казахстане | iLOCK
+  seoDescription: >-
+    Умный замок H7-PRO с распознаванием лица, камерой, дисплеем и управлением
+    через приложение TTLock. Несколько способов открытия и современные функции
+    безопасности.
+  body: >-
+    Умный замок H7-PRO сочетает современные технологии идентификации и удобное
+    управление доступом. Модель оснащена системой распознавания лица, встроенной
+    камерой для идентификации пользователя и просмотра посетителей, а также
+    внутренним дисплеем для отображения изображения с внешней камеры. Замок
+    поддерживает шесть способов открытия: распознавание лица, отпечаток пальца,
+    PIN-код, RFID-карту, механический ключ и мобильное приложение TTLock.
+    Благодаря Bluetooth и дополнительному Wi-Fi-шлюзу доступно удалённое
+    управление, создание временных кодов, управление пользователями и просмотр
+    истории открытий. Среди защитных функций — автоматическая блокировка, ночная
+    задвижка, защита от подбора PIN-кода и уведомление о низком заряде
+    аккумулятора.
+kk:
+  description: >-
+    H7-PRO ақылды құлпы бет-әлпетті тану жүйесімен, кіріктірілген камерамен және
+    ішкі дисплеймен жабдықталған. Саусақ ізі, PIN-код, RFID-карта, механикалық
+    кілт және мобильді қосымша арқылы ашылады.
+  seoTitle: H7-PRO — Қазақстанда Philips ақылды құлпын сатып алу | iLOCK
+  seoDescription: >-
+    Бет-әлпетті тану, камера, дисплей және TTLock мобильді қосымшасы арқылы
+    басқару мүмкіндігі бар H7-PRO ақылды құлпы. Қауіпсіздік пен ыңғайлылықтың
+    заманауи үйлесімі.
+  body: >-
+    H7-PRO ақылды құлпы заманауи сәйкестендіру технологиялары мен
+    қолжетімділікті басқару мүмкіндіктерін біріктіреді. Құрылғы бет-әлпетті тану
+    жүйесімен, пайдаланушыны сәйкестендіруге және келушілерді көруге арналған
+    кіріктірілген камерамен, сондай-ақ сыртқы камерадан алынған бейнені
+    көрсетуге арналған ішкі дисплеймен жабдықталған. Құлыпты алты түрлі тәсілмен
+    ашуға болады: бет-әлпетті тану, саусақ ізі, PIN-код, RFID-карта, механикалық
+    кілт және TTLock мобильді қосымшасы. Bluetooth және қосымша Wi-Fi шлюзі
+    арқылы қашықтан басқаруға, уақытша кодтар жасауға, пайдаланушыларды
+    басқаруға және ашылу тарихын көруге болады. Қауіпсіздік функцияларына
+    автоматты құлыптау, түнгі ысырма, PIN-кодты іріктеуден қорғау және
+    аккумулятор заряды төмендегені туралы хабарлама кіреді.
+en:
+  description: >-
+    H7-PRO smart lock featuring facial recognition, a built-in camera and an
+    indoor display. Supports fingerprint, PIN code, RFID card, mechanical key
+    and mobile app access.
+  seoTitle: H7-PRO — Buy Philips Smart Lock in Kazakhstan | iLOCK
+  seoDescription: >-
+    H7-PRO smart lock with facial recognition, built-in camera, indoor display
+    and TTLock app control. Multiple unlocking methods and advanced security
+    features.
+  body: >-
+    H7-PRO smart lock combines modern identification technology with convenient
+    access control. It features facial recognition, a built-in camera for user
+    identification and visitor viewing, as well as an indoor display for viewing
+    images from the external camera. The lock supports six unlocking methods:
+    facial recognition, fingerprint, PIN code, RFID card, mechanical key and the
+    TTLock mobile application. Bluetooth connectivity and an optional Wi-Fi
+    gateway enable remote access management, temporary passcode creation, user
+    management and access history monitoring. Security features include
+    automatic locking, a night latch, PIN code anti-guessing protection and low
+    battery notifications.
