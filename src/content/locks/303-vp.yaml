@@ -33,6 +33,8 @@ features:
   - emergency-charge
   - rechargeable
   - video-peephole
+  - glass-door
+  - hidden-compartment
 temp:
   min: -20
   max: 60
@@ -48,6 +50,7 @@ interface:
   - zh
 colors:
   - charcoal
+tags: []
 colorPrices: []
 videos: []
 reviews: []
