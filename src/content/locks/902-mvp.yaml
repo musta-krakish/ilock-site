@@ -5,14 +5,14 @@ kazakhBrand: false
 comingSoon: false
 price: 582000
 installment:
-  monthly: 57200
+  monthly: 56700
   months: 12
   kaspi: true
   longTerm: false
 image: ../../assets/images/locks/902-mvp/image.png
 order: 10
 featured: true
-giftInstallation: false
+giftInstallation: true
 construction: none
 material: zinc-glass
 access:
