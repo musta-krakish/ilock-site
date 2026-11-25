@@ -5,7 +5,7 @@ kazakhBrand: false
 comingSoon: false
 price: 350000
 installment:
-  monthly: 33540
+  monthly: 34200
   months: 12
   kaspi: true
   longTerm: false
@@ -52,6 +52,7 @@ interface:
   - en
 colors:
   - charcoal
+tags: []
 colorPrices: []
 videos: []
 reviews: []
