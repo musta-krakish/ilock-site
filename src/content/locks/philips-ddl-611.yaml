@@ -3,9 +3,9 @@ brand: philips
 kind: lock
 kazakhBrand: false
 comingSoon: false
-price: 195000
+price: 190000
 installment:
-  monthly: 19200
+  monthly: 18700
   months: 12
   kaspi: true
   longTerm: false
@@ -35,6 +35,7 @@ origin: {}
 interface: []
 colors:
   - black
+tags: []
 colorPrices: []
 videos: []
 reviews: []
