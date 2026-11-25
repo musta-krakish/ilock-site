@@ -12,7 +12,7 @@ installment:
   longTerm: false
 image: ../../assets/images/locks/m20/image.png
 order: 5
-featured: false
+featured: true
 giftInstallation: false
 construction: none
 material: aluminum
