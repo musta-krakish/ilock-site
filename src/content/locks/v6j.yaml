@@ -4,6 +4,7 @@ kind: lock
 kazakhBrand: false
 comingSoon: false
 price: 183000
+oldPrice: 195000
 installment:
   monthly: 15250
   kaspi: true
