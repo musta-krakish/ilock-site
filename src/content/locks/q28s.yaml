@@ -4,7 +4,7 @@ kind: lock
 kazakhBrand: false
 comingSoon: false
 price: 165000
-oldPrice: 195000
+oldPrice: 0
 installment:
   monthly: 13750
   months: 12
